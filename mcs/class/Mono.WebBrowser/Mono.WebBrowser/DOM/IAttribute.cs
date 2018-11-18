@@ -31,6 +31,6 @@ namespace Mono.WebBrowser.DOM
 	{
 		string Name { get;}
 		
-		int GetHashCode ();
+		new int GetHashCode ();
 	}
 }

@@ -422,7 +422,7 @@ namespace System.Net {
 			return GetHostEntry (hostNameOrAddress).AddressList;
 		}
 
-		[Obsolete ("Use GetHostEntry instead")]
+		// [Obsolete ("Use GetHostEntry instead")]
 		public static IPHostEntry GetHostByName (string hostName)
 		{
 #if FEATURE_NO_BSD_SOCKETS

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <RootNamespace>standalone_tests</RootNamespace>
+
+    <OutputType>Exe</OutputType>
+    <NoWarn>1699,612,618,436,618</NoWarn>
+
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!--<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>-->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ContinueOnError>true</ContinueOnError>
+    <RestorePackages>false</RestorePackages>
+    <OutputPath>./bin</OutputPath>
+    <IntermediateOutputPath>obj-net_45</IntermediateOutputPath>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <NoStdLib>True</NoStdLib>
+    <NoConfig>True</NoConfig>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Consts.cs.in" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>..\..\..\lib\net_4_x\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\lib\net_4_x\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\..\lib\net_4_x\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\lib\net_4_x\System.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

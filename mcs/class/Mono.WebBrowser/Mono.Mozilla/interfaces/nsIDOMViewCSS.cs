@@ -39,7 +39,7 @@ namespace Mono.Mozilla {
 #region nsIDOMAbstractView
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getDocument ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMDocumentView ret);
+		new int getDocument ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMDocumentView ret);
 
 #endregion
 

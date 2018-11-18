@@ -310,7 +310,7 @@ namespace System.Net.Sockets {
         /// <devdoc>
         /// <para>Indicates whether IPv4 support is available and enabled on this machine.</para>
         /// </devdoc>
-        [Obsolete("SupportsIPv4 is obsoleted for this type, please use OSSupportsIPv4 instead. http://go.microsoft.com/fwlink/?linkid=14202")]
+        // [Obsolete("SupportsIPv4 is obsoleted for this type, please use OSSupportsIPv4 instead. http://go.microsoft.com/fwlink/?linkid=14202")]
         public static bool SupportsIPv4 {
             get {
                 InitializeSockets();
@@ -330,7 +330,7 @@ namespace System.Net.Sockets {
         /// <para>Indicates whether IPv6 support is available and enabled on this machine.</para>
         /// </devdoc>
 
-        [Obsolete("SupportsIPv6 is obsoleted for this type, please use OSSupportsIPv6 instead. http://go.microsoft.com/fwlink/?linkid=14202")]
+        // [Obsolete("SupportsIPv6 is obsoleted for this type, please use OSSupportsIPv6 instead. http://go.microsoft.com/fwlink/?linkid=14202")]
         public static bool SupportsIPv6 {
             get {
                 InitializeSockets();

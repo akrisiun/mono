@@ -647,7 +647,7 @@ namespace System.Reflection {
 			return LoadFrom (assemblyFile, true);
 		}
 
-        [Obsolete("This method has been deprecated. Please use Assembly.Load() instead. http://go.microsoft.com/fwlink/?linkid=14202")]
+        // [Obsolete("This method has been deprecated. Please use Assembly.Load() instead. http://go.microsoft.com/fwlink/?linkid=14202")]
 		public static Assembly LoadWithPartialName (string partialName)
 		{
 			return LoadWithPartialName (partialName, null);

@@ -39,13 +39,13 @@ namespace Mono.Mozilla {
 #region nsIRequestObserver
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int onStartRequest (
+		new int onStartRequest (
 				[MarshalAs (UnmanagedType.Interface)]   nsIRequest aRequest,
 				   IntPtr aContext);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int onStopRequest (
+		new int onStopRequest (
 				[MarshalAs (UnmanagedType.Interface)]   nsIRequest aRequest,
 				   IntPtr aContext,
 				   int aStatusCode);

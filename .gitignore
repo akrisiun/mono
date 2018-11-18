@@ -145,3 +145,10 @@ external/binary*
 external/cecil*
 .vs*/
 obj-net_4_x/
+mcs/tools/mdoc/
+mcs/class/System.ValueTuple/
+obj-net*/
+mcs/class/lib/basic/
+mcs/class/lib/net_4*/
+mcs/class/lib/build*/
+mcs/tools/xbuild/tests/

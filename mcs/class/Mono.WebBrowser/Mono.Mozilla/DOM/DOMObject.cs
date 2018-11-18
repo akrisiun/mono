@@ -124,15 +124,15 @@ namespace Mono.Mozilla.DOM
 					Console.WriteLine ("HTMLElement-nsIDOMHTMLElement");
 #endif
 					return new Element (control, obj as nsIDOMElement);
-					break;
+					// break;
 				case (ushort)NodeType.Attribute:
 					return new Attribute (control, obj as nsIDOMAttr);
-					break;
+					// break;
 				case (ushort)NodeType.Document:
 					if (obj is nsIDOMHTMLDocument)
 						return new Document (control, obj as nsIDOMHTMLDocument);
 					return new Document (control, obj as nsIDOMDocument);
-					break;
+					// break;
 				case (ushort)NodeType.Text:
 				case (ushort)NodeType.CDataSection:
 				case (ushort)NodeType.EntityReference:
@@ -144,7 +144,7 @@ namespace Mono.Mozilla.DOM
 				case (ushort)NodeType.Notation:				
 				default:
 					return new Node (control, obj);
-					break;
+					// break;
 			}
 		}
 #endregion

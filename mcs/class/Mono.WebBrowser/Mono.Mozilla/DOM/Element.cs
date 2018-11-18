@@ -33,7 +33,7 @@ namespace Mono.Mozilla.DOM
 {
 	internal class Element : Node, IElement
 	{
-		internal nsIDOMElement node {
+		new internal nsIDOMElement node {
 			get { return base.node as nsIDOMElement;}
 			set { base.node = value as nsIDOMNode; }
 		}

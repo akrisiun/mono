@@ -61,7 +61,7 @@ namespace Mono.WebBrowser.DOM
 		bool 				HasAttribute (string name);
 		string 				GetAttribute (string name);
 		IElementCollection 	GetElementsByTagName (string id);
-		int 				GetHashCode ();
+		new int 				GetHashCode ();
 		void				ScrollIntoView (bool alignWithTop);
 		void 				SetAttribute (string name, string value);
 		

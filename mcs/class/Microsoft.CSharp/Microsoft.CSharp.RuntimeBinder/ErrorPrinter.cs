@@ -39,13 +39,15 @@ namespace Microsoft.CSharp.RuntimeBinder
 		{
 		}
 
-		public override bool HasRelatedSymbolSupport {
+		public // override 
+            bool HasRelatedSymbolSupport {
 			get {
 				return false;
 			}
 		}
 
-		public override void Print (Compiler.AbstractMessage msg, bool showFullPath)
+		public // override 
+            void Print (Compiler.AbstractMessage msg, bool showFullPath)
 		{
 			string text;
 			if (msg.Code == 214) {

@@ -35,7 +35,7 @@ namespace System.Configuration.Provider
 {
 	public abstract class ProviderBase
 	{
-		bool alreadyInitialized;
+		protected bool alreadyInitialized;
 		
 		protected ProviderBase ()
 		{
@@ -63,10 +63,12 @@ namespace System.Configuration.Provider
 		
 		public virtual string Name { 
 			get { return _name; }
+            set { _name = value; }
 		}
 
 		public virtual string Description {
 			get { return _description; }
+            set { _description = value; }
 		}
 
 		string _description;

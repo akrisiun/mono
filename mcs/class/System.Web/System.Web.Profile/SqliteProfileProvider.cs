@@ -44,76 +44,93 @@ using Mono.Data.Sqlite;
 
 namespace System.Web.Profile
 {
-	internal class SqliteProfileProvider : ProfileProvider
-	{
-		const string m_ProfilesTableName = "Profiles";
-		const string m_ProfileDataTableName = "ProfileData";
-		string m_ConnectionString = string.Empty;
+    internal class SqliteProfileProvider : ProfileProvider
+    {
+        const string m_ProfilesTableName = "Profiles";
+        const string m_ProfileDataTableName = "ProfileData";
+        string m_ConnectionString = string.Empty;
 
-		SerializationHelper m_serializationHelper = new SerializationHelper();
+        SerializationHelper m_serializationHelper = new SerializationHelper();
 
-		DbParameter AddParameter (DbCommand command, string parameterName)
-                {
-                        return AddParameter (command, parameterName, null);
+        DbParameter AddParameter(DbCommand command, string parameterName)
+        {
+            return AddParameter(command, parameterName, null);
+        }
+
+        DbParameter AddParameter(DbCommand command, string parameterName, object parameterValue)
+        {
+            return AddParameter(command, parameterName, ParameterDirection.Input, parameterValue);
+        }
+
+        DbParameter AddParameter(DbCommand command, string parameterName, ParameterDirection direction, object parameterValue)
+        {
+            DbParameter dbp = command.CreateParameter();
+            dbp.ParameterName = parameterName;
+            dbp.Value = parameterValue;
+            dbp.Direction = direction;
+            command.Parameters.Add(dbp);
+            return dbp;
+        }
+
+        /// <summary>
+        /// System.Configuration.Provider.ProviderBase.Initialize Method
+        /// </summary>
+        public
+            // ANKR: override 
+            void Initialize(string name, NameValueCollection config)
+        {
+            // Initialize values from web.config.
+            if (config == null)
+                throw new ArgumentNullException("Config", Properties.Resources.ErrArgumentNull);
+
+            if (string.IsNullOrEmpty(name))
+                name = Properties.Resources.ProfileProviderDefaultName;
+
+            if (string.IsNullOrEmpty(config["description"])) {
+                config.Remove("description");
+                config.Add("description", Properties.Resources.ProfileProviderDefaultDescription);
+            }
+
+            // Initialize the abstract base class.
+            // base.
+            BaseInitialize(name, config);
+
+            m_ApplicationName = GetConfigValue(config["applicationName"], HostingEnvironment.ApplicationVirtualPath);
+
+            // Get connection string.
+            string connStrName = config["connectionStringName"];
+
+            if (string.IsNullOrEmpty(connStrName)) {
+                throw new ArgumentOutOfRangeException("ConnectionStringName", Properties.Resources.ErrArgumentNullOrEmpty);
+            } else {
+                ConnectionStringSettings ConnectionStringSettings = ConfigurationManager.ConnectionStrings[connStrName];
+
+                if (ConnectionStringSettings == null || string.IsNullOrEmpty(ConnectionStringSettings.ConnectionString.Trim())) {
+                    throw new ProviderException(Properties.Resources.ErrConnectionStringNullOrEmpty);
                 }
-		
-		DbParameter AddParameter (DbCommand command, string parameterName, object parameterValue)
-                {
-                        return AddParameter (command, parameterName, ParameterDirection.Input, parameterValue);
-                }
 
-                DbParameter AddParameter (DbCommand command, string parameterName, ParameterDirection direction, object parameterValue)
-                {
-                        DbParameter dbp = command.CreateParameter ();
-                        dbp.ParameterName = parameterName;
-                        dbp.Value = parameterValue;
-                        dbp.Direction = direction;
-                        command.Parameters.Add (dbp);
-                        return dbp;
-                }
-		
-		/// <summary>
-		/// System.Configuration.Provider.ProviderBase.Initialize Method
-		/// </summary>
-		public override void Initialize(string name, NameValueCollection config)
-		{
-			// Initialize values from web.config.
-			if (config == null)
-				throw new ArgumentNullException("Config", Properties.Resources.ErrArgumentNull);
+                m_ConnectionString = ConnectionStringSettings.ConnectionString;
+            }
+        }
 
-			if (string.IsNullOrEmpty(name))
-				name = Properties.Resources.ProfileProviderDefaultName;
+        new bool alreadyInitialized;
+        public new string Name {get;set;}
+        public new string Description {get;set;}
 
-			if (string.IsNullOrEmpty(config["description"]))
-			{
-				config.Remove("description");
-				config.Add("description", Properties.Resources.ProfileProviderDefaultDescription);
-			}
+        void BaseInitialize(string name, NameValueCollection config)
+        {
+            alreadyInitialized = true;
 
-			// Initialize the abstract base class.
-			base.Initialize(name, config);
+            Name = name;
 
-			m_ApplicationName = GetConfigValue(config["applicationName"], HostingEnvironment.ApplicationVirtualPath);
-
-			// Get connection string.
-			string connStrName = config["connectionStringName"];
-
-			if (string.IsNullOrEmpty(connStrName))
-			{
-				throw new ArgumentOutOfRangeException("ConnectionStringName", Properties.Resources.ErrArgumentNullOrEmpty);
-			}
-			else
-			{
-				ConnectionStringSettings ConnectionStringSettings = ConfigurationManager.ConnectionStrings[connStrName];
-
-				if (ConnectionStringSettings == null || string.IsNullOrEmpty(ConnectionStringSettings.ConnectionString.Trim()))
-				{
-					throw new ProviderException(Properties.Resources.ErrConnectionStringNullOrEmpty);
-				}
-
-				m_ConnectionString = ConnectionStringSettings.ConnectionString;
-			}
-		}
+            if (config != null) {
+                Description = config["description"];
+                config.Remove("description");
+            }
+            if (string.IsNullOrEmpty(Description)) {
+                Description = Name;
+            }
+        }
 
 		/// <summary>
 		/// System.Web.Profile.ProfileProvider properties.

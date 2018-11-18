@@ -244,7 +244,8 @@ namespace System.Web.Profile
 				} else if (attributes [i] is SettingsProviderAttribute) {
 					Type providerType = HttpApplication.LoadType (((SettingsProviderAttribute) attributes [i]).ProviderTypeName);
 					sp.Provider = (SettingsProvider) Activator.CreateInstance (providerType);
-					sp.Provider.Initialize (null, null);
+					sp.Provider.DoInitialize (null, null);
+
 				} else if (attributes [i] is SettingsSerializeAsAttribute) {
 					sp.SerializeAs = ((SettingsSerializeAsAttribute) attributes [i]).SerializeAs;
 				} else if (attributes [i] is SettingsAllowAnonymousAttribute) {
@@ -311,10 +312,22 @@ namespace System.Web.Profile
 			_settingsContext = new SettingsContext ();
 			_settingsContext.Add ("UserName", username);
 			_settingsContext.Add ("IsAuthenticated", isAuthenticated);
+
+            // ankr:
+#if CONFIGURATION_DEP
 			SettingsProviderCollection spc = new SettingsProviderCollection();
-			spc.Add (ProfileManager.Provider);
+			spc.Add(ProfileManager.Provider);
+
 			base.Initialize (Context, ProfileBase.Properties, spc);
-		}
+#else
+			SettingsProviderCollection spc = new SettingsProviderCollection();
+            // ankr:
+			spc.AddProvider(ProfileManager.Provider);
+
+			base.Initialize (Context, ProfileBase.Properties, spc);
+
+#endif
+        }
 
 		public override void Save ()
 		{

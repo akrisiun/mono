@@ -112,8 +112,10 @@ namespace System.Net
 		int maxResponseHeadersLength;
 		static int defaultMaxResponseHeadersLength;
 		int readWriteTimeout = 300000; // ms
-		IMonoTlsProvider tlsProvider;
+
+
 #if SECURITY_DEP
+        IMonoTlsProvider tlsProvider = null;
 		MonoTlsSettings tlsSettings;
 #endif
 		ServerCertValidationCallback certValidationCallback;
@@ -274,11 +276,11 @@ namespace System.Net
 			}
 		}
 
+#if SECURITY_DEP
 		internal IMonoTlsProvider TlsProvider {
 			get { return tlsProvider; }
 		}
 
-#if SECURITY_DEP
 		internal MonoTlsSettings TlsSettings {
 			get { return tlsSettings; }
 		}

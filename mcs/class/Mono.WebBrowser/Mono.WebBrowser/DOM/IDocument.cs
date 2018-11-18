@@ -63,7 +63,7 @@ namespace Mono.WebBrowser.DOM
 		
 		string InvokeScript (string script);
 
-		int GetHashCode ();
+		new int GetHashCode ();
 		
 		event EventHandler LoadStopped;
 	}

@@ -28,7 +28,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
-using System.Text;
+// using System.Text;
+#pragma warning disable CS0108
+
 
 namespace Mono.Mozilla {
 

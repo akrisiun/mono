@@ -24,12 +24,15 @@
 //
 
 using System;
-using System.Text;
+//using System.Text;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Collections;
-using Mono.WebBrowser;
+//using System.Runtime.InteropServices;
+//using System.Collections;
+//using Mono.WebBrowser;
 using Mono.WebBrowser.DOM;
+
+// using System.Text;
+#pragma warning disable CS0108
 
 namespace Mono.Mozilla.DOM
 {

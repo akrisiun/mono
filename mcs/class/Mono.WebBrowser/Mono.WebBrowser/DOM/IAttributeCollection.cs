@@ -32,6 +32,6 @@ namespace Mono.WebBrowser.DOM
 		IAttribute this[string name] { get; }
 		bool Exists (string name);
 		
-		int GetHashCode ();
+		new int GetHashCode ();
 	}
 }

@@ -32,7 +32,7 @@ namespace Mono.WebBrowser.DOM
 	{
 		INode this[string name] { get; set; }
 		INode RemoveNamedItem (string name);
-		INode this[int index] { get; set; }
+		new INode this[int index] { get; set; }
 		INode this[string namespaceURI, string localName] {get; set;}
 		INode  RemoveNamedItemNS(string namespaceURI, string localName);
 	}

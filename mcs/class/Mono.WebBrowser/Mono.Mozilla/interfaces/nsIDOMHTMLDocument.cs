@@ -28,9 +28,11 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
-using System.Text;
+// using System.Text;
 
 namespace Mono.Mozilla {
+
+#pragma warning disable CS0108
 
 	[Guid ("a6cf9084-15b3-11d2-932e-00805f8add32")]
 	[InterfaceType (ComInterfaceType.InterfaceIsIUnknown)]

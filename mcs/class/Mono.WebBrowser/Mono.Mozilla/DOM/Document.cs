@@ -35,7 +35,7 @@ namespace Mono.Mozilla.DOM
 	internal class Document : Node, IDocument
 	{
 
-		internal nsIDOMDocument node {
+		new internal nsIDOMDocument node {
 			get { return base.node as nsIDOMDocument;}
 			set { base.node = value as nsIDOMDocument; }
 		}
@@ -488,7 +488,7 @@ namespace Mono.Mozilla.DOM
 		
 		#region Events
 		private System.ComponentModel.EventHandlerList events;
-		internal System.ComponentModel.EventHandlerList Events {
+		new internal System.ComponentModel.EventHandlerList Events {
 			get {
 				if (events == null)
 					events = new System.ComponentModel.EventHandlerList();

@@ -28,7 +28,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
-using System.Text;
+// using System.Text;
+#pragma warning disable CS0108
+
 
 namespace Mono.Mozilla {
 
@@ -99,48 +101,48 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int removeChild (
+		new int removeChild (
 				[MarshalAs (UnmanagedType.Interface)]   nsIDOMNode oldChild,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int appendChild (
+		new int appendChild (
 				[MarshalAs (UnmanagedType.Interface)]   nsIDOMNode newChild,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int hasChildNodes ( out bool ret);
+		new int hasChildNodes ( out bool ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int cloneNode (
+		new int cloneNode (
 				   bool deep,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int normalize ();
+		new int normalize ();
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int isSupported (
+		new int isSupported (
 				   /*DOMString*/ HandleRef feature,
 				   /*DOMString*/ HandleRef version, out bool ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getNamespaceURI (  /*DOMString*/ HandleRef ret);
+		new int getNamespaceURI (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getPrefix (  /*DOMString*/ HandleRef ret);
+		new int getPrefix (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setPrefix ( /*DOMString*/ HandleRef value);
+		new int setPrefix ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getLocalName (  /*DOMString*/ HandleRef ret);
+		new int getLocalName (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]

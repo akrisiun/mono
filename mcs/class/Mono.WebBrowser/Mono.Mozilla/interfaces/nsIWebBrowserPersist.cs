@@ -39,7 +39,7 @@ namespace Mono.Mozilla {
 #region nsICancelable
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int cancel (
+		new int cancel (
 				   int aReason);
 
 #endregion

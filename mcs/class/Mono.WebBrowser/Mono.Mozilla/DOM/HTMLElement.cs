@@ -34,7 +34,7 @@ namespace Mono.Mozilla.DOM
 {
 	internal class HTMLElement : Element, IElement
 	{
-		protected nsIDOMHTMLElement node {
+		new protected nsIDOMHTMLElement node {
 			get { return base.node as nsIDOMHTMLElement; }
 			set { base.node = value as nsIDOMElement; }
 		}

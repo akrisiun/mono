@@ -898,7 +898,11 @@ namespace System.Web.Compilation
 			
 			return null;
 		}
-		
+
+        // ANKR: hacks
+        public static Type GetCodeDomProviderTypeBeta(BuildProvider provider) 
+            => GetCodeDomProviderType(provider);
+
 		internal static Type GetCodeDomProviderType (BuildProvider provider)
 		{
 			CompilerType codeCompilerType;
@@ -913,6 +917,15 @@ namespace System.Web.Compilation
 
 			return codeDomProviderType;
 		}
+
+        // ANKR: hacks
+        public static Type GetPrecompiledTypeBeta(string virtualPath)
+            => GetPrecompiledType (virtualPath);
+        public static Assembly GetCompiledAssemblyBeta(VirtualPathWrap virtualPath)
+            => GetCompiledAssembly(virtualPath.VirtualPath as VirtualPath);
+
+        public static CompilerType GetDefaultCompilerTypeForLanguageBeta(string language, CompilationSection configSection, bool throwOnMissing = false)
+            => GetDefaultCompilerTypeForLanguage(language, configSection, throwOnMissing);
 
 		static Type GetPrecompiledType (string virtualPath)
 		{
@@ -1046,6 +1059,8 @@ namespace System.Web.Compilation
 				return new CompilerType (type, p);
 			}
 
+// Ankr
+#if CONFIGURATION_DEP
 			if (CodeDomProvider.IsDefinedLanguage (language)) {
 				CompilerInfo info = CodeDomProvider.GetCompilerInfo (language);
 				p = info.CreateDefaultCompilerParameters ();
@@ -1053,7 +1068,7 @@ namespace System.Web.Compilation
 				SetCommonParameters (config, p, type, language);
 				return new CompilerType (type, p);
 			}
-
+#endif
 			if (throwOnMissing)
 				throw new HttpException (String.Concat ("No compiler for language '", language, "'."));
 

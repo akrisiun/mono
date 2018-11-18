@@ -71,6 +71,16 @@ namespace System.Web.Configuration {
 				providers.Add (InstantiateProvider (settings, providerType));
 		}
 
+        // ankr:
+		public static void InstantiateProviders (ProviderSettingsCollection configProviders, System.Web.Profile.ProfileProviderCollection providers, Type providerType)
+		{
+			if (!typeof (ProviderBase).IsAssignableFrom (providerType))
+				throw new ConfigurationErrorsException (String.Format ("type '{0}' must subclass from ProviderBase", providerType));
+
+			foreach (ProviderSettings settings in configProviders)
+				providers.AddProvider(InstantiateProvider (settings, providerType));
+		}
+
 		internal static DbProviderFactory GetDbProviderFactory (string providerName)
 		{
 			DbProviderFactory f = null;

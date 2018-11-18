@@ -34,6 +34,50 @@ using System.Web.Util;
 
 namespace System.Web
 {
+    internal interface IVirtualPath
+    { 
+    	bool IsAbsolute { 			get;}
+
+		bool IsFake {get; }
+		
+		bool IsRooted {get; }
+
+		bool IsAppRelative {get; }
+		
+		string Original {get;}
+
+		string Absolute {get; } 
+		string AppRelative {get; }
+		string AppRelativeNotRooted {get; }
+		string Extension {get; }
+		string Directory {get; }
+		string DirectoryNoNormalize { get; }
+		string CurrentRequestDirectory { get; set; }
+		string PhysicalPath { get; }
+    }
+
+    public class VirtualPathWrap : IDisposable
+    {
+        public VirtualPathWrap(object path)
+        {
+            VirtualPath = path as VirtualPath;
+        }
+
+        public VirtualPathWrap(string vpath, string physicalPath, bool isFake)
+        {
+            VirtualPath = new VirtualPath(vpath, physicalPath, isFake);
+        }
+
+        public object VirtualPath {get; set; }
+
+        public void Dispose() {
+            if (VirtualPath != null) {
+                (VirtualPath as IDisposable)?.Dispose();
+                VirtualPath = null;
+            }
+        }
+    }
+
 	internal class VirtualPath : IDisposable
 	{
 		string _absolute;

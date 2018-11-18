@@ -28,62 +28,65 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
-using System.Text;
+// using System.Text;
 
 namespace Mono.Mozilla {
 
-	[Guid ("a6cf908d-15b3-11d2-932e-00805f8add32")]
+
+#pragma warning disable CS0108
+
+    [Guid ("a6cf908d-15b3-11d2-932e-00805f8add32")]
 	[InterfaceType (ComInterfaceType.InterfaceIsIUnknown)]
 	[ComImport ()]
 	internal interface nsIDOMHTMLStyleElement : nsIDOMHTMLElement {
 #region nsIDOMNode
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getNodeName (  /*DOMString*/ HandleRef ret);
+		new int getNodeName (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getNodeValue (  /*DOMString*/ HandleRef ret);
+		new int getNodeValue (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setNodeValue ( /*DOMString*/ HandleRef value);
+		new int setNodeValue ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getNodeType ( out ushort ret);
+		new int getNodeType ( out ushort ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getParentNode ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
+		new int getParentNode ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getChildNodes ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNodeList ret);
+		new int getChildNodes ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNodeList ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getFirstChild ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
+		new int getFirstChild ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getLastChild ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
+		new int getLastChild ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getPreviousSibling ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
+		new int getPreviousSibling ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getNextSibling ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
+		new int getNextSibling ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getAttributes ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNamedNodeMap ret);
+		new int getAttributes ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNamedNodeMap ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getOwnerDocument ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMDocument ret);
+		new int getOwnerDocument ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMDocument ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
@@ -104,43 +107,43 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int appendChild (
+		new int appendChild (
 				[MarshalAs (UnmanagedType.Interface)]   nsIDOMNode newChild,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int hasChildNodes ( out bool ret);
+		new int hasChildNodes ( out bool ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int cloneNode (
+		new int cloneNode (
 				   bool deep,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int normalize ();
+		new int normalize ();
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int isSupported (
+		new int isSupported (
 				   /*DOMString*/ HandleRef feature,
 				   /*DOMString*/ HandleRef version, out bool ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getNamespaceURI (  /*DOMString*/ HandleRef ret);
+		new int getNamespaceURI (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getPrefix (  /*DOMString*/ HandleRef ret);
+		new int getPrefix (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setPrefix ( /*DOMString*/ HandleRef value);
+		new int setPrefix ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getLocalName (  /*DOMString*/ HandleRef ret);
+		new int getLocalName (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
@@ -151,16 +154,16 @@ namespace Mono.Mozilla {
 #region nsIDOMElement
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getTagName (  /*DOMString*/ HandleRef ret);
+		new int getTagName (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getAttribute (
+		new int getAttribute (
 				   /*DOMString*/ HandleRef name,  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setAttribute (
+		new int setAttribute (
 				   /*DOMString*/ HandleRef name,
 				   /*DOMString*/ HandleRef value);
 
@@ -171,12 +174,12 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getAttributeNode (
+		new int getAttributeNode (
 				   /*DOMString*/ HandleRef name,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMAttr ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setAttributeNode (
+		new int setAttributeNode (
 				[MarshalAs (UnmanagedType.Interface)]   nsIDOMAttr newAttr,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMAttr ret);
 
 		[PreserveSigAttribute]
@@ -186,18 +189,18 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getElementsByTagName (
+		new int getElementsByTagName (
 				   /*DOMString*/ HandleRef name,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNodeList ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getAttributeNS (
+		new int getAttributeNS (
 				   /*DOMString*/ HandleRef namespaceURI,
 				   /*DOMString*/ HandleRef localName,  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setAttributeNS (
+		new int setAttributeNS (
 				   /*DOMString*/ HandleRef namespaceURI,
 				   /*DOMString*/ HandleRef qualifiedName,
 				   /*DOMString*/ HandleRef value);
@@ -210,18 +213,18 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getAttributeNodeNS (
+		new int getAttributeNodeNS (
 				   /*DOMString*/ HandleRef namespaceURI,
 				   /*DOMString*/ HandleRef localName,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMAttr ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setAttributeNodeNS (
+		new int setAttributeNodeNS (
 				[MarshalAs (UnmanagedType.Interface)]   nsIDOMAttr newAttr,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMAttr ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getElementsByTagNameNS (
+		new int getElementsByTagNameNS (
 				   /*DOMString*/ HandleRef namespaceURI,
 				   /*DOMString*/ HandleRef localName,[MarshalAs (UnmanagedType.Interface)]  out nsIDOMNodeList ret);
 
@@ -241,27 +244,27 @@ namespace Mono.Mozilla {
 #region nsIDOMHTMLElement
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getId (  /*DOMString*/ HandleRef ret);
+		new int getId (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setId ( /*DOMString*/ HandleRef value);
+		new int setId ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getTitle (  /*DOMString*/ HandleRef ret);
+		new int getTitle (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setTitle ( /*DOMString*/ HandleRef value);
+		new int setTitle ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getLang (  /*DOMString*/ HandleRef ret);
+		new int getLang (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setLang ( /*DOMString*/ HandleRef value);
+		new int setLang ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
@@ -269,7 +272,7 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setDir ( /*DOMString*/ HandleRef value);
+		new int setDir ( /*DOMString*/ HandleRef value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
@@ -277,7 +280,7 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setClassName ( /*DOMString*/ HandleRef value);
+		new int setClassName ( /*DOMString*/ HandleRef value);
 
 #endregion
 

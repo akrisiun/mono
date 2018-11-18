@@ -140,6 +140,8 @@ namespace System.Web.UI.WebControls
 			if (From.Length > 0)
 				msg.From = new MailAddress (From);
 			else {
+#if CONFIGURATION_DEP
+                // ANRK:
 				SmtpSection smtpSection = (SmtpSection) WebConfigurationManager.GetSection ("system.net/mailSettings/smtp");
 				if (smtpSection != null) {
 					if (string.IsNullOrEmpty (smtpSection.From))
@@ -147,6 +149,7 @@ namespace System.Web.UI.WebControls
 
 					msg.From = new MailAddress (smtpSection.From);
 				}
+#endif
 			}
 
 			string [] recipientsArr = recipients.Split (',');
@@ -159,7 +162,7 @@ namespace System.Web.UI.WebControls
 			return msg;
 		}
 
-		#region IStateManager Members
+#region IStateManager Members
 
 		void IStateManager.LoadViewState (object state)
 		{

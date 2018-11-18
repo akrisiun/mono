@@ -29,6 +29,6 @@ namespace Mono.WebBrowser.DOM
 {	
 	public interface IWindowCollection : IList
 	{
-		IWindow this [int index]{ get; set; }
+		new IWindow this [int index]{ get; set; }
 	}
 }

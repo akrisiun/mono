@@ -31,7 +31,7 @@ namespace Mono.WebBrowser.DOM
 	
 	public interface INodeList : IList
 	{
-		INode this [int index]{ get; set; }
+		new INode this [int index]{ get; set; }
 		
 		int GetHashCode ();
 	}

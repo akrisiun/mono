@@ -28,7 +28,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
-using System.Text;
+// using System.Text;
+#pragma warning disable CS0108
+
 
 namespace Mono.Mozilla {
 
@@ -43,27 +45,27 @@ namespace Mono.Mozilla {
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getDisabled ( out bool ret);
+		new int getDisabled ( out bool ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int setDisabled ( bool value);
+		new int setDisabled ( bool value);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getOwnerNode ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
+		new int getOwnerNode ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMNode ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getParentStyleSheet ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMStyleSheet ret);
+		new int getParentStyleSheet ([MarshalAs (UnmanagedType.Interface)]  out nsIDOMStyleSheet ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getHref (  /*DOMString*/ HandleRef ret);
+		new int getHref (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-		int getTitle (  /*DOMString*/ HandleRef ret);
+		new int getTitle (  /*DOMString*/ HandleRef ret);
 
 		[PreserveSigAttribute]
 		[MethodImpl (MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]

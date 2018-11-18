@@ -32,7 +32,6 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.IO;
@@ -47,197 +46,196 @@ using System.Xml.XPath;
 
 namespace System.Configuration
 {
-	public sealed class ConfigurationSettings
-	{
-     		static IConfigurationSystem config = DefaultConfig.GetInstance ();
-		static object lockobj = new object ();
-		private ConfigurationSettings ()
-		{
-		}
+    public sealed class ConfigurationSettings
+    {
+        static IConfigurationSystem config = DefaultConfig.GetInstance();
+        static object lockobj = new object();
+        private ConfigurationSettings()
+        {
+        }
 
-		[Obsolete ("This method is obsolete, it has been replaced by System.Configuration!System.Configuration.ConfigurationManager.GetSection")]
-		public static object GetConfig (string sectionName)
-		{
+        // [Obsolete ("This method is obsolete, it has been replaced by System.Configuration!System.Configuration.ConfigurationManager.GetSection")]
+        public static object GetConfig(string sectionName)
+        {
 #if CONFIGURATION_DEP
 			return ConfigurationManager.GetSection (sectionName);
 #else
-			return config.GetConfig (sectionName);
+            return config.GetConfig(sectionName);
 #endif
-		}
+        }
 
-		[Obsolete ("This property is obsolete.  Please use System.Configuration.ConfigurationManager.AppSettings")]
-		public static NameValueCollection AppSettings
-		{
-			get {
+        [Obsolete("This property is obsolete.  Please use System.Configuration.ConfigurationManager.AppSettings")]
+        public static NameValueCollection AppSettings {
+            get {
 #if CONFIGURATION_DEP
 				object appSettings = ConfigurationManager.GetSection ("appSettings");
 #else
-				object appSettings = GetConfig ("appSettings");
+                object appSettings = GetConfig("appSettings");
 #endif
-				if (appSettings == null)
-					appSettings = new NameValueCollection ();
-				return (NameValueCollection) appSettings;
-			}
-		}
+                if (appSettings == null)
+                    appSettings = new NameValueCollection();
+                return (NameValueCollection)appSettings;
+            }
+        }
 
-		// Invoked from System.Web, disable warning
-		internal static IConfigurationSystem ChangeConfigurationSystem (IConfigurationSystem newSystem)
-		{
-			if (newSystem == null)
-				throw new ArgumentNullException ("newSystem");
+        // Invoked from System.Web, disable warning
+        internal static IConfigurationSystem ChangeConfigurationSystem(IConfigurationSystem newSystem)
+        {
+            if (newSystem == null)
+                throw new ArgumentNullException("newSystem");
 
-			lock (lockobj) {
-				IConfigurationSystem old = config;
-				config = newSystem;
-				return old;
-			}
-		}
-	}
+            lock (lockobj) {
+                IConfigurationSystem old = config;
+                config = newSystem;
+                return old;
+            }
+        }
+    }
 
-	//
-	// class DefaultConfig: read configuration from machine.config file and application
-	// config file if available.
-	//
-	class DefaultConfig : IConfigurationSystem
-	{
-        	static readonly DefaultConfig instance = new DefaultConfig ();        
-		ConfigurationData config;
-		
-		private DefaultConfig ()
-		{
-		}
+    //
+    // class DefaultConfig: read configuration from machine.config file and application
+    // config file if available.
+    //
+    class DefaultConfig : IConfigurationSystem
+    {
+        static readonly DefaultConfig instance = new DefaultConfig();
+        ConfigurationData config;
 
-		public static DefaultConfig GetInstance ()
-		{
-			return instance;
-		}
+        private DefaultConfig()
+        {
+        }
 
-		[Obsolete ("This method is obsolete.  Please use System.Configuration.ConfigurationManager.GetConfig")]
-		public object GetConfig (string sectionName)
-		{
-			Init ();
-			return config.GetConfig (sectionName);
-		}
+        public static DefaultConfig GetInstance()
+        {
+            return instance;
+        }
 
-		public void Init ()
-		{
-			lock (this) {
-				if (config != null)
-					return;
+        [Obsolete("This method is obsolete.  Please use System.Configuration.ConfigurationManager.GetConfig")]
+        public object GetConfig(string sectionName)
+        {
+            Init();
+            return config.GetConfig(sectionName);
+        }
 
-				ConfigurationData data = new ConfigurationData ();
-				if (data.LoadString (GetBundledMachineConfig ())) {
-					// do nothing
-				} else {
-					if (!data.Load (GetMachineConfigPath ()))
-						throw new ConfigurationException ("Cannot find " + GetMachineConfigPath ());
+        public void Init()
+        {
+            lock (this) {
+                if (config != null)
+                    return;
 
-				}
-				string appfile = GetAppConfigPath ();
-				if (appfile == null) {
-					config = data;
-					return;
-				}
+                ConfigurationData data = new ConfigurationData();
+                if (data.LoadString(GetBundledMachineConfig())) {
+                    // do nothing
+                } else {
+                    if (!data.Load(GetMachineConfigPath()))
+                        throw new ConfigurationException("Cannot find " + GetMachineConfigPath());
 
-				ConfigurationData appData = new ConfigurationData (data);
-				if (appData.Load (appfile))
-					config = appData;
-				else
-					config = data;
-			}
-		}
-		[MethodImplAttribute(MethodImplOptions.InternalCall)]
-		extern private static string get_bundled_machine_config ();
-		internal static string GetBundledMachineConfig ()
-		{
-			return get_bundled_machine_config ();
-		}
-		[MethodImplAttribute(MethodImplOptions.InternalCall)]
-		extern private static string get_machine_config_path ();
-		internal static string GetMachineConfigPath ()
-		{
-			return get_machine_config_path ();
-		}
-		private static string GetAppConfigPath ()
-		{
-			AppDomainSetup currentInfo = AppDomain.CurrentDomain.SetupInformation;
+                }
+                string appfile = GetAppConfigPath();
+                if (appfile == null) {
+                    config = data;
+                    return;
+                }
 
-			string configFile = currentInfo.ConfigurationFile;
-			if (configFile == null || configFile.Length == 0)
-				return null;
+                ConfigurationData appData = new ConfigurationData(data);
+                if (appData.Load(appfile))
+                    config = appData;
+                else
+                    config = data;
+            }
+        }
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        extern private static string get_bundled_machine_config();
+        internal static string GetBundledMachineConfig()
+        {
+            return get_bundled_machine_config();
+        }
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        extern private static string get_machine_config_path();
+        internal static string GetMachineConfigPath()
+        {
+            return get_machine_config_path();
+        }
+        private static string GetAppConfigPath()
+        {
+            AppDomainSetup currentInfo = AppDomain.CurrentDomain.SetupInformation;
 
-			return configFile;
+            string configFile = currentInfo.ConfigurationFile;
+            if (configFile == null || configFile.Length == 0)
+                return null;
 
-		}
-	}
+            return configFile;
 
-	enum AllowDefinition
-	{
-		Everywhere,
-		MachineOnly,
-		MachineToApplication
-	}
+        }
+    }
 
-	class SectionData
-	{
-		public readonly string SectionName;
-		public readonly string TypeName;
-		public readonly bool AllowLocation;
-		public readonly AllowDefinition AllowDefinition;
+    enum AllowDefinition
+    {
+        Everywhere,
+        MachineOnly,
+        MachineToApplication
+    }
+
+    class SectionData
+    {
+        public readonly string SectionName;
+        public readonly string TypeName;
+        public readonly bool AllowLocation;
+        public readonly AllowDefinition AllowDefinition;
 #if XML_DEP
 		public string FileName;
 #endif
-		public readonly bool RequirePermission;
+        public readonly bool RequirePermission;
 
-		public SectionData (string sectionName, string typeName,
-			    bool allowLocation, AllowDefinition allowDefinition, bool requirePermission)
-		{
-			SectionName = sectionName;
-			TypeName = typeName;
-			AllowLocation = allowLocation;
-			AllowDefinition = allowDefinition;
-			RequirePermission = requirePermission;
-		}
-	}
+        public SectionData(string sectionName, string typeName,
+                bool allowLocation, AllowDefinition allowDefinition, bool requirePermission)
+        {
+            SectionName = sectionName;
+            TypeName = typeName;
+            AllowLocation = allowLocation;
+            AllowDefinition = allowDefinition;
+            RequirePermission = requirePermission;
+        }
+    }
 
 
-	class ConfigurationData
-	{
-		ConfigurationData parent;
-		Hashtable factories;
-		static object removedMark = new object ();
-		static object emptyMark = new object ();
+    class ConfigurationData
+    {
+        ConfigurationData parent;
+        Hashtable factories;
+        static object removedMark = new object();
+        static object emptyMark = new object();
 #if (XML_DEP)
 		Hashtable pending;
 		string fileName;
 		static object groupMark = new object ();
 #endif
-		Hashtable cache;
+        Hashtable cache;
 
-		Hashtable FileCache {
-			get {
-				if (cache != null)
-					return cache;
+        Hashtable FileCache {
+            get {
+                if (cache != null)
+                    return cache;
 
-				cache = new Hashtable ();
-				return cache;
-			}
-		}
+                cache = new Hashtable();
+                return cache;
+            }
+        }
 
-		public ConfigurationData () : this (null)
-		{
-		}
+        public ConfigurationData() : this(null)
+        {
+        }
 
-		public ConfigurationData (ConfigurationData parent)
-		{
-			this.parent = (parent == this) ? null : parent;
-			factories = new Hashtable ();
-		}
+        public ConfigurationData(ConfigurationData parent)
+        {
+            this.parent = (parent == this) ? null : parent;
+            factories = new Hashtable();
+        }
 
-		// SECURITY-FIXME: limit this with an imperative assert for reading the specific file
-		[FileIOPermission (SecurityAction.Assert, Unrestricted = true)]
-		public bool Load (string fileName)
-		{
+        // SECURITY-FIXME: limit this with an imperative assert for reading the specific file
+        [FileIOPermission(SecurityAction.Assert, Unrestricted = true)]
+        public bool Load(string fileName)
+        {
 #if (XML_DEP)
 			this.fileName = fileName;
 			if (fileName == null
@@ -261,13 +259,13 @@ namespace System.Configuration
 					reader.Close();
 			}
 #endif
-			return true;
-		}
-		
-		public bool LoadString (string data)
-		{
-			if (data == null)
-				return false;
+            return true;
+        }
+
+        public bool LoadString(string data)
+        {
+            if (data == null)
+                return false;
 #if (XML_DEP)
 			XmlTextReader reader = null;
 
@@ -285,47 +283,47 @@ namespace System.Configuration
 					reader.Close();
 			}
 #endif
-			return true;
-		}
-		
-		object GetHandler (string sectionName)
-		{
-			lock (factories) {
-				object o = factories [sectionName];
-				if (o == null || o == removedMark) {
-					if (parent != null)
-						return parent.GetHandler (sectionName);
+            return true;
+        }
 
-					return null;
-				}
+        object GetHandler(string sectionName)
+        {
+            lock (factories) {
+                object o = factories[sectionName];
+                if (o == null || o == removedMark) {
+                    if (parent != null)
+                        return parent.GetHandler(sectionName);
 
-				if (o is IConfigurationSectionHandler)
-					return (IConfigurationSectionHandler) o;
+                    return null;
+                }
 
-				o = CreateNewHandler (sectionName, (SectionData) o);
-				factories [sectionName] = o;
-				return o;
-			}
-		}
+                if (o is IConfigurationSectionHandler)
+                    return (IConfigurationSectionHandler)o;
 
-		object CreateNewHandler (string sectionName, SectionData section)
-		{
-			Type t = Type.GetType (section.TypeName);
-			if (t == null)
-				throw new ConfigurationException ("Cannot get Type for " + section.TypeName);
+                o = CreateNewHandler(sectionName, (SectionData)o);
+                factories[sectionName] = o;
+                return o;
+            }
+        }
+
+        object CreateNewHandler(string sectionName, SectionData section)
+        {
+            Type t = Type.GetType(section.TypeName);
+            if (t == null)
+                throw new ConfigurationException("Cannot get Type for " + section.TypeName);
 
 #if false
 			Type iconfig = typeof (IConfigurationSectionHandler);
 			if (!iconfig.IsAssignableFrom (t))
 				throw new ConfigurationException (sectionName + " does not implement " + iconfig);
 #endif
-			
-			object o = Activator.CreateInstance (t, true);
-			if (o == null)
-				throw new ConfigurationException ("Cannot get instance for " + t);
 
-			return o;
-		}
+            object o = Activator.CreateInstance(t, true);
+            if (o == null)
+                throw new ConfigurationException("Cannot get instance for " + t);
+
+            return o;
+        }
 #if (XML_DEP)
 		XmlDocument GetInnerDoc (XmlDocument doc, int i, string [] sectionPath)
 		{
@@ -385,43 +383,43 @@ namespace System.Configuration
 			return iconf.Create (parentConfig, fileName, doc.DocumentElement);
 		}
 #else
-		object GetConfigInternal (string sectionName)
-                {
-                    return null;
-                }
+        object GetConfigInternal(string sectionName)
+        {
+            return null;
+        }
 #endif
-		public object GetConfig (string sectionName)
-		{
-			object config;
-			lock (this) {
-				config = this.FileCache [sectionName];
-			}
+        public object GetConfig(string sectionName)
+        {
+            object config;
+            lock (this) {
+                config = this.FileCache[sectionName];
+            }
 
-			if (config == emptyMark)
-				return null;
+            if (config == emptyMark)
+                return null;
 
-			if (config != null)
-				return config;
+            if (config != null)
+                return config;
 
-			lock (this) {
-				config = GetConfigInternal (sectionName);
-				this.FileCache [sectionName] = (config == null) ? emptyMark : config;
-			}
+            lock (this) {
+                config = GetConfigInternal(sectionName);
+                this.FileCache[sectionName] = (config == null) ? emptyMark : config;
+            }
 
-			return config;
-		}
+            return config;
+        }
 
-		private object LookForFactory (string key)
-		{
-			object o = factories [key];
-			if (o != null)
-				return o;
+        private object LookForFactory(string key)
+        {
+            object o = factories[key];
+            if (o != null)
+                return o;
 
-			if (parent != null)
-				return parent.LookForFactory (key);
+            if (parent != null)
+                return parent.LookForFactory(key);
 
-			return null;
-		}
+            return null;
+        }
 #if (XML_DEP)
 		private bool InitRead (XmlTextReader reader)
 		{
@@ -702,7 +700,7 @@ namespace System.Configuration
 			throw new ConfigurationException (text, fileName, reader.LineNumber);
 		}
 #endif
-	}
+    }
 }
 
 

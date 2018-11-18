@@ -29,8 +29,8 @@ namespace Mono.WebBrowser.DOM
 {	
 	public interface IElementCollection : INodeList
 	{
-		IElement this [int index]{ get; set; }
+		new IElement this [int index]{ get; set; }
 		
-		int GetHashCode ();
+		new int GetHashCode ();
 	}
 }

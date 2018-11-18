@@ -67,17 +67,17 @@ namespace Mono.Net.Security
 		}
 #endif
 
+		internal bool CertificateValidationFailed {
+			get; set;
+		}
+
+#if SECURITY_DEP
 		WebExceptionStatus status;
 
 		internal WebExceptionStatus ExceptionStatus {
 			get { return status; }
 		}
 
-		internal bool CertificateValidationFailed {
-			get; set;
-		}
-
-#if SECURITY_DEP
 //		readonly ChainValidationHelper validationHelper;
 		readonly MonoTlsSettings settings;
 

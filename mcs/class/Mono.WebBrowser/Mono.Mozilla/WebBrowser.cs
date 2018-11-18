@@ -51,9 +51,8 @@ namespace Mono.Mozilla
 		System.ComponentModel.EventHandlerList events;
 		System.ComponentModel.EventHandlerList domEvents;
 
-		string statusText;
-
-		bool streamingMode;
+		string statusText = "";
+		// bool streamingMode = false;
 		
 		internal Hashtable documents;
 
@@ -145,6 +144,8 @@ namespace Mono.Mozilla
 		
 		public string StatusText {
 			get { return statusText; }
+            // ankr
+            set { statusText = value; }
 		}
 		
 		public bool Offline {
