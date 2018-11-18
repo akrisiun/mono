@@ -30,9 +30,9 @@ using System;
 using System.Reflection;
 using System.Resources;
 using System.Security;
-using System.Security.Permissions;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
+//using System.Security.Permissions;
+//using System.Diagnostics;
+//using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about the assembly

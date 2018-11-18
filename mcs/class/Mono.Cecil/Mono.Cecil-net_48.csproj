@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -17,8 +17,9 @@
     <RootNamespace>
     </RootNamespace>
     <AssemblyName>Mono.Cecil</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -419,12 +420,43 @@
     <Compile Include="..\..\..\external\cecil\Mono\Empty.cs">
       <Link>external\Empty.cs</Link>
     </Compile>
-    <Compile Include="Legacy\Actions.cs" />
+    <Compile Include="Legacy\Disposable.cs" />
     <Compile Include="Legacy\Empty.cs" />
-    <Compile Include="Legacy\ExtensionAttribute.cs" />
-    <Compile Include="Legacy\Funcs.cs" />
     <Compile Include="Legacy\PdbHeap.cs" />
-    <Compile Include="Legacy\TokenType.cs" />
+    <Compile Include="Legacy\PdbHelper.cs" />
+    <Compile Include="Legacy\PortablePdb.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\BitAccess.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\BitSet.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\CvInfo.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\DataStream.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\DbiDbgHdr.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\DbiHeader.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\DbiModuleInfo.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\DbiSecCon.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\Interfaces.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\IntHashTable.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\MsfDirectory.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbConstant.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbDebugException.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbException.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbFile.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbFileHeader.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbFunction.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbLine.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbLines.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbReader.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbScope.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbSlot.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbSource.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\PdbTokenLine.cs" />
+    <Compile Include="Microsoft.Cci.Pdb\SourceLocationProvider.cs" />
+    <Compile Include="Mono.Cecil.Pdb\ISymUnmanagedDocumentWriter.cs" />
+    <Compile Include="Mono.Cecil.Pdb\ISymUnmanagedWriter2.cs" />
+    <Compile Include="Mono.Cecil.Pdb\ModuleMetadata.cs" />
+    <Compile Include="Mono.Cecil.Pdb\PdbReader.cs" />
+    <Compile Include="Mono.Cecil.Pdb\PdbWriter.cs" />
+    <Compile Include="Mono.Cecil.Pdb\SymDocumentWriter.cs" />
+    <Compile Include="Mono.Cecil.Pdb\SymWriter.cs" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -451,6 +483,10 @@
     <ProjectReference Include="../System.Core/System.Core-net_4_x.csproj">
       <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
       <Name>System.Core-net_4_x</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System\System-net_4_x.csproj">
+      <Project>{2762e921-91a8-4c87-91e9-ba628013f753}</Project>
+      <Name>System-net_4_x</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -12,20 +12,35 @@
 //
 // ======================================================================================
 
+namespace Mono
+{
+    using System;
+
+    public static class TypeCode2
+    {
+        public static TypeCode GetTypeCode(this Type type)
+        {
+            if (type == null)
+                return TypeCode.Empty;
+            return type.GetTypeCodeImpl2();
+        }
+    }
+}
+
 namespace System {
 
     using System;
     using System.Reflection;
     using System.Threading;
-    using System.Runtime;
-    using System.Runtime.Remoting;
+    //using System.Runtime;
+    //using System.Runtime.Remoting;
     using System.Runtime.InteropServices;
     using System.Runtime.CompilerServices;
-    using System.Security;
-    using System.Security.Permissions;
     using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Versioning;
+    //using System.Security;
+    //using System.Security.Permissions;
+    //using System.Collections.Generic;
+    //using System.Runtime.Versioning;
     using System.Diagnostics.Contracts;
     using CultureInfo = System.Globalization.CultureInfo;
     using StackCrawlMark = System.Threading.StackCrawlMark;
@@ -155,7 +170,10 @@ namespace System {
         public virtual Type MakeArrayType() { throw new NotSupportedException(); }
         public virtual Type MakeArrayType(int rank) { throw new NotSupportedException(); }
 
-#if FEATURE_COMINTEROP || MONO_COM || MOBILE_LEGACY
+#if true 
+        // ankr: important!
+        // FEATURE_COMINTEROP || MONO_COM || MOBILE_LEGACY
+
         ////////////////////////////////////////////////////////////////////////////////
         // This will return a class based upon the progID.  This is provided for 
         // COM classic support.  Program ID's are not used in COM+ because they 
@@ -239,6 +257,8 @@ namespace System {
                 return TypeCode.Empty;
             return type.GetTypeCodeImpl();
         }
+
+        public virtual TypeCode GetTypeCodeImpl2() => GetTypeCodeImpl();
 
         protected virtual TypeCode GetTypeCodeImpl()
         {

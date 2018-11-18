@@ -25,7 +25,7 @@ namespace System.Data.OleDb {
     [
     DefaultEvent("RecordsAffected"),
     ToolboxItem(true),
-    Designer("Microsoft.VSDesigner.Data.VS.OleDbCommandDesigner, " + AssemblyRef.MicrosoftVSDesigner)
+    //Designer("Microsoft.VSDesigner.Data.VS.OleDbCommandDesigner, " + AssemblyRef.MicrosoftVSDesigner)
     ]
     public sealed class OleDbCommand : DbCommand, ICloneable, IDbCommand {
 
@@ -111,7 +111,7 @@ namespace System.Data.OleDb {
 
         [
         DefaultValue(""),
-        Editor("Microsoft.VSDesigner.Data.ADO.Design.OleDbCommandTextEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.ADO.Design.OleDbCommandTextEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         RefreshProperties(RefreshProperties.All), // MDAC 67707
         ResCategoryAttribute(Res.DataCategory_Data),
         ResDescriptionAttribute(Res.DbCommand_CommandText),
@@ -192,7 +192,7 @@ namespace System.Data.OleDb {
 
         [
         DefaultValue(null),
-        Editor("Microsoft.VSDesigner.Data.Design.DbConnectionEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DbConnectionEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ResCategoryAttribute(Res.DataCategory_Data),
         ResDescriptionAttribute(Res.DbCommand_Connection),
         ]

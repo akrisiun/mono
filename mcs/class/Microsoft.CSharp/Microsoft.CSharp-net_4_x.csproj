@@ -96,6 +96,10 @@
       <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
       <Name>System.Core-net_4_x</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mono.CSharp\Mono.CSharp-net_4_x.csproj">
+      <Project>{befca993-98b4-48e9-8d68-1accb1fa7200}</Project>
+      <Name>Mono.CSharp-net_4_x</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

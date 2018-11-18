@@ -19,8 +19,8 @@ namespace System.Data.OleDb {
 
     [
     DefaultEvent("RowUpdated"),
-    ToolboxItem("Microsoft.VSDesigner.Data.VS.OleDbDataAdapterToolboxItem, " + AssemblyRef.MicrosoftVSDesigner),
-    Designer("Microsoft.VSDesigner.Data.VS.OleDbDataAdapterDesigner, " + AssemblyRef.MicrosoftVSDesigner),
+    //ToolboxItem("Microsoft.VSDesigner.Data.VS.OleDbDataAdapterToolboxItem, " + AssemblyRef.MicrosoftVSDesigner),
+    //Designer("Microsoft.VSDesigner.Data.VS.OleDbDataAdapterDesigner, " + AssemblyRef.MicrosoftVSDesigner),
     ]
     public sealed class OleDbDataAdapter : DbDataAdapter, IDbDataAdapter, ICloneable {
 
@@ -52,7 +52,7 @@ namespace System.Data.OleDb {
 
         [
         DefaultValue(null),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ResCategoryAttribute(Res.DataCategory_Update),
         ResDescriptionAttribute(Res.DbDataAdapter_DeleteCommand),
         ]
@@ -68,7 +68,7 @@ namespace System.Data.OleDb {
  
         [
         DefaultValue(null),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ResCategoryAttribute(Res.DataCategory_Update),
         ResDescriptionAttribute(Res.DbDataAdapter_InsertCommand),
         ]
@@ -84,7 +84,7 @@ namespace System.Data.OleDb {
 
         [
         DefaultValue(null),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ResCategoryAttribute(Res.DataCategory_Fill),
         ResDescriptionAttribute(Res.DbDataAdapter_SelectCommand),
         ]
@@ -100,7 +100,7 @@ namespace System.Data.OleDb {
 
         [
         DefaultValue(null),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ResCategoryAttribute(Res.DataCategory_Update),
         ResDescriptionAttribute(Res.DbDataAdapter_UpdateCommand),
         ]

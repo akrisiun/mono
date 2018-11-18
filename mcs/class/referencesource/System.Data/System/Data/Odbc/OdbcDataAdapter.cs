@@ -16,8 +16,8 @@ namespace System.Data.Odbc {
 
     [
     DefaultEvent("RowUpdated"),
-    ToolboxItem("Microsoft.VSDesigner.Data.VS.OdbcDataAdapterToolboxItem, " + AssemblyRef.MicrosoftVSDesigner), // WebData 97832
-    Designer("Microsoft.VSDesigner.Data.VS.OdbcDataAdapterDesigner, " + AssemblyRef.MicrosoftVSDesigner)
+    //ToolboxItem("Microsoft.VSDesigner.Data.VS.OdbcDataAdapterToolboxItem, " + AssemblyRef.MicrosoftVSDesigner), // WebData 97832
+    //Designer("Microsoft.VSDesigner.Data.VS.OdbcDataAdapterDesigner, " + AssemblyRef.MicrosoftVSDesigner)
     ]
     public sealed class OdbcDataAdapter : DbDataAdapter, IDbDataAdapter, ICloneable {
         
@@ -51,7 +51,7 @@ namespace System.Data.Odbc {
         DefaultValue(null),
         ResCategoryAttribute(Res.DataCategory_Update),
         ResDescriptionAttribute(Res.DbDataAdapter_DeleteCommand),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ]
         new public OdbcCommand DeleteCommand {
             get { return _deleteCommand; }
@@ -67,7 +67,7 @@ namespace System.Data.Odbc {
         DefaultValue(null),
         ResCategoryAttribute(Res.DataCategory_Update),
         ResDescriptionAttribute(Res.DbDataAdapter_InsertCommand),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ]
         new public OdbcCommand InsertCommand {
             get { return _insertCommand; }
@@ -83,7 +83,7 @@ namespace System.Data.Odbc {
         DefaultValue(null),
         ResCategoryAttribute(Res.DataCategory_Fill),
         ResDescriptionAttribute(Res.DbDataAdapter_SelectCommand),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ]
         new public OdbcCommand SelectCommand {
             get { return _selectCommand; }
@@ -99,7 +99,7 @@ namespace System.Data.Odbc {
         DefaultValue(null),
         ResCategoryAttribute(Res.DataCategory_Update),
         ResDescriptionAttribute(Res.DbDataAdapter_UpdateCommand),
-        Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Design.DBCommandEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ]
         new public OdbcCommand UpdateCommand {
             get { return _updateCommand; }

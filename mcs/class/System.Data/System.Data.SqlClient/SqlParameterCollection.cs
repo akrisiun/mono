@@ -46,7 +46,7 @@ using Mono.Data.Tds;
 namespace System.Data.SqlClient
 {
 	[ListBindable (false)]
-	[Editor ("Microsoft.VSDesigner.Data.Design.DBParametersEditor, " + Consts.AssemblyMicrosoft_VSDesigner, "System.Drawing.Design.UITypeEditor, " + Consts.AssemblySystem_Drawing)]
+	// [Editor ("Microsoft.VSDesigner.Data.Design.DBParametersEditor, " + Consts.AssemblyMicrosoft_VSDesigner, "System.Drawing.Design.UITypeEditor, " + Consts.AssemblySystem_Drawing)]
 	public sealed class SqlParameterCollection : DbParameterCollection, IDataParameterCollection, IList, ICollection, IEnumerable
 	{
 		#region Fields

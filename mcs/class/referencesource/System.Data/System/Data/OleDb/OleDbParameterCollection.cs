@@ -17,7 +17,7 @@ namespace System.Data.OleDb {
     using System.Diagnostics;
 
     [
-    Editor("Microsoft.VSDesigner.Data.Design.DBParametersEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+    //Editor("Microsoft.VSDesigner.Data.Design.DBParametersEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
     ListBindable(false)
     ]
     public sealed partial class OleDbParameterCollection : DbParameterCollection {

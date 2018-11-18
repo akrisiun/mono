@@ -55,7 +55,7 @@ namespace System.Data.Odbc {
 
         [
         DefaultValue(""),
-        Editor("Microsoft.VSDesigner.Data.Odbc.Design.OdbcConnectionStringEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.Odbc.Design.OdbcConnectionStringEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
 #pragma warning disable 618 // ignore obsolete warning about RecommendedAsConfigurable to use SettingsBindableAttribute
         RecommendedAsConfigurable(true),
 #pragma warning restore 618

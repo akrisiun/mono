@@ -1,10 +1,10 @@
-﻿//
-// ErrorPrinter.cs
 //
-// Authors:
-//	Marek Safar  <marek.safar@gmail.com>
+// Empty.cs
 //
-// Copyright (C) 2009 Novell, Inc (http://www.novell.com)
+// Author:
+//   Jb Evain (jbevain@gmail.com)
+//
+// Copyright (c) 2008 - 2011 Jb Evain
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -27,37 +27,41 @@
 //
 
 using System;
-using Compiler = Mono.CSharp;
+using Mono.Collections.Generic;
 
-namespace Microsoft.CSharp.RuntimeBinder
-{
-	class ErrorPrinter : Compiler.ReportPrinter
-	{
-		public static readonly ErrorPrinter Instance = new ErrorPrinter ();
+namespace Mono {
 
-		private ErrorPrinter ()
+	static class Empty2<T> {
+
+		public static readonly T [] Array = new T [0];
+	}
+}
+
+namespace Mono.Cecil {
+
+	static partial class Mixin2 {
+
+		public static bool IsNullOrEmpty2<T> (this T [] self)
 		{
+			return self == null || self.Length == 0;
 		}
 
-		public override 
-            bool HasRelatedSymbolSupport {
-			get {
-				return false;
-			}
+		public static bool IsNullOrEmpty2<T> (this Collection<T> self)
+		{
+			return self == null || self.size == 0;
 		}
 
-		public 
-            override 
-            void Print (Compiler.AbstractMessage msg, bool showFullPath)
+		public static T [] Resize2<T> (this T [] self, int length)
 		{
-			string text;
-			if (msg.Code == 214) {
-				text = "Pointers and fixed size buffers cannot be used in a dynamic context";
-			} else {
-				text = msg.Text;
-			}
+#if !CF
+			Array.Resize (ref self, length);
+#else
+			var copy = new T [length];
+			Array.Copy (self, copy, self.Length);
+			self = copy;
+#endif
 
-			throw new RuntimeBinderException (text);
+			return self;
 		}
 	}
 }

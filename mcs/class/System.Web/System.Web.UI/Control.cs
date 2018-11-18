@@ -60,8 +60,8 @@ namespace System.Web.UI
 	[DefaultProperty ("ID"), DesignerCategory ("Code"), ToolboxItemFilter ("System.Web.UI", ToolboxItemFilterType.Require)]
 	[ToolboxItem ("System.Web.UI.Design.WebControlToolboxItem, " + Consts.AssemblySystem_Design)]
 	[Designer ("System.Web.UI.Design.ControlDesigner, " + Consts.AssemblySystem_Design, "System.ComponentModel.Design.IDesigner")]
-	[DesignerSerializer ("Microsoft.VisualStudio.Web.WebForms.ControlCodeDomSerializer, " + Consts.AssemblyMicrosoft_VisualStudio_Web,
-				"System.ComponentModel.Design.Serialization.CodeDomSerializer, " + Consts.AssemblySystem_Design)]
+	//[DesignerSerializer ("Microsoft.VisualStudio.Web.WebForms.ControlCodeDomSerializer, " + Consts.AssemblyMicrosoft_VisualStudio_Web,
+	//			"System.ComponentModel.Design.Serialization.CodeDomSerializer, " + Consts.AssemblySystem_Design)]
 	[Bindable (true)]
 	[Themeable (false)]
 	public partial class Control : IComponent, IDisposable, IParserAccessor, IDataBindingsAccessor, IUrlResolutionService, IControlBuilderAccessor, IControlDesignerAccessor, IExpressionsAccessor

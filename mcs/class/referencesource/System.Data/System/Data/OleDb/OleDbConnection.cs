@@ -52,7 +52,7 @@ namespace System.Data.OleDb {
         SettingsBindableAttribute(true),
         RefreshProperties(RefreshProperties.All),
         ResCategoryAttribute(Res.DataCategory_Data),
-        Editor("Microsoft.VSDesigner.Data.ADO.Design.OleDbConnectionStringEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        //Editor("Microsoft.VSDesigner.Data.ADO.Design.OleDbConnectionStringEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ResDescriptionAttribute(Res.OleDbConnection_ConnectionString),
         ]
         override public string ConnectionString {

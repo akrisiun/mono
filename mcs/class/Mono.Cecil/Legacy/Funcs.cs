@@ -1,10 +1,10 @@
-﻿//
-// ErrorPrinter.cs
 //
-// Authors:
-//	Marek Safar  <marek.safar@gmail.com>
+// Funcs.cs
 //
-// Copyright (C) 2009 Novell, Inc (http://www.novell.com)
+// Author:
+//   Jb Evain (jbevain@gmail.com)
+//
+// Copyright (c) 2008 - 2011 Jb Evain
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -26,38 +26,14 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System;
-using Compiler = Mono.CSharp;
+#if !NET_3_5 && !NET_4_0
 
-namespace Microsoft.CSharp.RuntimeBinder
-{
-	class ErrorPrinter : Compiler.ReportPrinter
-	{
-		public static readonly ErrorPrinter Instance = new ErrorPrinter ();
-
-		private ErrorPrinter ()
-		{
-		}
-
-		public override 
-            bool HasRelatedSymbolSupport {
-			get {
-				return false;
-			}
-		}
-
-		public 
-            override 
-            void Print (Compiler.AbstractMessage msg, bool showFullPath)
-		{
-			string text;
-			if (msg.Code == 214) {
-				text = "Pointers and fixed size buffers cannot be used in a dynamic context";
-			} else {
-				text = msg.Text;
-			}
-
-			throw new RuntimeBinderException (text);
-		}
-	}
+namespace Mono {
+	delegate TResult Func<TResult> ();
+	delegate TResult Func<T, TResult> (T arg1);
+	delegate TResult Func<T1, T2, TResult> (T1 arg1, T2 arg2);
+	//delegate TResult Func<T1, T2, T3, TResult> (T1 arg1, T2 arg2, T3 arg3);
+	//delegate TResult Func<T1, T2, T3, T4, TResult> (T1 arg1, T2 arg2, T3 arg3, T4 arg4);
 }
+
+#endif

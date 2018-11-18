@@ -29,8 +29,8 @@ namespace System.Data.Odbc {
 
     [
     DefaultEvent("RecordsAffected"),
-    ToolboxItem(true),
-    Designer("Microsoft.VSDesigner.Data.VS.OdbcCommandDesigner, " + AssemblyRef.MicrosoftVSDesigner)
+    ToolboxItem(true)
+        // , Designer("Microsoft.VSDesigner.Data.VS.OdbcCommandDesigner, " + AssemblyRef.MicrosoftVSDesigner)
     ]
     public sealed class OdbcCommand : DbCommand, ICloneable {
         private static int          _objectTypeCount; // Bid counter
@@ -153,7 +153,7 @@ namespace System.Data.Odbc {
         DefaultValue(""),
         RefreshProperties(RefreshProperties.All), // MDAC 67707
         ResDescriptionAttribute(Res.DbCommand_CommandText),
-        Editor("Microsoft.VSDesigner.Data.Odbc.Design.OdbcCommandTextEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing)
+        // Editor("Microsoft.VSDesigner.Data.Odbc.Design.OdbcCommandTextEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing)
         ]
         override public string CommandText {
             get {
@@ -235,7 +235,7 @@ namespace System.Data.Odbc {
         DefaultValue(null),
         ResCategoryAttribute(Res.DataCategory_Behavior),
         ResDescriptionAttribute(Res.DbCommand_Connection),
-        Editor("Microsoft.VSDesigner.Data.Design.DbConnectionEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+        // Editor("Microsoft.VSDesigner.Data.Design.DbConnectionEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
         ]
         new public OdbcConnection Connection {
             get {

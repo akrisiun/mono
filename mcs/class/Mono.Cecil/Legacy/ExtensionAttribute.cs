@@ -1,10 +1,10 @@
-﻿//
-// ErrorPrinter.cs
 //
-// Authors:
-//	Marek Safar  <marek.safar@gmail.com>
+// ExtensionAttribute.cs
 //
-// Copyright (C) 2009 Novell, Inc (http://www.novell.com)
+// Author:
+//   Jb Evain (jbevain@gmail.com)
+//
+// Copyright (c) 2008 - 2011 Jb Evain
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -27,37 +27,14 @@
 //
 
 using System;
-using Compiler = Mono.CSharp;
 
-namespace Microsoft.CSharp.RuntimeBinder
-{
-	class ErrorPrinter : Compiler.ReportPrinter
-	{
-		public static readonly ErrorPrinter Instance = new ErrorPrinter ();
+#if !NET_3_5 && !NET_4_0
 
-		private ErrorPrinter ()
-		{
-		}
+namespace System.Runtime.CompilerServices {
 
-		public override 
-            bool HasRelatedSymbolSupport {
-			get {
-				return false;
-			}
-		}
-
-		public 
-            override 
-            void Print (Compiler.AbstractMessage msg, bool showFullPath)
-		{
-			string text;
-			if (msg.Code == 214) {
-				text = "Pointers and fixed size buffers cannot be used in a dynamic context";
-			} else {
-				text = msg.Text;
-			}
-
-			throw new RuntimeBinderException (text);
-		}
+	[AttributeUsage (AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Assembly)]
+	sealed class ExtensionAttribute : Attribute {
 	}
 }
+
+#endif

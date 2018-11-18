@@ -18,7 +18,7 @@ namespace System.Data.Odbc {
     using System.Runtime.InteropServices;
 
     [
-    Editor("Microsoft.VSDesigner.Data.Design.DBParametersEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
+    //Editor("Microsoft.VSDesigner.Data.Design.DBParametersEditor, " + AssemblyRef.MicrosoftVSDesigner, "System.Drawing.Design.UITypeEditor, " + AssemblyRef.SystemDrawing),
     ListBindable(false)
     ]
     public sealed partial class OdbcParameterCollection : DbParameterCollection {
