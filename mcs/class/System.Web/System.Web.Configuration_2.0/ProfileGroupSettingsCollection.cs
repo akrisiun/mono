@@ -59,6 +59,7 @@ namespace System.Web.Configuration
 			}
 		}
 
+        /*
 		// Why override?
 		protected internal override bool IsModified ()
 		{
@@ -70,6 +71,7 @@ namespace System.Web.Configuration
 		{
 			base.ResetModified ();
 		}
+        */
 		
 		public void Clear ()
 		{
@@ -139,10 +141,12 @@ namespace System.Web.Configuration
 			get { return (ProfileGroupSettings) BaseGet (name); }
 		}
 
+        /*
 		protected internal override ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
-		
+		*/
+
 		internal void ResetInternal (ConfigurationElement parentElement)
 		{
 			Reset (parentElement);

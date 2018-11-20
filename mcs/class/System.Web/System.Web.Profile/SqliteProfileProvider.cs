@@ -76,7 +76,8 @@ namespace System.Web.Profile
         /// System.Configuration.Provider.ProviderBase.Initialize Method
         /// </summary>
         public
-            // ANKR: override 
+            // ANKR: 
+            override 
             void Initialize(string name, NameValueCollection config)
         {
             // Initialize values from web.config.
@@ -113,14 +114,13 @@ namespace System.Web.Profile
             }
         }
 
-        new bool alreadyInitialized;
+        // new bool alreadyInitialized = false;
         public new string Name {get;set;}
         public new string Description {get;set;}
 
         void BaseInitialize(string name, NameValueCollection config)
         {
-            alreadyInitialized = true;
-
+            // alreadyInitialized = true;
             Name = name;
 
             if (config != null) {

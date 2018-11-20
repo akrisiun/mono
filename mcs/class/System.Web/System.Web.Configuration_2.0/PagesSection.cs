@@ -307,6 +307,8 @@ namespace System.Web.Configuration
 				base [controlRenderingCompatibilityVersionProp] = value;
 			}
 		}
+
+        /*
 		protected internal override ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
@@ -315,8 +317,9 @@ namespace System.Web.Configuration
 		{
 			base.DeserializeSection (reader);
 
-			/* XXX more here?.. */
+			// XXX more here?..
 		}
+        */
 	}
 }
 
