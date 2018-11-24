@@ -48,13 +48,14 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="..\..\..\external\corert\src\Common\src\System\Numerics\Hashing\HashHelpers.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\Collections\LowLevelComparer.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\Collections\ObjectEqualityComparer.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\Runtime\CompilerServices\ITuple.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\Runtime\CompilerServices\TupleElementNamesAttribute.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\Tuple.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\TupleExtensions.cs" />
-    <Compile Include="..\..\..\external\corert\src\System.Private.CoreLib\src\System\ValueTuple.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\Collections\LowLevelComparer.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\Collections\ObjectEqualityComparer.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\Runtime\CompilerServices\ITuple.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\Runtime\CompilerServices\TupleElementNamesAttribute.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\Tuple.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\TupleExtensions.cs" />
+    <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\ValueTuple.cs" />
+    
     <Compile Include="..\..\build\common\AssemblyRef.cs" />
     <Compile Include="..\..\build\common\Consts.cs" />
     <Compile Include="..\..\build\common\Locale.cs" />

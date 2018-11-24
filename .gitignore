@@ -129,6 +129,12 @@ tmpinst-dir.stamp
 msvc/scripts/inputs/
 extensions-config.h
 
+.vs*
+.vs*/
+obj-net_4_x/
+obj-net*/
+mcs/jay/.vs*
+
 external/aspnetwebstack/
 external/src/
 external/run*
@@ -143,12 +149,11 @@ external/*.sh
 external/*.cmd
 external/binary*
 external/cecil*
-.vs*/
-obj-net_4_x/
 mcs/tools/mdoc/
 mcs/class/System.ValueTuple/
-obj-net*/
 mcs/class/lib/basic/
 mcs/class/lib/net_4*/
 mcs/class/lib/build*/
 mcs/tools/xbuild/tests/
+obj-legacy*/
+mcs/class/legacy/Mono.Cecil/obj-legacy*/
