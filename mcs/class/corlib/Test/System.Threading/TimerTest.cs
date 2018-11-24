@@ -19,7 +19,6 @@ namespace MonoTests.System.Threading {
 		// this bucket is used to avoid non-theadlocal issues
 		class Bucket {
 			public int count;
-			public ManualResetEventSlim mre = new ManualResetEventSlim (false); 
 		}
 
 		[SetUp]
@@ -37,37 +36,22 @@ namespace MonoTests.System.Threading {
 		{
 		}
 
-		private void Callback2 (object foo)
-		{
-			Bucket b = foo as Bucket;
-			Interlocked.Increment (ref b.count);
-			b.mre.Set ();
-		}
-
-
 		[Test]
 		public void TestDueTime ()
 		{
 			Bucket bucket = new Bucket();
 
-			using (Timer t = new Timer (o => Callback2 (o), bucket, 200, Timeout.Infinite)) {
-				Assert.IsTrue (bucket.mre.Wait (5000), "#-1");
-				Assert.AreEqual (1, bucket.count, "#1");
+			using (Timer t = new Timer (o => Callback (o), bucket, 200, Timeout.Infinite)) {
+				Thread.Sleep (50);
+				Assert.AreEqual (0, bucket.count, "#1");
+				Thread.Sleep (200);
+				Assert.AreEqual (1, bucket.count, "#2");
+				Thread.Sleep (500);
+				Assert.AreEqual (1, bucket.count, "#3");
+				t.Change (10, 10);
+				Thread.Sleep (1000);
+				Assert.IsTrue(bucket.count > 20, "#4");
 			}
-		}
-
-		[Test]
-		public void TestDispose ()
-		{	
-			Bucket bucket = new Bucket();
-
-			using (Timer t = new Timer (o => Callback2 (o), bucket, 10, 10)) {
-				Assert.IsTrue (bucket.mre.Wait (5000), "#-1");
-			}
-			//If the callback is called after dispose, it will NRE and be reported
-			bucket.mre = null;
-			int c = bucket.count;
-			Assert.IsTrue (c > 0, "#1");
 		}
 
 		[Test]
@@ -75,14 +59,14 @@ namespace MonoTests.System.Threading {
 		{
 			Bucket bucket = new Bucket();
 
-			using (Timer t = new Timer (o => Callback2 (o), bucket, 10, 10)) {
-				Assert.IsTrue (bucket.mre.Wait (5000), "#-1");
+			using (Timer t = new Timer (o => Callback (o), bucket, 10, 10)) {
+				Thread.Sleep (500);
 				int c = bucket.count;
-				Assert.IsTrue (c > 0, "#1 " + c);
-				t.Change (100000, 1000000);
+				Assert.IsTrue (c > 20, "#1 " + c.ToString ());
+				t.Change (100, 100);
 				c = bucket.count;
 				Thread.Sleep (500);
-				Assert.IsTrue (bucket.count <= c + 1, "#2 " + c);
+				Assert.IsTrue (bucket.count <= c + 20, "#2 " + c.ToString ());
 			}
 		}
 
@@ -91,14 +75,29 @@ namespace MonoTests.System.Threading {
 		{
 			Bucket bucket = new Bucket();
 
-			using (Timer t = new Timer (o => Callback2 (o), bucket, 0, Timeout.Infinite)) {
-				Assert.IsTrue (bucket.mre.Wait (5000), "#-1");
-				bucket.mre.Reset ();
+			using (Timer t = new Timer (o => Callback (o), bucket, 0, Timeout.Infinite)) {
+				Thread.Sleep (100);
 				Assert.AreEqual (1, bucket.count, "#1");
 				t.Change (0, Timeout.Infinite);
-				Assert.IsTrue (bucket.mre.Wait (5000), "#1.5");
+				Thread.Sleep (100);
 				Assert.AreEqual (2, bucket.count, "#2");
 			}
+		}
+
+		[Test]
+		public void TestDispose ()
+		{	
+			Bucket bucket = new Bucket();
+
+			using (Timer t = new Timer (o => Callback (o), bucket, 10, 10)) {
+				Thread.Sleep (200);
+			}
+
+			Thread.Sleep (20);
+			int c = bucket.count;
+			Assert.IsTrue (bucket.count > 5, "#1");
+			Thread.Sleep (200);
+			Assert.AreEqual (c, bucket.count, "#2");
 		}
 
 		[Test] // bug #320950

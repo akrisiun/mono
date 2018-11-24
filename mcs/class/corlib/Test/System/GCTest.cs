@@ -27,7 +27,6 @@
 //
 
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 
 using NUnit.Framework;
@@ -58,10 +57,7 @@ namespace MonoTests.System {
 		[Test]
 		public void ReRegisterForFinalizeTest ()
 		{
-			var thread =  new Thread (Run_ReRegisterForFinalizeTest);
-			thread.Start ();
-			thread.Join ();
-
+			Run_ReRegisterForFinalizeTest ();
 			var t = Task.Factory.StartNew (() => {
 				do {
 					GC.Collect ();
