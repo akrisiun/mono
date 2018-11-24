@@ -26,7 +26,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-partial class SR
+partial class SR3
 {
 	public const string MoreThanOneMatch = "MoreThanOneMatch";
 	public const string NoElements = "NoElements";

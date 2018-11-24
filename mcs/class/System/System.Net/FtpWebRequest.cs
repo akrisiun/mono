@@ -875,7 +875,7 @@ namespace System.Net
 
 			// We need at least the status code and the port
 			if (parsedList.Length <= 7) {
-				throw new FormatException(SR.GetString(SR.net_ftp_response_invalid_format, responseString));
+				throw new FormatException(SR2.GetString(SR.net_ftp_response_invalid_format, responseString));
 			}
 
 			int index = parsedList.Length-1;

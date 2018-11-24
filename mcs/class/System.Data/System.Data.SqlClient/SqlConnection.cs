@@ -138,7 +138,7 @@ namespace System.Data.SqlClient
 
 		[DefaultValue ("")]
 		[EditorAttribute ("Microsoft.VSDesigner.Data.SQL.Design.SqlConnectionStringEditor, "+ Consts.AssemblyMicrosoft_VSDesigner, "System.Drawing.Design.UITypeEditor, "+ Consts.AssemblySystem_Drawing )]
-		[RecommendedAsConfigurable (true)]
+		// [RecommendedAsConfigurable (true)]
 		[RefreshProperties (RefreshProperties.All)]
 		public override string ConnectionString {
 			get {

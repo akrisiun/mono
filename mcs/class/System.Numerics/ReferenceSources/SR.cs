@@ -4,7 +4,13 @@
 
 partial class SR
 {
-	public const string Argument_InvalidNumberStyles = "An undefined NumberStyles value is being used.";
+    public static string Format(string f, params string[] parm)
+        => string.Format(f, parm);  
+
+    internal static string GetString(string name, params object[] args)
+        => SR2.GetString(System.Globalization.CultureInfo.InvariantCulture, name, args);
+
+    public const string Argument_InvalidNumberStyles = "An undefined NumberStyles value is being used.";
 	public const string Argument_InvalidHexStyle = "With the AllowHexSpecifier bit set in the enum bit field, the only other valid bits that can be combined into the enum value must be a subset of those in HexNumber.";
 	public const string Argument_MustBeBigInt = "The parameter must be a BigInteger.";
 	public const string Format_InvalidFormatSpecifier = "Format specifier was invalid.";

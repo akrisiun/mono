@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "standalone-tests": {
+      "commandName": "Executable",
+      "executablePath": "mono.exe",
+      "commandLineArgs": "standalone-tests.exe",
+      "workingDirectory": "E:\\Beta\\mono64\\mono\\mcs\\class\\System.Web\\Test\\standalone-tests\\bin\\net48"
+    }
+  }
+}

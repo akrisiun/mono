@@ -51,31 +51,34 @@ namespace Mono.Net.Security
 {
 	class MonoTlsStream
 	{
+#if SECURITY_DEP		
 		readonly IMonoTlsProvider provider;
+		readonly NetworkStream networkStream;		
 		readonly HttpWebRequest request;
-		readonly NetworkStream networkStream;
-
-		IMonoSslStream sslStream;
-		WebExceptionStatus status;
 
 		internal HttpWebRequest Request {
 			get { return request; }
 		}
 
+		IMonoSslStream sslStream;
+
 		internal IMonoSslStream SslStream {
 			get { return sslStream; }
 		}
-
-		internal WebExceptionStatus ExceptionStatus {
-			get { return status; }
-		}
+#endif
 
 		internal bool CertificateValidationFailed {
 			get; set;
 		}
 
 #if SECURITY_DEP
-		readonly ChainValidationHelper validationHelper;
+		WebExceptionStatus status;
+
+		internal WebExceptionStatus ExceptionStatus {
+			get { return status; }
+		}
+
+//		readonly ChainValidationHelper validationHelper;
 		readonly MonoTlsSettings settings;
 
 		public MonoTlsStream (HttpWebRequest request, NetworkStream networkStream)
@@ -87,7 +90,7 @@ namespace Mono.Net.Security
 			provider = request.TlsProvider ?? MonoTlsProviderFactory.GetProviderInternal ();
 			status = WebExceptionStatus.SecureChannelFailure;
 
-			validationHelper = ChainValidationHelper.Create (provider.Provider, ref settings, this);
+			/*validationHelper =*/ ChainValidationHelper.Create (provider.Provider, ref settings, this);
 		}
 
 		internal Stream CreateStream (byte[] buffer)
@@ -108,7 +111,7 @@ namespace Mono.Net.Security
 					ServicePointManager.CheckCertificateRevocationList);
 
 				status = WebExceptionStatus.Success;
-			} catch (Exception ex) {
+			} catch (Exception) {
 				status = WebExceptionStatus.SecureChannelFailure;
 				throw;
 			} finally {

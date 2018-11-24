@@ -43,7 +43,20 @@ namespace System.Configuration
 		{
 		}
 
+        public void AddProvider(SettingsProvider provider)
+		{
+			if (!(provider is SettingsProvider))
+				throw new ArgumentException ("SettingsProvider is expected");
 #if (CONFIGURATION_DEP)
+			if (string.IsNullOrEmpty (provider.Name))
+				throw new ArgumentException ("Provider name cannot be null or empty");
+
+			base.Add (provider);
+#endif
+        }
+
+#if (CONFIGURATION_DEP)
+
 		public override void Add (ProviderBase provider)
 		{
 			if (!(provider is SettingsProvider))
@@ -59,6 +72,7 @@ namespace System.Configuration
 			}
 		}
 #endif
+
 	}
 }
 

@@ -1287,7 +1287,7 @@ try {
 		}
 	}
 
-	class CCredentialsByHost : ICredentialsByHost
+	class CCredentialsByHost : ICredentialsByHost , INetworkCredential
 	{
 		public CCredentialsByHost (string userName, string password) {
 			this.userName = userName;
@@ -1297,6 +1297,10 @@ try {
 		public NetworkCredential GetCredential (string host, int port, string authenticationType) {
 			return new NetworkCredential (userName, password);
 		}
+
+        INetworkCredential ICredentialsByHost.GetCredential(string host, int port, string authenticationType) => this;
+        public string UserName { get => userName; }
+        public string Password { get => password; }
 
 		private string userName;
 		private string password;

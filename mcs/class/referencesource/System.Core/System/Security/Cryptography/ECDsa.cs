@@ -163,11 +163,11 @@ namespace System.Security.Cryptography {
         }
 
         private static Exception DerivedClassMustOverride() {
-            return new NotImplementedException(SR.GetString(SR.NotSupported_SubclassOverride));
+            return new NotImplementedException(SR.GetString("NotSupported_SubclassOverride"));
         }
 
         internal static Exception HashAlgorithmNameNullOrEmpty() {
-            return new ArgumentException(SR.GetString(SR.Cryptography_HashAlgorithmNameNullOrEmpty), "hashAlgorithm");
+            return new ArgumentException(SR.GetString("Cryptography_HashAlgorithmNameNullOrEmpty {0}", "hashAlgorithm"));
         }
     }
 }

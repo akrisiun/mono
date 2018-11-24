@@ -55,6 +55,7 @@
     <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\Tuple.cs" />
     <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\TupleExtensions.cs" />
     <Compile Include="..\..\..\external\System.Private.CoreLib\src\System\ValueTuple.cs" />
+    
     <Compile Include="..\..\build\common\AssemblyRef.cs" />
     <Compile Include="..\..\build\common\Consts.cs" />
     <Compile Include="..\..\build\common\Locale.cs" />
@@ -319,8 +320,7 @@
     <Compile Include="..\referencesource\mscorlib\system\io\binaryreader.cs" />
     <Compile Include="..\referencesource\mscorlib\system\io\binarywriter.cs" />
     <Compile Include="..\referencesource\mscorlib\system\io\bufferedstream.cs" />
-    <Compile Include="..\referencesource\mscorlib\system\io\directory.cs" /> 
-    
+    <Compile Include="..\referencesource\mscorlib\system\io\directory.cs" />
     <Compile Include="..\referencesource\mscorlib\system\io\directorynotfoundexception.cs" />
     <Compile Include="..\referencesource\mscorlib\system\io\drivenotfoundexception.cs" />
     <Compile Include="..\referencesource\mscorlib\system\io\endofstreamexception.cs" />
@@ -934,7 +934,6 @@
     <Compile Include="System.IO.IsolatedStorage\IsolatedStorageSecurityOptions.cs" />
     <Compile Include="System.IO.IsolatedStorage\IsolatedStorageSecurityState.cs" />
     <Compile Include="System.IO\Directory.cs" />
-     
     <Compile Include="System.IO\DirectoryInfo.cs" />
     <Compile Include="System.IO\DriveInfo.cs" />
     <Compile Include="System.IO\DriveType.cs" />

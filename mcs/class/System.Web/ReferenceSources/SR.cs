@@ -4,6 +4,13 @@
 
 partial class SR
 {
+    public static string Format(string f, params object[] parm)
+    => string.Format(f, parm);  
+
+    internal static string GetString(string name, params object[] args)
+    => SR2.GetString(System.Globalization.CultureInfo.InvariantCulture, name, args);
+
+
 	public const string Parameter_Invalid = "The parameter '{0}' is invalid.";
 	public const string Parameter_NullOrEmpty = "The string parameter '{0}' cannot be null or empty.";
 	public const string Property_NullOrEmpty = "The value assigned to property '{0}' cannot be null or empty.";

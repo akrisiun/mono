@@ -19,6 +19,11 @@ namespace System.Net {
     // be called with the host and realm information.
     //
 
+    public interface INetworkCredential {
+        string UserName { get; }
+        string Password { get; }
+    }
+
     /// <devdoc>
     ///    <para>Provides the base authentication interface for Web client authentication.</para>
     /// </devdoc>
@@ -35,7 +40,9 @@ namespace System.Net {
         // returns null if no information is available
         // for the specified host&realm
         //
-        NetworkCredential GetCredential(Uri uri, String authType);
+        // NetworkCredential 
+        INetworkCredential
+           GetCredential(Uri uri, String authType);
 
     } // interface ICredentials
 

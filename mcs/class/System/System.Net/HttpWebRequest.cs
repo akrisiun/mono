@@ -112,8 +112,10 @@ namespace System.Net
 		int maxResponseHeadersLength;
 		static int defaultMaxResponseHeadersLength;
 		int readWriteTimeout = 300000; // ms
-		IMonoTlsProvider tlsProvider;
+
+
 #if SECURITY_DEP
+        IMonoTlsProvider tlsProvider = null;
 		MonoTlsSettings tlsSettings;
 #endif
 		ServerCertValidationCallback certValidationCallback;
@@ -274,11 +276,11 @@ namespace System.Net
 			}
 		}
 
+#if SECURITY_DEP
 		internal IMonoTlsProvider TlsProvider {
 			get { return tlsProvider; }
 		}
 
-#if SECURITY_DEP
 		internal MonoTlsSettings TlsSettings {
 			get { return tlsSettings; }
 		}
@@ -1485,7 +1487,7 @@ namespace System.Net
 				cnc.PriorityRequest = this;
 				ICredentials creds = (!isProxy || proxy == null) ? credentials : proxy.Credentials;
 				if (creds != null) {
-					cnc.NtlmCredential = creds.GetCredential (requestUri, "NTLM");
+					cnc.NtlmCredential = creds.GetCredential (requestUri, "NTLM") as NetworkCredential;
 					cnc.UnsafeAuthenticatedConnectionSharing = unsafe_auth_blah;
 				}
 			}

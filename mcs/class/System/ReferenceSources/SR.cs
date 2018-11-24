@@ -8,6 +8,12 @@
 
 partial class SR
 {
+    public static string Format(string f, params string[] parm) 
+        => string.Format(f, parm);
+
+	internal static string GetString(string name, params object[] args)
+	    => SR2.GetString (System.Globalization.CultureInfo.InvariantCulture, name, args);
+	
 	public const string RTL = "RTL_False";
 	public const string ContinueButtonText = "Continue";
 	public const string DebugAssertBanner = "---- DEBUG ASSERTION FAILED ----";
@@ -1683,6 +1689,12 @@ partial class SR
 
 partial class SR
 {
+    public static string Format2(string f, params string[] parm) 
+        => string.Format(f, parm);
+
+	internal static string GetString2(string name, params object[] args)
+	    => SR2.GetString (System.Globalization.CultureInfo.InvariantCulture, name, args);
+
 	public static object GetObject (string name)
 	{
 		return name;

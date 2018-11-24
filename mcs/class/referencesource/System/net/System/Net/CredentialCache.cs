@@ -4,6 +4,9 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Globalization;
+
 namespace System.Net {
     using System.Net.Sockets;
     using System.Collections;
@@ -43,16 +46,21 @@ namespace System.Net {
         public CredentialCache() {
         }
 
-    // properties
+        // properties
 
-    // methods
+        // methods
 
+        public INetworkCredential GetCredential(string host, int port, string authenticationType)
+           => throw new NotImplementedException();
+
+        public INetworkCredential GetCredential(Uri uri, string authType)
+            => throw new NotImplementedException();
         /// <devdoc>
         /// <para>Adds a <see cref='System.Net.NetworkCredential'/>
         /// instance to the credential cache.</para>
         /// </devdoc>
         // UEUE
-        public void Add(Uri uriPrefix, string authType, NetworkCredential cred) {
+        public void Add(Uri uriPrefix, string authType, object cred) { // NetworkCredential cred) {
             //
             // parameter validation
             //
@@ -70,14 +78,15 @@ namespace System.Net {
                      || (string.Compare(authType, NegotiateClient.AuthType, StringComparison.OrdinalIgnoreCase)==0))
 #endif
                 ) {
-                throw new ArgumentException(SR.GetString(SR.net_nodefaultcreds, authType), "authType");
+                throw new ArgumentException(SR2.GetString(SR.net_nodefaultcreds, authType), "authType");
             }
 
             ++m_version;
 
             CredentialKey key = new CredentialKey(uriPrefix, authType);
 
-            GlobalLog.Print("CredentialCache::Add() Adding key:[" + key.ToString() + "], cred:[" + cred.Domain + "],[" + cred.UserName + "]");
+            //GlobalLog.Print(
+            //    "CredentialCache::Add() Adding key:[" + key.ToString() + "], cred:[" + cred.Domain + "],[" + cred.UserName + "]");
 
             cache.Add(key, cred);
             if (cred is SystemNetworkCredential) {
@@ -86,7 +95,7 @@ namespace System.Net {
         }
 
 
-        public void Add(string host, int port, string authenticationType, NetworkCredential credential) {
+        public void Add(string host, int port, string authenticationType, object /* NetworkCredential */ credential) {
             //
             // parameter validation
             //
@@ -99,7 +108,7 @@ namespace System.Net {
             }
             
             if (host.Length == 0) {
-                throw new ArgumentException(SR.GetString(SR.net_emptystringcall,"host"));
+                throw new ArgumentException(SR2.GetString(SR.net_emptystringcall,"host"));
             }
 
             if (port < 0) {
@@ -113,14 +122,15 @@ namespace System.Net {
                      || (string.Compare(authenticationType, NegotiateClient.AuthType, StringComparison.OrdinalIgnoreCase)==0))
 #endif
                 ) {
-                throw new ArgumentException(SR.GetString(SR.net_nodefaultcreds, authenticationType), "authenticationType");
+                throw new ArgumentException(SR2.GetString(SR.net_nodefaultcreds, authenticationType), "authenticationType");
             }
 
             ++m_version;
 
             CredentialHostKey key = new CredentialHostKey(host,port, authenticationType);
 
-            GlobalLog.Print("CredentialCache::Add() Adding key:[" + key.ToString() + "], cred:[" + credential.Domain + "],[" + credential.UserName + "]");
+            //GlobalLog.Print(
+            //    "CredentialCache::Add() Adding key:[" + key.ToString() + "], cred:[" + credential.Domain + "],[" + credential.UserName + "]");
 
             cacheForHosts.Add(key, credential);
             if (credential is SystemNetworkCredential) {
@@ -184,98 +194,98 @@ namespace System.Net {
         ///       authentication type.
         ///    </para>
         /// </devdoc>
-        public NetworkCredential GetCredential(Uri uriPrefix, string authType) {
-            if (uriPrefix==null)
-                throw new ArgumentNullException("uriPrefix");
-            if (authType==null)
-                throw new ArgumentNullException("authType");
+        //public NetworkCredential GetCredential(Uri uriPrefix, string authType) {
+        //    if (uriPrefix==null)
+        //        throw new ArgumentNullException("uriPrefix");
+        //    if (authType==null)
+        //        throw new ArgumentNullException("authType");
             
-            GlobalLog.Print("CredentialCache::GetCredential(uriPrefix=\"" + uriPrefix + "\", authType=\"" + authType + "\")");
+        //    GlobalLog.Print("CredentialCache::GetCredential(uriPrefix=\"" + uriPrefix + "\", authType=\"" + authType + "\")");
 
-            int longestMatchPrefix = -1;
-            NetworkCredential mostSpecificMatch = null;
-            IDictionaryEnumerator credEnum = cache.GetEnumerator();
+        //    int longestMatchPrefix = -1;
+        //    NetworkCredential mostSpecificMatch = null;
+        //    IDictionaryEnumerator credEnum = cache.GetEnumerator();
 
-            //
-            // Enumerate through every credential in the cache
-            //
+        //    //
+        //    // Enumerate through every credential in the cache
+        //    //
 
-            while (credEnum.MoveNext()) {
+        //    while (credEnum.MoveNext()) {
 
-                CredentialKey key = (CredentialKey)credEnum.Key;
+        //        CredentialKey key = (CredentialKey)credEnum.Key;
 
-                //
-                // Determine if this credential is applicable to the current Uri/AuthType
-                //
+        //        //
+        //        // Determine if this credential is applicable to the current Uri/AuthType
+        //        //
 
-                if (key.Match(uriPrefix, authType)) {
+        //        if (key.Match(uriPrefix, authType)) {
 
-                    int prefixLen = key.UriPrefixLength;
+        //            int prefixLen = key.UriPrefixLength;
 
-                    //
-                    // Check if the match is better than the current-most-specific match
-                    //
+        //            //
+        //            // Check if the match is better than the current-most-specific match
+        //            //
 
-                    if (prefixLen > longestMatchPrefix) {
+        //            if (prefixLen > longestMatchPrefix) {
 
-                        //
-                        // Yes-- update the information about currently preferred match
-                        //
+        //                //
+        //                // Yes-- update the information about currently preferred match
+        //                //
 
-                        longestMatchPrefix = prefixLen;
-                        mostSpecificMatch = (NetworkCredential)credEnum.Value;
-                    }
-                }
-            }
+        //                longestMatchPrefix = prefixLen;
+        //                mostSpecificMatch = (NetworkCredential)credEnum.Value;
+        //            }
+        //        }
+        //    }
 
-            GlobalLog.Print("CredentialCache::GetCredential returning " + ((mostSpecificMatch==null)?"null":"(" + mostSpecificMatch.UserName + ":" + mostSpecificMatch.Domain + ")"));
+        //    GlobalLog.Print("CredentialCache::GetCredential returning " + ((mostSpecificMatch==null)?"null":"(" + mostSpecificMatch.UserName + ":" + mostSpecificMatch.Domain + ")"));
 
-            return mostSpecificMatch;
-        }
-
-
-        public NetworkCredential GetCredential(string host, int port, string authenticationType) {
-            if (host==null) {
-                throw new ArgumentNullException("host");
-            }
-            if (authenticationType==null){
-                throw new ArgumentNullException("authenticationType");
-            }
-            if (host.Length == 0) {
-                throw new ArgumentException(SR.GetString(SR.net_emptystringcall, "host"));
-            }
-            if (port < 0) {
-                throw new ArgumentOutOfRangeException("port");
-            }
+        //    return mostSpecificMatch;
+        //}
 
 
-            GlobalLog.Print("CredentialCache::GetCredential(host=\"" + host + ":" + port.ToString() +"\", authenticationType=\"" + authenticationType + "\")");
+        //public NetworkCredential GetCredential(string host, int port, string authenticationType) {
+        //    if (host==null) {
+        //        throw new ArgumentNullException("host");
+        //    }
+        //    if (authenticationType==null){
+        //        throw new ArgumentNullException("authenticationType");
+        //    }
+        //    if (host.Length == 0) {
+        //        throw new ArgumentException(SR.GetString(SR.net_emptystringcall, "host"));
+        //    }
+        //    if (port < 0) {
+        //        throw new ArgumentOutOfRangeException("port");
+        //    }
 
-            NetworkCredential match = null;
 
-            IDictionaryEnumerator credEnum = cacheForHosts.GetEnumerator();
+        //    GlobalLog.Print("CredentialCache::GetCredential(host=\"" + host + ":" + port.ToString() +"\", authenticationType=\"" + authenticationType + "\")");
 
-            //
-            // Enumerate through every credential in the cache
-            //
+        //    NetworkCredential match = null;
 
-            while (credEnum.MoveNext()) {
+        //    IDictionaryEnumerator credEnum = cacheForHosts.GetEnumerator();
 
-                CredentialHostKey key = (CredentialHostKey)credEnum.Key;
+        //    //
+        //    // Enumerate through every credential in the cache
+        //    //
 
-                //
-                // Determine if this credential is applicable to the current Uri/AuthType
-                //
+        //    while (credEnum.MoveNext()) {
 
-                if (key.Match(host, port, authenticationType)) {
+        //        CredentialHostKey key = (CredentialHostKey)credEnum.Key;
 
-                        match = (NetworkCredential)credEnum.Value;
-                }
-            }
+        //        //
+        //        // Determine if this credential is applicable to the current Uri/AuthType
+        //        //
 
-            GlobalLog.Print("CredentialCache::GetCredential returning " + ((match==null)?"null":"(" + match.UserName + ":" + match.Domain + ")"));
-            return match;
-        }
+        //        if (key.Match(host, port, authenticationType)) {
+
+        //                match = (NetworkCredential)credEnum.Value;
+        //        }
+        //    }
+
+        //    GlobalLog.Print("CredentialCache::GetCredential returning " + ((match==null)?"null":"(" + match.UserName + ":" + match.Domain + ")"));
+        //    return match;
+        //}
 
 
 
@@ -309,7 +319,7 @@ namespace System.Net {
             }
         }
         
-        public static NetworkCredential DefaultNetworkCredentials {
+        public static INetworkCredential DefaultNetworkCredentials {
             get {
                 //This check will not allow to use local user credentials at will.
                 //Hence the username will not be exposed to the network
@@ -346,10 +356,10 @@ namespace System.Net {
             object IEnumerator.Current {
                 get {
                     if (m_index < 0 || m_index >= m_array.Length) {
-                        throw new InvalidOperationException(SR.GetString(SR.InvalidOperation_EnumOpCantHappen));
+                        throw new InvalidOperationException(SR2.GetString(SR.InvalidOperation_EnumOpCantHappen));
                     }
                     if (m_version != m_cache.m_version) {
-                        throw new InvalidOperationException(SR.GetString(SR.InvalidOperation_EnumFailedVersion));
+                        throw new InvalidOperationException(SR2.GetString(SR.InvalidOperation_EnumFailedVersion));
                     }
                     return m_array[m_index];
                 }
@@ -359,7 +369,7 @@ namespace System.Net {
 
             bool IEnumerator.MoveNext() {
                 if (m_version != m_cache.m_version) {
-                    throw new InvalidOperationException(SR.GetString(SR.InvalidOperation_EnumFailedVersion));
+                    throw new InvalidOperationException(SR2.GetString(SR.InvalidOperation_EnumFailedVersion));
                 }
                 if (++m_index < m_array.Length) {
                     return true;
@@ -390,13 +400,24 @@ namespace System.Net {
     //
     // Object representing default credentials
     //
-    internal class SystemNetworkCredential : NetworkCredential {
+
+    internal class SystemNetworkCredential : ICredentials, INetworkCredential { 
+        // : NetworkCredential {
         internal static readonly SystemNetworkCredential defaultCredential = new SystemNetworkCredential();
 
         // We want reference equality to work.  Making this private is a good way to guarantee that.
-        private SystemNetworkCredential() :
-            base(string.Empty, string.Empty, string.Empty) {
+        // private 
+        public SystemNetworkCredential(string user = null, string pass = null)
+        // : base(string.Empty, string.Empty, string.Empty) 
+        {
+            UserName = user ?? "";
+            Password = pass ?? "";
         }
+
+        public INetworkCredential GetCredential(Uri uri, String authType) => this;
+
+        public string UserName { get; private set; }
+        public string Password { get; private set; }
     }
 
 
@@ -464,7 +485,7 @@ namespace System.Net {
                 (string.Compare(Host, comparedCredentialKey.Host, StringComparison.OrdinalIgnoreCase ) == 0) &&
                 Port == comparedCredentialKey.Port;
 
-            GlobalLog.Print("CredentialKey::Equals(" + ToString() + ", " + comparedCredentialKey.ToString() + ") returns " + equals.ToString());
+            // GlobalLog.Print("CredentialKey::Equals(" + ToString() + ", " + comparedCredentialKey.ToString() + ") returns " + equals.ToString());
 
             return equals;
         }
@@ -500,7 +521,7 @@ namespace System.Net {
                 return false;
             }
 
-            GlobalLog.Print("CredentialKey::Match(" + UriPrefix.ToString() + " & " + uri.ToString() + ")");
+            // GlobalLog.Print("CredentialKey::Match(" + UriPrefix.ToString() + " & " + uri.ToString() + ")");
 
             return IsPrefix(uri, UriPrefix);
         }
@@ -558,13 +579,14 @@ namespace System.Net {
                 (string.Compare(AuthenticationType, comparedCredentialKey.AuthenticationType, StringComparison.OrdinalIgnoreCase ) == 0) &&
                 UriPrefix.Equals(comparedCredentialKey.UriPrefix);
 
-            GlobalLog.Print("CredentialKey::Equals(" + ToString() + ", " + comparedCredentialKey.ToString() + ") returns " + equals.ToString());
+            // GlobalLog.Print("CredentialKey::Equals(" + ToString() + ", " + comparedCredentialKey.ToString() + ") returns " + equals.ToString());
 
             return equals;
         }
 
         public override string ToString() {
-            return "[" + UriPrefixLength.ToString(NumberFormatInfo.InvariantInfo) + "]:" + ValidationHelper.ToString(UriPrefix) + ":" + ValidationHelper.ToString(AuthenticationType);
+            return "[" + UriPrefixLength.ToString(NumberFormatInfo.InvariantInfo);
+                 // + "]:" + ValidationHelper.ToString(UriPrefix) + ":" + ValidationHelper.ToString(AuthenticationType);
         }
 
     } // class CredentialKey

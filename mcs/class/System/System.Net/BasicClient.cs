@@ -61,7 +61,7 @@ namespace System.Net
 			if (request == null || credentials == null)
 				return null;
 
-			NetworkCredential cred = credentials.GetCredential (request.AuthUri, "basic");
+			NetworkCredential cred = credentials.GetCredential (request.AuthUri, "basic") as NetworkCredential;
 			if (cred == null)
 				return null;
 

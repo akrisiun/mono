@@ -61,7 +61,7 @@ namespace System.ComponentModel
         {
             if (!WorkerSupportsCancellation)
             {
-                throw new InvalidOperationException(SR.GetString(SR.BackgroundWorker_WorkerDoesntSupportCancellation));
+                throw new InvalidOperationException(SR2.GetString(SR.BackgroundWorker_WorkerDoesntSupportCancellation));
             }
 
             cancellationPending = true;
@@ -158,7 +158,7 @@ namespace System.ComponentModel
         {
             if (!WorkerReportsProgress)
             {
-                throw new InvalidOperationException(SR.GetString(SR.BackgroundWorker_WorkerDoesntReportProgress));
+                throw new InvalidOperationException(SR2.GetString(SR.BackgroundWorker_WorkerDoesntReportProgress));
             }
             
             ProgressChangedEventArgs args = new ProgressChangedEventArgs(percentProgress, userState);
@@ -182,7 +182,7 @@ namespace System.ComponentModel
         {
             if (isRunning)
             {
-                throw new InvalidOperationException(SR.GetString(SR.BackgroundWorker_WorkerAlreadyRunning));
+                throw new InvalidOperationException(SR2.GetString(SR.BackgroundWorker_WorkerAlreadyRunning));
             }
 
             isRunning = true;

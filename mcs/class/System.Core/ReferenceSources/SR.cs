@@ -4,7 +4,14 @@
 
 partial class SR
 {
-	public const string ArgumentOutOfRange_NeedNonNegNum = "Non negative number is required.";
+    public static string Format(string f, params object[] parm)
+        => string.Format(f, parm);  
+
+    internal static string GetString(string name, params object[] args)
+        => SR2.GetString(System.Globalization.CultureInfo.InvariantCulture, name, args);
+
+
+    public const string ArgumentOutOfRange_NeedNonNegNum = "Non negative number is required.";
 	public const string Argument_WrongAsyncResult = "IAsyncResult object did not come from the corresponding async method on this type.";
 	public const string Argument_InvalidOffLen = "Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.";
 	public const string Argument_NeedNonemptyPipeName = "pipeName cannot be an empty string.";

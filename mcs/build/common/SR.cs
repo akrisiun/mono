@@ -1,7 +1,19 @@
 using System.Globalization;
 
-static partial class SR
+/* partial class SR {
+  
+    public static string Format(string f, params object[] parm)
+        => string.Format(f, parm);  
+
+    internal static string GetString(string name, params object[] args)
+        => SR2.GetString(System.Globalization.CultureInfo.InvariantCulture, name, args);
+*/
+
+static partial class SR2
 {
+    public static string Format(string f, params string[] parm) 
+        => string.Format(f, parm);
+
 	internal static string GetString(string name, params object[] args)
 	{
 		return GetString (CultureInfo.InvariantCulture, name, args);
@@ -30,6 +42,6 @@ namespace System.Runtime.CompilerServices
 
     class FriendAccessAllowedAttribute2 : Attribute
 	{
-        public FriendAccessAllowedAttribute Friend { get; set; }
+        // internal FriendAccessAllowedAttribute Friend { get; set; }
     }
 }

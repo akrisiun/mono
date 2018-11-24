@@ -84,7 +84,8 @@ namespace System.Configuration
 			get { return isDesignTime; }
 		}
 
-		public event InternalConfigEventHandler ConfigChanged;
+#pragma warning disable CS0067
+        public event InternalConfigEventHandler ConfigChanged;
 		public event InternalConfigEventHandler ConfigRemoved;
 	}
 }

@@ -61,7 +61,7 @@ namespace System.Diagnostics {
 #endif
         Int32 m_processAccess;
 
-#if !FEATURE_PAL        
+#if NET49 // ! FEATURE_PAL        
         ProcessThreadCollection threads;
         ProcessModuleCollection modules;
 #endif // !FEATURE_PAL        
@@ -1619,7 +1619,7 @@ namespace System.Diagnostics {
             return new Process(machineName, ProcessManager.IsRemoteMachine(machineName), processId, null);
         }
 #endif
-
+        /*
         /// <devdoc>
         ///    <para>
         ///       Returns a new <see cref='System.Diagnostics.Process'/> component given the
@@ -1645,6 +1645,7 @@ namespace System.Diagnostics {
         public static Process[] GetProcessesByName(string processName) {
             return GetProcessesByName(processName, ".");
         }
+        */
 
         /// <devdoc>
         ///    <para>
@@ -1872,7 +1873,7 @@ namespace System.Diagnostics {
 #if !MONO
             processInfo = null;
 #endif
-#if !FEATURE_PAL            
+#if NET49 // ankr: !FEATURE_PAL            
             threads = null;
             modules = null;
 #endif // !FEATURE_PAL            
@@ -2735,7 +2736,7 @@ namespace System.Diagnostics {
                 output.CancelOperation();
             }
             else {
-                throw new InvalidOperationException(SR.GetString(SR.NoAsyncOperation));
+                throw new InvalidOperationException(SR2.GetString(SR.NoAsyncOperation));
             }
 
             pendingOutputRead = false;
@@ -2753,7 +2754,7 @@ namespace System.Diagnostics {
                 error.CancelOperation();
             }
             else {
-                throw new InvalidOperationException(SR.GetString(SR.NoAsyncOperation));
+                throw new InvalidOperationException(SR2.GetString(SR.NoAsyncOperation));
             }
 
             pendingErrorRead = false;
@@ -2903,7 +2904,7 @@ namespace System.Diagnostics {
                 envBlock = Encoding.Default.GetBytes(stringBuff.ToString());
 
                 if (envBlock.Length > UInt16.MaxValue)
-                    throw new InvalidOperationException(SR.GetString(SR.EnvironmentBlockTooLong, envBlock.Length));
+                    throw new InvalidOperationException(SR2.GetString(SR.EnvironmentBlockTooLong, envBlock.Length));
             }
 
             return envBlock;

@@ -306,7 +306,7 @@ namespace System.Net
 				return null;
 	
 			lastUse = DateTime.Now;
-			NetworkCredential cred = credentials.GetCredential (request.RequestUri, "digest");
+			NetworkCredential cred = credentials.GetCredential (request.RequestUri, "digest") as NetworkCredential;
 			if (cred == null)
 				return null;
 

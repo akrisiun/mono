@@ -171,6 +171,8 @@ namespace System.Web.Compilation
 				language = null;
 				
 				extension = Path.GetExtension (f);
+
+#if CONFIGURATION_DEP
 				if (String.IsNullOrEmpty (extension) || !CodeDomProvider.IsDefinedExtension (extension))
 					known = false;
 				if (known) {
@@ -178,7 +180,8 @@ namespace System.Web.Compilation
 					if (!CodeDomProvider.IsDefinedLanguage (language))
 						known = false;
 				}
-				if (!known || language == null) {
+#endif
+                if (!known || language == null) {
 					unknownfiles.Add (f);
 					continue;
 				}
@@ -202,8 +205,10 @@ namespace System.Web.Compilation
 			CodeDomProvider provider = null;
 			CompilationSection compilationSection = WebConfigurationManager.GetWebApplicationSection ("system.web/compilation") as CompilationSection;
 			if (compilerInfo == null) {
+#if CONFIGURATION_DEP
 				if (!CodeDomProvider.IsDefinedLanguage (compilationSection.DefaultLanguage))
 					throw new HttpException ("Failed to retrieve default source language");
+#endif
 				compilerInfo = CodeDomProvider.GetCompilerInfo (compilationSection.DefaultLanguage);
 				if (compilerInfo == null || !compilerInfo.IsCodeDomProviderTypeValid)
 					throw new HttpException ("Internal error while initializing application");

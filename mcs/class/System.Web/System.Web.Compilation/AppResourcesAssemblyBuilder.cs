@@ -83,9 +83,11 @@ namespace System.Web.Compilation
 			this.canonicAssemblyName = canonicAssemblyName;
 			
 			config = WebConfigurationManager.GetWebApplicationSection ("system.web/compilation") as CompilationSection;
+#if CONFIGURATION_DEP
 			if (config == null || !CodeDomProvider.IsDefinedLanguage (config.DefaultLanguage))
 				throw new ApplicationException ("Could not get the default compiler.");
-			ci = CodeDomProvider.GetCompilerInfo (config.DefaultLanguage);
+#endif
+            ci = CodeDomProvider.GetCompilerInfo (config.DefaultLanguage);
 			if (ci == null || !ci.IsCodeDomProviderTypeValid)
 				throw new ApplicationException ("Failed to obtain the default compiler information.");
 		}

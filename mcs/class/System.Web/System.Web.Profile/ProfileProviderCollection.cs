@@ -38,7 +38,14 @@ namespace System.Web.Profile
 		{
 		}
 
-		public override void Add (ProviderBase provider)
+
+#if CONFIGURATION_DEP
+
+        public override 
+            void Add(ProviderBase provider)
+            => AddBase(provider);
+
+        public void AddBase(ProviderBase provider)
 		{
 			base.Add (provider);
 		}
@@ -49,7 +56,12 @@ namespace System.Web.Profile
 			}
 		}
 
-	}
+        public object Get(string name) => this[name];
+#else 
+        public object Get(string name) => null;
+#endif
+
+    }
 	
 }
 

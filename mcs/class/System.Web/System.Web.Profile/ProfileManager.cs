@@ -149,26 +149,30 @@ namespace System.Web.Profile
 		[MonoTODO ("check AspNetHostingPermissionLevel")]
 		public static ProfileProvider Provider {
 			get	{
-				ProfileProvider p = Providers [config.DefaultProvider];
+                ProfileProvider p = Providers.Get(config.DefaultProvider) as  ProfileProvider; //  Providers [config.DefaultProvider];
 				if (p == null)
 					throw new ConfigurationErrorsException ("Provider '" + config.DefaultProvider + "' was not found");
 				return p;
 			}
 		}
 
+// #if CONFIGURATION_DEP
+
 		public static ProfileProviderCollection Providers {
 			get {
 				CheckEnabled ();
 				if (providersCollection == null) {
-					ProfileProviderCollection providersCollectionTmp = new ProfileProviderCollection ();
+					var providersCollectionTmp = new ProfileProviderCollection ();
+#if CONFIGURATION_DEP
 					ProvidersHelper.InstantiateProviders (config.Providers, providersCollectionTmp, typeof (ProfileProvider));
-					providersCollection = providersCollectionTmp;
+#endif
+                    providersCollection = providersCollectionTmp;
 				}
 				return providersCollection;
 			}
 		}
 
-		static void CheckEnabled ()
+        static void CheckEnabled ()
 		{
 			if (!Enabled)
 				throw new Exception ("This feature is not enabled.  To enable it, add <profile enabled=\"true\"> to your configuration file.");

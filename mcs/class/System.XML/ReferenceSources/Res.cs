@@ -12,7 +12,7 @@ namespace System.Xml
 			if (args == null)
 				return name;
 				
-			return SR.GetString (name, args);
+			return string.Format(name, args);
 		}
 
 		public const string Xml_UserException = "{0}";
@@ -1041,7 +1041,7 @@ namespace System.Xml.Utils
 
 		public static string GetString (string name, params object[] args)
 		{
-			return SR.GetString (name, args);
+			return string.Format(name, args);
 		}		
 
 		public const string Xml_UserException = "{0}";

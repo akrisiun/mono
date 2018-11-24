@@ -35,7 +35,8 @@ namespace System.Net {
         // returns null if no information is available
         // for the specified host&realm
         //
-        NetworkCredential GetCredential(string host, int port, string authenticationType);
+        // NetworkCredential 
+        INetworkCredential GetCredential(string host, int port, string authenticationType);
 
     } // interface ICredentials
 

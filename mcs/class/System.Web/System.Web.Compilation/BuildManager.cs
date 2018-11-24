@@ -1046,6 +1046,7 @@ namespace System.Web.Compilation
 				return new CompilerType (type, p);
 			}
 
+#if CONFIGURATION_DEP
 			if (CodeDomProvider.IsDefinedLanguage (language)) {
 				CompilerInfo info = CodeDomProvider.GetCompilerInfo (language);
 				p = info.CreateDefaultCompilerParameters ();
@@ -1053,7 +1054,7 @@ namespace System.Web.Compilation
 				SetCommonParameters (config, p, type, language);
 				return new CompilerType (type, p);
 			}
-
+#endif
 			if (throwOnMissing)
 				throw new HttpException (String.Concat ("No compiler for language '", language, "'."));
 

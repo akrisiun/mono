@@ -312,8 +312,10 @@ namespace System.Web.Profile
 			_settingsContext.Add ("UserName", username);
 			_settingsContext.Add ("IsAuthenticated", isAuthenticated);
 			SettingsProviderCollection spc = new SettingsProviderCollection();
+#if CONFIGURATION_DEP
 			spc.Add (ProfileManager.Provider);
-			base.Initialize (Context, ProfileBase.Properties, spc);
+#endif
+            base.Initialize (Context, ProfileBase.Properties, spc);
 		}
 
 		public override void Save ()

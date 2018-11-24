@@ -24,7 +24,7 @@ namespace System.Net {
     ///    <para>Provides credentials for password-based
     ///       authentication schemes such as basic, digest, NTLM and Kerberos.</para>
     /// </devdoc>
-    public class NetworkCredential : ICredentials,ICredentialsByHost {
+    public class NetworkCredential : ICredentials, INetworkCredential, ICredentialsByHost {
 
 #if MONO_FEATURE_CAS
         private static volatile EnvironmentPermission m_environmentUserNamePermission;
@@ -243,11 +243,11 @@ namespace System.Net {
         ///       authentication type.
         ///    </para>
         /// </devdoc>
-        public NetworkCredential GetCredential(Uri uri, String authType) {
+        public INetworkCredential GetCredential(Uri uri, String authType) {
             return this;
         }
 
-        public NetworkCredential GetCredential(string host, int port, String authenticationType) {
+        public INetworkCredential GetCredential(string host, int port, String authenticationType) {
             return this;
         }
 

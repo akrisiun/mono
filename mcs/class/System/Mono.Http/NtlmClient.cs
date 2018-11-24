@@ -58,7 +58,7 @@ namespace Mono.Http
 			if (request == null)
 				return null;
 	
-			NetworkCredential cred = credentials.GetCredential (request.RequestUri, "NTLM");
+			NetworkCredential cred = credentials.GetCredential (request.RequestUri, "NTLM") as NetworkCredential;
 			if (cred == null)
 				return null;
 

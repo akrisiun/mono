@@ -66,7 +66,12 @@ namespace System.Net
 		bool chunkedRead;
 		ChunkStream chunkStream;
 		Queue queue;
-		bool reused;
+
+
+        // ankr:
+#pragma warning disable CS0414
+        bool reused = false;
+
 		int position;
 		HttpWebRequest priority_request;		
 		NetworkCredential ntlm_credentials;
@@ -83,8 +88,11 @@ namespace System.Net
 		HttpWebRequest connect_request;
 
 		Exception connect_exception;
-		static object classLock = new object ();
+
+#if SECURITY_DEP
+        // ankr
 		MonoTlsStream tlsStream;
+#endif
 
 #if MONOTOUCH && !MONOTOUCH_TV && !MONOTOUCH_WATCH
 		[System.Runtime.InteropServices.DllImport ("__Internal")]
@@ -133,6 +141,8 @@ namespace System.Net
 		
 		void Connect (HttpWebRequest request)
 		{
+            reused = false;
+
 			lock (socketLock) {
 				if (socket != null && socket.Connected && status == WebExceptionStatus.Success) {
 					// Take the chunked stream to the expected state (State.None)
@@ -423,9 +433,10 @@ namespace System.Net
 					nstream = serverStream;
 				}
 			} catch (Exception ex) {
-				if (tlsStream != null)
-					status = tlsStream.ExceptionStatus;
-				else if (!request.Aborted)
+				//if (tlsStream != null)
+				//	status = tlsStream.ExceptionStatus;
+				//else
+                if (!request.Aborted)
 					status = WebExceptionStatus.ConnectFailure;
 				connect_exception = ex;
 				return false;
