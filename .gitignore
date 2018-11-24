@@ -148,7 +148,7 @@ external/*.txt
 external/*.sh
 external/*.cmd
 external/binary*
-external/cecil*
+external/cecil2/
 mcs/tools/mdoc/
 mcs/class/System.ValueTuple/
 mcs/class/lib/basic/

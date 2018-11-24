@@ -1,4 +1,11 @@
 @echo off
+
+git config core.filemode false
+@REM # git rm --cached external/cecil 
+
+git submodule update --init
+git submodule sync
+
 cd mcs\jay
 
 @REM # vcbuild 
