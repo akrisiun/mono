@@ -39,6 +39,7 @@ obj/
 Ankh.NoLoad
 *.gpState
 .vscode/
+*.exp
 
 # Tooling
 _ReSharper*/
@@ -128,3 +129,29 @@ tmpinst-dir.stamp
 msvc/scripts/inputs/
 extensions-config.h
 
+.vs*
+.vs*/
+obj-net_4_x/
+obj-net*/
+mcs/jay/.vs*
+
+external/aspnetwebstack/
+external/src/
+external/run*
+external/pub*
+external/New*
+external/core*
+external/too*
+external/R*
+external/P*
+external/*.txt
+external/*.sh
+external/*.cmd
+external/binary*
+external/cecil*
+mcs/tools/mdoc/
+mcs/class/System.ValueTuple/
+mcs/class/lib/basic/
+mcs/class/lib/net_4*/
+mcs/class/lib/build*/
+mcs/tools/xbuild/tests/
