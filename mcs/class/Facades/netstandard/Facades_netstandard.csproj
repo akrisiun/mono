@@ -74,42 +74,126 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../../System/System.csproj" />
-    <ProjectReference Include="../../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../../System.Xml.Linq/System.Xml.Linq.csproj" />
-    <ProjectReference Include="../../System.Runtime.Serialization/System.Runtime.Serialization.csproj" />
-    <ProjectReference Include="../../System.Core/System.Core.csproj" />
-    <ProjectReference Include="../../System.Numerics/System.Numerics.csproj" />
-    <ProjectReference Include="../../System.Numerics.Vectors/System.Numerics.Vectors.csproj" />
-    <ProjectReference Include="../../System.Net.Http/System.Net.Http.csproj" />
-    <ProjectReference Include="../../System.Transactions/System.Transactions.csproj" />
-    <ProjectReference Include="../../System.IO.Compression/System.IO.Compression.csproj" />
-    <ProjectReference Include="../../System.Data/System.Data.csproj" />
-    <ProjectReference Include="../../System.ComponentModel.Composition.4.5/System.ComponentModel.Composition.csproj" />
-    <ProjectReference Include="../../System.IO.Compression.FileSystem/System.IO.Compression.FileSystem.csproj" />
-    <ProjectReference Include="../System.Runtime.InteropServices.RuntimeInformation/Facades_System.Runtime.InteropServices.RuntimeInformation.csproj" />
-    <ProjectReference Include="../System.Security.Cryptography.Algorithms/Facades_System.Security.Cryptography.Algorithms.csproj" />
-    <ProjectReference Include="../System.Globalization.Extensions/Facades_System.Globalization.Extensions.csproj" />
-    <ProjectReference Include="../System.Data.Common/Facades_System.Data.Common.csproj" />
-    <ProjectReference Include="../System.Diagnostics.StackTrace/Facades_System.Diagnostics.StackTrace.csproj" />
-    <ProjectReference Include="../System.Runtime.Serialization.Xml/Facades_System.Runtime.Serialization.Xml.csproj" />
-    <ProjectReference Include="../System.Runtime.Serialization.Primitives/Facades_System.Runtime.Serialization.Primitives.csproj" />
-    <ProjectReference Include="../System.Security.SecureString/Facades_System.Security.SecureString.csproj" />
-    <ProjectReference Include="../System.Threading.Overlapped/Facades_System.Threading.Overlapped.csproj" />
-    <ProjectReference Include="../System.Xml.XPath.XDocument/Facades_System.Xml.XPath.XDocument.csproj" />
-    <ProjectReference Include="../../corlib/corlib.csproj" />
+    <ProjectReference Include="..\..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Xml.Linq\System.Xml.Linq.csproj">
+      <Project>{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}</Project>
+      <Name>System.Xml.Linq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Runtime.Serialization\System.Runtime.Serialization.csproj">
+      <Project>{1D638902-5EFD-49BA-98E5-E80239CA6EF6}</Project>
+      <Name>System.Runtime.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Core\System.Core.csproj">
+      <Project>{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}</Project>
+      <Name>System.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Numerics\System.Numerics.csproj">
+      <Project>{8C07E4E7-2689-452F-AF8C-201E7E23E48C}</Project>
+      <Name>System.Numerics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Numerics.Vectors\System.Numerics.Vectors.csproj">
+      <Project>{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}</Project>
+      <Name>System.Numerics.Vectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Net.Http\System.Net.Http.csproj">
+      <Project>{4DE5B183-8B61-4159-890B-F5BD501C4507}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Transactions\System.Transactions.csproj">
+      <Project>{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}</Project>
+      <Name>System.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.IO.Compression\System.IO.Compression.csproj">
+      <Project>{4900DA48-CB1B-4520-98EE-F6B0F3054341}</Project>
+      <Name>System.IO.Compression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Data\System.Data.csproj">
+      <Project>{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}</Project>
+      <Name>System.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.ComponentModel.Composition.4.5\System.ComponentModel.Composition.csproj">
+      <Project>{2EEAD467-A190-4094-85EE-FDC354A876AF}</Project>
+      <Name>System.ComponentModel.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.IO.Compression.FileSystem\System.IO.Compression.FileSystem.csproj">
+      <Project>{593AF45E-4E30-4D2B-8AEC-273C44BE998A}</Project>
+      <Name>System.IO.Compression.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Runtime.InteropServices.RuntimeInformation\Facades_System.Runtime.InteropServices.RuntimeInformation.csproj">
+      <Project>{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}</Project>
+      <Name>Facades_System.Runtime.InteropServices.RuntimeInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Security.Cryptography.Algorithms\Facades_System.Security.Cryptography.Algorithms.csproj">
+      <Project>{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}</Project>
+      <Name>Facades_System.Security.Cryptography.Algorithms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Globalization.Extensions\Facades_System.Globalization.Extensions.csproj">
+      <Project>{9043EA6B-D194-45E4-B8A5-B176BF06AA90}</Project>
+      <Name>Facades_System.Globalization.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Data.Common\Facades_System.Data.Common.csproj">
+      <Project>{47044138-F46D-4336-ACD5-880B083A8B5D}</Project>
+      <Name>Facades_System.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Diagnostics.StackTrace\Facades_System.Diagnostics.StackTrace.csproj">
+      <Project>{CB170322-1467-40B2-B598-E6212ECD3B89}</Project>
+      <Name>Facades_System.Diagnostics.StackTrace</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Runtime.Serialization.Xml\Facades_System.Runtime.Serialization.Xml.csproj">
+      <Project>{20A4C495-61B2-4546-8048-B630206878B2}</Project>
+      <Name>Facades_System.Runtime.Serialization.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Runtime.Serialization.Primitives\Facades_System.Runtime.Serialization.Primitives.csproj">
+      <Project>{67E770FE-AD7C-442D-BE35-43E917A177B8}</Project>
+      <Name>Facades_System.Runtime.Serialization.Primitives</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Security.SecureString\Facades_System.Security.SecureString.csproj">
+      <Project>{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}</Project>
+      <Name>Facades_System.Security.SecureString</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Threading.Overlapped\Facades_System.Threading.Overlapped.csproj">
+      <Project>{4A319895-62F2-4B52-A853-5A806485419D}</Project>
+      <Name>Facades_System.Threading.Overlapped</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Xml.XPath.XDocument\Facades_System.Xml.XPath.XDocument.csproj">
+      <Project>{655939D1-09DA-4135-AF7B-DC271AD39292}</Project>
+      <Name>Facades_System.Xml.XPath.XDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <ProjectReference Include="../../System.Web/System.Web.csproj" />
-    <ProjectReference Include="../../System.Drawing/System.Drawing.csproj" />
+    <ProjectReference Include="..\..\System.Web\System.Web.csproj">
+      <Project>{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}</Project>
+      <Name>System.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Drawing\System.Drawing.csproj">
+      <Project>{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}</Project>
+      <Name>System.Drawing</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'winaot' ">
-    <ProjectReference Include="../../System.Web.Services/System.Web.Services.csproj" />
+    <ProjectReference Include="..\..\System.Web.Services\System.Web.Services.csproj">
+      <Project>{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}</Project>
+      <Name>System.Web.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="../../System.Drawing/System.Drawing.csproj" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'xammac_net_4_5' ">
     <ProjectReference Include="../../System.Web.Services/System.Web.Services.csproj" />
-    <ProjectReference Include="../System.Drawing.Primitives/Facades_System.Drawing.Primitives.csproj" />
+    <ProjectReference Include="..\System.Drawing.Primitives\Facades_System.Drawing.Primitives.csproj">
+      <Project>{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}</Project>
+      <Name>Facades_System.Drawing.Primitives</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'orbis' ">
     <ProjectReference Include="../../System.Web.Services/System.Web.Services.csproj" />

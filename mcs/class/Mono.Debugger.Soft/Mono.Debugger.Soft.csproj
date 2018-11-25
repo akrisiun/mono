@@ -126,10 +126,22 @@
   <!-- @ALL_SOURCES@ -->
   <!-- @COMMON_PROJECT_REFERENCES@ -->
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../Mono.Cecil/Mono.Cecil.csproj" />
-    <ProjectReference Include="../System.Core/System.Core.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mono.Cecil\Mono.Cecil.csproj">
+      <Project>{3EC506F3-A487-440B-AA2A-F6EE68410145}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Core\System.Core.csproj">
+      <Project>{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}</Project>
+      <Name>System.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <!-- @ALL_RESOURCES@ -->

@@ -52,26 +52,47 @@
     <Compile Include="..\..\build\common\Locale.cs" />
     <Compile Include="..\..\build\common\MonoTODOAttribute.cs" />
     <Compile Include="Assembly\AssemblyInfo.cs" />
-    <Compile Include="System.Configuration.Install\AssemblyInstaller.cs" />
-    <Compile Include="System.Configuration.Install\ComponentInstaller.cs" />
+    <Compile Include="System.Configuration.Install\AssemblyInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System.Configuration.Install\ComponentInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Configuration.Install\IManagedInstaller.cs" />
     <Compile Include="System.Configuration.Install\InstallContext.cs" />
-    <Compile Include="System.Configuration.Install\Installer.cs" />
+    <Compile Include="System.Configuration.Install\Installer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Configuration.Install\InstallerCollection.cs" />
     <Compile Include="System.Configuration.Install\InstallEventArgs.cs" />
     <Compile Include="System.Configuration.Install\InstallEventHandler.cs" />
     <Compile Include="System.Configuration.Install\InstallException.cs" />
     <Compile Include="System.Configuration.Install\ManagedInstallerClass.cs" />
-    <Compile Include="System.Configuration.Install\TransactedInstaller.cs" />
+    <Compile Include="System.Configuration.Install\TransactedInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Configuration.Install\UninstallAction.cs" />
-    <Compile Include="System.Diagnostics\EventLogInstaller.cs" />
-    <Compile Include="System.Diagnostics\PerformanceCounterInstaller.cs" />
+    <Compile Include="System.Diagnostics\EventLogInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System.Diagnostics\PerformanceCounterInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <!-- @ALL_RESOURCES@ -->

@@ -51,8 +51,9 @@ namespace Mono.Mozilla
 		System.ComponentModel.EventHandlerList events;
 		System.ComponentModel.EventHandlerList domEvents;
 
-		string statusText;
-
+#pragma warning disable CS0649
+        string statusText;
+#pragma warning disable CS0169
 		bool streamingMode;
 		
 		internal Hashtable documents;

@@ -30,11 +30,13 @@ namespace Mono.WebBrowser
 {
 	public sealed class Manager
 	{
+        [Obsolete]
 		public static IWebBrowser GetNewInstance ()
 		{
 			return Manager.GetNewInstance (Platform.Winforms);
 		}
 
+        [Obsolete]
 		public static IWebBrowser GetNewInstance (Platform platform)
 		{
 			string browserEngine = Environment.GetEnvironmentVariable ("MONO_BROWSER_ENGINE");

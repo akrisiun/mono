@@ -92,18 +92,28 @@
     <Compile Include="..\..\build\common\Consts.cs" />
     <Compile Include="..\System\Mono.Util\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="Assembly\AssemblyInfo.cs" />
-    <Compile Include="Mono.Data.Sqlite_2.0\LINQ\SQLiteConnection_Linq.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\LINQ\SQLiteConnection_Linq.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Mono.Data.Sqlite_2.0\LINQ\SQLiteFactory_Linq.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SQLite3.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SQLite3_UTF16.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SQLiteBase.cs" />
-    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteCommand.cs" />
-    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteCommandBuilder.cs" />
-    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnection.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteCommandBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnectionPool.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnectionStringBuilder.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConvert.cs" />
-    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteDataAdapter.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Mono.Data.Sqlite_2.0\SQLiteDataReader.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SqliteDataSourceEnumerator.cs" />
     <Compile Include="Mono.Data.Sqlite_2.0\SQLiteEnlistment.cs" />
@@ -122,11 +132,26 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.Data/System.Data.csproj" />
-    <ProjectReference Include="../System.Transactions/System.Transactions.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Data\System.Data.csproj">
+      <Project>{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}</Project>
+      <Name>System.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Transactions\System.Transactions.csproj">
+      <Project>{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}</Project>
+      <Name>System.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">

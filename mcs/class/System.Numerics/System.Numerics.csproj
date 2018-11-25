@@ -92,6 +92,9 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|net_4_x'">
+    <NoWarn>1699,436</NoWarn>
+  </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="..\..\..\external\corefx\src\Common\src\System\Globalization\FormatProvider.Number.cs" />
@@ -135,8 +138,14 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <!-- @ALL_RESOURCES@ -->

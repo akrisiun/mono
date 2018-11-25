@@ -100,11 +100,26 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.Core/System.Core.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../System.Runtime.Serialization/System.Runtime.Serialization.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Core\System.Core.csproj">
+      <Project>{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}</Project>
+      <Name>System.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Runtime.Serialization\System.Runtime.Serialization.csproj">
+      <Project>{1D638902-5EFD-49BA-98E5-E80239CA6EF6}</Project>
+      <Name>System.Runtime.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <!-- @ALL_RESOURCES@ -->

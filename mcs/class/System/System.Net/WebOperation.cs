@@ -57,7 +57,7 @@ namespace System.Net
 			get;
 		}
 
-#if MONO_WEB_DEBUG
+#if MONO_WEB_DEBUG || NET48
 		static int nextID;
 		internal readonly int ID = ++nextID;
 		string ME => $"WO({ID},{Connection?.ID ?? -1})";

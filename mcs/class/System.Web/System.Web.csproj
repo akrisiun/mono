@@ -1031,7 +1031,9 @@
     <Compile Include="System.Web.UI.WebControls\DataGridColumnCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\DataGridItem.cs" />
     <Compile Include="System.Web.UI.WebControls\DataGridItemCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\DataGridPagerStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\DataGridPagerStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\DataKey.cs" />
     <Compile Include="System.Web.UI.WebControls\DataKeyArray.cs" />
     <Compile Include="System.Web.UI.WebControls\DataKeyCollection.cs" />
@@ -1114,7 +1116,9 @@
     <Compile Include="System.Web.UI.WebControls\MenuItemBinding.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuItemBindingCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuItemCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\MenuItemStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\MenuItemStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\MenuItemStyleCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuItemTemplateContainer.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuListRenderer.cs" />
@@ -1127,7 +1131,9 @@
     <Compile Include="System.Web.UI.WebControls\PagedDataSource.cs" />
     <Compile Include="System.Web.UI.WebControls\PagerSettings.cs" />
     <Compile Include="System.Web.UI.WebControls\Panel.cs" />
-    <Compile Include="System.Web.UI.WebControls\PanelStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\PanelStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\Parameter.cs" />
     <Compile Include="System.Web.UI.WebControls\ParameterCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\PasswordRecovery.cs" />
@@ -1161,10 +1167,14 @@
     <Compile Include="System.Web.UI.WebControls\SqlDataSource.cs" />
     <Compile Include="System.Web.UI.WebControls\SqlDataSourceView.cs" />
     <Compile Include="System.Web.UI.WebControls\StringArrayConverter.cs" />
-    <Compile Include="System.Web.UI.WebControls\Style.cs" />
+    <Compile Include="System.Web.UI.WebControls\Style.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\StyleBlock.cs" />
     <Compile Include="System.Web.UI.WebControls\StyleCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\SubMenuStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\SubMenuStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\SubMenuStyleCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\Substitution.cs" />
     <Compile Include="System.Web.UI.WebControls\Table.cs" />
@@ -1172,11 +1182,17 @@
     <Compile Include="System.Web.UI.WebControls\TableCellCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\TableCellControlBuilder.cs" />
     <Compile Include="System.Web.UI.WebControls\TableHeaderCell.cs" />
-    <Compile Include="System.Web.UI.WebControls\TableItemStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\TableItemStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\TableRow.cs" />
     <Compile Include="System.Web.UI.WebControls\TableRowCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\TableSectionStyle.cs" />
-    <Compile Include="System.Web.UI.WebControls\TableStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\TableSectionStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System.Web.UI.WebControls\TableStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\TargetConverter.cs" />
     <Compile Include="System.Web.UI.WebControls\TemplateColumn.cs" />
     <Compile Include="System.Web.UI.WebControls\TemplatedWizardStep.cs" />
@@ -1187,7 +1203,9 @@
     <Compile Include="System.Web.UI.WebControls\TreeNodeBinding.cs" />
     <Compile Include="System.Web.UI.WebControls\TreeNodeBindingCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\TreeNodeCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\TreeNodeStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\TreeNodeStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\TreeNodeStyleCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\TreeView.cs" />
     <Compile Include="System.Web.UI.WebControls\Unit.cs" />
@@ -1274,7 +1292,9 @@
     <Compile Include="System.Web.UI\LiteralControl.cs" />
     <Compile Include="System.Web.UI\LosFormatter.cs" />
     <Compile Include="System.Web.UI\MainDirectiveAttribute.cs" />
-    <Compile Include="System.Web.UI\MasterPage.cs" />
+    <Compile Include="System.Web.UI\MasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="System.Web.UI\MasterPageControlBuilder.cs" />
     <Compile Include="System.Web.UI\MasterPageParser.cs" />
     <Compile Include="System.Web.UI\MinimizableAttributeTypeConverter.cs" />
@@ -1285,7 +1305,9 @@
     <Compile Include="System.Web.UI\ObjectTagBuilder.cs" />
     <Compile Include="System.Web.UI\OutputCacheLocation.cs" />
     <Compile Include="System.Web.UI\OutputCacheParameters.cs" />
-    <Compile Include="System.Web.UI\Page.cs" />
+    <Compile Include="System.Web.UI\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="System.Web.UI\PageAsyncTask.cs" />
     <Compile Include="System.Web.UI\PageHandlerFactory.cs" />
     <Compile Include="System.Web.UI\PageLifeCycle.cs" />
@@ -1331,7 +1353,9 @@
     <Compile Include="System.Web.UI\UnknownAttributeDescriptor.cs" />
     <Compile Include="System.Web.UI\UrlPropertyAttribute.cs" />
     <Compile Include="System.Web.UI\UrlTypes.cs" />
-    <Compile Include="System.Web.UI\UserControl.cs" />
+    <Compile Include="System.Web.UI\UserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="System.Web.UI\UserControlControlBuilder.cs" />
     <Compile Include="System.Web.UI\UserControlParser.cs" />
     <Compile Include="System.Web.UI\Util.cs" />
@@ -1485,20 +1509,62 @@
   <!-- @ALL_SOURCES@ -->
   <!-- @COMMON_PROJECT_REFERENCES@ -->
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.Core/System.Core.csproj" />
-    <ProjectReference Include="../System.Drawing/System.Drawing.csproj" />
-    <ProjectReference Include="../System.Data/System.Data.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../System.EnterpriseServices/System.EnterpriseServices.csproj" />
-    <ProjectReference Include="../System.Runtime.Serialization.Formatters.Soap/System.Runtime.Serialization.Formatters.Soap.csproj" />
-    <ProjectReference Include="../System.ComponentModel.DataAnnotations/System.ComponentModel.DataAnnotations.csproj" />
-    <ProjectReference Include="../System.Web.ApplicationServices/System.Web.ApplicationServices.csproj" />
-    <ProjectReference Include="../System.Configuration/System.Configuration.csproj" />
-    <ProjectReference Include="../Mono.Data.Sqlite/Mono.Data.Sqlite.csproj" />
-    <ProjectReference Include="../System.Web.Services/System.Web.Services.csproj" />
-    <ProjectReference Include="../System.Design/System.Design.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Core\System.Core.csproj">
+      <Project>{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}</Project>
+      <Name>System.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Drawing\System.Drawing.csproj">
+      <Project>{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}</Project>
+      <Name>System.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Data\System.Data.csproj">
+      <Project>{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}</Project>
+      <Name>System.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.EnterpriseServices\System.EnterpriseServices.csproj">
+      <Project>{D44698BE-3120-4BE8-B803-671948B03935}</Project>
+      <Name>System.EnterpriseServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Runtime.Serialization.Formatters.Soap\System.Runtime.Serialization.Formatters.Soap.csproj">
+      <Project>{98957852-11B8-4B86-889A-5025DE061314}</Project>
+      <Name>System.Runtime.Serialization.Formatters.Soap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.ComponentModel.DataAnnotations\System.ComponentModel.DataAnnotations.csproj">
+      <Project>{0554E025-FABC-4822-AA41-0CA6F8C37432}</Project>
+      <Name>System.ComponentModel.DataAnnotations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Web.ApplicationServices\System.Web.ApplicationServices.csproj">
+      <Project>{0D09D8E9-FF99-408F-875A-F68F81236554}</Project>
+      <Name>System.Web.ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
+      <Project>{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}</Project>
+      <Name>System.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mono.Data.Sqlite\Mono.Data.Sqlite.csproj">
+      <Project>{2281525D-7F2E-41C1-982F-E612AF3ECF61}</Project>
+      <Name>Mono.Data.Sqlite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Web.Services\System.Web.Services.csproj">
+      <Project>{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}</Project>
+      <Name>System.Web.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Design\System.Design.csproj">
+      <Project>{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}</Project>
+      <Name>System.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
@@ -1671,6 +1737,8 @@
   <!-- @ALL_RESOURCES@ -->
   <PropertyGroup>
     <PreBuildEvent Condition=" '$(OS)' != 'Windows_NT' ">mono $([MSBuild]::GetDirectoryNameOfFileAbove($(TargetDir), culevel.exe))\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelper.cs $(ProjectDir)\UplevelHelperDefinitions.xml</PreBuildEvent>
+    <!--
     <PreBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">$([MSBuild]::GetDirectoryNameOfFileAbove($(TargetDir), culevel.exe))\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelper.cs $(ProjectDir)\UplevelHelperDefinitions.xml</PreBuildEvent>
+    -->
   </PropertyGroup>
 </Project>

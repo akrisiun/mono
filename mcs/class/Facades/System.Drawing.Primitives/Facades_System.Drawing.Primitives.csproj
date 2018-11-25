@@ -99,11 +99,20 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../../System/System.csproj" />
-    <ProjectReference Include="../../corlib/corlib.csproj" />
+    <ProjectReference Include="..\..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <ProjectReference Include="../../System.Drawing/System.Drawing.csproj" />
+    <ProjectReference Include="..\..\System.Drawing\System.Drawing.csproj">
+      <Project>{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}</Project>
+      <Name>System.Drawing</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'winaot' ">
     <ProjectReference Include="../../System.Drawing/System.Drawing.csproj" />

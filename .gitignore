@@ -167,3 +167,8 @@ obj-legacy*/
 mcs/class/legacy/Mono.Cecil/obj-legacy*/
 mono/tests/
 msvc64/include/
+mcs/srcWeb/
+srcWeb/
+Errors.txt
+lib/mono/
+include/mono/

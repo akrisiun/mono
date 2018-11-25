@@ -457,6 +457,8 @@ Example */
 		// XXX should we do something like Component.Events?
 		[Browsable (false)]
 		[EditorBrowsable (EditorBrowsableState.Advanced)]
+
+#pragma warning disable 67
 		public event EventHandler Disposed;
 
 		public override object Clone () {

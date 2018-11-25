@@ -332,15 +332,33 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../System.Core/System.Core.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Core\System.Core.csproj">
+      <Project>{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}</Project>
+      <Name>System.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="../System.ServiceModel.Internals/System.ServiceModel.Internals.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <ProjectReference Include="../System.Data/System.Data.csproj" />
-    <ProjectReference Include="../System.Configuration/System.Configuration.csproj" />
+    <ProjectReference Include="..\System.Data\System.Data.csproj">
+      <Project>{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}</Project>
+      <Name>System.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
+      <Project>{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}</Project>
+      <Name>System.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="../SMDiagnostics/SMDiagnostics.csproj" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'xammac_net_4_5' ">

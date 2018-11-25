@@ -49,14 +49,15 @@ cd $dir\msvc\scripts
 cd $dir
 & ./prepare.exe mcs core
 
-dotnet build mcs\class\corlib\corlib-net_4_x.csproj --no-restore
-dotnet build mcs\class\corlib\corlib-net_4_x.csproj --no-restore -f net48 -o $PWD\bin
+dotnet msbuild /p:GenerateFullPaths=true  /p:Platform=net_4_x mcs\class\corlib\corlib.csproj
+# --no-restore
+# dotnet msbuild /p:GenerateFullPaths=true  /p:Platform=net_4_x mcs\class\corlib\corlib.csproj --no-restore -f net48 -o $PWD\bin
 
- dotnet build mcs\System.Web\System.Web.csproj 
+dotnet msbuild /p:GenerateFullPaths=true  /p:Platform=net_4_x mcs\class\System.Web\System.Web.csproj
+
+# dotnet msbuild /p:GenerateFullPaths=true mcs\System.Web\System.Web.csproj   --no-restore -f net48 -o $PWD\bin
  
- dotnet build mcs\System.Web\System.Web.csproj   --no-restore -f net48 -o $PWD\bin
- 
- dotnet build mcs\class\corlib\corlib-net_4_x.csproj --no-restore -f net46 -o $PWD\bin\net46
- dotnet build mcs\System.Web\System.Web.csproj   --no-restore -f net46     -o $PWD\bin\net46
+# dotnet build mcs\class\corlib\corlib-net_4_x.csproj --no-restore -f net46 -o $PWD\bin\net46
+# dotnet build mcs\System.Web\System.Web.csproj   --no-restore -f net46     -o $PWD\bin\net46
  
 # msbuild net_4_x.sln

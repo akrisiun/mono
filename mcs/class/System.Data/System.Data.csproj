@@ -137,7 +137,9 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\BooleanStorage.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\ByteStorage.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\CharStorage.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DataAdapter.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DataColumnMapping.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DataColumnMappingCollection.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DataCommonEventSource.cs" />
@@ -148,13 +150,21 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DateTimeOffsetStorage.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DateTimeStorage.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbColumn.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbCommand.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DBCommandBuilder.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbConnection.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DBCommandBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbConnectionOptions.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbConnectionStringBuilder.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbConnectionStringBuilderDescriptor.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbDataAdapter.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbDataReader.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbDataReaderExtensions.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Common\DbDataRecord.cs" />
@@ -215,7 +225,9 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\ConstraintCollection.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\ConstraintConverter.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\ConstraintEnumerator.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataColumn.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataColumnChangeEvent.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataColumnChangeEventHandler.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataColumnCollection.cs" />
@@ -236,10 +248,14 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataRowVersion.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataRowView.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataSerializationFormat.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataSet.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataSet.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataSetDateTime.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataSysAttribute.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTable.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTableClearEvent.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTableClearEventHandler.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTableCollection.cs" />
@@ -249,9 +265,13 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTableReader.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTableReaderListener.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataTableTypeConverter.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataView.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataViewListener.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataViewManager.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataViewManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataViewManagerListItemTypeDescriptor.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataViewRowState.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\DataViewSetting.cs" />
@@ -307,7 +327,9 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Range.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\RbTree.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\RecordManager.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\RelatedView.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\RelatedView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\RelationshipConverter.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\Rule.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Common\src\System\Data\SchemaSerializationMode.cs" />
@@ -527,7 +549,9 @@
     <Compile Include="corefx\Odbc\AdapterUtil.cs" />
     <Compile Include="corefx\Odbc\Res.cs" />
     <Compile Include="corefx\SqlClientFactory.cs" />
-    <Compile Include="corefx\SqlConnection.cs" />
+    <Compile Include="corefx\SqlConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="corefx\SqlConnectionStringBuilder.cs" />
     <Compile Include="corefx\SqlDependencyUtils.cs" />
     <Compile Include="corefx\SqlParameterCollection.cs" />
@@ -543,16 +567,26 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\Common\System\HResults.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\DbDataRecord.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\Odbc32.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcCommand.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcCommandBuilder.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnection.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcCommandBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionFactory.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionHandle.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionHelper.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionPoolProviderInfo.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionString.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcConnectionStringbuilder.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcDataAdapter.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcDataReader.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcEnvironment.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcEnvironmentHandle.cs" />
@@ -576,11 +610,21 @@
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcType.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.Odbc\src\System\Data\Odbc\OdbcUtils.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlBulkCopy.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlCommand.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlCommandBuilder.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlConnection.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlConnectionHelper.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlDataAdapter.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlCommandBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlConnectionHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlException.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlParameter.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Data.SqlClient\src\System\Data\SqlClient\SqlParameterCollection.cs" />
@@ -599,8 +643,12 @@
     <Compile Include="..\referencesource\System.Data\System\Data\SQLTypes\SqlTypesSchemaImporter.cs" />
     <Compile Include="corefx\Odbc\DbConnectionStringCommon.cs" />
     <Compile Include="corefx\Odbc\OdbcFactory.cs" />
-    <Compile Include="corefx\OleDbStubs.cs" />
-    <Compile Include="corefx\SqlCommand.cs" />
+    <Compile Include="corefx\OleDbStubs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="corefx\SqlCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="corefx\SqlException.cs" />
     <Compile Include="Microsoft.SqlServer.Server\SqlContext.cs" />
     <Compile Include="Microsoft.SqlServer.Server\SqlPipe.cs" />
@@ -814,16 +862,40 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../System.Core/System.Core.csproj" />
-    <ProjectReference Include="../System.Numerics/System.Numerics.csproj" />
-    <ProjectReference Include="../System.Transactions/System.Transactions.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Core\System.Core.csproj">
+      <Project>{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}</Project>
+      <Name>System.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Numerics\System.Numerics.csproj">
+      <Project>{8C07E4E7-2689-452F-AF8C-201E7E23E48C}</Project>
+      <Name>System.Numerics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Transactions\System.Transactions.csproj">
+      <Project>{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}</Project>
+      <Name>System.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <ProjectReference Include="../System.EnterpriseServices/System.EnterpriseServices.csproj" />
-    <ProjectReference Include="../System.Configuration/System.Configuration.csproj" />
+    <ProjectReference Include="..\System.EnterpriseServices\System.EnterpriseServices.csproj">
+      <Project>{D44698BE-3120-4BE8-B803-671948B03935}</Project>
+      <Name>System.EnterpriseServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
+      <Project>{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}</Project>
+      <Name>System.Configuration</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'xammac_net_4_5' ">
     <ProjectReference Include="../System.EnterpriseServices/System.EnterpriseServices.csproj" />

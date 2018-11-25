@@ -506,9 +506,18 @@
   </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <ItemGroup>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
     <Reference Include="./../../../external/binary-reference-assemblies/v4.7.1/System.Numerics.dll">
@@ -521,32 +530,15 @@
       <HintPath>./../../../external/binary-reference-assemblies/v4.7.1/System.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <ProjectReference Include="../Mono.Security/Mono.Security.csproj" />
+    <ProjectReference Include="..\Mono.Security\Mono.Security.csproj">
+      <Project>{117140AC-A163-4B86-9E69-A46EA268A9DB}</Project>
+      <Name>Mono.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'monodroid' ">
-    <Reference Include="./../../../external/binary-reference-assemblies/build/monodroid/System.Numerics.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../../external/binary-reference-assemblies/build/monodroid/System.Numerics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="./../../../external/binary-reference-assemblies/build/monodroid/System.Core.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../../external/binary-reference-assemblies/build/monodroid/System.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <ProjectReference Include="../Mono.Security/Mono.Security.csproj" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'monotouch' ">
-    <Reference Include="./../../../external/binary-reference-assemblies/build/monotouch/System.Numerics.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../../external/binary-reference-assemblies/build/monotouch/System.Numerics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="./../../../external/binary-reference-assemblies/build/monotouch/System.Core.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../../external/binary-reference-assemblies/build/monotouch/System.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <ProjectReference Include="../Mono.Security/Mono.Security.csproj" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'monotouch_watch' ">

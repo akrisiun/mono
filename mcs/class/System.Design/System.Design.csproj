@@ -91,7 +91,9 @@
     <Compile Include="System.ComponentModel.Design\ActiveDesignSurfaceChangedEventHandler.cs" />
     <Compile Include="System.ComponentModel.Design\ArrayEditor.cs" />
     <Compile Include="System.ComponentModel.Design\BinaryEditor.cs" />
-    <Compile Include="System.ComponentModel.Design\ByteViewer.cs" />
+    <Compile Include="System.ComponentModel.Design\ByteViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.ComponentModel.Design\CollectionEditor.cs" />
     <Compile Include="System.ComponentModel.Design\ComponentActionsType.cs" />
     <Compile Include="System.ComponentModel.Design\ComponentDesigner.cs" />
@@ -164,7 +166,9 @@
     <Compile Include="System.Web.UI.Design.WebControls\BaseDataListDesigner.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\BaseValidatorDesigner.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\ButtonDesigner.cs" />
-    <Compile Include="System.Web.UI.Design.WebControls\CalendarAutoFormatDialog.cs" />
+    <Compile Include="System.Web.UI.Design.WebControls\CalendarAutoFormatDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.Design.WebControls\CalendarDesigner.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\CheckBoxDesigner.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\CompositeControlDesigner.cs" />
@@ -179,7 +183,9 @@
     <Compile Include="System.Web.UI.Design.WebControls\ListControlDataBindingHandler.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\ListControlDesigner.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\PanelDesigner.cs" />
-    <Compile Include="System.Web.UI.Design.WebControls\RegexEditorDialog.cs" />
+    <Compile Include="System.Web.UI.Design.WebControls\RegexEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.Design.WebControls\RegexTypeEditor.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\RepeaterDesigner.cs" />
     <Compile Include="System.Web.UI.Design.WebControls\TableCellsCollectionEditor.cs" />
@@ -217,7 +223,9 @@
     <Compile Include="System.Web.UI.Design\DataSourceViewSchemaConverter.cs" />
     <Compile Include="System.Web.UI.Design\DesignerAutoFormat.cs" />
     <Compile Include="System.Web.UI.Design\DesignerAutoFormatCollection.cs" />
-    <Compile Include="System.Web.UI.Design\DesignerAutoFormatStyle.cs" />
+    <Compile Include="System.Web.UI.Design\DesignerAutoFormatStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.Design\DesignerDataSourceView.cs" />
     <Compile Include="System.Web.UI.Design\DesignerHierarchicalDataSourceView.cs" />
     <Compile Include="System.Web.UI.Design\DesignerObject.cs" />
@@ -322,7 +330,9 @@
     <Compile Include="System.Windows.Forms.Design\AxWrapperGen.cs" />
     <Compile Include="System.Windows.Forms.Design\BorderSidesEditor.cs" />
     <Compile Include="System.Windows.Forms.Design\ComponentDocumentDesigner.cs" />
-    <Compile Include="System.Windows.Forms.Design\ComponentTray.cs" />
+    <Compile Include="System.Windows.Forms.Design\ComponentTray.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Windows.Forms.Design\ControlBindingsConverter.cs" />
     <Compile Include="System.Windows.Forms.Design\ControlCodeDomSerializer.cs" />
     <Compile Include="System.Windows.Forms.Design\ControlCollectionCodeDomSerializer.cs" />
@@ -376,14 +386,38 @@
       <HintPath>./../../../external/binary-reference-assemblies/v4.7.1/System.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <ProjectReference Include="../System/System.csproj" />
-    <ProjectReference Include="../System.XML/System.Xml.csproj" />
-    <ProjectReference Include="../System.Windows.Forms/System.Windows.Forms.csproj" />
-    <ProjectReference Include="../System.Drawing/System.Drawing.csproj" />
-    <ProjectReference Include="../Accessibility/Accessibility.csproj" />
-    <ProjectReference Include="../System.Data/System.Data.csproj" />
-    <ProjectReference Include="../System.Configuration/System.Configuration.csproj" />
-    <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\System\System.csproj">
+      <Project>{8E30FC6B-D06F-495E-A5C9-18B40575FD60}</Project>
+      <Name>System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.XML\System.Xml.csproj">
+      <Project>{1F165EE1-C483-4ACE-BD45-31074A9F735F}</Project>
+      <Name>System.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Forms\System.Windows.Forms.csproj">
+      <Project>{19D6D457-8112-4097-9DFF-069CFDC14A49}</Project>
+      <Name>System.Windows.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Drawing\System.Drawing.csproj">
+      <Project>{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}</Project>
+      <Name>System.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Accessibility\Accessibility.csproj">
+      <Project>{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}</Project>
+      <Name>Accessibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Data\System.Data.csproj">
+      <Project>{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}</Project>
+      <Name>System.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
+      <Project>{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}</Project>
+      <Name>System.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\corlib\corlib.csproj">
+      <Project>{4627BDAB-CA24-40D0-A627-01692BA51B44}</Project>
+      <Name>corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- @ALL_REFERENCES@ -->
   <!-- @ALL_RESOURCES@ -->

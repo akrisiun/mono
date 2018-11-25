@@ -2896,6 +2896,9 @@ namespace System.Windows.Forms {
 			IntPtr			WholeWindow;
 			IntPtr			ClientWindow;
 			SetWindowValuemask	ValueMask;
+
+
+#pragma warning disable CS0168
 			int[]			atoms;
 
 			hwnd = new Hwnd();

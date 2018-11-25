@@ -1662,6 +1662,7 @@ namespace System.Windows.Forms.VisualStyles
 			GdkColor white;
 			PangoFontDescriptionPointer font_desc;
 #pragma warning restore 169
+#pragma warning disable 649
 			public gint xthickness;
 			public gint ythickness;
 		}
