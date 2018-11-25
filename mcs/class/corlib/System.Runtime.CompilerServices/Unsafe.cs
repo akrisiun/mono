@@ -26,6 +26,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+using System.Runtime.Versioning;
+
 namespace System.Runtime.CompilerServices
 {
 	static partial class Unsafe
@@ -59,7 +61,10 @@ namespace System.Runtime.CompilerServices
 		{
 			throw new NotImplementedException ();
 		}
-		
+
+        public static T As2<T>(object o) where T : class
+            => o as T;
+
 		public static ref TTo As<TFrom, TTo>(ref TFrom source)
 		{
 			throw new NotImplementedException ();
@@ -69,15 +74,43 @@ namespace System.Runtime.CompilerServices
 		{
 			throw new NotImplementedException ();
 		}
+
+        [Intrinsic]
+        [NonVersionable]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public unsafe static ref T AsRef2<T> (void* source)
+		{
+            //var ptr = (IntPtr)source;
+            //InteropServices.Marshal.AddRef
+            throw new PlatformNotSupportedException();
+        }
 		
+        [Intrinsic]
+        [NonVersionable]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static System.IntPtr ByteOffset<T> (ref T origin, ref T target)
 		{
 			throw new NotImplementedException ();
 		}
 
+        [Intrinsic]
+        [NonVersionable]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static System.IntPtr ByteOffset2<T> (ref T origin, ref T target)
+		{
+            // var ptr = (IntPtr)origin;
+            // return ptr;
+            throw new PlatformNotSupportedException();
+		}
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+		internal extern static void copy_to_unmanaged (Array source, int startIndex,
+							        IntPtr destination, int length);
+
 		public static void CopyBlock (ref byte destination, ref byte source, uint byteCount)
 		{
 			throw new NotImplementedException ();
+            // InteropServices.Marshal.copy_to_unmanaged (source, startIndex, destination, length);
 		}
 
 		public static void InitBlockUnaligned (ref byte startAddress, byte value, uint byteCount)
@@ -102,8 +135,12 @@ namespace System.Runtime.CompilerServices
 
 		public static int SizeOf<T> ()
 		{
-			throw new NotImplementedException ();
-		}
+#if !MONO
+            throw new NotImplementedException ();
+#else
+            return InteropServices.Marshal.SizeOf<T>();
+#endif
+        }
 
 		public static ref T Subtract<T> (ref T source, int elementOffset)
 		{

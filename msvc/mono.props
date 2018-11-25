@@ -61,7 +61,7 @@
     <MONO_LIBMONO_LIB>$(MONO_STATIC_LIBMONO_LIB)</MONO_LIBMONO_LIB>
   </PropertyGroup>
   <PropertyGroup Label="Dynamic-libmono-Library" Condition="$(MONO_USE_STATIC_LIBMONO)!='true'">
-    <MONO_LIBMONO_LIB>eglib.lib;$(MONO_DYNAMIC_LIBMONO_LIB)</MONO_LIBMONO_LIB>
+    <MONO_LIBMONO_LIB>../msvc/eglib.lib;$(MONO_DYNAMIC_LIBMONO_LIB)</MONO_LIBMONO_LIB>
   </PropertyGroup>
   <PropertyGroup Label="MonoProfiler">
     <VTUNE_INCLUDE_DIR>$(ProgramFiles)/Intel/VTune Amplifier XE 2013/include</VTUNE_INCLUDE_DIR>

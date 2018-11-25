@@ -12,19 +12,34 @@ namespace standalone_tests
         // [STAThread]
         public static void Main()
         {
+            // "c:\Program Files\Mono\bin\mono-sgen.exe" TestWeb/bin/net48/TestWeb.exe
+            // 1051400006
+            // mono --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:51478 TestWeb/bin/net48/TestWeb.exe
+
+
             // Loaded from: C:\Program Files\Mono\lib\mono\4.5\mscorlib.dll
             // corlib.dll expected - 1050400003
             // dotnet msbuild -p:Platform=net_4_x
             // E:\Beta\mono64\mono04\mcs\build\common\Consts.cs
             // MonoCorlibVersion = 1050400003; // @MONO_CORLIB_VERSION@;
-            // $env:MONO_CORLIB_VERSION=1050400003
+            // $env:MONO_CORLIB_VERSION=1051400006
 
-            Console.WriteLine("Hello Mono Web"); 
-            Console.ReadKey();
+            // Console.WriteLine
+            var text = "Hello Mono Web";
+            Debugger.Log(0, "", text); 
+            var spanText = System.MemoryExtensionsDebug.AsSpanWrap(text);
+
+            // Assertion at ..\mono\mini\method-to-ir.c:13203, condition `ins->opcode >= MONO_CEE_LAST' not met
+            // E:\Beta\mono64\mono04\msvc\build\sgen\x64\bin\Debug\mono-sgen.exe
+            // E:\Beta\mono64\mono04\msvc\build\sgen\x64\bin\Debug\
+
+            // ..\bin\mono --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 TestWeb/bin/net48/TestWeb.exe
 
             Assembly asmWeb = typeof(SimpleWorkerRequest).Assembly;
 
-            Console.WriteLine($"Asm: {asmWeb.FullName} {asmWeb.Location}");
+            var line = $"Asm: {asmWeb.FullName} {asmWeb.Location}";
+
+            Console.WriteLine(line);
 
             var test = new WebTest("/");
             try {

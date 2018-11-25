@@ -2090,7 +2090,9 @@
     <Compile Include="..\..\..\external\corefx\src\System.CodeDom\src\System\CodeDom\FieldDirection.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.CodeDom\src\System\CodeDom\MemberAttributes.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.CodeDom\src\System\Collections\Specialized\FixedStringLookup.cs" />
-    <Compile Include="..\..\..\external\corefx\src\System.IO.FileSystem.Watcher\src\System\IO\FileSystemWatcher.OSX.cs" />
+    <Compile Include="..\..\..\external\corefx\src\System.IO.FileSystem.Watcher\src\System\IO\FileSystemWatcher.OSX.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\..\external\corefx\src\System.Net.HttpListener\src\System\Net\WebSockets\HttpListenerWebSocketContext.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Net.Requests\src\System\Net\CommandStream.cs" />
     <Compile Include="..\..\..\external\corefx\src\System.Net.Requests\src\System\Net\FtpControlStream.cs" />
