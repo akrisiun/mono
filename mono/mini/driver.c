@@ -1799,6 +1799,7 @@ mono_main (int argc, char* argv[])
 	GPtrArray *agents = NULL;
 	char *attach_options = NULL;
 	char *extra_bindings_config_file = NULL;
+
 #ifdef MONO_JIT_INFO_TABLE_TEST
 	int test_jit_info_table = FALSE;
 #endif

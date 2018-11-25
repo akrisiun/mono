@@ -1,10 +1,17 @@
-Mono is a software platform designed to allow developers to easily
-create cross platform applications.  It is an open source
-implementation of Microsoft's .NET Framework based on the ECMA
-standards for C# and the Common Language Runtime.
+Mono is a software to create cross platform applications. .NET Framework based on the ECMA for C# and the Common Language Runtime.
 
-The Mono project is part of the [.NET Foundation](http://www.dotnetfoundation.org/)
+## GIT Clone for Hacking Mono by akrsiun(ankr)
 
+```
+# git clone --recursive https://github.com/mono/mono
+# git clone   --recursive --single-branch -b 2018-04 https://github.com/mono/mono mono04
+# git clone --recursive --single-branch -b 2018-08 https://github.com/mono/mono mono08
+
+git clone   --recursive --single-branch -b 2018-04 https://github.com/akrisiun/mono mono04
+git submodule update --init --recursive
+```
+
+# The Mono project is part of the [.NET Foundation](http://www.dotnetfoundation.org/)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mono/mono?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 1. [Compilation and Installation](#compilation-and-installation)

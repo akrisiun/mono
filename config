@@ -1,0 +1,51 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/mono/mono
+	fetch = +refs/heads/2018-04:refs/remotes/origin/2018-04
+[branch "2018-04"]
+	remote = origin
+	merge = refs/heads/2018-04
+[submodule "external/Newtonsoft.Json"]
+	url = https://github.com/mono/Newtonsoft.Json.git
+[submodule "external/api-doc-tools"]
+	url = https://github.com/mono/api-doc-tools.git
+[submodule "external/api-snapshot"]
+	url = https://github.com/mono/api-snapshot.git
+[submodule "external/aspnetwebstack"]
+	url = https://github.com/mono/aspnetwebstack.git
+[submodule "external/reference-assemblies"]
+	url = https://github.com/mono/reference-assemblies.git
+[submodule "external/bockbuild"]
+	url = https://github.com/mono/bockbuild.git
+[submodule "external/boringssl"]
+	url = https://github.com/mono/boringssl.git
+[submodule "external/cecil2"]
+	url = https://github.com/mono/cecil.git
+[submodule "external/cecil-legacy"]
+	url = https://github.com/mono/cecil.git
+[submodule "external/corefx"]
+	url = https://github.com/mono/corefx.git
+[submodule "external/corert"]
+	url = https://github.com/mono/corert.git
+[submodule "external/ikdasm"]
+	url = https://github.com/mono/ikdasm.git
+[submodule "external/ikvm"]
+	url = https://github.com/mono/ikvm-fork.git
+[submodule "external/linker"]
+	url = https://github.com/mono/linker.git
+[submodule "external/nuget-buildtasks"]
+	url = https://github.com/mono/NuGet.BuildTasks
+[submodule "external/nunit-lite"]
+	url = https://github.com/mono/NUnitLite.git
+[submodule "external/roslyn-binaries"]
+	url = https://github.com/mono/roslyn-binaries.git
+[submodule "external/rx"]
+	url = https://github.com/mono/rx.git
+[submodule "external/xunit-binaries"]
+	url = https://github.com/mono/xunit-binaries.git
