@@ -1362,9 +1362,12 @@ namespace System.Text
 #if MONO
         internal unsafe string GetString(ReadOnlySpan<byte> bytes)
         {
-            fixed (byte* bytesPtr = &bytes.DangerousGetPinnableReference())
-            {
-                return GetString(bytesPtr, bytes.Length);
+            // fixed (byte* bytesPtr = &bytes.DangerousGetPinnableReference())
+            unsafe {
+                byte* bytesPtr = bytes.DangerousGetPinnableReference().ToPointerByte();
+                {
+                    return GetString(bytesPtr, bytes.Length);
+                }
             }
         }
 #endif

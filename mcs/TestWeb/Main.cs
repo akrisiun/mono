@@ -27,7 +27,8 @@ namespace standalone_tests
             // Console.WriteLine
             var text = "Hello Mono Web";
             Debugger.Log(0, "", text); 
-            var spanText = System.MemoryExtensionsDebug.AsSpanWrap(text);
+
+            // var spanText = System.MemoryExtensionsDebug.AsSpanWrap(text);
 
             // Assertion at ..\mono\mini\method-to-ir.c:13203, condition `ins->opcode >= MONO_CEE_LAST' not met
             // E:\Beta\mono64\mono04\msvc\build\sgen\x64\bin\Debug\mono-sgen.exe

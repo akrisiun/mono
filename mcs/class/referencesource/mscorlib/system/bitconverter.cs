@@ -480,7 +480,10 @@ namespace System {
         {
             if (value.Length < sizeof(int))
                 ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument.value);
-            return Unsafe.ReadUnaligned<int>(ref value.DangerousGetPinnableReference());
+            return // Unsafe.ReadUnaligned<int>(
+                //ref 
+                Unsafe.ReadPtr<int>(
+                value.DangerousGetPinnableReference());
         }
 #endif
 

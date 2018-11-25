@@ -12,14 +12,19 @@ namespace System
         {
             IntPtr adjust = IntPtr.Zero;
             char[] buf = new char[] { };
+
+            Span<char> span;
             try {
                 if (Debugger.IsAttached) {
                     Debugger.Break(); // $$$$$
                 }
 
-                adjust = MemoryExtensions.StringAdjustment;
-                var span = Span<char>.DangerousCreatePtr(
-					Unsafe.As<Pinnable<char>>(text), adjust, text.Length);
+                // adjust = MemoryExtensions.StringAdjustment;
+                unsafe {
+                    span = Span<char>.DangerousCreate(
+                        Pin.DataPin<char>(text[0], text.Length), ref text.GetRawStringData(), text.Length);
+                        //Unsafe.AsPointer<Pinnable<char>>(text), adjust, text.Length);
+                }
             }
             catch (Exception ex) {
                 LastError = ex;

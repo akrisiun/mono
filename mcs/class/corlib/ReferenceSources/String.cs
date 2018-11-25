@@ -42,14 +42,26 @@ using System.Collections.Generic;
 
 namespace System
 {
-	partial class String
-	{
-		[NonSerialized]
-		int _stringLength;
-		[NonSerialized]
-		char _firstChar;
+    partial class String
+    {
+        [NonSerialized]
+        int _stringLength;
+        [NonSerialized]
+        char _firstChar;
 
-		public static readonly String Empty;
+        public static readonly String Empty;
+
+        // ankr:
+        internal unsafe void* GetRawStringData2(int delta = 0)
+        {
+             fixed (void* p = &_firstChar) {
+                if (delta > 0)
+                    return new IntPtr((int)p + delta).ToPointer();
+                else
+                    return p;
+            }
+        }
+      
 
 		internal unsafe static ReadOnlySpan<char> ToReadOnlySpan (String value)
 		{
@@ -403,7 +415,7 @@ namespace System
 				if ((uint)index >= _stringLength)
 					ThrowHelper.ThrowIndexOutOfRangeException ();
 
-				return Unsafe.Add (ref _firstChar, index);
+				return Unsafe.Add (ref _firstChar, new IntPtr(index));
 			}
 		}
 

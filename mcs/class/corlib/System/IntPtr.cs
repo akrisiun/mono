@@ -42,195 +42,210 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System.Globalization;
-using System.Runtime.Serialization;
-using System.Runtime.ConstrainedExecution;
 using System.Diagnostics.Contracts;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Serialization;
 
 namespace System
 {
-	[Serializable]
-	[System.Runtime.InteropServices.ComVisible (true)]
-	public unsafe struct IntPtr : ISerializable
-	{
-		private void *m_value;
+    [Serializable]
+    [System.Runtime.InteropServices.ComVisible(true)]
+    public unsafe struct IntPtr : ISerializable
+    {
+        private void* m_value;
 
-		public static readonly IntPtr Zero;
+        public static readonly IntPtr Zero;
 
-		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public IntPtr (int value)
-		{
-			m_value = (void *) value;
-		}
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public IntPtr(int value)
+        {
+            m_value = (void*)value;
+        }
 
-		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public IntPtr (long value)
-		{
-			/* FIXME: Needs to figure the exact check which works on all architectures */
-			/*
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public IntPtr(long value)
+        {
+            /* FIXME: Needs to figure the exact check which works on all architectures */
+            /*
 			if (((value >> 32 > 0) || (value < 0)) && (IntPtr.Size < 8)) {
 				throw new OverflowException (
 					Locale.GetText ("This isn't a 64bits machine."));
 			}
 			*/
 
-			m_value = (void *) value;
-		}
+            m_value = (void*)value;
+        }
 
-		[CLSCompliant (false)]
+        [CLSCompliant(false)]
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        unsafe public IntPtr(void* value)
+        {
+            m_value = value;
+        }
+
+        /*
+        // ankr:
+        [CLSCompliant (false)]
 		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		unsafe public IntPtr (void *value)
+		unsafe public IntPtr<T>(ref T value) where T : class
 		{
-			m_value = value;
+			m_value = (void*)value;
 		}
+        */
 
-		private IntPtr (SerializationInfo info, StreamingContext context)
-		{
-			long savedValue = info.GetInt64 ("value");
-			m_value = (void *) savedValue;
-		}
+        private IntPtr(SerializationInfo info, StreamingContext context)
+        {
+            long savedValue = info.GetInt64("value");
+            m_value = (void*)savedValue;
+        }
 
-		public static int Size {
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
-			get {
-				return sizeof (void *);
-			}
-		}
+        public static int Size {
+            [ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+            get {
+                return sizeof(void*);
+            }
+        }
 
-		void ISerializable.GetObjectData (SerializationInfo info, StreamingContext context)
-		{
-			if (info == null)
-				throw new ArgumentNullException ("info");
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            if (info == null)
+                throw new ArgumentNullException("info");
 
-			info.AddValue ("value", ToInt64 ());
-		}
+            info.AddValue("value", ToInt64());
+        }
 
-		public override bool Equals (object obj)
-		{
-			if (!(obj is System.IntPtr))
-				return false;
+        public override bool Equals(object obj)
+        {
+            if (!(obj is System.IntPtr))
+                return false;
 
-			return ((IntPtr) obj).m_value == m_value;
-		}
+            return ((IntPtr)obj).m_value == m_value;
+        }
 
-		public override int GetHashCode ()
-		{
-			return (int) m_value;
-		}
+        public override int GetHashCode()
+        {
+            return (int)m_value;
+        }
 
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
-		public int ToInt32 ()
-		{
-			return (int) m_value;
-		}
+        [ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        public int ToInt32()
+        {
+            return (int)m_value;
+        }
 
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
-		public long ToInt64 ()
-		{
-			// pointer to long conversion is done using conv.u8 by the compiler
-			if (Size == 4)
-				return (long)(int)m_value;
-			else
-				return (long)m_value;
-		}
+        [ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        public long ToInt64()
+        {
+            // pointer to long conversion is done using conv.u8 by the compiler
+            if (Size == 4)
+                return (int)m_value;
+            else
+                return (long)m_value;
+        }
 
-		[CLSCompliant (false)]
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
-		unsafe public void *ToPointer ()
-		{
-			return m_value;
-		}
+        [CLSCompliant(false)]
+        [ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        unsafe public void* ToPointer()
+        {
+            return m_value;
+        }
 
-		override public string ToString ()
-		{
-			return ToString (null);
-		}
+        [CLSCompliant(false)][ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        unsafe public char* ToPointerChar() => (char*)m_value;
+        
+        [CLSCompliant(false)][ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        unsafe public byte* ToPointerByte() => (byte*)m_value;
 
-		public string ToString (string format)
-		{
-			if (Size == 4)
-				return ((int) m_value).ToString (format, null);
-			else
-				return ((long) m_value).ToString (format, null);
-		}
+        override public string ToString()
+        {
+            return ToString(null);
+        }
 
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
-		public static bool operator == (IntPtr value1, IntPtr value2)
-		{
-			return (value1.m_value == value2.m_value);
-		}
+        public string ToString(string format)
+        {
+            if (Size == 4)
+                return ((int)m_value).ToString(format, null);
+            else
+                return ((long)m_value).ToString(format, null);
+        }
 
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
-		public static bool operator != (IntPtr value1, IntPtr value2)
-		{
-			return (value1.m_value != value2.m_value);
-		}
+        [ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        public static bool operator ==(IntPtr value1, IntPtr value2)
+        {
+            return (value1.m_value == value2.m_value);
+        }
 
-		[ReliabilityContractAttribute (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public static explicit operator IntPtr (int value)
-		{
-			return new IntPtr (value);
-		}
+        [ReliabilityContractAttribute(Consistency.WillNotCorruptState, Cer.Success)]
+        public static bool operator !=(IntPtr value1, IntPtr value2)
+        {
+            return (value1.m_value != value2.m_value);
+        }
 
-		[ReliabilityContractAttribute (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public static explicit operator IntPtr (long value)
-		{
-			return new IntPtr (value);
-		}
+        [ReliabilityContractAttribute(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public static explicit operator IntPtr(int value)
+        {
+            return new IntPtr(value);
+        }
 
-		[ReliabilityContractAttribute (Consistency.MayCorruptInstance, Cer.MayFail)]
-		[CLSCompliant (false)]
-		unsafe public static explicit operator IntPtr (void *value)
-		{
-			return new IntPtr (value);
-		}
+        [ReliabilityContractAttribute(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public static explicit operator IntPtr(long value)
+        {
+            return new IntPtr(value);
+        }
 
-		public static explicit operator int (IntPtr value)
-		{
-			return (int) value.m_value;
-		}
+        [ReliabilityContractAttribute(Consistency.MayCorruptInstance, Cer.MayFail)]
+        [CLSCompliant(false)]
+        unsafe public static explicit operator IntPtr(void* value)
+        {
+            return new IntPtr(value);
+        }
 
-		public static explicit operator long (IntPtr value)
-		{
-			return value.ToInt64 ();
-		}
+        public static explicit operator int(IntPtr value)
+        {
+            return (int)value.m_value;
+        }
 
-		[CLSCompliant (false)]
-		unsafe public static explicit operator void * (IntPtr value)
-		{
-			return value.m_value;
-		}
+        public static explicit operator long(IntPtr value)
+        {
+            return value.ToInt64();
+        }
 
-		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public static IntPtr Add (IntPtr pointer, int offset)
-		{
-			return (IntPtr) (unchecked (((byte *) pointer) + offset));
-		}
+        [CLSCompliant(false)]
+        unsafe public static explicit operator void* (IntPtr value)
+        {
+            return value.m_value;
+        }
 
-		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public static IntPtr Subtract (IntPtr pointer, int offset)
-		{
-			return (IntPtr) (unchecked (((byte *) pointer) - offset));
-		}
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public static IntPtr Add(IntPtr pointer, int offset)
+        {
+            return (IntPtr)(unchecked(((byte*)pointer) + offset));
+        }
 
-		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public static IntPtr operator + (IntPtr pointer, int offset)
-		{
-			return (IntPtr) (unchecked (((byte *) pointer) + offset));
-		}
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public static IntPtr Subtract(IntPtr pointer, int offset)
+        {
+            return (IntPtr)(unchecked(((byte*)pointer) - offset));
+        }
 
-		[ReliabilityContract (Consistency.MayCorruptInstance, Cer.MayFail)]
-		public static IntPtr operator - (IntPtr pointer, int offset)
-		{
-			return (IntPtr) (unchecked (((byte *) pointer) - offset));
-		}
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public static IntPtr operator +(IntPtr pointer, int offset)
+        {
+            return (IntPtr)(unchecked(((byte*)pointer) + offset));
+        }
 
-		// fast way to compare IntPtr to (IntPtr)0 while IntPtr.Zero doesn't work due to slow statics access
-		[Pure]
-		[ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
-		internal unsafe bool IsNull()
-		{
-			return m_value == null;
-		}
-	}
+        [ReliabilityContract(Consistency.MayCorruptInstance, Cer.MayFail)]
+        public static IntPtr operator -(IntPtr pointer, int offset)
+        {
+            return (IntPtr)(unchecked(((byte*)pointer) - offset));
+        }
+
+        // fast way to compare IntPtr to (IntPtr)0 while IntPtr.Zero doesn't work due to slow statics access
+        [Pure]
+        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+        internal unsafe bool IsNull()
+        {
+            return m_value == null;
+        }
+    }
 }

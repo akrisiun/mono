@@ -32,7 +32,7 @@ namespace System.Runtime.CompilerServices
 {
 	static partial class Unsafe
 	{
-		public static ref T Add<T> (ref T source, int elementOffset)
+		public static ref T Add_<T> (ref T source, int elementOffset)
 		{
 			throw new NotImplementedException ();
 		}
@@ -44,10 +44,10 @@ namespace System.Runtime.CompilerServices
 
 		public unsafe static void* Add<T> (void* source, int elementOffset)
 		{
-			throw new NotImplementedException ();
+            return new IntPtr((int)source + (int)elementOffset).ToPointer();
 		}
 
-		public static ref T AddByteOffset<T> (ref T source, System.IntPtr byteOffset)
+		public static ref T AddByteOffset1<T> (ref T source, System.IntPtr byteOffset)
 		{
 			throw new NotImplementedException ();
 		}
@@ -57,22 +57,53 @@ namespace System.Runtime.CompilerServices
 			throw new NotImplementedException ();
 		}
 		
-		public static T As<T> (object o) where T : class
+
+
+		public static ref T As<T> (object o) where T : class
 		{
-			throw new NotImplementedException ();
+            // return (void*)(o as T);
+            //Object.ReferenceEquals 	 
+            throw new NotImplementedException ();
 		}
 
-        public static T As2<T>(object o) where T : class
-            => o as T;
+        // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/unsafe-code-pointers/pointer-conversions
+
+        public static unsafe void* AsPointer<T>(object value, int adjust = 0, int delta = 0)
+        {
+            T val = (T)value;
+            IntPtr ret = IntPtr.Zero;
+            //fixed (int* p1 = &ret) {
+            //    int* ret = ref ret;
+            //    ret = p1;
+            //}
+            ret = Pin.DataPtr<T>((T)value, delta, true);
+
+            return ret.ToPointer();
+        }
+
+        public static unsafe void* AsPointer<T>(ref object value, uint index)
+            => throw new NotImplementedException();
+            // => (int)((int*)value) + index;
+
+        public static unsafe IntPtr As3<T>(object o) where T : class
+        {
+            unsafe {
+                T val = o as T;
+                var ref1 = Pin.DataPtr<T>(val);
+                return ref1; // (IntPtr)((void*)ref1;
+            }
+        }
 
 		public static ref TTo As<TFrom, TTo>(ref TFrom source)
 		{
 			throw new NotImplementedException ();
 		}
 		
-		public unsafe static ref T AsRef<T> (void* source)
+		public unsafe static void* // ref T 
+            AsRef<T> (void* source)
 		{
-			throw new NotImplementedException ();
+            return source;
+			// throw new NotImplementedException ();
 		}
 
         [Intrinsic]
@@ -88,7 +119,7 @@ namespace System.Runtime.CompilerServices
         [Intrinsic]
         [NonVersionable]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static System.IntPtr ByteOffset<T> (ref T origin, ref T target)
+		public static System.IntPtr ByteOffset1<T> (ref T origin, ref T target)
 		{
 			throw new NotImplementedException ();
 		}
@@ -98,10 +129,17 @@ namespace System.Runtime.CompilerServices
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static System.IntPtr ByteOffset2<T> (ref T origin, ref T target)
 		{
-            // var ptr = (IntPtr)origin;
-            // return ptr;
-            throw new PlatformNotSupportedException();
+            unsafe {
+                void* refPtr = Pin.DataPtr<T>(origin, 0, false).ToPointer();
+                var ptr = new IntPtr(refPtr);
+                return ptr;
+            }
+            // throw new PlatformNotSupportedException();
 		}
+
+        public static System.IntPtr ByteOffset3<T>(IntPtr origin, ref T target)
+            => origin;
+
 
         [MethodImpl(MethodImplOptions.InternalCall)]
 		internal extern static void copy_to_unmanaged (Array source, int startIndex,
@@ -127,6 +165,11 @@ namespace System.Runtime.CompilerServices
 		{
 			throw new NotImplementedException ();
 		}
+
+        public static T ReadPtr<T>(IntPtr source)
+        {
+            throw new NotImplementedException ();
+        }
 
 		public static T ReadUnaligned<T> (ref byte source)
 		{
