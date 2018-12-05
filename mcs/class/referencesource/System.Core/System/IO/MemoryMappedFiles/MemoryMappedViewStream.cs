@@ -14,7 +14,7 @@
 ===========================================================*/
 
 using System;
-using System.Diagnostics;
+using System.Diagnostics.Security; // using System.Diagnostics;
 using System.Security;
 using System.Security.Permissions;
 using Microsoft.Win32.SafeHandles;

@@ -32,6 +32,10 @@ namespace System.Diagnostics {
             return (SwitchSetting & (int) eventType) != 0;
         }
 
+        public bool ShouldTraceInt(int eventType) {
+            return (SwitchSetting & (int) eventType) != 0;
+        }
+
         protected override void OnValueChanged() {
             SwitchSetting = (int) Enum.Parse(typeof(SourceLevels), Value, true);
         }

@@ -1035,7 +1035,9 @@
     <Compile Include="System.Web.UI.WebControls\DataGridColumnCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\DataGridItem.cs" />
     <Compile Include="System.Web.UI.WebControls\DataGridItemCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\DataGridPagerStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\DataGridPagerStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\DataKey.cs" />
     <Compile Include="System.Web.UI.WebControls\DataKeyArray.cs" />
     <Compile Include="System.Web.UI.WebControls\DataKeyCollection.cs" />
@@ -1118,7 +1120,9 @@
     <Compile Include="System.Web.UI.WebControls\MenuItemBinding.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuItemBindingCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuItemCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\MenuItemStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\MenuItemStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\MenuItemStyleCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuItemTemplateContainer.cs" />
     <Compile Include="System.Web.UI.WebControls\MenuListRenderer.cs" />
@@ -1131,7 +1135,9 @@
     <Compile Include="System.Web.UI.WebControls\PagedDataSource.cs" />
     <Compile Include="System.Web.UI.WebControls\PagerSettings.cs" />
     <Compile Include="System.Web.UI.WebControls\Panel.cs" />
-    <Compile Include="System.Web.UI.WebControls\PanelStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\PanelStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\Parameter.cs" />
     <Compile Include="System.Web.UI.WebControls\ParameterCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\PasswordRecovery.cs" />
@@ -1165,10 +1171,14 @@
     <Compile Include="System.Web.UI.WebControls\SqlDataSource.cs" />
     <Compile Include="System.Web.UI.WebControls\SqlDataSourceView.cs" />
     <Compile Include="System.Web.UI.WebControls\StringArrayConverter.cs" />
-    <Compile Include="System.Web.UI.WebControls\Style.cs" />
+    <Compile Include="System.Web.UI.WebControls\Style.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\StyleBlock.cs" />
     <Compile Include="System.Web.UI.WebControls\StyleCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\SubMenuStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\SubMenuStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\SubMenuStyleCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\Substitution.cs" />
     <Compile Include="System.Web.UI.WebControls\Table.cs" />
@@ -1176,11 +1186,17 @@
     <Compile Include="System.Web.UI.WebControls\TableCellCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\TableCellControlBuilder.cs" />
     <Compile Include="System.Web.UI.WebControls\TableHeaderCell.cs" />
-    <Compile Include="System.Web.UI.WebControls\TableItemStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\TableItemStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\TableRow.cs" />
     <Compile Include="System.Web.UI.WebControls\TableRowCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\TableSectionStyle.cs" />
-    <Compile Include="System.Web.UI.WebControls\TableStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\TableSectionStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System.Web.UI.WebControls\TableStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\TargetConverter.cs" />
     <Compile Include="System.Web.UI.WebControls\TemplateColumn.cs" />
     <Compile Include="System.Web.UI.WebControls\TemplateField.cs" />
@@ -1191,7 +1207,9 @@
     <Compile Include="System.Web.UI.WebControls\TreeNodeBinding.cs" />
     <Compile Include="System.Web.UI.WebControls\TreeNodeBindingCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\TreeNodeCollection.cs" />
-    <Compile Include="System.Web.UI.WebControls\TreeNodeStyle.cs" />
+    <Compile Include="System.Web.UI.WebControls\TreeNodeStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="System.Web.UI.WebControls\TreeNodeStyleCollection.cs" />
     <Compile Include="System.Web.UI.WebControls\TreeView.cs" />
     <Compile Include="System.Web.UI.WebControls\Unit.cs" />
@@ -1278,7 +1296,9 @@
     <Compile Include="System.Web.UI\LiteralControl.cs" />
     <Compile Include="System.Web.UI\LosFormatter.cs" />
     <Compile Include="System.Web.UI\MainDirectiveAttribute.cs" />
-    <Compile Include="System.Web.UI\MasterPage.cs" />
+    <Compile Include="System.Web.UI\MasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="System.Web.UI\MasterPageControlBuilder.cs" />
     <Compile Include="System.Web.UI\MasterPageParser.cs" />
     <Compile Include="System.Web.UI\MinimizableAttributeTypeConverter.cs" />
@@ -1289,7 +1309,9 @@
     <Compile Include="System.Web.UI\ObjectTagBuilder.cs" />
     <Compile Include="System.Web.UI\OutputCacheLocation.cs" />
     <Compile Include="System.Web.UI\OutputCacheParameters.cs" />
-    <Compile Include="System.Web.UI\Page.cs" />
+    <Compile Include="System.Web.UI\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="System.Web.UI\PageAsyncTask.cs" />
     <Compile Include="System.Web.UI\PageHandlerFactory.cs" />
     <Compile Include="System.Web.UI\PageLifeCycle.cs" />
@@ -1335,7 +1357,9 @@
     <Compile Include="System.Web.UI\UnknownAttributeDescriptor.cs" />
     <Compile Include="System.Web.UI\UrlPropertyAttribute.cs" />
     <Compile Include="System.Web.UI\UrlTypes.cs" />
-    <Compile Include="System.Web.UI\UserControl.cs" />
+    <Compile Include="System.Web.UI\UserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="System.Web.UI\UserControlControlBuilder.cs" />
     <Compile Include="System.Web.UI\UserControlParser.cs" />
     <Compile Include="System.Web.UI\Util.cs" />
@@ -1492,7 +1516,8 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
   <!-- @ALL_SOURCES@ -->
   <!-- @COMMON_PROJECT_REFERENCES@ -->
   <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
@@ -1681,7 +1706,9 @@
   </ItemGroup>
   <!-- @ALL_RESOURCES@ -->
   <PropertyGroup>
+    <!--
     <PreBuildEvent Condition=" '$(OS)' != 'Windows_NT' ">mono $([MSBuild]::GetDirectoryNameOfFileAbove($(TargetDir), culevel.exe))\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelper.cs $(ProjectDir)\UplevelHelperDefinitions.xml</PreBuildEvent>
     <PreBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">$([MSBuild]::GetDirectoryNameOfFileAbove($(TargetDir), culevel.exe))\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelper.cs $(ProjectDir)\UplevelHelperDefinitions.xml</PreBuildEvent>
+    -->
   </PropertyGroup>
 </Project>

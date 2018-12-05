@@ -363,6 +363,28 @@ namespace System.Diagnostics {
     	    TraceEvent(eventCache, source, eventType, id, String.Empty);
     	}
 
+        [
+        ComVisible(false)
+        ]
+        public virtual void TraceEventInt(TraceEventCache eventCache, String source, int eventType, int id, string message = null) {
+
+            var type = default(TraceEventType);
+            if (eventType == (int)TraceEventType.Critical) type = TraceEventType.Critical;
+            if (eventType == (int)TraceEventType.Error) type = TraceEventType.Error;
+            if (eventType == (int)TraceEventType.Warning) type = TraceEventType.Warning;
+            if (eventType == (int)TraceEventType.Information) type = TraceEventType.Information;
+            if (eventType == (int)TraceEventType.Verbose) type = TraceEventType.Verbose;
+
+            if (Filter != null && !Filter.ShouldTrace(eventCache, source, type, id, message)) 
+                return;
+
+            WriteHeader(source, type, id);
+            WriteLine(message);
+
+            WriteFooter(eventCache);
+        }
+
+
         // All other TraceEvent methods come through this one.
         [
         ComVisible(false)
@@ -401,6 +423,10 @@ namespace System.Diagnostics {
         }
 
         private void WriteHeader(String source, TraceEventType eventType, int id) {
+            Write(String.Format(CultureInfo.InvariantCulture, "{0} {1}: {2} : ", source, eventType.ToString(), id.ToString(CultureInfo.InvariantCulture)));
+        }
+
+        private void WriteHeaderInt(String source, int eventType, int id) {
             Write(String.Format(CultureInfo.InvariantCulture, "{0} {1}: {2} : ", source, eventType.ToString(), id.ToString(CultureInfo.InvariantCulture)));
         }
 

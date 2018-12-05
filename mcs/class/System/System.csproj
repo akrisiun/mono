@@ -759,6 +759,7 @@
     <Compile Include="..\referencesource\System\sys\system\threading\semaphore.cs" />
     <Compile Include="..\referencesource\System\sys\system\windows\markup\ValueSerializerAttribute.cs" />
     <Compile Include="Assembly\AssemblyInfo.cs" />
+    <Compile Include="DebugSecurity.cs" />
     <Compile Include="Microsoft.Win32.SafeHandles\SafeX509ChainHandle.cs" />
     <Compile Include="Mono.AppleTls\INativeObject.cs" />
     <Compile Include="Mono.Btls\MonoBtlsBio.cs" />

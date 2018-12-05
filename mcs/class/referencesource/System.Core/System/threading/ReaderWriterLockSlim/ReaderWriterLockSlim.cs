@@ -1,6 +1,9 @@
 using System;                            // for Basic system types
 using System.IO;                         // for File, Path 
-using System.Diagnostics;                // for TraceInformation ...
+
+// using System.Diagnostics;                // for TraceInformation ...
+using System.Diagnostics.Security; // using System.Diagnostics;
+
 using System.Threading;
 using System.Security.Permissions;
 using System.Runtime.CompilerServices;

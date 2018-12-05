@@ -238,7 +238,7 @@ namespace System.Diagnostics {
             }
 #endif
         }
-        
+
         [Conditional("TRACE")]
         public void TraceEvent(TraceEventType eventType, int id) {
             // Ensure that config is loaded 
@@ -268,6 +268,42 @@ namespace System.Diagnostics {
                         }
                         else {
                             listener.TraceEvent(manager, Name, eventType, id);
+                            if (Trace.AutoFlush) listener.Flush();
+                        }
+                    }
+                }
+            }
+        }
+
+        [Conditional("TRACE")]
+        public void TraceEventInt(int eventType, int id, string format, params object[] args) {
+            // Ensure that config is loaded 
+            Initialize();
+
+            TraceEventCache manager = new TraceEventCache();
+
+            if (internalSwitch.ShouldTraceInt(eventType) && listeners != null) {
+                if (TraceInternal.UseGlobalLock) {
+                    // we lock on the same object that Trace does because we're writing to the same Listeners.
+                    lock (TraceInternal.critSec) {
+                        for (int i=0; i<listeners.Count; i++) {
+                            TraceListener listener = listeners[i];
+                            listener.TraceEventInt(manager, Name, eventType, id, message: String.Format(format ?? "", args));
+                            if (Trace.AutoFlush) listener.Flush();
+                        }
+                    }
+                }
+                else {
+                    for (int i=0; i<listeners.Count; i++) {
+                        TraceListener listener = listeners[i];
+                        if (!listener.IsThreadSafe) {
+                            lock (listener) {
+                                listener.TraceEventInt(manager, Name, eventType, id, message: String.Format(format ?? "", args));
+                                if (Trace.AutoFlush) listener.Flush();
+                            }
+                        }
+                        else {
+                            listener.TraceEventInt(manager, Name, eventType, id, message: String.Format(format ?? "", args));
                             if (Trace.AutoFlush) listener.Flush();
                         }
                     }
