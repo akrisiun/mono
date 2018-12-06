@@ -530,13 +530,6 @@
     <Compile Include="corefx\LambdaExpression.cs" />
     <Compile Include="corefx\SR.cs" />
     <Compile Include="corefx\SR.missing.cs" />
-    <ProjectReference Include="$(SolutionDir)\msvc\scripts\genconsts.csproj">
-      <Name>genconsts</Name>
-      <Project>{702AE2C0-71DD-4112-9A06-E4FABCA59986}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'monodroid' ">
     <Compile Include="..\..\..\external\corefx\src\Common\src\System\Collections\Generic\ReferenceEqualityComparer.cs" />
@@ -1314,8 +1307,12 @@
   <ItemGroup>
     <ProjectReference Include="../System/System.csproj" />
     <ProjectReference Include="../corlib/corlib.csproj" />
+    <ProjectReference Include="..\..\..\external\nunit-lite-framework\nunitlite-4.5.csproj">
+      <Project>{d12f0f7b-8de3-43ec-ba49-41052d065a9b}</Project>
+      <Name>nunitlite-4.5</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup Condition=" '$(Platform)' == 'testing_aot_hybrid' ">
+  <!--<ItemGroup Condition=" '$(Platform)' == 'testing_aot_hybrid' ">
     <Reference Include="nunitlite">
       <HintPath>..\lib\testing_aot_hybrid\nunitlite.dll</HintPath>
       <Private>False</Private>
@@ -1327,6 +1324,7 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+  -->
   <!-- @ALL_REFERENCES@ -->
   <!-- @ALL_RESOURCES@ -->
 </Project>
