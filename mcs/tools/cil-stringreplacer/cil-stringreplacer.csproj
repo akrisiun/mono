@@ -37,4 +37,10 @@
     <Reference Include="System" />
     <PackageReference Include="Mono.Cecil" Version="0.10.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\class\Mono.Cecil\Mono.Cecil.csproj">
+      <Project>{3ec506f3-a487-440b-aa2a-f6ee68410145}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -131,6 +131,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWeb", "TestWeb\TestWeb.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nunitlite-4.5", "..\external\nunit-lite-framework\nunitlite-4.5.csproj", "{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mono", "..\msvc\mono.vcxproj", "{A0EDDCD9-940F-432C-A28F-7EF322437D79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cil-stringreplacer", "tools\cil-stringreplacer\cil-stringreplacer.csproj", "{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -140,6 +144,8 @@ Global
 		Debug|net_4_x = Debug|net_4_x
 		Debug|wasm = Debug|wasm
 		Debug|winaot = Debug|winaot
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Debug|xammac = Debug|xammac
 		Debug|xammac_net_4_5 = Debug|xammac_net_4_5
 		Release|Any CPU = Release|Any CPU
@@ -149,6 +155,8 @@ Global
 		Release|net_4_x = Release|net_4_x
 		Release|wasm = Release|wasm
 		Release|winaot = Release|winaot
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 		Release|xammac = Release|xammac
 		Release|xammac_net_4_5 = Release|xammac_net_4_5
 	EndGlobalSection
@@ -167,6 +175,8 @@ Global
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|wasm.Build.0 = Debug|wasm
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|winaot.ActiveCfg = Debug|winaot
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|winaot.Build.0 = Debug|winaot
+		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|x64.ActiveCfg = Debug|xammac
+		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|x86.ActiveCfg = Debug|xammac
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|xammac.ActiveCfg = Debug|xammac
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|xammac.Build.0 = Debug|xammac
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -184,6 +194,8 @@ Global
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|wasm.Build.0 = Release|wasm
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|winaot.ActiveCfg = Release|winaot
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|winaot.Build.0 = Release|winaot
+		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|x64.ActiveCfg = Release|xammac
+		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|x86.ActiveCfg = Release|xammac
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|xammac.ActiveCfg = Release|xammac
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|xammac.Build.0 = Release|xammac
 		{4627BDAB-CA24-40D0-A627-01692BA51B44}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -201,6 +213,8 @@ Global
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|wasm.Build.0 = Debug|wasm
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|winaot.ActiveCfg = Debug|winaot
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|winaot.Build.0 = Debug|winaot
+		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|x64.ActiveCfg = Debug|xammac
+		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|x86.ActiveCfg = Debug|xammac
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|xammac.ActiveCfg = Debug|xammac
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|xammac.Build.0 = Debug|xammac
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -218,6 +232,8 @@ Global
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|wasm.Build.0 = Release|wasm
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|winaot.ActiveCfg = Release|winaot
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|winaot.Build.0 = Release|winaot
+		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|x64.ActiveCfg = Release|xammac
+		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|x86.ActiveCfg = Release|xammac
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|xammac.ActiveCfg = Release|xammac
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|xammac.Build.0 = Release|xammac
 		{8E30FC6B-D06F-495E-A5C9-18B40575FD60}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -235,6 +251,8 @@ Global
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|wasm.Build.0 = Debug|wasm
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|winaot.ActiveCfg = Debug|winaot
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|winaot.Build.0 = Debug|winaot
+		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|x64.ActiveCfg = Debug|xammac
+		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|x86.ActiveCfg = Debug|xammac
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|xammac.ActiveCfg = Debug|xammac
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|xammac.Build.0 = Debug|xammac
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -252,6 +270,8 @@ Global
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|wasm.Build.0 = Release|wasm
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|winaot.ActiveCfg = Release|winaot
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|winaot.Build.0 = Release|winaot
+		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|x64.ActiveCfg = Release|xammac
+		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|x86.ActiveCfg = Release|xammac
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|xammac.ActiveCfg = Release|xammac
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|xammac.Build.0 = Release|xammac
 		{E3149CAB-0AC5-415C-9309-E2636CAF1EBD}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -269,6 +289,8 @@ Global
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|wasm.Build.0 = Debug|wasm
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|winaot.ActiveCfg = Debug|winaot
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|winaot.Build.0 = Debug|winaot
+		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|x64.ActiveCfg = Debug|xammac
+		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|x86.ActiveCfg = Debug|xammac
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|xammac.ActiveCfg = Debug|xammac
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|xammac.Build.0 = Debug|xammac
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -286,6 +308,8 @@ Global
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|wasm.Build.0 = Release|wasm
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|winaot.ActiveCfg = Release|winaot
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|winaot.Build.0 = Release|winaot
+		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|x64.ActiveCfg = Release|xammac
+		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|x86.ActiveCfg = Release|xammac
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|xammac.ActiveCfg = Release|xammac
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|xammac.Build.0 = Release|xammac
 		{117140AC-A163-4B86-9E69-A46EA268A9DB}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -298,6 +322,8 @@ Global
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -308,6 +334,8 @@ Global
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|net_4_x.Build.0 = Release|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|wasm.ActiveCfg = Release|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|winaot.ActiveCfg = Release|net_4_x
+		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|x64.ActiveCfg = Release|net_4_x
+		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|x86.ActiveCfg = Release|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|xammac.ActiveCfg = Release|net_4_x
 		{373D6B6E-485C-405E-BD6A-8AA5A5C3160F}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|Any CPU.ActiveCfg = Debug|xammac_net_4_5
@@ -319,6 +347,8 @@ Global
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|wasm.ActiveCfg = Debug|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|winaot.ActiveCfg = Debug|xammac_net_4_5
+		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|x64.ActiveCfg = Debug|xammac_net_4_5
+		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|x86.ActiveCfg = Debug|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -331,6 +361,8 @@ Global
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|net_4_x.Build.0 = Release|net_4_x
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|wasm.ActiveCfg = Release|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|winaot.ActiveCfg = Release|xammac_net_4_5
+		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|x64.ActiveCfg = Release|xammac_net_4_5
+		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|x86.ActiveCfg = Release|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{CDCF8A59-1328-481A-8B0B-95B426F99743}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -344,6 +376,8 @@ Global
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|wasm.Build.0 = Debug|wasm
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|winaot.ActiveCfg = Debug|winaot
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|winaot.Build.0 = Debug|winaot
+		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|x64.ActiveCfg = Debug|xammac
+		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|x86.ActiveCfg = Debug|xammac
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -357,6 +391,8 @@ Global
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|wasm.Build.0 = Release|wasm
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|winaot.ActiveCfg = Release|winaot
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|winaot.Build.0 = Release|winaot
+		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|x64.ActiveCfg = Release|xammac
+		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|x86.ActiveCfg = Release|xammac
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{E4596A34-AFBC-4744-8352-E6996AC34C16}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -372,6 +408,8 @@ Global
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|wasm.Build.0 = Debug|wasm
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|winaot.ActiveCfg = Debug|winaot
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|winaot.Build.0 = Debug|winaot
+		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|x64.ActiveCfg = Debug|xammac
+		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|x86.ActiveCfg = Debug|xammac
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|xammac.ActiveCfg = Debug|xammac
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|xammac.Build.0 = Debug|xammac
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -388,6 +426,8 @@ Global
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|wasm.Build.0 = Release|wasm
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|winaot.ActiveCfg = Release|winaot
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|winaot.Build.0 = Release|winaot
+		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|x64.ActiveCfg = Release|xammac
+		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|x86.ActiveCfg = Release|xammac
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|xammac.ActiveCfg = Release|xammac
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|xammac.Build.0 = Release|xammac
 		{E21E6C69-5A3D-44A3-BCB1-CDE08786CB41}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -404,6 +444,8 @@ Global
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|wasm.Build.0 = Debug|wasm
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|winaot.ActiveCfg = Debug|winaot
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|winaot.Build.0 = Debug|winaot
+		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|x64.ActiveCfg = Debug|xammac
+		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|x86.ActiveCfg = Debug|xammac
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|xammac.ActiveCfg = Debug|xammac
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|xammac.Build.0 = Debug|xammac
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -420,6 +462,8 @@ Global
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|wasm.Build.0 = Release|wasm
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|winaot.ActiveCfg = Release|winaot
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|winaot.Build.0 = Release|winaot
+		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|x64.ActiveCfg = Release|xammac
+		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|x86.ActiveCfg = Release|xammac
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|xammac.ActiveCfg = Release|xammac
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|xammac.Build.0 = Release|xammac
 		{1849D0C8-51AC-46AC-BF22-29956F733B73}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -436,6 +480,8 @@ Global
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|wasm.Build.0 = Debug|wasm
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|winaot.ActiveCfg = Debug|winaot
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|winaot.Build.0 = Debug|winaot
+		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|x64.ActiveCfg = Debug|xammac
+		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|x86.ActiveCfg = Debug|xammac
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|xammac.ActiveCfg = Debug|xammac
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|xammac.Build.0 = Debug|xammac
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -452,6 +498,8 @@ Global
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|wasm.Build.0 = Release|wasm
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|winaot.ActiveCfg = Release|winaot
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|winaot.Build.0 = Release|winaot
+		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|x64.ActiveCfg = Release|xammac
+		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|x86.ActiveCfg = Release|xammac
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|xammac.ActiveCfg = Release|xammac
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|xammac.Build.0 = Release|xammac
 		{2EEAD467-A190-4094-85EE-FDC354A876AF}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -468,6 +516,8 @@ Global
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|wasm.Build.0 = Debug|wasm
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|winaot.ActiveCfg = Debug|winaot
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|winaot.Build.0 = Debug|winaot
+		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|x64.ActiveCfg = Debug|xammac
+		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|x86.ActiveCfg = Debug|xammac
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|xammac.ActiveCfg = Debug|xammac
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|xammac.Build.0 = Debug|xammac
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -484,6 +534,8 @@ Global
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|wasm.Build.0 = Release|wasm
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|winaot.ActiveCfg = Release|winaot
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|winaot.Build.0 = Release|winaot
+		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|x64.ActiveCfg = Release|xammac
+		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|x86.ActiveCfg = Release|xammac
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|xammac.ActiveCfg = Release|xammac
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|xammac.Build.0 = Release|xammac
 		{2C8FCB39-B0E8-4D90-9252-57E1A37259A3}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -498,6 +550,8 @@ Global
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|wasm.Build.0 = Debug|wasm
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|winaot.ActiveCfg = Debug|winaot
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|winaot.Build.0 = Debug|winaot
+		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|x64.ActiveCfg = Debug|unreal
+		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|x86.ActiveCfg = Debug|unreal
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|xammac.ActiveCfg = Debug|wasm
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Debug|xammac_net_4_5.ActiveCfg = Debug|wasm
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|Any CPU.ActiveCfg = Release|winaot
@@ -510,6 +564,8 @@ Global
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|wasm.Build.0 = Release|wasm
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|winaot.ActiveCfg = Release|winaot
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|winaot.Build.0 = Release|winaot
+		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|x64.ActiveCfg = Release|unreal
+		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|x86.ActiveCfg = Release|unreal
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|xammac.ActiveCfg = Release|wasm
 		{DCB27742-5382-4CB3-B7D8-A6DF92B8B68C}.Release|xammac_net_4_5.ActiveCfg = Release|wasm
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|Any CPU.ActiveCfg = Debug|xammac_net_4_5
@@ -524,6 +580,8 @@ Global
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|wasm.Build.0 = Debug|wasm
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|winaot.ActiveCfg = Debug|winaot
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|winaot.Build.0 = Debug|winaot
+		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|x64.ActiveCfg = Debug|xammac
+		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|x86.ActiveCfg = Debug|xammac
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|xammac.ActiveCfg = Debug|xammac
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|xammac.Build.0 = Debug|xammac
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -540,6 +598,8 @@ Global
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|wasm.Build.0 = Release|wasm
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|winaot.ActiveCfg = Release|winaot
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|winaot.Build.0 = Release|winaot
+		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|x64.ActiveCfg = Release|xammac
+		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|x86.ActiveCfg = Release|xammac
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|xammac.ActiveCfg = Release|xammac
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|xammac.Build.0 = Release|xammac
 		{4900DA48-CB1B-4520-98EE-F6B0F3054341}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -556,6 +616,8 @@ Global
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|wasm.Build.0 = Debug|wasm
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|winaot.ActiveCfg = Debug|winaot
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|winaot.Build.0 = Debug|winaot
+		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|x64.ActiveCfg = Debug|xammac
+		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|x86.ActiveCfg = Debug|xammac
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|xammac.ActiveCfg = Debug|xammac
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|xammac.Build.0 = Debug|xammac
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -572,6 +634,8 @@ Global
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|wasm.Build.0 = Release|wasm
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|winaot.ActiveCfg = Release|winaot
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|winaot.Build.0 = Release|winaot
+		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|x64.ActiveCfg = Release|xammac
+		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|x86.ActiveCfg = Release|xammac
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|xammac.ActiveCfg = Release|xammac
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|xammac.Build.0 = Release|xammac
 		{593AF45E-4E30-4D2B-8AEC-273C44BE998A}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -589,6 +653,8 @@ Global
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|wasm.Build.0 = Debug|wasm
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|winaot.ActiveCfg = Debug|winaot
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|winaot.Build.0 = Debug|winaot
+		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|x64.ActiveCfg = Debug|xammac
+		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|x86.ActiveCfg = Debug|xammac
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|xammac.ActiveCfg = Debug|xammac
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|xammac.Build.0 = Debug|xammac
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -606,6 +672,8 @@ Global
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|wasm.Build.0 = Release|wasm
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|winaot.ActiveCfg = Release|winaot
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|winaot.Build.0 = Release|winaot
+		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|x64.ActiveCfg = Release|xammac
+		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|x86.ActiveCfg = Release|xammac
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|xammac.ActiveCfg = Release|xammac
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|xammac.Build.0 = Release|xammac
 		{1F165EE1-C483-4ACE-BD45-31074A9F735F}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -622,6 +690,8 @@ Global
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|wasm.Build.0 = Debug|wasm
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|winaot.ActiveCfg = Debug|winaot
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|winaot.Build.0 = Debug|winaot
+		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|x64.ActiveCfg = Debug|xammac
+		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|x86.ActiveCfg = Debug|xammac
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|xammac.ActiveCfg = Debug|xammac
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|xammac.Build.0 = Debug|xammac
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -638,6 +708,8 @@ Global
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|wasm.Build.0 = Release|wasm
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|winaot.ActiveCfg = Release|winaot
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|winaot.Build.0 = Release|winaot
+		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|x64.ActiveCfg = Release|xammac
+		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|x86.ActiveCfg = Release|xammac
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|xammac.ActiveCfg = Release|xammac
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|xammac.Build.0 = Release|xammac
 		{8C07E4E7-2689-452F-AF8C-201E7E23E48C}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -654,6 +726,8 @@ Global
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|wasm.Build.0 = Debug|wasm
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|winaot.ActiveCfg = Debug|winaot
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|winaot.Build.0 = Debug|winaot
+		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|x64.ActiveCfg = Debug|xammac
+		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|x86.ActiveCfg = Debug|xammac
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|xammac.ActiveCfg = Debug|xammac
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|xammac.Build.0 = Debug|xammac
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -670,6 +744,8 @@ Global
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|wasm.Build.0 = Release|wasm
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|winaot.ActiveCfg = Release|winaot
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|winaot.Build.0 = Release|winaot
+		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|x64.ActiveCfg = Release|xammac
+		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|x86.ActiveCfg = Release|xammac
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|xammac.ActiveCfg = Release|xammac
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|xammac.Build.0 = Release|xammac
 		{D8C661F1-BB21-4C5E-8C35-FC4D1EA94B54}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -686,6 +762,8 @@ Global
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|wasm.Build.0 = Debug|wasm
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|winaot.ActiveCfg = Debug|winaot
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|winaot.Build.0 = Debug|winaot
+		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|x64.ActiveCfg = Debug|xammac
+		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|x86.ActiveCfg = Debug|xammac
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|xammac.ActiveCfg = Debug|xammac
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|xammac.Build.0 = Debug|xammac
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -702,6 +780,8 @@ Global
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|wasm.Build.0 = Release|wasm
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|winaot.ActiveCfg = Release|winaot
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|winaot.Build.0 = Release|winaot
+		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|x64.ActiveCfg = Release|xammac
+		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|x86.ActiveCfg = Release|xammac
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|xammac.ActiveCfg = Release|xammac
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|xammac.Build.0 = Release|xammac
 		{182E5AD7-2F59-48E5-B338-C515733AE79B}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -718,6 +798,8 @@ Global
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|wasm.Build.0 = Debug|wasm
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|winaot.ActiveCfg = Debug|winaot
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|winaot.Build.0 = Debug|winaot
+		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|x64.ActiveCfg = Debug|xammac
+		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|x86.ActiveCfg = Debug|xammac
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|xammac.ActiveCfg = Debug|xammac
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|xammac.Build.0 = Debug|xammac
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -734,6 +816,8 @@ Global
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|wasm.Build.0 = Release|wasm
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|winaot.ActiveCfg = Release|winaot
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|winaot.Build.0 = Release|winaot
+		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|x64.ActiveCfg = Release|xammac
+		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|x86.ActiveCfg = Release|xammac
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|xammac.ActiveCfg = Release|xammac
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|xammac.Build.0 = Release|xammac
 		{4DE5B183-8B61-4159-890B-F5BD501C4507}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -750,6 +834,8 @@ Global
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|wasm.Build.0 = Debug|wasm
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|winaot.ActiveCfg = Debug|winaot
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|winaot.Build.0 = Debug|winaot
+		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|x64.ActiveCfg = Debug|xammac
+		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|x86.ActiveCfg = Debug|xammac
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|xammac.ActiveCfg = Debug|xammac
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|xammac.Build.0 = Debug|xammac
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -766,6 +852,8 @@ Global
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|wasm.Build.0 = Release|wasm
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|winaot.ActiveCfg = Release|winaot
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|winaot.Build.0 = Release|winaot
+		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|x64.ActiveCfg = Release|xammac
+		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|x86.ActiveCfg = Release|xammac
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|xammac.ActiveCfg = Release|xammac
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|xammac.Build.0 = Release|xammac
 		{1D638902-5EFD-49BA-98E5-E80239CA6EF6}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -782,6 +870,8 @@ Global
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|wasm.Build.0 = Debug|wasm
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|winaot.ActiveCfg = Debug|winaot
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|winaot.Build.0 = Debug|winaot
+		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|x64.ActiveCfg = Debug|xammac
+		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|x86.ActiveCfg = Debug|xammac
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|xammac.ActiveCfg = Debug|xammac
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|xammac.Build.0 = Debug|xammac
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -798,6 +888,8 @@ Global
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|wasm.Build.0 = Release|wasm
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|winaot.ActiveCfg = Release|winaot
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|winaot.Build.0 = Release|winaot
+		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|x64.ActiveCfg = Release|xammac
+		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|x86.ActiveCfg = Release|xammac
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|xammac.ActiveCfg = Release|xammac
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|xammac.Build.0 = Release|xammac
 		{B8272336-EAB6-44D1-B3DE-CA6CDFA137AC}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -810,6 +902,8 @@ Global
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -820,6 +914,8 @@ Global
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|net_4_x.Build.0 = Release|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|wasm.ActiveCfg = Release|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|winaot.ActiveCfg = Release|net_4_x
+		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|x64.ActiveCfg = Release|net_4_x
+		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|x86.ActiveCfg = Release|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|xammac.ActiveCfg = Release|net_4_x
 		{03171B7B-A14D-4CFF-9D58-EC078E74287C}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -830,6 +926,8 @@ Global
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -840,6 +938,8 @@ Global
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|net_4_x.Build.0 = Release|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|wasm.ActiveCfg = Release|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|winaot.ActiveCfg = Release|net_4_x
+		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|x64.ActiveCfg = Release|net_4_x
+		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|x86.ActiveCfg = Release|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|xammac.ActiveCfg = Release|net_4_x
 		{06AB80F3-E8A7-41DB-8794-3BDDF2B0E84A}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|Any CPU.ActiveCfg = Debug|xammac_net_4_5
@@ -854,6 +954,8 @@ Global
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|wasm.Build.0 = Debug|wasm
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|winaot.ActiveCfg = Debug|winaot
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|winaot.Build.0 = Debug|winaot
+		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|x64.ActiveCfg = Debug|xammac
+		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|x86.ActiveCfg = Debug|xammac
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|xammac.ActiveCfg = Debug|xammac
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|xammac.Build.0 = Debug|xammac
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -870,6 +972,8 @@ Global
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|wasm.Build.0 = Release|wasm
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|winaot.ActiveCfg = Release|winaot
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|winaot.Build.0 = Release|winaot
+		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|x64.ActiveCfg = Release|xammac
+		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|x86.ActiveCfg = Release|xammac
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|xammac.ActiveCfg = Release|xammac
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|xammac.Build.0 = Release|xammac
 		{7395C26D-7C2A-4F7F-AB7D-CE0B50BDFF38}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -886,6 +990,8 @@ Global
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|wasm.Build.0 = Debug|wasm
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|winaot.ActiveCfg = Debug|winaot
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|winaot.Build.0 = Debug|winaot
+		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|x64.ActiveCfg = Debug|xammac
+		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|x86.ActiveCfg = Debug|xammac
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|xammac.ActiveCfg = Debug|xammac
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|xammac.Build.0 = Debug|xammac
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -902,6 +1008,8 @@ Global
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|wasm.Build.0 = Release|wasm
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|winaot.ActiveCfg = Release|winaot
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|winaot.Build.0 = Release|winaot
+		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|x64.ActiveCfg = Release|xammac
+		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|x86.ActiveCfg = Release|xammac
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|xammac.ActiveCfg = Release|xammac
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|xammac.Build.0 = Release|xammac
 		{AE291DB2-A2A8-46D2-AAE8-602976F43FC6}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -918,6 +1026,8 @@ Global
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|wasm.Build.0 = Debug|wasm
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|winaot.ActiveCfg = Debug|winaot
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|winaot.Build.0 = Debug|winaot
+		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|x64.ActiveCfg = Debug|xammac
+		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|x86.ActiveCfg = Debug|xammac
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|xammac.ActiveCfg = Debug|xammac
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|xammac.Build.0 = Debug|xammac
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -934,6 +1044,8 @@ Global
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|wasm.Build.0 = Release|wasm
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|winaot.ActiveCfg = Release|winaot
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|winaot.Build.0 = Release|winaot
+		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|x64.ActiveCfg = Release|xammac
+		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|x86.ActiveCfg = Release|xammac
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|xammac.ActiveCfg = Release|xammac
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|xammac.Build.0 = Release|xammac
 		{47044138-F46D-4336-ACD5-880B083A8B5D}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -950,6 +1062,8 @@ Global
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|wasm.Build.0 = Debug|wasm
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|winaot.ActiveCfg = Debug|winaot
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|winaot.Build.0 = Debug|winaot
+		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|x64.ActiveCfg = Debug|xammac
+		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|x86.ActiveCfg = Debug|xammac
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|xammac.ActiveCfg = Debug|xammac
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|xammac.Build.0 = Debug|xammac
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -966,6 +1080,8 @@ Global
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|wasm.Build.0 = Release|wasm
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|winaot.ActiveCfg = Release|winaot
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|winaot.Build.0 = Release|winaot
+		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|x64.ActiveCfg = Release|xammac
+		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|x86.ActiveCfg = Release|xammac
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|xammac.ActiveCfg = Release|xammac
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|xammac.Build.0 = Release|xammac
 		{3A7745A6-0F61-4EF5-AB3F-2ED4F7D7DF9F}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -982,6 +1098,8 @@ Global
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|wasm.Build.0 = Debug|wasm
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|winaot.ActiveCfg = Debug|winaot
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|winaot.Build.0 = Debug|winaot
+		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|x64.ActiveCfg = Debug|xammac
+		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|x86.ActiveCfg = Debug|xammac
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|xammac.ActiveCfg = Debug|xammac
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|xammac.Build.0 = Debug|xammac
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -998,6 +1116,8 @@ Global
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|wasm.Build.0 = Release|wasm
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|winaot.ActiveCfg = Release|winaot
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|winaot.Build.0 = Release|winaot
+		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|x64.ActiveCfg = Release|xammac
+		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|x86.ActiveCfg = Release|xammac
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|xammac.ActiveCfg = Release|xammac
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|xammac.Build.0 = Release|xammac
 		{CB170322-1467-40B2-B598-E6212ECD3B89}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1010,6 +1130,8 @@ Global
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|wasm.ActiveCfg = Debug|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|winaot.ActiveCfg = Debug|xammac_net_4_5
+		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|x64.ActiveCfg = Debug|xammac_net_4_5
+		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|x86.ActiveCfg = Debug|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -1021,6 +1143,8 @@ Global
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|net_4_x.Build.0 = Release|net_4_x
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|wasm.ActiveCfg = Release|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|winaot.ActiveCfg = Release|xammac_net_4_5
+		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|x64.ActiveCfg = Release|xammac_net_4_5
+		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|x86.ActiveCfg = Release|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{C68FFB74-3D43-4D6F-BE84-54938F3EC2AE}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -1032,6 +1156,8 @@ Global
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|wasm.ActiveCfg = Debug|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|winaot.ActiveCfg = Debug|xammac_net_4_5
+		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|x64.ActiveCfg = Debug|xammac_net_4_5
+		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|x86.ActiveCfg = Debug|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -1043,6 +1169,8 @@ Global
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|net_4_x.Build.0 = Release|net_4_x
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|wasm.ActiveCfg = Release|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|winaot.ActiveCfg = Release|xammac_net_4_5
+		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|x64.ActiveCfg = Release|xammac_net_4_5
+		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|x86.ActiveCfg = Release|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{CE7EED1F-1B49-4B8B-9199-5D939D52D637}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -1056,6 +1184,8 @@ Global
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|wasm.Build.0 = Debug|wasm
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|winaot.ActiveCfg = Debug|winaot
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|winaot.Build.0 = Debug|winaot
+		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|x64.ActiveCfg = Debug|xammac
+		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|x86.ActiveCfg = Debug|xammac
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -1069,6 +1199,8 @@ Global
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|wasm.Build.0 = Release|wasm
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|winaot.ActiveCfg = Release|winaot
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|winaot.Build.0 = Release|winaot
+		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|x64.ActiveCfg = Release|xammac
+		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|x86.ActiveCfg = Release|xammac
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{1961C6D4-5B4D-4D82-A9AF-C6134D346B63}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -1084,6 +1216,8 @@ Global
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|wasm.Build.0 = Debug|wasm
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|winaot.ActiveCfg = Debug|winaot
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|winaot.Build.0 = Debug|winaot
+		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|x64.ActiveCfg = Debug|xammac
+		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|x86.ActiveCfg = Debug|xammac
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|xammac.ActiveCfg = Debug|xammac
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|xammac.Build.0 = Debug|xammac
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1100,6 +1234,8 @@ Global
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|wasm.Build.0 = Release|wasm
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|winaot.ActiveCfg = Release|winaot
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|winaot.Build.0 = Release|winaot
+		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|x64.ActiveCfg = Release|xammac
+		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|x86.ActiveCfg = Release|xammac
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|xammac.ActiveCfg = Release|xammac
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|xammac.Build.0 = Release|xammac
 		{9043EA6B-D194-45E4-B8A5-B176BF06AA90}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1116,6 +1252,8 @@ Global
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|wasm.Build.0 = Debug|wasm
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|winaot.ActiveCfg = Debug|winaot
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|winaot.Build.0 = Debug|winaot
+		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|x64.ActiveCfg = Debug|xammac
+		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|x86.ActiveCfg = Debug|xammac
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|xammac.ActiveCfg = Debug|xammac
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|xammac.Build.0 = Debug|xammac
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1132,6 +1270,8 @@ Global
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|wasm.Build.0 = Release|wasm
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|winaot.ActiveCfg = Release|winaot
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|winaot.Build.0 = Release|winaot
+		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|x64.ActiveCfg = Release|xammac
+		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|x86.ActiveCfg = Release|xammac
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|xammac.ActiveCfg = Release|xammac
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|xammac.Build.0 = Release|xammac
 		{85755B40-B328-4D85-9149-7073CB141B1B}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1148,6 +1288,8 @@ Global
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|wasm.Build.0 = Debug|wasm
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|winaot.ActiveCfg = Debug|winaot
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|winaot.Build.0 = Debug|winaot
+		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|x64.ActiveCfg = Debug|xammac
+		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|x86.ActiveCfg = Debug|xammac
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|xammac.ActiveCfg = Debug|xammac
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|xammac.Build.0 = Debug|xammac
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1164,6 +1306,8 @@ Global
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|wasm.Build.0 = Release|wasm
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|winaot.ActiveCfg = Release|winaot
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|winaot.Build.0 = Release|winaot
+		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|x64.ActiveCfg = Release|xammac
+		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|x86.ActiveCfg = Release|xammac
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|xammac.ActiveCfg = Release|xammac
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|xammac.Build.0 = Release|xammac
 		{F1DA716F-4FDC-4BFC-92BA-F751A2E96140}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1180,6 +1324,8 @@ Global
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|wasm.Build.0 = Debug|wasm
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|winaot.ActiveCfg = Debug|winaot
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|winaot.Build.0 = Debug|winaot
+		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|x64.ActiveCfg = Debug|xammac
+		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|x86.ActiveCfg = Debug|xammac
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|xammac.ActiveCfg = Debug|xammac
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|xammac.Build.0 = Debug|xammac
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1196,6 +1342,8 @@ Global
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|wasm.Build.0 = Release|wasm
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|winaot.ActiveCfg = Release|winaot
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|winaot.Build.0 = Release|winaot
+		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|x64.ActiveCfg = Release|xammac
+		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|x86.ActiveCfg = Release|xammac
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|xammac.ActiveCfg = Release|xammac
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|xammac.Build.0 = Release|xammac
 		{67E770FE-AD7C-442D-BE35-43E917A177B8}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1212,6 +1360,8 @@ Global
 		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|wasm.Build.0 = Debug|wasm
 		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|winaot.ActiveCfg = Debug|winaot
 		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|winaot.Build.0 = Debug|winaot
+		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|x64.ActiveCfg = Debug|xammac
+		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|x86.ActiveCfg = Debug|xammac
 		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|xammac.ActiveCfg = Debug|xammac
 		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|xammac.Build.0 = Debug|xammac
 		{20A4C495-61B2-4546-8048-B630206878B2}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1228,6 +1378,8 @@ Global
 		{20A4C495-61B2-4546-8048-B630206878B2}.Release|wasm.Build.0 = Release|wasm
 		{20A4C495-61B2-4546-8048-B630206878B2}.Release|winaot.ActiveCfg = Release|winaot
 		{20A4C495-61B2-4546-8048-B630206878B2}.Release|winaot.Build.0 = Release|winaot
+		{20A4C495-61B2-4546-8048-B630206878B2}.Release|x64.ActiveCfg = Release|xammac
+		{20A4C495-61B2-4546-8048-B630206878B2}.Release|x86.ActiveCfg = Release|xammac
 		{20A4C495-61B2-4546-8048-B630206878B2}.Release|xammac.ActiveCfg = Release|xammac
 		{20A4C495-61B2-4546-8048-B630206878B2}.Release|xammac.Build.0 = Release|xammac
 		{20A4C495-61B2-4546-8048-B630206878B2}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1244,6 +1396,8 @@ Global
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|wasm.Build.0 = Debug|wasm
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|winaot.ActiveCfg = Debug|winaot
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|winaot.Build.0 = Debug|winaot
+		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|x64.ActiveCfg = Debug|xammac
+		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|x86.ActiveCfg = Debug|xammac
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|xammac.ActiveCfg = Debug|xammac
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|xammac.Build.0 = Debug|xammac
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1260,6 +1414,8 @@ Global
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|wasm.Build.0 = Release|wasm
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|winaot.ActiveCfg = Release|winaot
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|winaot.Build.0 = Release|winaot
+		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|x64.ActiveCfg = Release|xammac
+		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|x86.ActiveCfg = Release|xammac
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|xammac.ActiveCfg = Release|xammac
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|xammac.Build.0 = Release|xammac
 		{942F9B7C-3245-4F5A-A4ED-140013DCCE2C}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1276,6 +1432,8 @@ Global
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|wasm.Build.0 = Debug|wasm
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|winaot.ActiveCfg = Debug|winaot
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|winaot.Build.0 = Debug|winaot
+		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|x64.ActiveCfg = Debug|xammac
+		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|x86.ActiveCfg = Debug|xammac
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|xammac.ActiveCfg = Debug|xammac
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|xammac.Build.0 = Debug|xammac
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1292,6 +1450,8 @@ Global
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|wasm.Build.0 = Release|wasm
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|winaot.ActiveCfg = Release|winaot
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|winaot.Build.0 = Release|winaot
+		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|x64.ActiveCfg = Release|xammac
+		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|x86.ActiveCfg = Release|xammac
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|xammac.ActiveCfg = Release|xammac
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|xammac.Build.0 = Release|xammac
 		{69FB0E61-FF6A-409D-96BE-A88F0E9135C1}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1308,6 +1468,8 @@ Global
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|wasm.Build.0 = Debug|wasm
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|winaot.ActiveCfg = Debug|winaot
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|winaot.Build.0 = Debug|winaot
+		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|x64.ActiveCfg = Debug|xammac
+		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|x86.ActiveCfg = Debug|xammac
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|xammac.ActiveCfg = Debug|xammac
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|xammac.Build.0 = Debug|xammac
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1324,6 +1486,8 @@ Global
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|wasm.Build.0 = Release|wasm
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|winaot.ActiveCfg = Release|winaot
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|winaot.Build.0 = Release|winaot
+		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|x64.ActiveCfg = Release|xammac
+		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|x86.ActiveCfg = Release|xammac
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|xammac.ActiveCfg = Release|xammac
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|xammac.Build.0 = Release|xammac
 		{0CBB3511-86E6-4B32-801B-EB403FC6C9FC}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1340,6 +1504,8 @@ Global
 		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|wasm.Build.0 = Debug|wasm
 		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|winaot.ActiveCfg = Debug|winaot
 		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|winaot.Build.0 = Debug|winaot
+		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|x64.ActiveCfg = Debug|xammac
+		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|x86.ActiveCfg = Debug|xammac
 		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|xammac.ActiveCfg = Debug|xammac
 		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|xammac.Build.0 = Debug|xammac
 		{4A319895-62F2-4B52-A853-5A806485419D}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1356,6 +1522,8 @@ Global
 		{4A319895-62F2-4B52-A853-5A806485419D}.Release|wasm.Build.0 = Release|wasm
 		{4A319895-62F2-4B52-A853-5A806485419D}.Release|winaot.ActiveCfg = Release|winaot
 		{4A319895-62F2-4B52-A853-5A806485419D}.Release|winaot.Build.0 = Release|winaot
+		{4A319895-62F2-4B52-A853-5A806485419D}.Release|x64.ActiveCfg = Release|xammac
+		{4A319895-62F2-4B52-A853-5A806485419D}.Release|x86.ActiveCfg = Release|xammac
 		{4A319895-62F2-4B52-A853-5A806485419D}.Release|xammac.ActiveCfg = Release|xammac
 		{4A319895-62F2-4B52-A853-5A806485419D}.Release|xammac.Build.0 = Release|xammac
 		{4A319895-62F2-4B52-A853-5A806485419D}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1372,6 +1540,8 @@ Global
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|wasm.Build.0 = Debug|wasm
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|winaot.ActiveCfg = Debug|winaot
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|winaot.Build.0 = Debug|winaot
+		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|x64.ActiveCfg = Debug|xammac
+		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|x86.ActiveCfg = Debug|xammac
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|xammac.ActiveCfg = Debug|xammac
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|xammac.Build.0 = Debug|xammac
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1388,6 +1558,8 @@ Global
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|wasm.Build.0 = Release|wasm
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|winaot.ActiveCfg = Release|winaot
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|winaot.Build.0 = Release|winaot
+		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|x64.ActiveCfg = Release|xammac
+		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|x86.ActiveCfg = Release|xammac
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|xammac.ActiveCfg = Release|xammac
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|xammac.Build.0 = Release|xammac
 		{655939D1-09DA-4135-AF7B-DC271AD39292}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1400,6 +1572,8 @@ Global
 		{98957852-11B8-4B86-889A-5025DE061314}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{98957852-11B8-4B86-889A-5025DE061314}.Debug|wasm.ActiveCfg = Debug|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Debug|winaot.ActiveCfg = Debug|xammac_net_4_5
+		{98957852-11B8-4B86-889A-5025DE061314}.Debug|x64.ActiveCfg = Debug|xammac_net_4_5
+		{98957852-11B8-4B86-889A-5025DE061314}.Debug|x86.ActiveCfg = Debug|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -1411,6 +1585,8 @@ Global
 		{98957852-11B8-4B86-889A-5025DE061314}.Release|net_4_x.Build.0 = Release|net_4_x
 		{98957852-11B8-4B86-889A-5025DE061314}.Release|wasm.ActiveCfg = Release|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Release|winaot.ActiveCfg = Release|xammac_net_4_5
+		{98957852-11B8-4B86-889A-5025DE061314}.Release|x64.ActiveCfg = Release|xammac_net_4_5
+		{98957852-11B8-4B86-889A-5025DE061314}.Release|x86.ActiveCfg = Release|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{98957852-11B8-4B86-889A-5025DE061314}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -1422,6 +1598,8 @@ Global
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1432,6 +1610,8 @@ Global
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|net_4_x.Build.0 = Release|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|wasm.ActiveCfg = Release|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|winaot.ActiveCfg = Release|net_4_x
+		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|x64.ActiveCfg = Release|net_4_x
+		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|x86.ActiveCfg = Release|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|xammac.ActiveCfg = Release|net_4_x
 		{8787A3B7-8A19-4586-8DCF-6F5914FD48D5}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1442,6 +1622,8 @@ Global
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|wasm.ActiveCfg = Debug|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|winaot.ActiveCfg = Debug|monodroid_tools
+		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|x64.ActiveCfg = Debug|monodroid_tools
+		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|x86.ActiveCfg = Debug|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|xammac.ActiveCfg = Debug|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Debug|xammac_net_4_5.ActiveCfg = Debug|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1452,6 +1634,8 @@ Global
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|net_4_x.Build.0 = Release|net_4_x
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|wasm.ActiveCfg = Release|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|winaot.ActiveCfg = Release|monodroid_tools
+		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|x64.ActiveCfg = Release|monodroid_tools
+		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|x86.ActiveCfg = Release|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|xammac.ActiveCfg = Release|monodroid_tools
 		{3EC506F3-A487-440B-AA2A-F6EE68410145}.Release|xammac_net_4_5.ActiveCfg = Release|monodroid_tools
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|Any CPU.ActiveCfg = Debug|xammac_net_4_5
@@ -1466,6 +1650,8 @@ Global
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|wasm.Build.0 = Debug|wasm
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|winaot.ActiveCfg = Debug|winaot
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|winaot.Build.0 = Debug|winaot
+		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|x64.ActiveCfg = Debug|xammac
+		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|x86.ActiveCfg = Debug|xammac
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|xammac.ActiveCfg = Debug|xammac
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|xammac.Build.0 = Debug|xammac
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1482,6 +1668,8 @@ Global
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|wasm.Build.0 = Release|wasm
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|winaot.ActiveCfg = Release|winaot
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|winaot.Build.0 = Release|winaot
+		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|x64.ActiveCfg = Release|xammac
+		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|x86.ActiveCfg = Release|xammac
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|xammac.ActiveCfg = Release|xammac
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|xammac.Build.0 = Release|xammac
 		{2281525D-7F2E-41C1-982F-E612AF3ECF61}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1494,6 +1682,8 @@ Global
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1504,6 +1694,8 @@ Global
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|net_4_x.Build.0 = Release|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|wasm.ActiveCfg = Release|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|winaot.ActiveCfg = Release|net_4_x
+		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|x64.ActiveCfg = Release|net_4_x
+		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|x86.ActiveCfg = Release|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|xammac.ActiveCfg = Release|net_4_x
 		{08CE3CB5-8F28-4213-8F7F-EA09BE75E998}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1514,6 +1706,8 @@ Global
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1524,6 +1718,8 @@ Global
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|net_4_x.Build.0 = Release|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|wasm.ActiveCfg = Release|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|winaot.ActiveCfg = Release|net_4_x
+		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|x64.ActiveCfg = Release|net_4_x
+		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|x86.ActiveCfg = Release|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|xammac.ActiveCfg = Release|net_4_x
 		{125C4605-5444-4323-BA62-7CAAF1B47567}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1534,6 +1730,8 @@ Global
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1544,6 +1742,8 @@ Global
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|net_4_x.Build.0 = Release|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|wasm.ActiveCfg = Release|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|winaot.ActiveCfg = Release|net_4_x
+		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|x64.ActiveCfg = Release|net_4_x
+		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|x86.ActiveCfg = Release|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|xammac.ActiveCfg = Release|net_4_x
 		{36C342B2-B2D8-486D-9516-6A2AC30674F8}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1554,6 +1754,8 @@ Global
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1564,6 +1766,8 @@ Global
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|net_4_x.Build.0 = Release|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|wasm.ActiveCfg = Release|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|winaot.ActiveCfg = Release|net_4_x
+		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|x64.ActiveCfg = Release|net_4_x
+		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|x86.ActiveCfg = Release|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|xammac.ActiveCfg = Release|net_4_x
 		{E169B10A-7CE1-4571-A861-587854A0528D}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1574,6 +1778,8 @@ Global
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1584,6 +1790,8 @@ Global
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|net_4_x.Build.0 = Release|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|wasm.ActiveCfg = Release|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|winaot.ActiveCfg = Release|net_4_x
+		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|x64.ActiveCfg = Release|net_4_x
+		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|x86.ActiveCfg = Release|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|xammac.ActiveCfg = Release|net_4_x
 		{34C81B37-6DD2-4356-AAAB-842EED0F4AB6}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1594,6 +1802,8 @@ Global
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1604,6 +1814,8 @@ Global
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|net_4_x.Build.0 = Release|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|wasm.ActiveCfg = Release|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|winaot.ActiveCfg = Release|net_4_x
+		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|x64.ActiveCfg = Release|net_4_x
+		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|x86.ActiveCfg = Release|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|xammac.ActiveCfg = Release|net_4_x
 		{4C0A0D1A-790F-4BFE-B6DA-942AED8A3A6C}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1614,6 +1826,8 @@ Global
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|wasm.ActiveCfg = Debug|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|winaot.ActiveCfg = Debug|xammac_net_4_5
+		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|x64.ActiveCfg = Debug|xammac_net_4_5
+		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|x86.ActiveCfg = Debug|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|xammac.ActiveCfg = Debug|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Debug|xammac_net_4_5.Build.0 = Debug|xammac_net_4_5
@@ -1625,6 +1839,8 @@ Global
 		{D44698BE-3120-4BE8-B803-671948B03935}.Release|net_4_x.Build.0 = Release|net_4_x
 		{D44698BE-3120-4BE8-B803-671948B03935}.Release|wasm.ActiveCfg = Release|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Release|winaot.ActiveCfg = Release|xammac_net_4_5
+		{D44698BE-3120-4BE8-B803-671948B03935}.Release|x64.ActiveCfg = Release|xammac_net_4_5
+		{D44698BE-3120-4BE8-B803-671948B03935}.Release|x86.ActiveCfg = Release|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Release|xammac.ActiveCfg = Release|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
 		{D44698BE-3120-4BE8-B803-671948B03935}.Release|xammac_net_4_5.Build.0 = Release|xammac_net_4_5
@@ -1640,6 +1856,8 @@ Global
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|wasm.Build.0 = Debug|wasm
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|winaot.ActiveCfg = Debug|winaot
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|winaot.Build.0 = Debug|winaot
+		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|x64.ActiveCfg = Debug|xammac
+		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|x86.ActiveCfg = Debug|xammac
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|xammac.ActiveCfg = Debug|xammac
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|xammac.Build.0 = Debug|xammac
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1656,6 +1874,8 @@ Global
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|wasm.Build.0 = Release|wasm
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|winaot.ActiveCfg = Release|winaot
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|winaot.Build.0 = Release|winaot
+		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|x64.ActiveCfg = Release|xammac
+		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|x86.ActiveCfg = Release|xammac
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|xammac.ActiveCfg = Release|xammac
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|xammac.Build.0 = Release|xammac
 		{923BC7B6-EE92-4AB2-80EC-A96047B98906}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1672,6 +1892,8 @@ Global
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|wasm.Build.0 = Debug|wasm
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|winaot.ActiveCfg = Debug|winaot
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|winaot.Build.0 = Debug|winaot
+		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|x64.ActiveCfg = Debug|xammac
+		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|x86.ActiveCfg = Debug|xammac
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|xammac.ActiveCfg = Debug|xammac
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|xammac.Build.0 = Debug|xammac
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1688,6 +1910,8 @@ Global
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|wasm.Build.0 = Release|wasm
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|winaot.ActiveCfg = Release|winaot
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|winaot.Build.0 = Release|winaot
+		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|x64.ActiveCfg = Release|xammac
+		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|x86.ActiveCfg = Release|xammac
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|xammac.ActiveCfg = Release|xammac
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|xammac.Build.0 = Release|xammac
 		{0554E025-FABC-4822-AA41-0CA6F8C37432}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1700,6 +1924,8 @@ Global
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1710,6 +1936,8 @@ Global
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|net_4_x.Build.0 = Release|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|wasm.ActiveCfg = Release|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|winaot.ActiveCfg = Release|net_4_x
+		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|x64.ActiveCfg = Release|net_4_x
+		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|x86.ActiveCfg = Release|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|xammac.ActiveCfg = Release|net_4_x
 		{0D09D8E9-FF99-408F-875A-F68F81236554}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1720,6 +1948,8 @@ Global
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1730,6 +1960,8 @@ Global
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|net_4_x.Build.0 = Release|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|wasm.ActiveCfg = Release|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|winaot.ActiveCfg = Release|net_4_x
+		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|x64.ActiveCfg = Release|net_4_x
+		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|x86.ActiveCfg = Release|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|xammac.ActiveCfg = Release|net_4_x
 		{2CFDD4F5-4B13-4FF4-A421-0361F2FC825F}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1740,6 +1972,8 @@ Global
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1750,6 +1984,8 @@ Global
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|net_4_x.Build.0 = Release|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|wasm.ActiveCfg = Release|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|winaot.ActiveCfg = Release|net_4_x
+		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|x64.ActiveCfg = Release|net_4_x
+		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|x86.ActiveCfg = Release|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|xammac.ActiveCfg = Release|net_4_x
 		{A8009985-3358-4B32-B057-1AF00A373A8E}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1760,6 +1996,8 @@ Global
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1770,6 +2008,8 @@ Global
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|net_4_x.Build.0 = Release|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|wasm.ActiveCfg = Release|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|winaot.ActiveCfg = Release|net_4_x
+		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|x64.ActiveCfg = Release|net_4_x
+		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|x86.ActiveCfg = Release|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|xammac.ActiveCfg = Release|net_4_x
 		{19D6D457-8112-4097-9DFF-069CFDC14A49}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|Any CPU.ActiveCfg = Debug|net_4_x
@@ -1780,6 +2020,8 @@ Global
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|net_4_x.Build.0 = Debug|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|wasm.ActiveCfg = Debug|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|winaot.ActiveCfg = Debug|net_4_x
+		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|x64.ActiveCfg = Debug|net_4_x
+		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|x86.ActiveCfg = Debug|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|xammac.ActiveCfg = Debug|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Debug|xammac_net_4_5.ActiveCfg = Debug|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|Any CPU.ActiveCfg = Release|net_4_x
@@ -1790,6 +2032,8 @@ Global
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|net_4_x.Build.0 = Release|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|wasm.ActiveCfg = Release|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|winaot.ActiveCfg = Release|net_4_x
+		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|x64.ActiveCfg = Release|net_4_x
+		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|x86.ActiveCfg = Release|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|xammac.ActiveCfg = Release|net_4_x
 		{B925503A-4F83-443F-811C-FB9C8B2152EF}.Release|xammac_net_4_5.ActiveCfg = Release|net_4_x
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|Any CPU.ActiveCfg = Debug|xammac_net_4_5
@@ -1804,6 +2048,8 @@ Global
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|wasm.Build.0 = Debug|wasm
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|winaot.ActiveCfg = Debug|winaot
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|winaot.Build.0 = Debug|winaot
+		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|x64.ActiveCfg = Debug|xammac
+		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|x86.ActiveCfg = Debug|xammac
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|xammac.ActiveCfg = Debug|xammac
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|xammac.Build.0 = Debug|xammac
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Debug|xammac_net_4_5.ActiveCfg = Debug|xammac_net_4_5
@@ -1820,6 +2066,8 @@ Global
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|wasm.Build.0 = Release|wasm
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|winaot.ActiveCfg = Release|winaot
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|winaot.Build.0 = Release|winaot
+		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|x64.ActiveCfg = Release|xammac
+		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|x86.ActiveCfg = Release|xammac
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|xammac.ActiveCfg = Release|xammac
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|xammac.Build.0 = Release|xammac
 		{7B3EB110-1E57-4CA0-B65B-DB51B7F95D4D}.Release|xammac_net_4_5.ActiveCfg = Release|xammac_net_4_5
@@ -1838,6 +2086,10 @@ Global
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|wasm.Build.0 = Debug|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|winaot.ActiveCfg = Debug|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|winaot.Build.0 = Debug|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|x64.Build.0 = Debug|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|x86.Build.0 = Debug|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|xammac.ActiveCfg = Debug|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|xammac.Build.0 = Debug|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Debug|xammac_net_4_5.ActiveCfg = Debug|Any CPU
@@ -1856,6 +2108,10 @@ Global
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|wasm.Build.0 = Release|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|winaot.ActiveCfg = Release|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|winaot.Build.0 = Release|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|x64.ActiveCfg = Release|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|x64.Build.0 = Release|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|x86.Build.0 = Release|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|xammac.ActiveCfg = Release|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|xammac.Build.0 = Release|Any CPU
 		{FC801823-8DA9-426F-9C4D-3F1E13D58053}.Release|xammac_net_4_5.ActiveCfg = Release|Any CPU
@@ -1874,6 +2130,10 @@ Global
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|wasm.Build.0 = Debug|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|winaot.ActiveCfg = Debug|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|winaot.Build.0 = Debug|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|x64.Build.0 = Debug|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|x86.Build.0 = Debug|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|xammac.ActiveCfg = Debug|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|xammac.Build.0 = Debug|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Debug|xammac_net_4_5.ActiveCfg = Debug|Any CPU
@@ -1892,10 +2152,84 @@ Global
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|wasm.Build.0 = Release|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|winaot.ActiveCfg = Release|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|winaot.Build.0 = Release|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|x64.ActiveCfg = Release|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|x64.Build.0 = Release|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|x86.ActiveCfg = Release|Any CPU
+		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|x86.Build.0 = Release|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|xammac.ActiveCfg = Release|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|xammac.Build.0 = Release|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|xammac_net_4_5.ActiveCfg = Release|Any CPU
 		{D12F0F7B-8DE3-43EC-BA49-41052D065A9B}.Release|xammac_net_4_5.Build.0 = Release|Any CPU
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|monodroid.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|monotouch.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|monotouch_runtime.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|net_4_x.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|wasm.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|winaot.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|x64.ActiveCfg = Debug|x64
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|x64.Build.0 = Debug|x64
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|x86.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|x86.Build.0 = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|xammac.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Debug|xammac_net_4_5.ActiveCfg = Debug|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|Any CPU.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|monodroid.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|monotouch.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|monotouch_runtime.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|net_4_x.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|wasm.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|winaot.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|x64.ActiveCfg = Release|x64
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|x64.Build.0 = Release|x64
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|x86.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|x86.Build.0 = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|xammac.ActiveCfg = Release|Win32
+		{A0EDDCD9-940F-432C-A28F-7EF322437D79}.Release|xammac_net_4_5.ActiveCfg = Release|Win32
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|monodroid.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|monodroid.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|monotouch.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|monotouch.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|monotouch_runtime.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|monotouch_runtime.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|net_4_x.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|net_4_x.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|wasm.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|wasm.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|winaot.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|winaot.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|x64.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|x86.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|xammac.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|xammac.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|xammac_net_4_5.ActiveCfg = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Debug|xammac_net_4_5.Build.0 = Debug|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|monodroid.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|monodroid.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|monotouch.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|monotouch.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|monotouch_runtime.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|monotouch_runtime.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|net_4_x.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|net_4_x.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|wasm.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|wasm.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|winaot.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|winaot.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|x64.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|x64.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|x86.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|x86.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|xammac.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|xammac.Build.0 = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|xammac_net_4_5.ActiveCfg = Release|Any CPU
+		{53C50FFA-8B39-4C70-8BA8-CAA70C41A47B}.Release|xammac_net_4_5.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

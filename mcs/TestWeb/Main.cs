@@ -15,7 +15,9 @@ namespace standalone_tests
             // "c:\Program Files\Mono\bin\mono-sgen.exe" TestWeb/bin/net48/TestWeb.exe
             // 1051400006
             // mono --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:51478 TestWeb/bin/net48/TestWeb.exe
-
+            // & ../bin/mono-sgen.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 TestWeb/bin/net48/TestWeb.exe
+            // Corlib not in sync with this runtime: The runtime did not find the mscorlib.dll it expected. 
+            // Expected interface version F602B559-7639-49B6-97EE-C433CE7A56F2 but found @MONO_CORLIB_VERSION@
 
             // Loaded from: C:\Program Files\Mono\lib\mono\4.5\mscorlib.dll
             // corlib.dll expected - 1050400003
