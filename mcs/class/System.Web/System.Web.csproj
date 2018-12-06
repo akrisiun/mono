@@ -49,518 +49,1528 @@
   </ItemGroup>
   <!-- @BUILT_SOURCES@ -->
   <ItemGroup>
-    <Compile Include="..\..\build\common\Consts.cs" />
-    <Compile Include="..\..\build\common\Locale.cs" />
+    <Compile Include="..\..\build\common\Consts.cs">
+      <Link>ReferenceSources\Consts.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\common\Locale.cs">
+      <Link>ReferenceSources\Locale.cs</Link>
+    </Compile>
     <Compile Include="..\..\build\common\MonoTODOAttribute.cs" />
     <Compile Include="..\..\build\common\SR.cs" />
-    <Compile Include="..\System.Design\System.Data.Design\TypedDataSetGenerator.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\AssemblyNamesTypeResolutionService.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ByteArrayFromResXHandler.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\FileRefHandler.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\InMemoryHandler.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\NullRefHandler.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXDataNode.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXDataNodeHandler.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXFileRef.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXNullRef.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXResourceReader.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXResourceSet.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\ResXResourceWriter.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\SerializedFromResXHandler.cs" />
-    <Compile Include="..\System.Windows.Forms\System.Resources\TypeConverterFromResXHandler.cs" />
+    <Compile Include="..\System.Design\System.Data.Design\TypedDataSetGenerator.cs">
+      <Link>ReferenceSources\TypedDataSetGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\AssemblyNamesTypeResolutionService.cs">
+      <Link>Assembly\AssemblyNamesTypeResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ByteArrayFromResXHandler.cs">
+      <Link>ReferenceSources\ByteArrayFromResXHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\FileRefHandler.cs">
+      <Link>ReferenceSources\FileRefHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\InMemoryHandler.cs">
+      <Link>ReferenceSources\InMemoryHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\NullRefHandler.cs">
+      <Link>ReferenceSources\NullRefHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXDataNode.cs">
+      <Link>ReferenceSources\ResXDataNode.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXDataNodeHandler.cs">
+      <Link>ReferenceSources\ResXDataNodeHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXFileRef.cs">
+      <Link>ReferenceSources\ResXFileRef.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXNullRef.cs">
+      <Link>ReferenceSources\ResXNullRef.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXResourceReader.cs">
+      <Link>ReferenceSources\ResXResourceReader.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXResourceSet.cs">
+      <Link>ReferenceSources\ResXResourceSet.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\ResXResourceWriter.cs">
+      <Link>ReferenceSources\ResXResourceWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\SerializedFromResXHandler.cs">
+      <Link>ReferenceSources\SerializedFromResXHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\System.Windows.Forms\System.Resources\TypeConverterFromResXHandler.cs">
+      <Link>ReferenceSources\TypeConverterFromResXHandler.cs</Link>
+    </Compile>
     <Compile Include="..\System\System\MonoToolsLocator.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpApplicationStateBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpApplicationStateWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpBrowserCapabilitiesBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpBrowserCapabilitiesWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpCachePolicyBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpCachePolicyWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpFileCollectionBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpPostedFileBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpPostedFileWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpRequestBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpResponseBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpServerUtilityBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpSessionStateBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpSessionStateWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpStaticObjectsCollectionBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Abstractions\HttpStaticObjectsCollectionWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Cache\IOutputCacheEntry.cs" />
-    <Compile Include="..\referencesource\System.Web\Cache\OutputCacheProviderCollection.cs" />
-    <Compile Include="..\referencesource\System.Web\Cache\ResponseElement.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\BuildProviderAppliesTo.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\BuildProviderAppliesToAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\DesignTimeResourceProviderFactoryAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\ExpressionEditorAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\ExpressionPrefixAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\FolderLevelBuildProviderAppliesTo.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\FolderLevelBuildProviderAppliesToAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\IAssemblyPostProcessor.cs" />
-    <Compile Include="..\referencesource\System.Web\Compilation\IImplicitResourceProvider.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\AdapterDictionary.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\AsyncPreloadModeFlags.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\AuthenticationMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\AuthorizationRuleAction.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\BrowserCapsElementType.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\BrowserTree.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\CustomErrorsMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\CustomErrorsRedirectMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\CustomWebEventKey.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\DelayedRegex.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\FormsAuthPasswordFormat.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\FormsProtectionEnum.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\IConfigMapPath.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\IConfigMapPathFactory.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\IRemoteWebConfigurationHostServer.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\IServerConfig2.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\Internal\IInternalConfigWebHost.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\MachineKeyCompatibilityMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\MachineKeyValidation.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\PagesEnableSessionState.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\ProcessModelComAuthenticationLevel.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\ProcessModelComImpersonationLevel.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\ProcessModelLogLevel.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\ProfileGuidedOptimizationsFlags.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\RegexMatchTimeoutValidator.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\RegexMatchTimeoutValidatorAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\RpcAuthent.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\RpcImpers.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\RpcLevel.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\SerializationMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\SystemWebCachingSectionGroup.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\TicketCompatibilityMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\TraceDisplayMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\WebApplicationLevel.cs" />
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpApplicationStateBase.cs">
+      <Link>ReferenceSources\HttpApplicationStateBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpApplicationStateWrapper.cs">
+      <Link>ReferenceSources\HttpApplicationStateWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpBrowserCapabilitiesBase.cs">
+      <Link>ReferenceSources\HttpBrowserCapabilitiesBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpBrowserCapabilitiesWrapper.cs">
+      <Link>ReferenceSources\HttpBrowserCapabilitiesWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpCachePolicyBase.cs">
+      <Link>ReferenceSources\HttpCachePolicyBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpCachePolicyWrapper.cs">
+      <Link>ReferenceSources\HttpCachePolicyWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpFileCollectionBase.cs">
+      <Link>ReferenceSources\HttpFileCollectionBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpPostedFileBase.cs">
+      <Link>ReferenceSources\HttpPostedFileBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpPostedFileWrapper.cs">
+      <Link>ReferenceSources\HttpPostedFileWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpRequestBase.cs">
+      <Link>ReferenceSources\HttpRequestBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpResponseBase.cs">
+      <Link>ReferenceSources\HttpResponseBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpServerUtilityBase.cs">
+      <Link>ReferenceSources\HttpServerUtilityBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpSessionStateBase.cs">
+      <Link>ReferenceSources\HttpSessionStateBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpSessionStateWrapper.cs">
+      <Link>ReferenceSources\HttpSessionStateWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpStaticObjectsCollectionBase.cs">
+      <Link>ReferenceSources\HttpStaticObjectsCollectionBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Abstractions\HttpStaticObjectsCollectionWrapper.cs">
+      <Link>ReferenceSources\HttpStaticObjectsCollectionWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Cache\IOutputCacheEntry.cs">
+      <Link>ReferenceSources\IOutputCacheEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Cache\OutputCacheProviderCollection.cs">
+      <Link>ReferenceSources\OutputCacheProviderCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Cache\ResponseElement.cs">
+      <Link>ReferenceSources\ResponseElement.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\BuildProviderAppliesTo.cs">
+      <Link>ReferenceSources\BuildProviderAppliesTo.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\BuildProviderAppliesToAttribute.cs">
+      <Link>ReferenceSources\BuildProviderAppliesToAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\DesignTimeResourceProviderFactoryAttribute.cs">
+      <Link>ReferenceSources\DesignTimeResourceProviderFactoryAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\ExpressionEditorAttribute.cs">
+      <Link>ReferenceSources\ExpressionEditorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\ExpressionPrefixAttribute.cs">
+      <Link>ReferenceSources\ExpressionPrefixAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\FolderLevelBuildProviderAppliesTo.cs">
+      <Link>ReferenceSources\FolderLevelBuildProviderAppliesTo.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\FolderLevelBuildProviderAppliesToAttribute.cs">
+      <Link>ReferenceSources\FolderLevelBuildProviderAppliesToAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\IAssemblyPostProcessor.cs">
+      <Link>ReferenceSources\IAssemblyPostProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Compilation\IImplicitResourceProvider.cs">
+      <Link>ReferenceSources\IImplicitResourceProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\AdapterDictionary.cs">
+      <Link>Assembly\AdapterDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\AsyncPreloadModeFlags.cs">
+      <Link>Assembly\AsyncPreloadModeFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\AuthenticationMode.cs">
+      <Link>Assembly\AuthenticationMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\AuthorizationRuleAction.cs">
+      <Link>Assembly\AuthorizationRuleAction.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\BrowserCapsElementType.cs">
+      <Link>ReferenceSources\BrowserCapsElementType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\BrowserTree.cs">
+      <Link>ReferenceSources\BrowserTree.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\CustomErrorsMode.cs">
+      <Link>ReferenceSources\CustomErrorsMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\CustomErrorsRedirectMode.cs">
+      <Link>ReferenceSources\CustomErrorsRedirectMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\CustomWebEventKey.cs">
+      <Link>ReferenceSources\CustomWebEventKey.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\DelayedRegex.cs">
+      <Link>ReferenceSources\DelayedRegex.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\FormsAuthPasswordFormat.cs">
+      <Link>ReferenceSources\FormsAuthPasswordFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\FormsProtectionEnum.cs">
+      <Link>ReferenceSources\FormsProtectionEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\IConfigMapPath.cs">
+      <Link>ReferenceSources\IConfigMapPath.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\IConfigMapPathFactory.cs">
+      <Link>ReferenceSources\IConfigMapPathFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\IRemoteWebConfigurationHostServer.cs">
+      <Link>ReferenceSources\IRemoteWebConfigurationHostServer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\IServerConfig2.cs">
+      <Link>ReferenceSources\IServerConfig2.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\Internal\IInternalConfigWebHost.cs">
+      <Link>ReferenceSources\IInternalConfigWebHost.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\MachineKeyCompatibilityMode.cs">
+      <Link>ReferenceSources\MachineKeyCompatibilityMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\MachineKeyValidation.cs">
+      <Link>ReferenceSources\MachineKeyValidation.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\PagesEnableSessionState.cs">
+      <Link>ReferenceSources\PagesEnableSessionState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\ProcessModelComAuthenticationLevel.cs">
+      <Link>ReferenceSources\ProcessModelComAuthenticationLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\ProcessModelComImpersonationLevel.cs">
+      <Link>ReferenceSources\ProcessModelComImpersonationLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\ProcessModelLogLevel.cs">
+      <Link>ReferenceSources\ProcessModelLogLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\ProfileGuidedOptimizationsFlags.cs">
+      <Link>ReferenceSources\ProfileGuidedOptimizationsFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\RegexMatchTimeoutValidator.cs">
+      <Link>ReferenceSources\RegexMatchTimeoutValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\RegexMatchTimeoutValidatorAttribute.cs">
+      <Link>ReferenceSources\RegexMatchTimeoutValidatorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\RpcAuthent.cs">
+      <Link>ReferenceSources\RpcAuthent.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\RpcImpers.cs">
+      <Link>ReferenceSources\RpcImpers.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\RpcLevel.cs">
+      <Link>ReferenceSources\RpcLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\SerializationMode.cs">
+      <Link>ReferenceSources\SerializationMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\SystemWebCachingSectionGroup.cs">
+      <Link>ReferenceSources\SystemWebCachingSectionGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\TicketCompatibilityMode.cs">
+      <Link>ReferenceSources\TicketCompatibilityMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\TraceDisplayMode.cs">
+      <Link>ReferenceSources\TraceDisplayMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Configuration\WebApplicationLevel.cs">
+      <Link>ReferenceSources\WebApplicationLevel.cs</Link>
+    </Compile>
     <Compile Include="..\referencesource\System.Web\Configuration\WebLevel.cs" />
-    <Compile Include="..\referencesource\System.Web\Configuration\XhtmlConformanceMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\AppDomainProtocolHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\BackgroundWorkScheduler.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\HTTP_COOKED_URL.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\HostingEnvironmentException.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IApplicationHost.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\ICustomLoader.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\ICustomRuntime.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\ICustomRuntimeManager.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IProcessHostPreloadClient.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IProcessHostSupportFunctions.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IProcessPingCallback.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IProcessSuspendListener.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IQueueHost.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IRegisteredObject.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\IStopListeningRegisteredObject.cs" />
-    <Compile Include="..\referencesource\System.Web\Hosting\ISuspendibleRegisteredObject.cs" />
+    <Compile Include="..\referencesource\System.Web\Configuration\XhtmlConformanceMode.cs">
+      <Link>ReferenceSources\XhtmlConformanceMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\AppDomainProtocolHandler.cs">
+      <Link>Assembly\AppDomainProtocolHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\BackgroundWorkScheduler.cs">
+      <Link>ReferenceSources\BackgroundWorkScheduler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\HTTP_COOKED_URL.cs">
+      <Link>ReferenceSources\HTTP_COOKED_URL.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\HostingEnvironmentException.cs">
+      <Link>ReferenceSources\HostingEnvironmentException.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IApplicationHost.cs">
+      <Link>ReferenceSources\IApplicationHost.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\ICustomLoader.cs">
+      <Link>ReferenceSources\ICustomLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\ICustomRuntime.cs">
+      <Link>ReferenceSources\ICustomRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\ICustomRuntimeManager.cs">
+      <Link>ReferenceSources\ICustomRuntimeManager.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IProcessHostPreloadClient.cs">
+      <Link>ReferenceSources\IProcessHostPreloadClient.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IProcessHostSupportFunctions.cs">
+      <Link>ReferenceSources\IProcessHostSupportFunctions.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IProcessPingCallback.cs">
+      <Link>ReferenceSources\IProcessPingCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IProcessSuspendListener.cs">
+      <Link>ReferenceSources\IProcessSuspendListener.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IQueueHost.cs">
+      <Link>ReferenceSources\IQueueHost.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IRegisteredObject.cs">
+      <Link>ReferenceSources\IRegisteredObject.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\IStopListeningRegisteredObject.cs">
+      <Link>ReferenceSources\IStopListeningRegisteredObject.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Hosting\ISuspendibleRegisteredObject.cs">
+      <Link>ReferenceSources\ISuspendibleRegisteredObject.cs</Link>
+    </Compile>
     <Compile Include="..\referencesource\System.Web\HtmlString.cs" />
-    <Compile Include="..\referencesource\System.Web\HttpChannelBindingToken.cs" />
-    <Compile Include="..\referencesource\System.Web\HttpRawResponse.cs" />
-    <Compile Include="..\referencesource\System.Web\IHtmlString.cs" />
-    <Compile Include="..\referencesource\System.Web\IHttpAsyncHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\IHttpHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\IHttpHandlerFactory.cs" />
-    <Compile Include="..\referencesource\System.Web\IHttpModule.cs" />
-    <Compile Include="..\referencesource\System.Web\IPrincipalContainer.cs" />
-    <Compile Include="..\referencesource\System.Web\IRequestCompletedNotifier.cs" />
-    <Compile Include="..\referencesource\System.Web\ISubscriptionToken.cs" />
-    <Compile Include="..\referencesource\System.Web\ITlsTokenBindingInfo.cs" />
-    <Compile Include="..\referencesource\System.Web\IntraPartitionAPIs\xsp\PerfCounterEnum.cs" />
-    <Compile Include="..\referencesource\System.Web\Management\IInternalWebEventProvider.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\BindNeverAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\BindRequiredAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\BindingBehavior.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\BindingBehaviorAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\DictionaryHelpers.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ExtensibleModelBinderAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\IModelNameProvider.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\IUnvalidatedValueProviderSource.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\IValueProvider.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\IValueProviderSource.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelBinderProviderOptionsAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelBindingExecutionContext.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelError.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelErrorCollection.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelState.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelStateDictionary.cs" />
-    <Compile Include="..\referencesource\System.Web\ModelBinding\ValueProviderResult.cs" />
-    <Compile Include="..\referencesource\System.Web\ModuleConfigurationInfo.cs" />
-    <Compile Include="..\referencesource\System.Web\PreApplicationStartMethodAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Profile\DefaultHttpProfile.cs" />
-    <Compile Include="..\referencesource\System.Web\Profile\HttpProfileGroupBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Profile\ProfileAuthenticationOptions.cs" />
-    <Compile Include="..\referencesource\System.Web\Profile\ProfileEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\Profile\ProfileEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Profile\ProfileInfo.cs" />
-    <Compile Include="..\referencesource\System.Web\ReadEntityBodyMode.cs" />
-    <Compile Include="..\referencesource\System.Web\RequestNotification.cs" />
-    <Compile Include="..\referencesource\System.Web\RequestNotificationStatus.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\BoundUrl.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\ContentPathSegment.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\HttpMethodConstraint.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\IRouteConstraint.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\IRouteHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\LiteralSubsegment.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\PageRouteHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\ParameterSubsegment.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\ParsedRoute.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\PathSegment.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\PathSubsegment.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RequestContext.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\Route.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteBase.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteCollection.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteData.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteDirection.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteParser.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteTable.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\RouteValueDictionary.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\SeparatorPathSegment.cs" />
+    <Compile Include="..\referencesource\System.Web\HttpChannelBindingToken.cs">
+      <Link>ReferenceSources\HttpChannelBindingToken.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\HttpRawResponse.cs">
+      <Link>ReferenceSources\HttpRawResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IHtmlString.cs">
+      <Link>ReferenceSources\IHtmlString.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IHttpAsyncHandler.cs">
+      <Link>ReferenceSources\IHttpAsyncHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IHttpHandler.cs">
+      <Link>ReferenceSources\IHttpHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IHttpHandlerFactory.cs">
+      <Link>ReferenceSources\IHttpHandlerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IHttpModule.cs">
+      <Link>ReferenceSources\IHttpModule.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IPrincipalContainer.cs">
+      <Link>ReferenceSources\IPrincipalContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IRequestCompletedNotifier.cs">
+      <Link>ReferenceSources\IRequestCompletedNotifier.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ISubscriptionToken.cs">
+      <Link>ReferenceSources\ISubscriptionToken.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ITlsTokenBindingInfo.cs">
+      <Link>ReferenceSources\ITlsTokenBindingInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\IntraPartitionAPIs\xsp\PerfCounterEnum.cs">
+      <Link>ReferenceSources\PerfCounterEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Management\IInternalWebEventProvider.cs">
+      <Link>ReferenceSources\IInternalWebEventProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\BindNeverAttribute.cs">
+      <Link>ReferenceSources\BindNeverAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\BindRequiredAttribute.cs">
+      <Link>ReferenceSources\BindRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\BindingBehavior.cs">
+      <Link>ReferenceSources\BindingBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\BindingBehaviorAttribute.cs">
+      <Link>ReferenceSources\BindingBehaviorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\DictionaryHelpers.cs">
+      <Link>ReferenceSources\DictionaryHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ExtensibleModelBinderAttribute.cs">
+      <Link>ReferenceSources\ExtensibleModelBinderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\IModelNameProvider.cs">
+      <Link>ReferenceSources\IModelNameProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\IUnvalidatedValueProviderSource.cs">
+      <Link>ReferenceSources\IUnvalidatedValueProviderSource.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\IValueProvider.cs">
+      <Link>ReferenceSources\IValueProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\IValueProviderSource.cs">
+      <Link>ReferenceSources\IValueProviderSource.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelBinderProviderOptionsAttribute.cs">
+      <Link>ReferenceSources\ModelBinderProviderOptionsAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelBindingExecutionContext.cs">
+      <Link>ReferenceSources\ModelBindingExecutionContext.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelError.cs">
+      <Link>ReferenceSources\ModelError.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelErrorCollection.cs">
+      <Link>ReferenceSources\ModelErrorCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelState.cs">
+      <Link>ReferenceSources\ModelState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ModelStateDictionary.cs">
+      <Link>ReferenceSources\ModelStateDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModelBinding\ValueProviderResult.cs">
+      <Link>ReferenceSources\ValueProviderResult.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ModuleConfigurationInfo.cs">
+      <Link>ReferenceSources\ModuleConfigurationInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\PreApplicationStartMethodAttribute.cs">
+      <Link>ReferenceSources\PreApplicationStartMethodAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Profile\DefaultHttpProfile.cs">
+      <Link>ReferenceSources\DefaultHttpProfile.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Profile\HttpProfileGroupBase.cs">
+      <Link>ReferenceSources\HttpProfileGroupBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Profile\ProfileAuthenticationOptions.cs">
+      <Link>ReferenceSources\ProfileAuthenticationOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Profile\ProfileEventArgs.cs">
+      <Link>ReferenceSources\ProfileEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Profile\ProfileEventHandler.cs">
+      <Link>ReferenceSources\ProfileEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Profile\ProfileInfo.cs">
+      <Link>ReferenceSources\ProfileInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ReadEntityBodyMode.cs">
+      <Link>ReferenceSources\ReadEntityBodyMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\RequestNotification.cs">
+      <Link>ReferenceSources\RequestNotification.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\RequestNotificationStatus.cs">
+      <Link>ReferenceSources\RequestNotificationStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\BoundUrl.cs">
+      <Link>ReferenceSources\BoundUrl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\ContentPathSegment.cs">
+      <Link>ReferenceSources\ContentPathSegment.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\HttpMethodConstraint.cs">
+      <Link>ReferenceSources\HttpMethodConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\IRouteConstraint.cs">
+      <Link>ReferenceSources\IRouteConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\IRouteHandler.cs">
+      <Link>ReferenceSources\IRouteHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\LiteralSubsegment.cs">
+      <Link>ReferenceSources\LiteralSubsegment.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\PageRouteHandler.cs">
+      <Link>ReferenceSources\PageRouteHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\ParameterSubsegment.cs">
+      <Link>ReferenceSources\ParameterSubsegment.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\ParsedRoute.cs">
+      <Link>ReferenceSources\ParsedRoute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\PathSegment.cs">
+      <Link>ReferenceSources\PathSegment.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\PathSubsegment.cs">
+      <Link>ReferenceSources\PathSubsegment.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RequestContext.cs">
+      <Link>ReferenceSources\RequestContext.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\Route.cs">
+      <Link>ReferenceSources\Route.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteBase.cs">
+      <Link>ReferenceSources\RouteBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteCollection.cs">
+      <Link>ReferenceSources\RouteCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteData.cs">
+      <Link>ReferenceSources\RouteData.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteDirection.cs">
+      <Link>ReferenceSources\RouteDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteParser.cs">
+      <Link>ReferenceSources\RouteParser.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteTable.cs">
+      <Link>ReferenceSources\RouteTable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\RouteValueDictionary.cs">
+      <Link>ReferenceSources\RouteValueDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\SeparatorPathSegment.cs">
+      <Link>ReferenceSources\SeparatorPathSegment.cs</Link>
+    </Compile>
     <Compile Include="..\referencesource\System.Web\Routing\StopRoutingHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\UrlAuthFailureHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\UrlRoutingHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\UrlRoutingModule.cs" />
-    <Compile Include="..\referencesource\System.Web\Routing\VirtualPathData.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\AntiXss\CodeCharts.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\Cryptography\ICryptoService.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\FormsAuthenticationEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\FormsAuthenticationEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\GenericAuthenticationEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\PassportAuthenticationEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\PassportAuthenticationEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\RoleManagerEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\RoleManagerEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\WindowsAuthenticationEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\Security\WindowsAuthenticationEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\State\IReadOnlySessionState.cs" />
-    <Compile Include="..\referencesource\System.Web\State\IRequiresSessionState.cs" />
-    <Compile Include="..\referencesource\System.Web\State\SessionStateBehavior.cs" />
-    <Compile Include="..\referencesource\System.Web\TaskWrapperAsyncResult.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ClientIDMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ConflictOptions.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ConstructorNeedsTagAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ControlBuilderAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\CssClassPropertyAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\DataBindingHandlerAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\DataKeyPropertyAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\DataSourceCacheExpiry.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\DataSourceCapabilities.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\DataSourceControlBuilder.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\DataSourceOperation.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\EmptyControlCollection.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\EventEntry.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\FileLevelControlBuilderAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\FilterableAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\HtmlTextWriterAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\HtmlTextWriterStyle.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\HtmlTextWriterTag.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IAttributeAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IAutoFieldGenerator.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IBindableControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IBindableTemplate.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ICallbackEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IControlBuilderAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IControlDesignerAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IDReferencePropertyAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IDataBindingsAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IDataItemContainer.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IDataKeysControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IDataSource.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IDataSourceViewSchemaAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IExpressionsAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IFilterResolutionService.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IHierarchicalDataSource.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IHierarchicalEnumerable.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IHierarchyData.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\INamingContainer.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\INavigateUIData.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\INonBindingContainer.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IParserAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IPostBackDataHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IPostBackEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IResourceUrlGenerator.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IScriptResourceDefinition.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IScriptResourceMapping.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IStateFormatter.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IStateManager.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IStyleSheet.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ITemplate.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IThemeResolutionService.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IUpdatePanel.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IUrlResolutionService.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IUserControlDesignerAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IUserControlTypeResolutionService.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IValidator.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ImageClickEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ImageClickEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\IndexedString.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\NonVisualControlAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\PagesConfiguration.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\Pair.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\PersistChildrenAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\PersistenceMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\SupportsEventValidationAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\TemplateInstance.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\TemplateInstanceAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ThemeableAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\TraceContextEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\TraceContextEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\UnobtrusiveValidationMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ValidateRequestMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ViewStateEncryptionMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\ViewStateMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\AdCreatedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\Adapters\WmlPostFieldType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\AuthenticateEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\AuthenticateEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\AutoCompleteType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\BorderStyle.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\BulletedListEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\BulletedListEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ButtonColumnType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ButtonType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CalendarSelectionMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CallingDataMethodsEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CallingDataMethodsEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ContentDirection.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CreateUserErrorEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\CreateUserErrorEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataBoundControlMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataControlCellType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataControlRowState.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataControlRowType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridItemEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridItemEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridPageChangedEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridPageChangedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridSortCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridSortCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListItemEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListItemEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DayNameFormat.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DayRenderEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewDeleteEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewDeletedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewInsertEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewInsertedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewModeEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewModeEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewPageEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewPageEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewUpdateEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewUpdatedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FirstDayOfWeek.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FontSize.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewDeleteEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewDeletedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewInsertEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewInsertedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewModeEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewModeEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewPageEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewPageEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewUpdateEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewUpdatedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridLines.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCancelEditEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCancelEditEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewDeleteEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewDeletedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewEditEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewEditEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewPageEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewPageEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewRowEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewRowEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSelectEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSelectEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSortEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSortEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewUpdateEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewUpdatedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\HorizontalAlign.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\HotSpotMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IBorderPaddingControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IButtonControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ICallbackContainer.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ICheckBoxControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ICompositeControlDesignerAccessor.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IDataBoundControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IDataBoundItemControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IDataBoundListControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IEditableTextControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IFieldControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IPersistedSelector.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IPostBackContainer.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IRenderOuterTableControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IRepeatInfoUser.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ITextControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\IWizardSideBarListControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ImageAlign.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ImageMapEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ImageMapEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ListItemType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ListSelectionMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\LiteralMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\LoginCancelEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\LoginCancelEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\LoginFailureAction.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\Logintextlayout.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\LogoutAction.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MailMessageEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MailMessageEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MenuEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MenuEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MenuRenderingMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MonthChangedEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\MonthChangedEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\NextPrevFormat.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceDisposingEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceDisposingEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceFilteringEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceFilteringEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceMethodEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceMethodEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceObjectEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceSelectingEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceSelectingEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceStatusEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceStatusEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\Orientation.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\PagerButtons.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\PagerMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\PagerPosition.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\PathDirection.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeatDirection.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeatLayout.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterItemEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterItemEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\Scrollbars.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SendMailErrorEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ServerValidateEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ServerValidateEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SiteMapNodeItemEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SiteMapNodeItemEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SiteMapNodeItemType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SortDirection.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceCommandEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceCommandEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceCommandType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceFilteringEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceFilteringEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceSelectingEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceSelectingEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceStatusEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceStatusEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableCaptionAlign.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableFooterRow.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableHeaderRow.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableHeaderScope.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableRowSection.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TextAlign.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TextBoxMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TitleFormat.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeSelectAction.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeViewImageSet.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\UnitType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidationCompareOperator.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidationDataType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidationSummaryDisplayMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidatorDisplay.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\VerticalAlign.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\WebColorConverter.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardSideBarListControlItem.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardSideBarListControlItemEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardStep.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardStepType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\FieldCallback.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\ITrackingPersonalizable.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\ITransformerConfigurationControl.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IVersioningPersonalizable.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebActionable.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebEditable.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPart.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartField.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartHttpHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartParameters.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartRow.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartTable.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\ParametersCallback.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\PartChromeState.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\PartChromeType.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\PersonalizationScope.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\RowCallback.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\TableCallback.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebBrowsableAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebDescriptionAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebDisplayNameAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartAuthorizationEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartCancelEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartCancelEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartExportMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartHelpMode.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartVerbsEventArgs.cs" />
-    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartVerbsEventHandler.cs" />
-    <Compile Include="..\referencesource\System.Web\UnvalidatedRequestValuesBase.cs" />
-    <Compile Include="..\referencesource\System.Web\UnvalidatedRequestValuesWrapper.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\AppVerifierErrorCode.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\AppVerifierException.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\AssemblyUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\BinaryCompatibility.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\CancellationTokenHelper.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\DateTimeUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\Debug.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\DisposableAction.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\DoNotResetAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\EmptyCollection.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\EnumerationRangeValidationUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\ExceptionUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\FastDelegateCreator.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\GCUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\IObjectFactory.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\ISyncContext.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\ISyncContextLock.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\Msec.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\ObjectSet.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\OrderingMethodFinder.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\ParseHttpDate.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\PathUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\QueryableUtility.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\RegexUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\RequestValidationSource.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\Sec.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\SimpleRecyclingCache.cs" />
+    <Compile Include="..\referencesource\System.Web\Routing\UrlAuthFailureHandler.cs">
+      <Link>ReferenceSources\UrlAuthFailureHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\UrlRoutingHandler.cs">
+      <Link>ReferenceSources\UrlRoutingHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\UrlRoutingModule.cs">
+      <Link>ReferenceSources\UrlRoutingModule.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Routing\VirtualPathData.cs">
+      <Link>ReferenceSources\VirtualPathData.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\AntiXss\CodeCharts.cs">
+      <Link>ReferenceSources\CodeCharts.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\Cryptography\ICryptoService.cs">
+      <Link>ReferenceSources\ICryptoService.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\FormsAuthenticationEventArgs.cs">
+      <Link>ReferenceSources\FormsAuthenticationEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\FormsAuthenticationEventHandler.cs">
+      <Link>ReferenceSources\FormsAuthenticationEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\GenericAuthenticationEventHandler.cs">
+      <Link>ReferenceSources\GenericAuthenticationEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\PassportAuthenticationEventArgs.cs">
+      <Link>ReferenceSources\PassportAuthenticationEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\PassportAuthenticationEventHandler.cs">
+      <Link>ReferenceSources\PassportAuthenticationEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\RoleManagerEventArgs.cs">
+      <Link>ReferenceSources\RoleManagerEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\RoleManagerEventHandler.cs">
+      <Link>ReferenceSources\RoleManagerEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\WindowsAuthenticationEventArgs.cs">
+      <Link>ReferenceSources\WindowsAuthenticationEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Security\WindowsAuthenticationEventHandler.cs">
+      <Link>ReferenceSources\WindowsAuthenticationEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\State\IReadOnlySessionState.cs">
+      <Link>ReferenceSources\IReadOnlySessionState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\State\IRequiresSessionState.cs">
+      <Link>ReferenceSources\IRequiresSessionState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\State\SessionStateBehavior.cs">
+      <Link>ReferenceSources\SessionStateBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\TaskWrapperAsyncResult.cs">
+      <Link>ReferenceSources\TaskWrapperAsyncResult.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ClientIDMode.cs">
+      <Link>ReferenceSources\ClientIDMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ConflictOptions.cs">
+      <Link>ReferenceSources\ConflictOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ConstructorNeedsTagAttribute.cs">
+      <Link>ReferenceSources\ConstructorNeedsTagAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ControlBuilderAttribute.cs">
+      <Link>ReferenceSources\ControlBuilderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\CssClassPropertyAttribute.cs">
+      <Link>ReferenceSources\CssClassPropertyAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\DataBindingHandlerAttribute.cs">
+      <Link>ReferenceSources\DataBindingHandlerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\DataKeyPropertyAttribute.cs">
+      <Link>ReferenceSources\DataKeyPropertyAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\DataSourceCacheExpiry.cs">
+      <Link>ReferenceSources\DataSourceCacheExpiry.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\DataSourceCapabilities.cs">
+      <Link>ReferenceSources\DataSourceCapabilities.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\DataSourceControlBuilder.cs">
+      <Link>ReferenceSources\DataSourceControlBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\DataSourceOperation.cs">
+      <Link>ReferenceSources\DataSourceOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\EmptyControlCollection.cs">
+      <Link>ReferenceSources\EmptyControlCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\EventEntry.cs">
+      <Link>ReferenceSources\EventEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\FileLevelControlBuilderAttribute.cs">
+      <Link>ReferenceSources\FileLevelControlBuilderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\FilterableAttribute.cs">
+      <Link>ReferenceSources\FilterableAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\HtmlTextWriterAttribute.cs">
+      <Link>ReferenceSources\HtmlTextWriterAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\HtmlTextWriterStyle.cs">
+      <Link>ReferenceSources\HtmlTextWriterStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\HtmlTextWriterTag.cs">
+      <Link>ReferenceSources\HtmlTextWriterTag.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IAttributeAccessor.cs">
+      <Link>ReferenceSources\IAttributeAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IAutoFieldGenerator.cs">
+      <Link>ReferenceSources\IAutoFieldGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IBindableControl.cs">
+      <Link>ReferenceSources\IBindableControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IBindableTemplate.cs">
+      <Link>ReferenceSources\IBindableTemplate.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ICallbackEventHandler.cs">
+      <Link>ReferenceSources\ICallbackEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IControlBuilderAccessor.cs">
+      <Link>ReferenceSources\IControlBuilderAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IControlDesignerAccessor.cs">
+      <Link>ReferenceSources\IControlDesignerAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IDReferencePropertyAttribute.cs">
+      <Link>ReferenceSources\IDReferencePropertyAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IDataBindingsAccessor.cs">
+      <Link>ReferenceSources\IDataBindingsAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IDataItemContainer.cs">
+      <Link>ReferenceSources\IDataItemContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IDataKeysControl.cs">
+      <Link>ReferenceSources\IDataKeysControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IDataSource.cs">
+      <Link>ReferenceSources\IDataSource.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IDataSourceViewSchemaAccessor.cs">
+      <Link>ReferenceSources\IDataSourceViewSchemaAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IExpressionsAccessor.cs">
+      <Link>ReferenceSources\IExpressionsAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IFilterResolutionService.cs">
+      <Link>ReferenceSources\IFilterResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IHierarchicalDataSource.cs">
+      <Link>ReferenceSources\IHierarchicalDataSource.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IHierarchicalEnumerable.cs">
+      <Link>ReferenceSources\IHierarchicalEnumerable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IHierarchyData.cs">
+      <Link>ReferenceSources\IHierarchyData.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\INamingContainer.cs">
+      <Link>ReferenceSources\INamingContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\INavigateUIData.cs">
+      <Link>ReferenceSources\INavigateUIData.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\INonBindingContainer.cs">
+      <Link>ReferenceSources\INonBindingContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IParserAccessor.cs">
+      <Link>ReferenceSources\IParserAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IPostBackDataHandler.cs">
+      <Link>ReferenceSources\IPostBackDataHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IPostBackEventHandler.cs">
+      <Link>ReferenceSources\IPostBackEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IResourceUrlGenerator.cs">
+      <Link>ReferenceSources\IResourceUrlGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IScriptResourceDefinition.cs">
+      <Link>ReferenceSources\IScriptResourceDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IScriptResourceMapping.cs">
+      <Link>ReferenceSources\IScriptResourceMapping.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IStateFormatter.cs">
+      <Link>ReferenceSources\IStateFormatter.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IStateManager.cs">
+      <Link>ReferenceSources\IStateManager.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IStyleSheet.cs">
+      <Link>ReferenceSources\IStyleSheet.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ITemplate.cs">
+      <Link>ReferenceSources\ITemplate.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IThemeResolutionService.cs">
+      <Link>ReferenceSources\IThemeResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IUpdatePanel.cs">
+      <Link>ReferenceSources\IUpdatePanel.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IUrlResolutionService.cs">
+      <Link>ReferenceSources\IUrlResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IUserControlDesignerAccessor.cs">
+      <Link>ReferenceSources\IUserControlDesignerAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IUserControlTypeResolutionService.cs">
+      <Link>ReferenceSources\IUserControlTypeResolutionService.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IValidator.cs">
+      <Link>ReferenceSources\IValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ImageClickEventArgs.cs">
+      <Link>ReferenceSources\ImageClickEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ImageClickEventHandler.cs">
+      <Link>ReferenceSources\ImageClickEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\IndexedString.cs">
+      <Link>ReferenceSources\IndexedString.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\NonVisualControlAttribute.cs">
+      <Link>ReferenceSources\NonVisualControlAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\PagesConfiguration.cs">
+      <Link>ReferenceSources\PagesConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\Pair.cs">
+      <Link>ReferenceSources\Pair.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\PersistChildrenAttribute.cs">
+      <Link>ReferenceSources\PersistChildrenAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\PersistenceMode.cs">
+      <Link>ReferenceSources\PersistenceMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\SupportsEventValidationAttribute.cs">
+      <Link>ReferenceSources\SupportsEventValidationAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\TemplateInstance.cs">
+      <Link>ReferenceSources\TemplateInstance.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\TemplateInstanceAttribute.cs">
+      <Link>ReferenceSources\TemplateInstanceAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ThemeableAttribute.cs">
+      <Link>ReferenceSources\ThemeableAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\TraceContextEventArgs.cs">
+      <Link>ReferenceSources\TraceContextEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\TraceContextEventHandler.cs">
+      <Link>ReferenceSources\TraceContextEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\UnobtrusiveValidationMode.cs">
+      <Link>ReferenceSources\UnobtrusiveValidationMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ValidateRequestMode.cs">
+      <Link>ReferenceSources\ValidateRequestMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ViewStateEncryptionMode.cs">
+      <Link>ReferenceSources\ViewStateEncryptionMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\ViewStateMode.cs">
+      <Link>ReferenceSources\ViewStateMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\AdCreatedEventHandler.cs">
+      <Link>Assembly\AdCreatedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\Adapters\WmlPostFieldType.cs">
+      <Link>ReferenceSources\WmlPostFieldType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\AuthenticateEventArgs.cs">
+      <Link>Assembly\AuthenticateEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\AuthenticateEventHandler.cs">
+      <Link>Assembly\AuthenticateEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\AutoCompleteType.cs">
+      <Link>Assembly\AutoCompleteType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\BorderStyle.cs">
+      <Link>ReferenceSources\BorderStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\BulletedListEventArgs.cs">
+      <Link>ReferenceSources\BulletedListEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\BulletedListEventHandler.cs">
+      <Link>ReferenceSources\BulletedListEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ButtonColumnType.cs">
+      <Link>ReferenceSources\ButtonColumnType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ButtonType.cs">
+      <Link>ReferenceSources\ButtonType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CalendarSelectionMode.cs">
+      <Link>ReferenceSources\CalendarSelectionMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CallingDataMethodsEventArgs.cs">
+      <Link>ReferenceSources\CallingDataMethodsEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CallingDataMethodsEventHandler.cs">
+      <Link>ReferenceSources\CallingDataMethodsEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CommandEventArgs.cs">
+      <Link>ReferenceSources\CommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CommandEventHandler.cs">
+      <Link>ReferenceSources\CommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ContentDirection.cs">
+      <Link>ReferenceSources\ContentDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CreateUserErrorEventArgs.cs">
+      <Link>ReferenceSources\CreateUserErrorEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\CreateUserErrorEventHandler.cs">
+      <Link>ReferenceSources\CreateUserErrorEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataBoundControlMode.cs">
+      <Link>ReferenceSources\DataBoundControlMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataControlCellType.cs">
+      <Link>ReferenceSources\DataControlCellType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataControlRowState.cs">
+      <Link>ReferenceSources\DataControlRowState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataControlRowType.cs">
+      <Link>ReferenceSources\DataControlRowType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridCommandEventArgs.cs">
+      <Link>ReferenceSources\DataGridCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridCommandEventHandler.cs">
+      <Link>ReferenceSources\DataGridCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridItemEventArgs.cs">
+      <Link>ReferenceSources\DataGridItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridItemEventHandler.cs">
+      <Link>ReferenceSources\DataGridItemEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridPageChangedEventArgs.cs">
+      <Link>ReferenceSources\DataGridPageChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridPageChangedEventHandler.cs">
+      <Link>ReferenceSources\DataGridPageChangedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridSortCommandEventArgs.cs">
+      <Link>ReferenceSources\DataGridSortCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataGridSortCommandEventHandler.cs">
+      <Link>ReferenceSources\DataGridSortCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListCommandEventArgs.cs">
+      <Link>ReferenceSources\DataListCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListCommandEventHandler.cs">
+      <Link>ReferenceSources\DataListCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListItemEventArgs.cs">
+      <Link>ReferenceSources\DataListItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DataListItemEventHandler.cs">
+      <Link>ReferenceSources\DataListItemEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DayNameFormat.cs">
+      <Link>ReferenceSources\DayNameFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DayRenderEventHandler.cs">
+      <Link>ReferenceSources\DayRenderEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewCommandEventArgs.cs">
+      <Link>ReferenceSources\DetailsViewCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewCommandEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewDeleteEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewDeleteEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewDeletedEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewDeletedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewInsertEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewInsertEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewInsertedEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewInsertedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewMode.cs">
+      <Link>ReferenceSources\DetailsViewMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewModeEventArgs.cs">
+      <Link>ReferenceSources\DetailsViewModeEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewModeEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewModeEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewPageEventArgs.cs">
+      <Link>ReferenceSources\DetailsViewPageEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewPageEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewPageEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewUpdateEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewUpdateEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\DetailsViewUpdatedEventHandler.cs">
+      <Link>ReferenceSources\DetailsViewUpdatedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FirstDayOfWeek.cs">
+      <Link>ReferenceSources\FirstDayOfWeek.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FontSize.cs">
+      <Link>ReferenceSources\FontSize.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewCommandEventHandler.cs">
+      <Link>ReferenceSources\FormViewCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewDeleteEventHandler.cs">
+      <Link>ReferenceSources\FormViewDeleteEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewDeletedEventHandler.cs">
+      <Link>ReferenceSources\FormViewDeletedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewInsertEventHandler.cs">
+      <Link>ReferenceSources\FormViewInsertEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewInsertedEventHandler.cs">
+      <Link>ReferenceSources\FormViewInsertedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewMode.cs">
+      <Link>ReferenceSources\FormViewMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewModeEventArgs.cs">
+      <Link>ReferenceSources\FormViewModeEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewModeEventHandler.cs">
+      <Link>ReferenceSources\FormViewModeEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewPageEventArgs.cs">
+      <Link>ReferenceSources\FormViewPageEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewPageEventHandler.cs">
+      <Link>ReferenceSources\FormViewPageEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewUpdateEventHandler.cs">
+      <Link>ReferenceSources\FormViewUpdateEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\FormViewUpdatedEventHandler.cs">
+      <Link>ReferenceSources\FormViewUpdatedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridLines.cs">
+      <Link>ReferenceSources\GridLines.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCancelEditEventArgs.cs">
+      <Link>ReferenceSources\GridViewCancelEditEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCancelEditEventHandler.cs">
+      <Link>ReferenceSources\GridViewCancelEditEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCommandEventArgs.cs">
+      <Link>ReferenceSources\GridViewCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewCommandEventHandler.cs">
+      <Link>ReferenceSources\GridViewCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewDeleteEventHandler.cs">
+      <Link>ReferenceSources\GridViewDeleteEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewDeletedEventHandler.cs">
+      <Link>ReferenceSources\GridViewDeletedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewEditEventArgs.cs">
+      <Link>ReferenceSources\GridViewEditEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewEditEventHandler.cs">
+      <Link>ReferenceSources\GridViewEditEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewPageEventArgs.cs">
+      <Link>ReferenceSources\GridViewPageEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewPageEventHandler.cs">
+      <Link>ReferenceSources\GridViewPageEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewRowEventArgs.cs">
+      <Link>ReferenceSources\GridViewRowEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewRowEventHandler.cs">
+      <Link>ReferenceSources\GridViewRowEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSelectEventArgs.cs">
+      <Link>ReferenceSources\GridViewSelectEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSelectEventHandler.cs">
+      <Link>ReferenceSources\GridViewSelectEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSortEventArgs.cs">
+      <Link>ReferenceSources\GridViewSortEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewSortEventHandler.cs">
+      <Link>ReferenceSources\GridViewSortEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewUpdateEventHandler.cs">
+      <Link>ReferenceSources\GridViewUpdateEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\GridViewUpdatedEventHandler.cs">
+      <Link>ReferenceSources\GridViewUpdatedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\HorizontalAlign.cs">
+      <Link>ReferenceSources\HorizontalAlign.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\HotSpotMode.cs">
+      <Link>ReferenceSources\HotSpotMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IBorderPaddingControl.cs">
+      <Link>ReferenceSources\IBorderPaddingControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IButtonControl.cs">
+      <Link>ReferenceSources\IButtonControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ICallbackContainer.cs">
+      <Link>ReferenceSources\ICallbackContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ICheckBoxControl.cs">
+      <Link>ReferenceSources\ICheckBoxControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ICompositeControlDesignerAccessor.cs">
+      <Link>ReferenceSources\ICompositeControlDesignerAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IDataBoundControl.cs">
+      <Link>ReferenceSources\IDataBoundControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IDataBoundItemControl.cs">
+      <Link>ReferenceSources\IDataBoundItemControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IDataBoundListControl.cs">
+      <Link>ReferenceSources\IDataBoundListControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IEditableTextControl.cs">
+      <Link>ReferenceSources\IEditableTextControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IFieldControl.cs">
+      <Link>ReferenceSources\IFieldControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IPersistedSelector.cs">
+      <Link>ReferenceSources\IPersistedSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IPostBackContainer.cs">
+      <Link>ReferenceSources\IPostBackContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IRenderOuterTableControl.cs">
+      <Link>ReferenceSources\IRenderOuterTableControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IRepeatInfoUser.cs">
+      <Link>ReferenceSources\IRepeatInfoUser.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ITextControl.cs">
+      <Link>ReferenceSources\ITextControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\IWizardSideBarListControl.cs">
+      <Link>ReferenceSources\IWizardSideBarListControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ImageAlign.cs">
+      <Link>ReferenceSources\ImageAlign.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ImageMapEventArgs.cs">
+      <Link>ReferenceSources\ImageMapEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ImageMapEventHandler.cs">
+      <Link>ReferenceSources\ImageMapEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ListItemType.cs">
+      <Link>ReferenceSources\ListItemType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ListSelectionMode.cs">
+      <Link>ReferenceSources\ListSelectionMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\LiteralMode.cs">
+      <Link>ReferenceSources\LiteralMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\LoginCancelEventArgs.cs">
+      <Link>ReferenceSources\LoginCancelEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\LoginCancelEventHandler.cs">
+      <Link>ReferenceSources\LoginCancelEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\LoginFailureAction.cs">
+      <Link>ReferenceSources\LoginFailureAction.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\Logintextlayout.cs">
+      <Link>ReferenceSources\Logintextlayout.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\LogoutAction.cs">
+      <Link>ReferenceSources\LogoutAction.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MailMessageEventArgs.cs">
+      <Link>ReferenceSources\MailMessageEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MailMessageEventHandler.cs">
+      <Link>ReferenceSources\MailMessageEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MenuEventArgs.cs">
+      <Link>ReferenceSources\MenuEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MenuEventHandler.cs">
+      <Link>ReferenceSources\MenuEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MenuRenderingMode.cs">
+      <Link>ReferenceSources\MenuRenderingMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MonthChangedEventArgs.cs">
+      <Link>ReferenceSources\MonthChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\MonthChangedEventHandler.cs">
+      <Link>ReferenceSources\MonthChangedEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\NextPrevFormat.cs">
+      <Link>ReferenceSources\NextPrevFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceDisposingEventArgs.cs">
+      <Link>ReferenceSources\ObjectDataSourceDisposingEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceDisposingEventHandler.cs">
+      <Link>ReferenceSources\ObjectDataSourceDisposingEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceEventArgs.cs">
+      <Link>ReferenceSources\ObjectDataSourceEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceFilteringEventArgs.cs">
+      <Link>ReferenceSources\ObjectDataSourceFilteringEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceFilteringEventHandler.cs">
+      <Link>ReferenceSources\ObjectDataSourceFilteringEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceMethodEventArgs.cs">
+      <Link>ReferenceSources\ObjectDataSourceMethodEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceMethodEventHandler.cs">
+      <Link>ReferenceSources\ObjectDataSourceMethodEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceObjectEventHandler.cs">
+      <Link>ReferenceSources\ObjectDataSourceObjectEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceSelectingEventArgs.cs">
+      <Link>ReferenceSources\ObjectDataSourceSelectingEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceSelectingEventHandler.cs">
+      <Link>ReferenceSources\ObjectDataSourceSelectingEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceStatusEventArgs.cs">
+      <Link>ReferenceSources\ObjectDataSourceStatusEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ObjectDataSourceStatusEventHandler.cs">
+      <Link>ReferenceSources\ObjectDataSourceStatusEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\Orientation.cs">
+      <Link>ReferenceSources\Orientation.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\PagerButtons.cs">
+      <Link>ReferenceSources\PagerButtons.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\PagerMode.cs">
+      <Link>ReferenceSources\PagerMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\PagerPosition.cs">
+      <Link>ReferenceSources\PagerPosition.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\PathDirection.cs">
+      <Link>ReferenceSources\PathDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeatDirection.cs">
+      <Link>ReferenceSources\RepeatDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeatLayout.cs">
+      <Link>ReferenceSources\RepeatLayout.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterCommandEventArgs.cs">
+      <Link>ReferenceSources\RepeaterCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterCommandEventHandler.cs">
+      <Link>ReferenceSources\RepeaterCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterItemEventArgs.cs">
+      <Link>ReferenceSources\RepeaterItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\RepeaterItemEventHandler.cs">
+      <Link>ReferenceSources\RepeaterItemEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\Scrollbars.cs">
+      <Link>ReferenceSources\Scrollbars.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SendMailErrorEventHandler.cs">
+      <Link>ReferenceSources\SendMailErrorEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ServerValidateEventArgs.cs">
+      <Link>ReferenceSources\ServerValidateEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ServerValidateEventHandler.cs">
+      <Link>ReferenceSources\ServerValidateEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SiteMapNodeItemEventArgs.cs">
+      <Link>ReferenceSources\SiteMapNodeItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SiteMapNodeItemEventHandler.cs">
+      <Link>ReferenceSources\SiteMapNodeItemEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SiteMapNodeItemType.cs">
+      <Link>ReferenceSources\SiteMapNodeItemType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SortDirection.cs">
+      <Link>ReferenceSources\SortDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceCommandEventArgs.cs">
+      <Link>ReferenceSources\SqlDataSourceCommandEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceCommandEventHandler.cs">
+      <Link>ReferenceSources\SqlDataSourceCommandEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceCommandType.cs">
+      <Link>ReferenceSources\SqlDataSourceCommandType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceFilteringEventArgs.cs">
+      <Link>ReferenceSources\SqlDataSourceFilteringEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceFilteringEventHandler.cs">
+      <Link>ReferenceSources\SqlDataSourceFilteringEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceMode.cs">
+      <Link>ReferenceSources\SqlDataSourceMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceSelectingEventArgs.cs">
+      <Link>ReferenceSources\SqlDataSourceSelectingEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceSelectingEventHandler.cs">
+      <Link>ReferenceSources\SqlDataSourceSelectingEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceStatusEventArgs.cs">
+      <Link>ReferenceSources\SqlDataSourceStatusEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\SqlDataSourceStatusEventHandler.cs">
+      <Link>ReferenceSources\SqlDataSourceStatusEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableCaptionAlign.cs">
+      <Link>ReferenceSources\TableCaptionAlign.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableFooterRow.cs">
+      <Link>ReferenceSources\TableFooterRow.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableHeaderRow.cs">
+      <Link>ReferenceSources\TableHeaderRow.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableHeaderScope.cs">
+      <Link>ReferenceSources\TableHeaderScope.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TableRowSection.cs">
+      <Link>ReferenceSources\TableRowSection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TextAlign.cs">
+      <Link>ReferenceSources\TextAlign.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TextBoxMode.cs">
+      <Link>ReferenceSources\TextBoxMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TitleFormat.cs">
+      <Link>ReferenceSources\TitleFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeEventArgs.cs">
+      <Link>ReferenceSources\TreeNodeEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeEventHandler.cs">
+      <Link>ReferenceSources\TreeNodeEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeSelectAction.cs">
+      <Link>ReferenceSources\TreeNodeSelectAction.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeNodeType.cs">
+      <Link>ReferenceSources\TreeNodeType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\TreeViewImageSet.cs">
+      <Link>ReferenceSources\TreeViewImageSet.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\UnitType.cs">
+      <Link>ReferenceSources\UnitType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidationCompareOperator.cs">
+      <Link>ReferenceSources\ValidationCompareOperator.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidationDataType.cs">
+      <Link>ReferenceSources\ValidationDataType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidationSummaryDisplayMode.cs">
+      <Link>ReferenceSources\ValidationSummaryDisplayMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\ValidatorDisplay.cs">
+      <Link>ReferenceSources\ValidatorDisplay.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\VerticalAlign.cs">
+      <Link>ReferenceSources\VerticalAlign.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\WebColorConverter.cs">
+      <Link>ReferenceSources\WebColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardSideBarListControlItem.cs">
+      <Link>ReferenceSources\WizardSideBarListControlItem.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardSideBarListControlItemEventArgs.cs">
+      <Link>ReferenceSources\WizardSideBarListControlItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardStep.cs">
+      <Link>ReferenceSources\WizardStep.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebControls\WizardStepType.cs">
+      <Link>ReferenceSources\WizardStepType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\FieldCallback.cs">
+      <Link>ReferenceSources\FieldCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\ITrackingPersonalizable.cs">
+      <Link>ReferenceSources\ITrackingPersonalizable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\ITransformerConfigurationControl.cs">
+      <Link>ReferenceSources\ITransformerConfigurationControl.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IVersioningPersonalizable.cs">
+      <Link>ReferenceSources\IVersioningPersonalizable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebActionable.cs">
+      <Link>ReferenceSources\IWebActionable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebEditable.cs">
+      <Link>ReferenceSources\IWebEditable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPart.cs">
+      <Link>ReferenceSources\IWebPart.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartField.cs">
+      <Link>ReferenceSources\IWebPartField.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartHttpHandler.cs">
+      <Link>ReferenceSources\IWebPartHttpHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartParameters.cs">
+      <Link>ReferenceSources\IWebPartParameters.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartRow.cs">
+      <Link>ReferenceSources\IWebPartRow.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\IWebPartTable.cs">
+      <Link>ReferenceSources\IWebPartTable.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\ParametersCallback.cs">
+      <Link>ReferenceSources\ParametersCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\PartChromeState.cs">
+      <Link>ReferenceSources\PartChromeState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\PartChromeType.cs">
+      <Link>ReferenceSources\PartChromeType.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\PersonalizationScope.cs">
+      <Link>ReferenceSources\PersonalizationScope.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\RowCallback.cs">
+      <Link>ReferenceSources\RowCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\TableCallback.cs">
+      <Link>ReferenceSources\TableCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebBrowsableAttribute.cs">
+      <Link>ReferenceSources\WebBrowsableAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebDescriptionAttribute.cs">
+      <Link>ReferenceSources\WebDescriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebDisplayNameAttribute.cs">
+      <Link>ReferenceSources\WebDisplayNameAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartAuthorizationEventHandler.cs">
+      <Link>ReferenceSources\WebPartAuthorizationEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartCancelEventArgs.cs">
+      <Link>ReferenceSources\WebPartCancelEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartCancelEventHandler.cs">
+      <Link>ReferenceSources\WebPartCancelEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartEventArgs.cs">
+      <Link>ReferenceSources\WebPartEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartEventHandler.cs">
+      <Link>ReferenceSources\WebPartEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartExportMode.cs">
+      <Link>ReferenceSources\WebPartExportMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartHelpMode.cs">
+      <Link>ReferenceSources\WebPartHelpMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartVerbsEventArgs.cs">
+      <Link>ReferenceSources\WebPartVerbsEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UI\WebParts\WebPartVerbsEventHandler.cs">
+      <Link>ReferenceSources\WebPartVerbsEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UnvalidatedRequestValuesBase.cs">
+      <Link>ReferenceSources\UnvalidatedRequestValuesBase.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\UnvalidatedRequestValuesWrapper.cs">
+      <Link>ReferenceSources\UnvalidatedRequestValuesWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\AppVerifierErrorCode.cs">
+      <Link>Assembly\AppVerifierErrorCode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\AppVerifierException.cs">
+      <Link>Assembly\AppVerifierException.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\AssemblyUtil.cs">
+      <Link>Assembly\AssemblyUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\BinaryCompatibility.cs">
+      <Link>ReferenceSources\BinaryCompatibility.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\CancellationTokenHelper.cs">
+      <Link>ReferenceSources\CancellationTokenHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\DateTimeUtil.cs">
+      <Link>ReferenceSources\DateTimeUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\Debug.cs">
+      <Link>ReferenceSources\Debug.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\DisposableAction.cs">
+      <Link>ReferenceSources\DisposableAction.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\DoNotResetAttribute.cs">
+      <Link>ReferenceSources\DoNotResetAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\EmptyCollection.cs">
+      <Link>ReferenceSources\EmptyCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\EnumerationRangeValidationUtil.cs">
+      <Link>ReferenceSources\EnumerationRangeValidationUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\ExceptionUtil.cs">
+      <Link>ReferenceSources\ExceptionUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\FastDelegateCreator.cs">
+      <Link>ReferenceSources\FastDelegateCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\GCUtil.cs">
+      <Link>ReferenceSources\GCUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\IObjectFactory.cs">
+      <Link>ReferenceSources\IObjectFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\ISyncContext.cs">
+      <Link>ReferenceSources\ISyncContext.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\ISyncContextLock.cs">
+      <Link>ReferenceSources\ISyncContextLock.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\Msec.cs">
+      <Link>ReferenceSources\Msec.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\ObjectSet.cs">
+      <Link>ReferenceSources\ObjectSet.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\OrderingMethodFinder.cs">
+      <Link>ReferenceSources\OrderingMethodFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\ParseHttpDate.cs">
+      <Link>ReferenceSources\ParseHttpDate.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\PathUtil.cs">
+      <Link>ReferenceSources\PathUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\QueryableUtility.cs">
+      <Link>ReferenceSources\QueryableUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\RegexUtil.cs">
+      <Link>ReferenceSources\RegexUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\RequestValidationSource.cs">
+      <Link>ReferenceSources\RequestValidationSource.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\Sec.cs">
+      <Link>ReferenceSources\Sec.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\SimpleRecyclingCache.cs">
+      <Link>ReferenceSources\SimpleRecyclingCache.cs</Link>
+    </Compile>
     <Compile Include="..\referencesource\System.Web\Util\StringUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\SymbolEqualComparer.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\SynchronizationContextMode.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\VersionUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\Util\hresults.cs" />
-    <Compile Include="..\referencesource\System.Web\ValidateStringCallback.cs" />
-    <Compile Include="..\referencesource\System.Web\WebSocketTransitionState.cs" />
-    <Compile Include="..\referencesource\System.Web\WebSockets\AspNetWebSocketOptions.cs" />
-    <Compile Include="..\referencesource\System.Web\WebSockets\SubprotocolUtil.cs" />
-    <Compile Include="..\referencesource\System.Web\WebSysDefaultValueAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\WebSysDescriptionAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\WebSysDisplayNameAttribute.cs" />
-    <Compile Include="..\referencesource\System.Web\misc\InvariantComparer.cs" />
+    <Compile Include="..\referencesource\System.Web\Util\SymbolEqualComparer.cs">
+      <Link>ReferenceSources\SymbolEqualComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\SynchronizationContextMode.cs">
+      <Link>ReferenceSources\SynchronizationContextMode.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\VersionUtil.cs">
+      <Link>ReferenceSources\VersionUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\Util\hresults.cs">
+      <Link>ReferenceSources\hresults.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\ValidateStringCallback.cs">
+      <Link>ReferenceSources\ValidateStringCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\WebSocketTransitionState.cs">
+      <Link>ReferenceSources\WebSocketTransitionState.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\WebSockets\AspNetWebSocketOptions.cs">
+      <Link>Assembly\AspNetWebSocketOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\WebSockets\SubprotocolUtil.cs">
+      <Link>ReferenceSources\SubprotocolUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\WebSysDefaultValueAttribute.cs">
+      <Link>ReferenceSources\WebSysDefaultValueAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\WebSysDescriptionAttribute.cs">
+      <Link>ReferenceSources\WebSysDescriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\WebSysDisplayNameAttribute.cs">
+      <Link>ReferenceSources\WebSysDisplayNameAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\referencesource\System.Web\misc\InvariantComparer.cs">
+      <Link>ReferenceSources\InvariantComparer.cs</Link>
+    </Compile>
     <Compile Include="Assembly\AssemblyInfo.cs" />
     <Compile Include="Mono.Web.Util\ISectionSettingsMapper.cs" />
     <Compile Include="Mono.Web.Util\MembershipSectionMapper.cs" />
@@ -1418,96 +2428,96 @@
     <Compile Include="System.Web\ExceptionPageTemplateType.cs" />
     <Compile Include="System.Web\ExceptionPageTemplateValues.cs" />
     <Compile Include="System.Web\HeadersCollection.cs" />
-    <Compile Include="System.Web\HtmlizedException.cs" />
-    <Compile Include="System.Web\HttpApplication.cs" />
-    <Compile Include="System.Web\HttpApplicationFactory.cs" />
-    <Compile Include="System.Web\HttpApplicationState.cs" />
-    <Compile Include="System.Web\HttpBrowserCapabilities.cs" />
-    <Compile Include="System.Web\HttpCachePolicy.cs" />
-    <Compile Include="System.Web\HttpCacheRevalidation.cs" />
-    <Compile Include="System.Web\HttpCacheValidateHandler.cs" />
-    <Compile Include="System.Web\HttpCacheVaryByContentEncodings.cs" />
-    <Compile Include="System.Web\HttpCacheVaryByHeaders.cs" />
-    <Compile Include="System.Web\HttpCacheVaryByParams.cs" />
-    <Compile Include="System.Web\HttpCacheability.cs" />
-    <Compile Include="System.Web\HttpClientCertificate.cs" />
-    <Compile Include="System.Web\HttpCompileException.cs" />
-    <Compile Include="System.Web\HttpContext.cs" />
-    <Compile Include="System.Web\HttpContextBase.cs" />
-    <Compile Include="System.Web\HttpContextWrapper.cs" />
-    <Compile Include="System.Web\HttpCookie.cs" />
-    <Compile Include="System.Web\HttpCookieCollection.cs" />
-    <Compile Include="System.Web\HttpCookieMode.cs" />
-    <Compile Include="System.Web\HttpException.cs" />
-    <Compile Include="System.Web\HttpFileCollection.cs" />
-    <Compile Include="System.Web\HttpFileCollectionWrapper.cs" />
-    <Compile Include="System.Web\HttpForbiddenHandler.cs" />
-    <Compile Include="System.Web\HttpHeaderCollection.cs" />
-    <Compile Include="System.Web\HttpMethodNotAllowedHandler.cs" />
-    <Compile Include="System.Web\HttpModuleCollection.cs" />
-    <Compile Include="System.Web\HttpNotFoundHandler.cs" />
-    <Compile Include="System.Web\HttpNotImplementedHandler.cs" />
-    <Compile Include="System.Web\HttpParamsCollection.cs" />
-    <Compile Include="System.Web\HttpParseException.cs" />
-    <Compile Include="System.Web\HttpPostedFile.cs" />
-    <Compile Include="System.Web\HttpRequest.cs" />
-    <Compile Include="System.Web\HttpRequestValidationException.cs" />
-    <Compile Include="System.Web\HttpRequestWrapper.cs" />
-    <Compile Include="System.Web\HttpResponse.cs" />
-    <Compile Include="System.Web\HttpResponseHeader.cs" />
-    <Compile Include="System.Web\HttpResponseStream.cs" />
-    <Compile Include="System.Web\HttpResponseSubstitutionCallback.cs" />
-    <Compile Include="System.Web\HttpResponseWrapper.cs" />
-    <Compile Include="System.Web\HttpRuntime.cs" />
-    <Compile Include="System.Web\HttpServerUtility.cs" />
-    <Compile Include="System.Web\HttpServerUtilityWrapper.cs" />
-    <Compile Include="System.Web\HttpStaticObjectsCollection.cs" />
-    <Compile Include="System.Web\HttpTaskAsyncHandler.cs" />
-    <Compile Include="System.Web\HttpUnhandledException.cs" />
-    <Compile Include="System.Web\HttpUtility.cs" />
-    <Compile Include="System.Web\HttpValidationStatus.cs" />
-    <Compile Include="System.Web\HttpWorkerRequest.cs" />
-    <Compile Include="System.Web\HttpWriter.cs" />
-    <Compile Include="System.Web\IHttpMapPath.cs" />
+    <Compile Include="System.Web\Http\HtmlizedException.cs" />
+    <Compile Include="System.Web\Http\HttpApplication.cs" />
+    <Compile Include="System.Web\Http\HttpApplicationFactory.cs" />
+    <Compile Include="System.Web\Http\HttpApplicationState.cs" />
+    <Compile Include="System.Web\Http\HttpBrowserCapabilities.cs" />
+    <Compile Include="System.Web\Http\HttpCachePolicy.cs" />
+    <Compile Include="System.Web\Http\HttpCacheRevalidation.cs" />
+    <Compile Include="System.Web\Http\HttpCacheValidateHandler.cs" />
+    <Compile Include="System.Web\Http\HttpCacheVaryByContentEncodings.cs" />
+    <Compile Include="System.Web\Http\HttpCacheVaryByHeaders.cs" />
+    <Compile Include="System.Web\Http\HttpCacheVaryByParams.cs" />
+    <Compile Include="System.Web\Http\HttpCacheability.cs" />
+    <Compile Include="System.Web\Http\HttpClientCertificate.cs" />
+    <Compile Include="System.Web\Http\HttpCompileException.cs" />
+    <Compile Include="System.Web\Http\HttpContext.cs" />
+    <Compile Include="System.Web\Http\HttpContextBase.cs" />
+    <Compile Include="System.Web\Http\HttpContextWrapper.cs" />
+    <Compile Include="System.Web\Http\HttpCookie.cs" />
+    <Compile Include="System.Web\Http\HttpCookieCollection.cs" />
+    <Compile Include="System.Web\Http\HttpCookieMode.cs" />
+    <Compile Include="System.Web\Http\HttpException.cs" />
+    <Compile Include="System.Web\Http\HttpFileCollection.cs" />
+    <Compile Include="System.Web\Http\HttpFileCollectionWrapper.cs" />
+    <Compile Include="System.Web\Http\HttpForbiddenHandler.cs" />
+    <Compile Include="System.Web\Http\HttpHeaderCollection.cs" />
+    <Compile Include="System.Web\Http\HttpMethodNotAllowedHandler.cs" />
+    <Compile Include="System.Web\Http\HttpModuleCollection.cs" />
+    <Compile Include="System.Web\Http\HttpNotFoundHandler.cs" />
+    <Compile Include="System.Web\Http\HttpNotImplementedHandler.cs" />
+    <Compile Include="System.Web\Http\HttpParamsCollection.cs" />
+    <Compile Include="System.Web\Http\HttpParseException.cs" />
+    <Compile Include="System.Web\Http\HttpPostedFile.cs" />
+    <Compile Include="System.Web\Http\HttpRequest.cs" />
+    <Compile Include="System.Web\Http\HttpRequestValidationException.cs" />
+    <Compile Include="System.Web\Http\HttpRequestWrapper.cs" />
+    <Compile Include="System.Web\Http\HttpResponse.cs" />
+    <Compile Include="System.Web\Http\HttpResponseHeader.cs" />
+    <Compile Include="System.Web\Http\HttpResponseStream.cs" />
+    <Compile Include="System.Web\Http\HttpResponseSubstitutionCallback.cs" />
+    <Compile Include="System.Web\Http\HttpResponseWrapper.cs" />
+    <Compile Include="System.Web\Http\HttpRuntime.cs" />
+    <Compile Include="System.Web\Http\HttpServerUtility.cs" />
+    <Compile Include="System.Web\Http\HttpServerUtilityWrapper.cs" />
+    <Compile Include="System.Web\Http\HttpStaticObjectsCollection.cs" />
+    <Compile Include="System.Web\Http\HttpTaskAsyncHandler.cs" />
+    <Compile Include="System.Web\Http\HttpUnhandledException.cs" />
+    <Compile Include="System.Web\Http\HttpUtility.cs" />
+    <Compile Include="System.Web\Http\HttpValidationStatus.cs" />
+    <Compile Include="System.Web\Http\HttpWorkerRequest.cs" />
+    <Compile Include="System.Web\Http\HttpWriter.cs" />
+    <Compile Include="System.Web\Http\IHttpMapPath.cs" />
     <Compile Include="System.Web\IPartitionResolver.cs" />
-    <Compile Include="System.Web\IisTraceListener.cs" />
+    <Compile Include="System.Web\Http\IisTraceListener.cs" />
     <Compile Include="System.Web\InputFilterStream.cs" />
     <Compile Include="System.Web\IntPtrStream.cs" />
     <Compile Include="System.Web\MimeMapping.cs" />
     <Compile Include="System.Web\MimeTypes.cs" />
     <Compile Include="System.Web\NoParamsInvoker.cs" />
     <Compile Include="System.Web\OutputFilterStream.cs" />
-    <Compile Include="System.Web\ParserError.cs" />
-    <Compile Include="System.Web\ParserErrorCollection.cs" />
-    <Compile Include="System.Web\ProcessInfo.cs" />
-    <Compile Include="System.Web\ProcessModelInfo.cs" />
-    <Compile Include="System.Web\ProcessShutdownReason.cs" />
-    <Compile Include="System.Web\ProcessStatus.cs" />
-    <Compile Include="System.Web\QueueManager.cs" />
-    <Compile Include="System.Web\ServerVariablesCollection.cs" />
-    <Compile Include="System.Web\SiteMap.cs" />
-    <Compile Include="System.Web\SiteMapNode.cs" />
-    <Compile Include="System.Web\SiteMapNodeCollection.cs" />
-    <Compile Include="System.Web\SiteMapProvider.cs" />
-    <Compile Include="System.Web\SiteMapProviderCollection.cs" />
-    <Compile Include="System.Web\SiteMapResolveEventArgs.cs" />
-    <Compile Include="System.Web\StaticFileHandler.cs" />
-    <Compile Include="System.Web\StaticSiteMapProvider.cs" />
-    <Compile Include="System.Web\TaskAsyncResult.cs" />
-    <Compile Include="System.Web\TaskEventHandler.cs" />
-    <Compile Include="System.Web\TempFileStream.cs" />
-    <Compile Include="System.Web\TraceContext.cs" />
-    <Compile Include="System.Web\TraceContextRecord.cs" />
-    <Compile Include="System.Web\TraceData.cs" />
-    <Compile Include="System.Web\TraceManager.cs" />
-    <Compile Include="System.Web\TraceMode.cs" />
-    <Compile Include="System.Web\UnvalidatedRequestValues.cs" />
+    <Compile Include="System.Web\Site\ParserError.cs" />
+    <Compile Include="System.Web\Site\ParserErrorCollection.cs" />
+    <Compile Include="System.Web\Site\ProcessInfo.cs" />
+    <Compile Include="System.Web\Site\ProcessModelInfo.cs" />
+    <Compile Include="System.Web\Site\ProcessShutdownReason.cs" />
+    <Compile Include="System.Web\Site\ProcessStatus.cs" />
+    <Compile Include="System.Web\Site\QueueManager.cs" />
+    <Compile Include="System.Web\Site\ServerVariablesCollection.cs" />
+    <Compile Include="System.Web\Site\SiteMap.cs" />
+    <Compile Include="System.Web\Site\SiteMapNode.cs" />
+    <Compile Include="System.Web\Site\SiteMapNodeCollection.cs" />
+    <Compile Include="System.Web\Site\SiteMapProvider.cs" />
+    <Compile Include="System.Web\Site\SiteMapProviderCollection.cs" />
+    <Compile Include="System.Web\Site\SiteMapResolveEventArgs.cs" />
+    <Compile Include="System.Web\Site\StaticFileHandler.cs" />
+    <Compile Include="System.Web\Site\StaticSiteMapProvider.cs" />
+    <Compile Include="System.Web\Site\TaskAsyncResult.cs" />
+    <Compile Include="System.Web\Site\TaskEventHandler.cs" />
+    <Compile Include="System.Web\Site\TempFileStream.cs" />
+    <Compile Include="System.Web\Site\TraceContext.cs" />
+    <Compile Include="System.Web\Site\TraceContextRecord.cs" />
+    <Compile Include="System.Web\Site\TraceData.cs" />
+    <Compile Include="System.Web\Site\TraceManager.cs" />
+    <Compile Include="System.Web\Site\TraceMode.cs" />
+    <Compile Include="System.Web\Site\UnvalidatedRequestValues.cs" />
     <Compile Include="System.Web\VirtualPath.cs" />
     <Compile Include="System.Web\VirtualPathUtility.cs" />
-    <Compile Include="System.Web\WebCategoryAttribute.cs" />
-    <Compile Include="System.Web\WebPageTraceListener.cs" />
-    <Compile Include="System.Web\WebROCollection.cs" />
-    <Compile Include="System.Web\XmlSiteMapProvider.cs" />
+    <Compile Include="System.Web\Site\WebCategoryAttribute.cs" />
+    <Compile Include="System.Web\Site\WebPageTraceListener.cs" />
+    <Compile Include="System.Web\Site\WebROCollection.cs" />
+    <Compile Include="System.Web\Site\XmlSiteMapProvider.cs" />
     <ProjectReference Include="$(SolutionDir)\msvc\scripts\genconsts.csproj">
       <Name>genconsts</Name>
       <Project>{702AE2C0-71DD-4112-9A06-E4FABCA59986}</Project>

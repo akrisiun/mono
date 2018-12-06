@@ -134,3 +134,4 @@ extensions-config.h
 *.mlpd
 
 obj-net_*/
+launchSettings.json

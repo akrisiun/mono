@@ -19,7 +19,7 @@
 	url = https://github.com/mono/Newtonsoft.Json.git
 [submodule "external/rx"]
 	path = external/rx
-	url = https://github.com/akrisiun/rx.git
+	url = https://github.com/mono/rx.git
 	branch = rx-oss-v2.2
 [submodule "external/ikvm"]
 	path = external/ikvm
