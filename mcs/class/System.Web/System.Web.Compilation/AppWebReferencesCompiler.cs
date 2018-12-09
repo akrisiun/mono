@@ -74,16 +74,16 @@ namespace System.Web.Compilation
 			ab.CompilerOptions = ct.CompilerParameters;
 			
 			VirtualPath vp;
-			WsdlBuildProvider wbp;
-			foreach (string file in files) {
-				vp = VirtualPath.PhysicalToVirtual (file);
-				if (vp == null)
-					continue;
+			//WsdlBuildProvider wbp;
+			//foreach (string file in files) {
+			//	vp = VirtualPath.PhysicalToVirtual (file);
+			//	if (vp == null)
+			//		continue;
 				
-				wbp = new WsdlBuildProvider ();
-				wbp.SetVirtualPath (vp);
-				wbp.GenerateCode (ab);
-			}
+			//	wbp = new WsdlBuildProvider ();
+			//	wbp.SetVirtualPath (vp);
+			//	wbp.GenerateCode (ab);
+			//}
 
 			CompilerResults results;
 			try {

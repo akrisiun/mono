@@ -25,17 +25,10 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
+    <OutputPath>../../../lib/mono/net45</OutputPath>
     <NoWarn>1699,612,618,436,618</NoWarn>
     <Optimize>false</Optimize>
     <DefineConstants>TRACE;NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;INSIDE_SYSTEM_WEB;WEBSERVICES_DEP</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <NoWarn>1699,612,618,436,618</NoWarn>
-    <Optimize>true</Optimize>
-    <DefineConstants>NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;INSIDE_SYSTEM_WEB;WEBSERVICES_DEP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -47,7 +40,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
+    <OutputPath>../../../lib/mono/4.5</OutputPath>
+    <!-- <OutputPath>./../../class/lib/net_4_x</OutputPath>-->
     <DefineConstants>TRACE;NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;INSIDE_SYSTEM_WEB;WEBSERVICES_DEP</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>1699,612,618,436,618</NoWarn>
@@ -559,6 +553,9 @@
     <Compile Include="Mono.Web.Util\SettingsMapping.cs" />
     <Compile Include="Mono.Web.Util\SettingsMappingManager.cs" />
     <Compile Include="Mono.Web.Util\SettingsMappingWhat.cs" />
+    <Compile Include="PerformanceCounter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReferenceSources\SR.cs" />
     <Compile Include="System.Collections.Concurrent\SplitOrderedList.cs" />
     <Compile Include="System.Web.Caching\AggregateCacheDependency.cs" />
@@ -659,7 +656,6 @@
     <Compile Include="System.Web.Compilation\WebHandlerBuildProvider.cs" />
     <Compile Include="System.Web.Compilation\WebServiceBuildProvider.cs" />
     <Compile Include="System.Web.Compilation\WebServiceCompiler.cs" />
-    <Compile Include="System.Web.Compilation\WsdlBuildProvider.cs" />
     <Compile Include="System.Web.Compilation\XsdBuildProvider.cs" />
     <Compile Include="System.Web.Configuration_2.0\AnonymousIdentificationSection.cs" />
     <Compile Include="System.Web.Configuration_2.0\ApplicationSettingsConfigurationFileMap.cs" />
@@ -1544,21 +1540,10 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
       <Project>{2CA6026B-2DC8-4C4C-A12C-1E8234049DB7}</Project>
       <Name>corlib-net_4_x</Name>
     </ProjectReference>
+    <!-- -->
     <ProjectReference Include="../System/System-net_4_x.csproj">
       <Project>{2762E921-91A8-4C87-91E9-BA628013F753}</Project>
       <Name>System-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Core/System.Core-net_4_x.csproj">
-      <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
-      <Name>System.Core-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Drawing/System.Drawing-net_4_x.csproj">
-      <Project>{584A5E46-2958-4CB2-8DF9-188B420D0BB0}</Project>
-      <Name>System.Drawing-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Data/System.Data-net_4_x.csproj">
-      <Project>{EC439BB8-FFED-4A32-A05D-2FA3A70CAD64}</Project>
-      <Name>System.Data-net_4_x</Name>
     </ProjectReference>
     <ProjectReference Include="../System.XML/System.Xml-net_4_x.csproj">
       <Project>{87FD2F0F-5222-4AE6-BD63-2D4975E11E5B}</Project>
@@ -1567,30 +1552,6 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
     <ProjectReference Include="../System.EnterpriseServices/System.EnterpriseServices-net_4_x.csproj">
       <Project>{61E3D008-E273-4E12-860A-8ADA031098C2}</Project>
       <Name>System.EnterpriseServices-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Runtime.Serialization.Formatters.Soap/System.Runtime.Serialization.Formatters.Soap-net_4_x.csproj">
-      <Project>{A157AD69-59D4-49DE-94B3-DB883B2BEAA5}</Project>
-      <Name>System.Runtime.Serialization.Formatters.Soap-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.ComponentModel.DataAnnotations/System.ComponentModel.DataAnnotations-net_4_x.csproj">
-      <Project>{8F86C287-38A5-49F8-BE6D-1E0E3D74AF39}</Project>
-      <Name>System.ComponentModel.DataAnnotations-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Web.ApplicationServices/System.Web.ApplicationServices-net_4_x.csproj">
-      <Project>{928432BE-3518-4103-97F6-48B9658588A6}</Project>
-      <Name>System.Web.ApplicationServices-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
-      <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
-      <Name>System.Configuration-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../Mono.Data.Sqlite/Mono.Data.Sqlite-net_4_x.csproj">
-      <Project>{371560EA-7BD3-4025-90CB-F1B112403CF2}</Project>
-      <Name>Mono.Data.Sqlite-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.Design/System.Design-plaindesign-net_4_x.csproj">
-      <Project>{DCE556E9-EF89-45F3-A51F-83D3C3E0FEF5}</Project>
-      <Name>System.Design-plaindesign-net_4_x</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -1762,5 +1723,45 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
     <EmbeddedResource Include="resources/TranslationResources.resx">
       <LogicalName>TranslationResources.resources</LogicalName>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Data.Sqlite, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\net_4_x\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>..\lib\net_4_x\Mono.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>..\lib\net_4_x\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>..\lib\net_4_x\System.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\lib\net_4_x\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>..\lib\net_4_x\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>..\lib\net_4_x\Mono.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>..\lib\net_4_x\Mono.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>..\lib\net_4_x\System.EnterpriseServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <HintPath>..\lib\net_4_x\System.Runtime.Serialization.Formatters.Soap.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <HintPath>..\lib\net_4_x\System.Web.ApplicationServices.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
 </Project>

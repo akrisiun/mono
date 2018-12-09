@@ -25,7 +25,7 @@ namespace System.Runtime.Caching {
 
         private static string s_appId;
 
-        private PerformanceCounter[] _counters;
+        private PerformanceCounter2[] _counters;
         private long[] _counterValues;
 
         [SecuritySafeCritical]
@@ -77,15 +77,15 @@ namespace System.Runtime.Caching {
                     }
                 }
                 string instanceName = sb.ToString();
-                _counters = new PerformanceCounter[NUM_COUNTERS];
+                _counters = new PerformanceCounter2[NUM_COUNTERS];
                 _counterValues = new long[NUM_COUNTERS];
-                _counters[(int)PerfCounterName.Entries] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_ENTRIES, instanceName, false);
-                _counters[(int)PerfCounterName.Hits] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_HITS, instanceName, false);
-                _counters[(int)PerfCounterName.HitRatio] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_HIT_RATIO, instanceName, false);
-                _counters[(int)PerfCounterName.HitRatioBase] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_HIT_RATIO_BASE, instanceName, false);
-                _counters[(int)PerfCounterName.Misses] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_MISSES, instanceName, false);
-                _counters[(int)PerfCounterName.Trims] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_TRIMS, instanceName, false);
-                _counters[(int)PerfCounterName.Turnover] = new PerformanceCounter(PERF_COUNTER_CATEGORY, CACHE_TURNOVER, instanceName, false);                
+                _counters[(int)PerfCounterName.Entries] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_ENTRIES, instanceName, false);
+                _counters[(int)PerfCounterName.Hits] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_HITS, instanceName, false);
+                _counters[(int)PerfCounterName.HitRatio] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_HIT_RATIO, instanceName, false);
+                _counters[(int)PerfCounterName.HitRatioBase] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_HIT_RATIO_BASE, instanceName, false);
+                _counters[(int)PerfCounterName.Misses] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_MISSES, instanceName, false);
+                _counters[(int)PerfCounterName.Trims] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_TRIMS, instanceName, false);
+                _counters[(int)PerfCounterName.Turnover] = new PerformanceCounter2(PERF_COUNTER_CATEGORY, CACHE_TURNOVER, instanceName, false);                
                 dispose = false;
             }
             finally {
@@ -111,31 +111,31 @@ namespace System.Runtime.Caching {
 
         internal void Decrement(PerfCounterName name) {
             int idx = (int) name;
-            PerformanceCounter counter = _counters[idx];
+            PerformanceCounter2 counter = _counters[idx];
             counter.Decrement();
             Interlocked.Decrement(ref _counterValues[idx]);
         }
         
         internal void Increment(PerfCounterName name) {
             int idx = (int) name;
-            PerformanceCounter counter = _counters[idx];
+            PerformanceCounter2 counter = _counters[idx];
             counter.Increment();
             Interlocked.Increment(ref _counterValues[idx]);
         }
         
         internal void IncrementBy(PerfCounterName name, long value) {
             int idx = (int) name;
-            PerformanceCounter counter = _counters[idx];
+            PerformanceCounter2 counter = _counters[idx];
             counter.IncrementBy(value);
             Interlocked.Add(ref _counterValues[idx], value);
         }        
 
         public void Dispose() {
-            PerformanceCounter[] counters = _counters;
+            PerformanceCounter2[] counters = _counters;
             // ensure this only happens once
             if (counters != null && Interlocked.CompareExchange(ref _counters, null, counters) == counters) {
                 for (int i = 0; i < NUM_COUNTERS; i++) {
-                    PerformanceCounter counter = counters[i];
+                    PerformanceCounter2 counter = counters[i];
                     if (counter != null) {
                         // decrement counter by its current value, to zero it out for this instance of the named cache (see Dev10 Bug 680819)
                         long value = Interlocked.Exchange(ref _counterValues[i], 0);

@@ -53,7 +53,7 @@ using CustomErrorMode = System.Web.Configuration.CustomErrorsMode;
 namespace System.Web
 {
 	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	public sealed partial class HttpContext : IServiceProvider
 	{
 		internal HttpWorkerRequest WorkerRequest;

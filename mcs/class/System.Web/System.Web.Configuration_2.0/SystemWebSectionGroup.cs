@@ -31,7 +31,7 @@
 
 using System;
 using System.Configuration;
-#if WEBSERVICES_DEP
+#if WEBSERVICES_DEP1
 using System.Web.Services.Configuration;
 #endif
 
@@ -205,7 +205,7 @@ namespace System.Web.Configuration
 			get { return (WebPartsSection)Sections ["webParts"]; }
 		}
 
-#if WEBSERVICES_DEP
+#if WEBSERVICES_DEP1
 		[ConfigurationProperty ("webServices")]
 		public WebServicesSection WebServices {
 			get { return (WebServicesSection)Sections ["webServices"]; }

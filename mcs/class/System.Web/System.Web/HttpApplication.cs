@@ -82,13 +82,13 @@ using System.Web.Management;
 using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.Util;
+using System.Diagnostic.Web;
 
-	
 namespace System.Web
 {
 	// CAS
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	[AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	// attributes
 	[ToolboxItem(false)]
 	public class HttpApplication : IHttpAsyncHandler, IHttpHandler, IComponent, IDisposable
@@ -287,7 +287,7 @@ namespace System.Web
 		[Browsable (false)]
 		[DesignerSerializationVisibility (DesignerSerializationVisibility.Hidden)]
 		public HttpModuleCollection Modules {
-			[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
+			// [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
 			get {
 				if (modcoll == null)
 					modcoll = new HttpModuleCollection ();

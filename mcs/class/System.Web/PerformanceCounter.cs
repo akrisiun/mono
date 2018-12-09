@@ -38,11 +38,23 @@ using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 
-namespace System.Diagnostics {
+namespace System.Diagnostic
+{
+    internal class PerformanceCounter : Web.PerformanceCounter
+    {
+        public PerformanceCounter(string categoryName,
+            string counterName,
+            string instanceName)
+            : base(categoryName, counterName, instanceName, false)
+        { }
+    }
+}
+
+namespace System.Diagnostic.Web {
 
 	// must be safe for multithreaded operations
 	// [InstallerType (typeof (PerformanceCounterInstaller))]
-	public sealed class PerformanceCounter2 : Component, ISupportInitialize 
+	public class PerformanceCounter : Component, ISupportInitialize 
 	{
 
 		private string categoryName;
@@ -62,9 +74,8 @@ namespace System.Diagnostics {
 		public static int DefaultFileMappingSize = 524288;
 
 		// set catname, countname, instname to "", machname to "."
-		public PerformanceCounter2 ()
+		public PerformanceCounter ()
 		{
-            is_custom = true;
 			categoryName = counterName = instanceName = "";
 			machineName = ".";
 		}
@@ -72,27 +83,27 @@ namespace System.Diagnostics {
 		// throws: InvalidOperationException (if catName or countName
 		// is ""); ArgumentNullException if either is null
 		// sets instName to "", machname to "."
-		public PerformanceCounter2 (String categoryName, 
+		public PerformanceCounter (String categoryName, 
 			string counterName)
 			: this (categoryName, counterName, false)
 		{
 		}
 
-		public PerformanceCounter2 (string categoryName, 
+		public PerformanceCounter (string categoryName, 
 			string counterName,
 			bool readOnly)
 			: this (categoryName, counterName, "", readOnly)
 		{
 		}
 
-		public PerformanceCounter2 (string categoryName,
+		public PerformanceCounter (string categoryName,
 			string counterName,
 			string instanceName)
 			: this (categoryName, counterName, instanceName, false)
 		{
 		}
 
-		public PerformanceCounter2 (string categoryName,
+		public PerformanceCounter (string categoryName,
 			string counterName,
 			string instanceName,
 			bool readOnly)
@@ -110,7 +121,6 @@ namespace System.Diagnostics {
 			if (categoryName == "" || counterName == "")
 				throw new InvalidOperationException ();
 
-            is_custom = true;
 			InstanceName = instanceName;
 			this.instanceName = instanceName;
 			this.machineName = ".";
@@ -118,7 +128,7 @@ namespace System.Diagnostics {
 			changed = true;
 		}
 
-		public PerformanceCounter2 (string categoryName,
+		public PerformanceCounter (string categoryName,
 			string counterName,
 			string instanceName,
 			string machineName)
@@ -148,7 +158,7 @@ namespace System.Diagnostics {
 			// need to free the previous info
 			if (impl != IntPtr.Zero)
 				Close ();
-			// impl = GetImpl (categoryName, counterName, instanceName, machineName, out type, out is_custom);
+			impl = GetImpl (categoryName, counterName, instanceName, machineName, out type, out is_custom);
 			// system counters are always readonly
 			if (!is_custom)
 				readOnly = true;
@@ -163,7 +173,6 @@ namespace System.Diagnostics {
 		// may throw ArgumentNullException
 		[DefaultValue (""), ReadOnly (true), SettingsBindable (true)]
 		[TypeConverter ("System.Diagnostics.Design.CategoryValueConverter, " + Consts.AssemblySystem_Design)]
-		[SRDescription ("The category name for this performance counter.")]
 		public string CategoryName {
 			get {return categoryName;}
 			set {
@@ -185,7 +194,6 @@ namespace System.Diagnostics {
 		// may throw ArgumentNullException
 		[DefaultValue (""), ReadOnly (true), SettingsBindable (true)]
 		[TypeConverter ("System.Diagnostics.Design.CounterNameConverter, " + Consts.AssemblySystem_Design)]
-		[SRDescription ("The name of this performance counter.")]
 		public string CounterName 
 			{
 			get {return counterName;}
@@ -216,7 +224,6 @@ namespace System.Diagnostics {
 
 		[DefaultValue (""), ReadOnly (true), SettingsBindable (true)]
 		[TypeConverter ("System.Diagnostics.Design.InstanceNameConverter, " + Consts.AssemblySystem_Design)]
-		[SRDescription ("The instance name for this performance counter.")]
 		public string InstanceName {
 			get {return instanceName;}
 			set {
@@ -230,7 +237,6 @@ namespace System.Diagnostics {
 		// may throw ArgumentException if machine name format is wrong
 		[MonoTODO("What's the machine name format?")]
 		[DefaultValue ("."), Browsable (false), SettingsBindable (true)]
-		[SRDescription ("The machine where this performance counter resides.")]
 		public string MachineName {
 			get {return machineName;}
 			set {

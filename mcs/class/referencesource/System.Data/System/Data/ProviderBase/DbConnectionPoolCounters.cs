@@ -94,13 +94,13 @@ namespace System.Data.ProviderBase {
         };
 
         sealed internal class Counter {
-            private PerformanceCounter _instance;
+            private PerformanceCounter2 _instance;
             
             internal Counter (string categoryName, string instanceName, string counterName, PerformanceCounterType counterType) {
                 if (ADP.IsPlatformNT5) {
                     try {
                         if (!ADP.IsEmpty(categoryName) && !ADP.IsEmpty(instanceName)) {
-                            PerformanceCounter instance = new PerformanceCounter();
+                            PerformanceCounter2 instance = new PerformanceCounter2();
                             instance.CategoryName = categoryName;
                             instance.CounterName = counterName;
                             instance.InstanceName = instanceName;
@@ -119,7 +119,7 @@ namespace System.Data.ProviderBase {
 
 
             internal void Decrement() {
-                PerformanceCounter instance = _instance;
+                PerformanceCounter2 instance = _instance;
                 if (null != instance) {
                     instance.Decrement();
                 }
@@ -127,7 +127,7 @@ namespace System.Data.ProviderBase {
 
             [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
             internal void Dispose () { // 
-                PerformanceCounter instance = _instance;
+                PerformanceCounter2 instance = _instance;
                 _instance = null;
                 if (null != instance) {
                     instance.RemoveInstance();
@@ -138,7 +138,7 @@ namespace System.Data.ProviderBase {
             }
 
             internal void Increment() {
-                PerformanceCounter instance = _instance;
+                PerformanceCounter2 instance = _instance;
                 if (null != instance) {
                     instance.Increment();
                 }

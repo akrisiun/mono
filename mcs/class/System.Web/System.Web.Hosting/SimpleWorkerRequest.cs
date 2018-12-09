@@ -32,6 +32,7 @@
 using System.Collections;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 using System.Security;
 using System.Security.Permissions;
 using System.Web.Configuration;
@@ -41,8 +42,8 @@ using System.Web.Util;
 namespace System.Web.Hosting {
 
 	// CAS
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	[AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	// attributes
 	[ComVisible (false)]
 	public class SimpleWorkerRequest : HttpWorkerRequest {
@@ -61,14 +62,15 @@ namespace System.Web.Hosting {
 		//
 		// Constructor used when the target application domain
 		// was created with ApplicationHost.CreateApplicationHost
-		//
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
-		public SimpleWorkerRequest (string page, string query, TextWriter output)
+		// 		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
+		public SimpleWorkerRequest (string page, string query, TextWriter output) : base()
 		{
 			this.page = page;
 			this.query = query;
 			this.output = output;
 
+			Debugger.Break();
+            // SecurityException: ECall methods must be packaged into a system module.
 			app_virtual_dir = HttpRuntime.AppDomainAppVirtualPath;
 			app_physical_dir = HttpRuntime.AppDomainAppPath;
 			hosted = true;
@@ -80,7 +82,7 @@ namespace System.Web.Hosting {
 		//
 		// This is used for user instantiates HttpContext (my_SimpleWorkerRequest)
 		//
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
+		// [SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
 		public SimpleWorkerRequest (string appVirtualDir, string appPhysicalDir, string page, string query, TextWriter output)
 		{
 			this.page = page;

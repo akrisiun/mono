@@ -27,7 +27,7 @@ namespace System.Runtime.Remoting.Messaging{
     // exposes the same set of methods as instance methods.
 
     // Only statics does not need to marked with the serializable attribute
-    [System.Security.SecurityCritical]  // auto-generated_required
+   //  [System.Security.SecurityCritical]  // auto-generated_required
     [Serializable]
     [System.Runtime.InteropServices.ComVisible(true)]
     public sealed class CallContext
@@ -100,7 +100,7 @@ namespace System.Runtime.Remoting.Messaging{
 
         public static Object HostContext
         {
-            [System.Security.SecurityCritical]  // auto-generated
+        //    [System.Security.SecurityCritical]  // auto-generated
             get
             {
                 ExecutionContext.Reader ec = Thread.CurrentThread.GetExecutionContextReader();
@@ -110,7 +110,7 @@ namespace System.Runtime.Remoting.Messaging{
                     hC = ec.LogicalCallContext.HostContext;
                 return hC;
             }
-            [System.Security.SecurityCritical]  // auto-generated_required
+      //      [System.Security.SecurityCritical]  // auto-generated_required
             set
             {
                 ExecutionContext ec = Thread.CurrentThread.GetMutableExecutionContext();
@@ -130,7 +130,7 @@ namespace System.Runtime.Remoting.Messaging{
         // <
 
 
-        [System.Security.SecurityCritical]  // auto-generated
+   //     [System.Security.SecurityCritical]  // auto-generated
         public static Object GetData(String name)
         {
             Object o = LogicalGetData(name);
@@ -144,7 +144,7 @@ namespace System.Runtime.Remoting.Messaging{
             }
         }
 
-        [System.Security.SecurityCritical]  // auto-generated
+      //  [System.Security.SecurityCritical]  // auto-generated
         public static void SetData(String name, Object data)
         {
             if (data is ILogicalThreadAffinative)

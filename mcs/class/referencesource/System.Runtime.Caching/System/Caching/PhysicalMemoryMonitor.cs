@@ -108,7 +108,7 @@ namespace System.Runtime.Caching {
         [SecuritySafeCritical]
         protected override int GetCurrentPressure() {
 #if MONO
-            var pc = new System.Diagnostics.PerformanceCounter ("Mono Memory", "Available Physical Memory");
+            var pc = new System.Diagnostics.PerformanceCounter2 ("Mono Memory", "Available Physical Memory");
             long availableMemory = pc.RawValue;
 
             int memoryLoad = (int) ((100 * availableMemory) / TotalPhysical);

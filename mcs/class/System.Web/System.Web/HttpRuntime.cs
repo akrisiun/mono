@@ -52,7 +52,7 @@ using System.Web.Compilation;
 namespace System.Web
 {	
 	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	public sealed class HttpRuntime
 	{
 		static bool domainUnloading;
@@ -141,7 +141,7 @@ namespace System.Web
 		// http://radio.weblogs.com/0105476/stories/2002/07/12/executingAspxPagesWithoutAWebServer.html
 		//
 		public static string AppDomainAppId {
-			[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
+			// [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
 			get {
 				//
 				// This value should not change across invocations
@@ -172,7 +172,7 @@ namespace System.Web
 		}
 
 		public static string AppDomainId {
-			[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
+			// [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
 			get {
 				return (string) AppDomain.CurrentDomain.GetData (".domainId");
 			}
@@ -252,7 +252,7 @@ namespace System.Web
 		}
 
 		public static bool IsOnUNCShare {
-			[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Low)]
+			// [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Low)]
 			get {
 				return RuntimeHelpers.IsUncShare;
 			}
@@ -488,7 +488,7 @@ namespace System.Web
 		//    ProcessRequest does not guarantee that `wr' will be processed synchronously,
 		//    the request can be queued and processed later.
 		//
-		[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Medium)]
+		// [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Medium)]
 		public static void ProcessRequest (HttpWorkerRequest wr)
 		{
 			if (wr == null)

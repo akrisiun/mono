@@ -37,9 +37,9 @@ using System.Web.UI;
 
 namespace System.Web
 {
-	// CAS
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	[AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// CAS PermitOnly .LinkDemand
+	// [AspNetHostingPermission (SecurityAction.InheritanceDemand , Level = AspNetHostingPermissionLevel.Unrestricted)]
+	// [AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	// attributes
 	[ComVisible (false)]
 	public abstract partial class HttpWorkerRequest

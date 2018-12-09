@@ -64,7 +64,7 @@ using System.Runtime.InteropServices;
 #else
 	[assembly: AssemblyKeyFile ("../ecma.pub")]
 	[assembly: ComCompatibleVersion (1, 0, 3300, 0)]
-	[assembly: AllowPartiallyTrustedCallers]
+	// [assembly: AllowPartiallyTrustedCallers]
 #endif
 
 [assembly: AssemblyFileVersion (Consts.FxFileVersion)]

@@ -246,17 +246,17 @@ namespace System.Diagnostics
 			return cats;
 		}
 
-		public PerformanceCounter[] GetCounters ()
+		public PerformanceCounter2[] GetCounters ()
 		{
 			return GetCounters ("");
 		}
 
-		public PerformanceCounter[] GetCounters (string instanceName)
+		public PerformanceCounter2[] GetCounters (string instanceName)
 		{
 			string[] countnames = GetCounterNames (categoryName, machineName);
-			PerformanceCounter[] counters = new PerformanceCounter [countnames.Length];
+			PerformanceCounter2[] counters = new PerformanceCounter2 [countnames.Length];
 			for (int i = 0; i < countnames.Length; ++i) {
-				counters [i] = new PerformanceCounter (categoryName, countnames [i], instanceName, machineName);
+				counters [i] = new PerformanceCounter2 (categoryName, countnames [i], instanceName, machineName);
 			}
 			return counters;
 		}

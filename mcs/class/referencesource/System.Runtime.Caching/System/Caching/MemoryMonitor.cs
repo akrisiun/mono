@@ -41,7 +41,7 @@ namespace System.Runtime.Caching {
         [SecuritySafeCritical]
         static MemoryMonitor() {
 #if MONO
-            var pc = new System.Diagnostics.PerformanceCounter ("Mono Memory", "Total Physical Memory");
+            var pc = new System.Diagnostics.PerformanceCounter2 ("Mono Memory", "Total Physical Memory");
             s_totalPhysical = pc.RawValue;
 
             // We should set the the total virtual memory with a system value.
