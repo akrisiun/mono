@@ -13,41 +13,44 @@ namespace standalone_tests
     {
         public static void Main()
         {
-            // & ../../../../bin/mono8.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 bin/TestWeb.exe
+            // & ../../../../bin/mono2.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 bin/TestWeb.exe
+            // & ../../../../bin/mono2.exe --debug bin/TestWeb.exe
             
             // & ./testMono1/bin/testMono1.exe TestMono1/bin/TestWeb.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555
             // & ./testMono1/bin/mono-sgen.exe TestMono1/bin/TestWeb.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555
 
-            Debugger.Break();
+            // Debugger.Break();
 
             var text = "Hello Mono Web";
 
             try {
-                corlib.Debug.Console.Break();
-                corlib.Debug.Console.Load();
+                // corlib.Debug.Console.Break();
+                // corlib.Debug.Console.Load();
 
                 char[] arr = text.ToCharArray();
-                corlib.Debug.Console.WriteLine(arr);
+                // corlib.Debug.Console.WriteLine(arr);
                 Console.WriteLine(text);
 
-                var typDebug = typeof(System.Diagnostics.Debug);
-                var p = typDebug.GetProperty("IsDebug", BindingFlags.Static | BindingFlags.Public);
-                p?.SetValue(null, true);
+                // var typDebug = typeof(System.Diagnostics.DebugMono);
+                // var p = typDebug.GetProperty("IsDebug", BindingFlags.Static | BindingFlags.Public);
+                // p?.SetValue(null, true);
                 // System.Diagnostics.Debug.IsDebug = true;
 
                 // Console.WriteLine
                 Debugger.Log(0, "", text);
-                System.Diagnostics.Debug.WriteLine("So debug?");
+                // System.Diagnostics.Debug.WriteLine("So debug?");
             }
             catch (Exception ex) {
                 var arr2 = ex.Message.ToCharArray();
-                corlib.Debug.Console.WriteLine(arr2);
+                // corlib.Debug.
+                Console.WriteLine(arr2);
             }
 
             // GetModuleVersionId
             // var spanText = System.MemoryExtensionsDebug.AsSpanWrap(text);
 
             // C:\WINDOWS\Microsoft.Net\assembly\GAC_64\System.Web\v4.0_4.0.0
+            // dot build E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web-net_4_x.csproj
             Assembly asmWeb = typeof(SimpleWorkerRequest).Assembly;
  
             var line = $"Asm: {asmWeb.FullName} {asmWeb.Location}";
@@ -70,7 +73,15 @@ namespace standalone_tests
 
             // System.Diagnostics.Private
             // System.Diagnostics.Debug.Fail(line);
-
+    /*
+    System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Unhandled Exception: System.MethodAccessException: Attempt 
+by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(System.String, System.String, System.IO.TextWriter)' to access LinkDemand protected method 'System.Web.HttpWorkerRequest..ctor()' failed.  Methods must be security critical or security safe-critical to satisfy a LinkDemand.
+   at System.Web.Hosting.SimpleWorkerRequest..ctor(String page, String query, TextWriter output) 
+   in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Hosting\SimpleWorkerRequest.cs:line 66
+   at standalone_tests.WebTest..ctor(String page, String query)
+   at standalone_tests.Class.Main()
+   */
             Console.WriteLine(line);
 
             var test = new WebTest("/");
@@ -101,6 +112,11 @@ namespace standalone_tests
         public static StringWriter  Writer { get; set; }
         public Exception LastError { get; set; }
 
+/*Unhandled Exception:
+  System.TypeLoadException: Invalid type System.Web.Configuration.HttpRuntimeSection for instance field System.Web.HttpRuntime:runtime_section
+  at standalone_tests.WebTest..ctor (System.String page, System.String query) [0x00000] in E:\Beta\mono02\mono02\mcs\TestWeb\Main.cs:114
+  at standalone_tests.Class.Main () [0x00100] in E:\Beta\mono02\mono02\mcs\TestWeb\Main.cs:86
+  */
         public WebTest(string page, string query = "?") : base(page ?? "/", query, (Writer = new StringWriter()))
         {
         }

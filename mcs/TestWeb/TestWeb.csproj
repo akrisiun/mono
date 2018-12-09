@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net45</TargetFramework>
     <RootNamespace>standalone_tests</RootNamespace>
 
     <AssemblyName>TestWeb</AssemblyName>
@@ -14,66 +14,74 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <ContinueOnError>true</ContinueOnError>
     <RestorePackages>false</RestorePackages>
-    <OutputPath>./bin</OutputPath>
+    <OutputPath>E:\Beta\mono02\mono02\lib\mono\</OutputPath>
     <IntermediateOutputPath>obj-net_45</IntermediateOutputPath>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <NoStdLib>True</NoStdLib>
     <NoConfig>True</NoConfig>
 
-    <NoStdLib>True</NoStdLib>
-    <RuntimeMetadataVersion>net48</RuntimeMetadataVersion>
+    <RuntimeMetadataVersion>net45</RuntimeMetadataVersion>
     <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>mono.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Consts.cs.in" />
-  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="Main.cs" />
   </ItemGroup>
-  <!--
-  <ItemGroup>
-    <ProjectReference Include="..\class\System.Web\System.Web.csproj" />
-  </ItemGroup>
-  -->
   <PropertyGroup Condition=" '$(Platform)' == 'net_4_x' ">
     <OutputPath>./bin</OutputPath>
     <DefineConstants>NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;SYSTEM_NAMESPACE;MONO;CONFIGURATION_DEP</DefineConstants>
     <!-- MULTIPLEX_OS;COREFX;CONFIGURATION_2_0;XML_DEP;SECURITY_DEP;FEATURE_PAL;SYSTEM_NAMESPACE;MONO;PLATFORM_UNIX;MONO_FEATURE_PROCESS_START;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_SECURITY_ALIAS;CODEDOM;MONO_FEATURE_APPLETLS;FEATURE_COMPILED;MONO_FEATURE_BTLS
     -->
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\class\legacy\Mono.Cecil\Mono.Cecil-net_4_x.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="corlib.Debug">
-      <HintPath>..\..\lib\mono\4.5\net462\corlib.Debug.dll</HintPath>
+      <HintPath>..\..\lib\mono\4.5\corlib.Debug.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\..\Mono\lib\mono\4.5\mscorlib.dll</HintPath>
-      <Private>true</Private>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="System">
+    <!-- Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a -->
+    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <HintPath>..\..\Mono\lib\mono\4.5\System.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="System.Core">
+   <!-- System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 -->
+    <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <HintPath>..\..\Mono\lib\mono\4.5\System.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="System.Security">
+    <Reference Include="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\..\lib\mono\4.5\System.Security.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web">
+    <!--
+     <ProjectReference Include="..\class\legacy\Mono.Cecil\Mono.Cecil-net_4_x.csproj" />
+     <ProjectReference Include="..\class\System.Web\System.Web-net_4_x.csproj" />
+     b77a5c561934e089
+     System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+               , Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+     System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+     System = "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35";
+  	 string EcmaPublicKey = "b77a5c561934e089";
+    -->
+
+    
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\..\Mono\lib\mono\4.5\System.Web.dll</HintPath>
-      <Private>true</Private>
+      <Private>false</Private>
     </Reference>
     <Reference Include="System.Xml">
       <HintPath>..\..\lib\mono\4.5\System.Xml.dll</HintPath>

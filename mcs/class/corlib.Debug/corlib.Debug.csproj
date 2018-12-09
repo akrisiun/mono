@@ -17,7 +17,7 @@
 
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <NoStdLib>True</NoStdLib>
-    <RuntimeMetadataVersion>net48</RuntimeMetadataVersion>
+    <RuntimeMetadataVersion>MONO</RuntimeMetadataVersion>
     
     <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -51,7 +51,7 @@
     <Compile Include="Debug.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\corlib\corlib-net_4_x.csproj" />
+    <ProjectReference Include="..\corlib\corlib.csproj" />
     <ProjectReference Include="..\Mono.Security.Win32\Mono.Security.Win32-net_4_x.csproj" />
     <ProjectReference Include="..\Mono.Security\Mono.Security-net_4_x.csproj" />
     <ProjectReference Include="..\System.Configuration\System.Configuration-net_4_x.csproj" />

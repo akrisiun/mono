@@ -1,6 +1,10 @@
 # @echo off
 
 $dir = $PWD
+
+cd msvc\
+call winsetup.bat
+
 $msbuild = "c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 
 $vs = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"

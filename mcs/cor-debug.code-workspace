@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "E:\\Beta\\dot64\\mono08\\external\\corefx\\src\\Common"
+		},
+		{
+			"path": "class\\System.Web"
 		}
 	],
 	"settings": {}

@@ -1,0 +1,1 @@
+dotnet build corlib.csproj -c Debug -f net45

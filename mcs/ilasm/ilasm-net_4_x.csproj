@@ -51,7 +51,7 @@
     <NoWarn>1699</NoWarn>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <!-- <PlatformTarget>x64</PlatformTarget>-->
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
@@ -186,6 +186,12 @@ $(ProjectDir)\..\jay\jay -ct &lt; $(ProjectDir)\..\jay\skeleton.cs $(ProjectDir)
       <Project>{2CA6026B-2DC8-4C4C-A12C-1E8234049DB7}</Project>
       <Name>corlib-net_4_x</Name>
     </ProjectReference>
+    <Reference Include="PEAPI">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\..\class\lib\net_4_x\PEAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    
     <ProjectReference Include="../class/Mono.CompilerServices.SymbolWriter/Mono.CompilerServices.SymbolWriter-net_4_x.csproj">
       <Project>{88177C4B-894F-485D-B95A-44199C06BE9F}</Project>
       <Name>Mono.CompilerServices.SymbolWriter-net_4_x</Name>
