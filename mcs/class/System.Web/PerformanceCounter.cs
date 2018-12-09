@@ -137,18 +137,18 @@ namespace System.Diagnostic.Web {
 			this.machineName = machineName;
 		}
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
-		static extern IntPtr GetImpl (string category, string counter,
-				string instance, string machine, out PerformanceCounterType ctype, out bool custom);
+		//[MethodImplAttribute (MethodImplOptions.InternalCall)]
+		//static extern IntPtr GetImpl (string category, string counter,
+		//		string instance, string machine, out PerformanceCounterType ctype, out bool custom);
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
-		static extern bool GetSample (IntPtr impl, bool only_value, out CounterSample sample);
+		//[MethodImplAttribute (MethodImplOptions.InternalCall)]
+		//static extern bool GetSample (IntPtr impl, bool only_value, out CounterSample sample);
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
-		static extern long UpdateValue (IntPtr impl, bool do_incr, long value);
+		//[MethodImplAttribute (MethodImplOptions.InternalCall)]
+		//static extern long UpdateValue (IntPtr impl, bool do_incr, long value);
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
-		static extern void FreeData (IntPtr impl);
+		//[MethodImplAttribute (MethodImplOptions.InternalCall)]
+		//static extern void FreeData (IntPtr impl);
 
 		/* the perf counter has changed, ensure it's valid and setup it to
 		 * be able to collect/update data
@@ -158,7 +158,10 @@ namespace System.Diagnostic.Web {
 			// need to free the previous info
 			if (impl != IntPtr.Zero)
 				Close ();
-			impl = GetImpl (categoryName, counterName, instanceName, machineName, out type, out is_custom);
+
+            //SecurityException: ECall methods must be packaged into a system module.
+            //   at System.Diagnostic.Web.PerformanceCounter.UpdateInfo() in E:\Beta\mono02\mono02\mcs\class\System.Web\PerformanceCounter.cs:line 161
+			// impl = GetImpl (categoryName, counterName, instanceName, machineName, out type, out is_custom);
 			// system counters are always readonly
 			if (!is_custom)
 				readOnly = true;
@@ -259,16 +262,16 @@ namespace System.Diagnostic.Web {
 				CounterSample sample;
 				if (changed)
 					UpdateInfo ();
-				GetSample (impl, true, out sample);
-				// should this update old_sample as well?
-				return sample.RawValue;
+                // GetSample (impl, true, out sample);
+                // should this update old_sample as well?
+                return 0; // sample.RawValue;
 			}
 			set {
 				if (changed)
 					UpdateInfo ();
 				if (readOnly)
 					throw new InvalidOperationException ();
-				UpdateValue (impl, false, value);
+				// UpdateValue (impl, false, value);
 			}
 		}
 
@@ -293,8 +296,8 @@ namespace System.Diagnostic.Web {
 		{
 			IntPtr p = impl;
 			impl = IntPtr.Zero;
-			if (p != IntPtr.Zero)
-				FreeData (p);
+			//if (p != IntPtr.Zero)
+			//	FreeData (p);
 		}
 
 		public static void CloseSharedResources ()
@@ -330,19 +333,20 @@ namespace System.Diagnostic.Web {
 				//throw new InvalidOperationException ();
 				return 0;
 			}
-			return UpdateValue (impl, true, value);
+            return 0; // UpdateValue (impl, true, value);
 		}
 
 		// may throw InvalidOperationException, Win32Exception
 		public CounterSample NextSample ()
 		{
-			CounterSample sample;
-			if (changed)
-				UpdateInfo ();
-			GetSample (impl, false, out sample);
-			valid_old = true;
-			old_sample = sample;
-			return sample;
+			//CounterSample sample;
+			//if (changed)
+			//	UpdateInfo ();
+   //         // GetSample (impl, false, out sample);
+   //         // sample = 0;
+			//valid_old = true;
+			//old_sample = sample;
+            return default(CounterSample); // sample;
 		}
 
 		// may throw InvalidOperationException, Win32Exception
@@ -351,15 +355,15 @@ namespace System.Diagnostic.Web {
 			CounterSample sample;
 			if (changed)
 				UpdateInfo ();
-			GetSample (impl, false, out sample);
-			float val;
-			if (valid_old)
-				val = CounterSampleCalculator.ComputeCounterValue (old_sample, sample);
-			else
-				val = CounterSampleCalculator.ComputeCounterValue (sample);
+			// GetSample (impl, false, out sample);
+			//float val;
+			//if (valid_old)
+			//	val = CounterSampleCalculator.ComputeCounterValue (old_sample, sample);
+			//else
+			//	val = CounterSampleCalculator.ComputeCounterValue (sample);
 			valid_old = true;
-			old_sample = sample;
-			return val;
+			// old_sample =  sample;
+            return 0.0F; // val;
 		}
 
 		// may throw InvalidOperationException, Win32Exception
@@ -367,7 +371,7 @@ namespace System.Diagnostic.Web {
 		[ReliabilityContract (Consistency.WillNotCorruptState, Cer.MayFail)]
 		public void RemoveInstance ()
 		{
-			throw new NotImplementedException ();
+			// throw new NotImplementedException ();
 		}
 	}
 }

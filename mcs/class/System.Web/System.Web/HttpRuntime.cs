@@ -75,7 +75,7 @@ namespace System.Web
 
 		}
 
-		static HttpRuntime ()
+		static HttpRuntime Create()
 		{
 			firstRun = true;
 
@@ -120,6 +120,9 @@ namespace System.Web
 				} catch {}
 				});
 			end_of_send_cb = new HttpWorkerRequest.EndOfSendNotification (EndOfSend);
+
+            var instance = new HttpRuntime();
+            return instance;
 		}
 
 		internal static SplitOrderedList <string, string> RegisteredAssemblies {

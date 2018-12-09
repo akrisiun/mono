@@ -59,20 +59,33 @@ namespace System.Web.Hosting {
 		// computed
 		string raw_url;
 
-		//
-		// Constructor used when the target application domain
-		// was created with ApplicationHost.CreateApplicationHost
-		// 		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
-		public SimpleWorkerRequest (string page, string query, TextWriter output) : base()
-		{
-			this.page = page;
-			this.query = query;
-			this.output = output;
+        //
+        // Constructor used when the target application domain
+        // was created with ApplicationHost.CreateApplicationHost
+        // 		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
+        public SimpleWorkerRequest(string page, string query, TextWriter output) : base()
+        {
+            this.page = page;
+            this.query = query;
+            this.output = output;
 
-			Debugger.Break();
+            // Debugger.Break();
             // SecurityException: ECall methods must be packaged into a system module.
-			app_virtual_dir = HttpRuntime.AppDomainAppVirtualPath;
-			app_physical_dir = HttpRuntime.AppDomainAppPath;
+            //   at System.Diagnostic.Web.PerformanceCounter.UpdateInfo() in E:\Beta\mono02\mono02\mcs\class\System.Web\PerformanceCounter.cs:line 161
+
+            var path = AppDomain.CurrentDomain.GetData(".appPath");
+            if (path == null) {
+                AppDomain.CurrentDomain.SetData(".appPath", Environment.CurrentDirectory);
+            }
+            try {
+                app_virtual_dir = HttpRuntime.AppDomainAppVirtualPath;
+                // Physical directory for the application
+                app_physical_dir = HttpRuntime.AppDomainAppPath;
+            }
+            catch (Exception ) {
+                app_virtual_dir  = AppDomain.CurrentDomain.GetData(".appPath") as string;
+                app_physical_dir = app_virtual_dir; // they are equal..
+            }
 			hosted = true;
 			InitializePaths ();
 		}

@@ -75,7 +75,8 @@ namespace System.Web.Profile
 		/// <summary>
 		/// System.Configuration.Provider.ProviderBase.Initialize Method
 		/// </summary>
-		public override void Initialize(string name, NameValueCollection config)
+		public // override 
+            void Initialize(string name, NameValueCollection config)
 		{
 			// Initialize values from web.config.
 			if (config == null)
@@ -91,7 +92,7 @@ namespace System.Web.Profile
 			}
 
 			// Initialize the abstract base class.
-			base.Initialize(name, config);
+			// base.Initialize(name, config);
 
 			m_ApplicationName = GetConfigValue(config["applicationName"], HostingEnvironment.ApplicationVirtualPath);
 
