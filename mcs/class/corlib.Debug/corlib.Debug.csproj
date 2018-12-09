@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">net_4_x</Platform>
+    <LangVersion>latest</LangVersion>
+
+    <TargetFramework>net45</TargetFramework>
+    <OutputType>Library</OutputType>
+    <NoWarn>612,618,3001,3002,3003,1635,1699</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <HostPlatform Condition=" '$(HostPlatform)' == '' and '$(OS)' == 'Windows_NT'">win32</HostPlatform>
+
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ContinueOnError>true</ContinueOnError>
+    <RestorePackages>false</RestorePackages>
+
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <NoStdLib>True</NoStdLib>
+    <RuntimeMetadataVersion>net48</RuntimeMetadataVersion>
+    
+    <NoConfig>True</NoConfig>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>corlib.Debug</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <!-- Set AddAdditionalExplicitAssemblyReferences to false, otherwise if targetting .NET4.0, 
+  Microsoft.NETFramework.props will force a dependency on the assembly System.Core. This
+  is a problem to compile the Mono mscorlib.dll -->
+  <PropertyGroup>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!--<OutputPath>./../../class/lib/net_4_x-$(HostPlatform)</OutputPath>-->
+    <OutputPath>./../../../lib/mono/4.5</OutputPath>
+    <IntermediateOutputPath>./../../class/obj/$(AssemblyName)-net_4_x-$(HostPlatform)</IntermediateOutputPath>
+    <DefineConstants>INSIDE_CORLIB;MONO_CULTURE_DATA;LIBC;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ENCODINGNLS;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;BIT64;NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ENCODINGNLS;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_FEATURE_CONSOLE;FEATURE_CRYPTO_CONFIGURABLE</DefineConstants>
+    <StartupObject />
+  </PropertyGroup>
+   
+  <!-- @ALL_PROFILE_PROPERTIES@ -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <!-- TRACE is set only for Debug configuration, so inherit from platform-specific value -->
+    <DefineConstants>TRACE;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Debug.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\corlib\corlib-net_4_x.csproj" />
+    <ProjectReference Include="..\Mono.Security.Win32\Mono.Security.Win32-net_4_x.csproj" />
+    <ProjectReference Include="..\Mono.Security\Mono.Security-net_4_x.csproj" />
+    <ProjectReference Include="..\System.Configuration\System.Configuration-net_4_x.csproj" />
+    <ProjectReference Include="..\System.Core\System.Core-net_4_x.csproj" />
+    <ProjectReference Include="..\System.XML\System.Xml-net_4_x.csproj" />
+    <ProjectReference Include="..\System\System-net_4_x.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
+    <Reference Include="./../../../external/binary-reference-assemblies/v4.7.1/System.Core.dll">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>./../../../external/binary-reference-assemblies/v4.7.1/System.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="./../../../external/binary-reference-assemblies/v4.7.1/System.Configuration.dll">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>./../../../external/binary-reference-assemblies/v4.7.1/System.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+     -->
+    <!--
+    <ProjectReference Include="..\Mono.Security\Mono.Security.csproj">
+      <Aliases>MonoSecurity</Aliases>
+      <Project>{117140AC-A163-4B86-9E69-A46EA268A9DB}</Project>
+      <Name>Mono.Security</Name>
+    </ProjectReference>
+     <ProjectReference Include="..\..\msvc\scripts\genconsts.csproj">
+      <Name>genconsts</Name>
+    </ProjectReference>
+
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">echo $(TargetPath) $(TargetPath).tmp
+    move $(TargetPath) $(TargetPath).tmp
+echo $(ProjectDir)\..\..\build\cil-stringreplacer.exe - -mscorlib-debug $(TargetPath).tmp
+$(ProjectDir)\..\..\build\cil-stringreplacer.exe - -mscorlib-debug $(TargetPath).tmp
+copy $(TargetPath).tmp $(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
+  -->
+  </ItemGroup>
+  
+</Project>

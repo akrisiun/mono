@@ -112,6 +112,8 @@ namespace System.Net
 		int maxResponseHeadersLength;
 		static int defaultMaxResponseHeadersLength;
 		int readWriteTimeout = 300000; // ms
+
+#pragma warning  disable 649
 		IMonoTlsProvider tlsProvider;
 #if SECURITY_DEP
 		MonoTlsSettings tlsSettings;

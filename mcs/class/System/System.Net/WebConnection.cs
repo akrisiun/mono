@@ -66,6 +66,9 @@ namespace System.Net
 		bool chunkedRead;
 		ChunkStream chunkStream;
 		Queue queue;
+
+#pragma warning  disable 649
+#pragma warning  disable 414
 		bool reused;
 		int position;
 		HttpWebRequest priority_request;		
@@ -83,6 +86,7 @@ namespace System.Net
 		HttpWebRequest connect_request;
 
 		Exception connect_exception;
+#pragma warning  disable 649
 		MonoTlsStream tlsStream;
 
 #if MONOTOUCH && !MONOTOUCH_TV && !MONOTOUCH_WATCH

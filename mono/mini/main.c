@@ -41,6 +41,7 @@ static int
 mono_main_with_options (int argc, char *argv [])
 {
 	mono_parse_env_options (&argc, &argv);
+	g_printf("MONO2 | branch 2017-02\n");
 
 	return mono_main (argc, argv);
 }

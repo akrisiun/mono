@@ -130,6 +130,17 @@ namespace System
 			SetupStreams (inputEncoding, outputEncoding);
 		}
 
+        public static TextWriter DebugStdOut()
+        {
+            if (!DebugMono.IsDebug) {
+                DebugMono.IsDebug = true;
+                DebugMono.Break();
+            }
+
+            return stdout;
+        }
+
+
 		static void SetupStreams (Encoding inputEncoding, Encoding outputEncoding)
 		{
 #if MONO_FEATURE_CONSOLE

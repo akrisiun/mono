@@ -37,6 +37,20 @@ Target v141
 
 # The Mono project is part of the [.NET Foundation](http://www.dotnetfoundation.org/)
 
+```
+MONO2 | branch 2017-02
+Mono JIT compiler version 4.9 (Visual Studio built mono)
+Copyright (C) 2002-2014 Novell, Inc, Xamarin Inc and Contributors. www.mono-project.com
+        TLS:           normal
+        SIGSEGV:       normal
+        Notification:  Thread + polling
+        Architecture:  amd64
+        Disabled:      none
+        Misc:          softdebug
+        LLVM:          supported, not enabled.
+        GC:            sgen
+```
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mono/mono?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 1. [Compilation and Installation](#compilation-and-installation)

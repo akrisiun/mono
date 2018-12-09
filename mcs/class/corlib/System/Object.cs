@@ -34,6 +34,7 @@
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
+using System.Diagnostics;
 
 namespace System {
 
@@ -72,6 +73,16 @@ namespace System {
 		public Object ()
 		{
 		}
+
+        public static Object Debug1()
+        {
+            if (!DebugMono.IsDebug) {
+                DebugMono.IsDebug = true;
+            DebugMono.Break();
+            }
+
+            return new Object();
+        }
 
 		// <summary>
 		//   Object destructor. 

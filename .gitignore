@@ -38,12 +38,13 @@ obj/
 [Rr]elease*/
 Ankh.NoLoad
 *.gpState
-.vscode/
 *.exp
+.vs/
 
 # Tooling
 _ReSharper*/
 *.resharper
+.idea/*
 [Tt]est[Rr]esult*
 *.orig
 *.rej
@@ -88,6 +89,7 @@ stamp-h.in
 *.swp
 *.o
 .deps
+.libs
 
 # Libtool
 libtool.m4
@@ -129,7 +131,11 @@ tmpinst-dir.stamp
 msvc/scripts/inputs/
 extensions-config.h
 
-.vs*/
-obj-net*/
+*.mlpd
+
 obj-net*/
 obj-legacy/
+launchSettings.json
+external/corefx.uap/
+external/netcoreapp45/
+*.dll.tmp

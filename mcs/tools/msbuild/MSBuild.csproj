@@ -17,24 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_2_0;NET_4_0</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugMS|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET_4_5</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -72,13 +55,21 @@
   </Target>
   -->
   <ItemGroup>
-    <ProjectReference Include="..\..\class\Microsoft.Build.Framework\Microsoft.Build.Framework-useful.csproj">
-      <Project>{2BAFB878-D329-46A5-93AF-5A4ECD403A13}</Project>
-      <Name>Microsoft.Build.Framework-useful</Name>
+    <ProjectReference Include="..\..\class\Microsoft.Build.Engine\Microsoft.Build.Engine-net_4_x.csproj">
+      <Project>{75dff196-fa56-48cd-9a1a-cea3bec618ab}</Project>
+      <Name>Microsoft.Build.Engine-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\class\Microsoft.Build\Microsoft.Build-useful.csproj">
-      <Project>{D8A2B8F2-F52B-44D5-A868-C344682749E2}</Project>
-      <Name>Microsoft.Build-useful</Name>
+    <ProjectReference Include="..\..\class\Microsoft.Build.Framework\Microsoft.Build.Framework-net_4_x.csproj">
+      <Project>{5e39a911-f4e6-4b4b-b8ac-111bb1dd80c6}</Project>
+      <Name>Microsoft.Build.Framework-net_4_x</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\class\Microsoft.Build.Utilities\Microsoft.Build.Utilities-net_4_x.csproj">
+      <Project>{8e5728e0-ceaf-431f-963e-eb1dee15c506}</Project>
+      <Name>Microsoft.Build.Utilities-net_4_x</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\class\Microsoft.Build\Microsoft.Build-net_4_x.csproj">
+      <Project>{124b6594-f3ec-4fe3-b5a8-2a5cb4d5bc5a}</Project>
+      <Name>Microsoft.Build-net_4_x</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

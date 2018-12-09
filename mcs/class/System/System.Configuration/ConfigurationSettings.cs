@@ -55,7 +55,7 @@ namespace System.Configuration
 		{
 		}
 
-		[Obsolete ("This method is obsolete, it has been replaced by System.Configuration!System.Configuration.ConfigurationManager.GetSection")]
+		// [Obsolete ("This method is obsolete, it has been replaced by System.Configuration!System.Configuration.ConfigurationManager.GetSection")]
 		public static object GetConfig (string sectionName)
 		{
 #if CONFIGURATION_DEP
@@ -65,7 +65,7 @@ namespace System.Configuration
 #endif
 		}
 
-		[Obsolete ("This property is obsolete.  Please use System.Configuration.ConfigurationManager.AppSettings")]
+		// [Obsolete ("This property is obsolete.  Please use System.Configuration.ConfigurationManager.AppSettings")]
 		public static NameValueCollection AppSettings
 		{
 			get {

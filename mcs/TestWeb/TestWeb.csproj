@@ -45,13 +45,13 @@
     <!-- MULTIPLEX_OS;COREFX;CONFIGURATION_2_0;XML_DEP;SECURITY_DEP;FEATURE_PAL;SYSTEM_NAMESPACE;MONO;PLATFORM_UNIX;MONO_FEATURE_PROCESS_START;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_SECURITY_ALIAS;CODEDOM;MONO_FEATURE_APPLETLS;FEATURE_COMPILED;MONO_FEATURE_BTLS
     -->
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\class\legacy\Mono.Cecil\Mono.Cecil-net_4_x.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="corlib.Debug">
       <HintPath>..\..\lib\mono\4.5\net462\corlib.Debug.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>..\..\lib\mono\4.5\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>

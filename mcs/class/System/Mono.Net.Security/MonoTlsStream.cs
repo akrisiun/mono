@@ -51,7 +51,7 @@ namespace Mono.Net.Security
 {
 	class MonoTlsStream
 	{
-#if SECURITY_DEP		
+#if SECURITY_DEP
 		readonly IMonoTlsProvider provider;
 		readonly NetworkStream networkStream;		
 		readonly HttpWebRequest request;
@@ -67,7 +67,8 @@ namespace Mono.Net.Security
 		}
 #endif
 
-		WebExceptionStatus status;
+#pragma warning  disable 649
+        WebExceptionStatus status;
 
 		internal WebExceptionStatus ExceptionStatus {
 			get { return status; }
