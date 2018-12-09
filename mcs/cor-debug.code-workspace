@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "class\\corlib.Debug"
+		},
+		{
+			"path": "class\\corlib"
+		},
+		{
+			"path": "TestWeb"
+		},
+		{
+			"path": "E:\\Beta\\dot64\\mono08\\external\\corefx\\src\\Common"
+		}
+	],
+	"settings": {}
+}

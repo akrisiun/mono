@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>standalone_tests</RootNamespace>
+
+    <AssemblyName>TestWeb</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <NoWarn>1699,612,618,436,618</NoWarn>
+
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!--<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>-->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ContinueOnError>true</ContinueOnError>
+    <RestorePackages>false</RestorePackages>
+    <OutputPath>./bin</OutputPath>
+    <IntermediateOutputPath>obj-net_45</IntermediateOutputPath>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <NoStdLib>True</NoStdLib>
+    <NoConfig>True</NoConfig>
+
+    <NoStdLib>True</NoStdLib>
+    <RuntimeMetadataVersion>net48</RuntimeMetadataVersion>
+    <NoConfig>True</NoConfig>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Consts.cs.in" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+  </ItemGroup>
+  <!--
+  <ItemGroup>
+    <ProjectReference Include="..\class\System.Web\System.Web.csproj" />
+  </ItemGroup>
+  -->
+  <PropertyGroup Condition=" '$(Platform)' == 'net_4_x' ">
+    <OutputPath>./bin</OutputPath>
+    <DefineConstants>NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;SYSTEM_NAMESPACE;MONO;CONFIGURATION_DEP</DefineConstants>
+    <!-- MULTIPLEX_OS;COREFX;CONFIGURATION_2_0;XML_DEP;SECURITY_DEP;FEATURE_PAL;SYSTEM_NAMESPACE;MONO;PLATFORM_UNIX;MONO_FEATURE_PROCESS_START;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_SECURITY_ALIAS;CODEDOM;MONO_FEATURE_APPLETLS;FEATURE_COMPILED;MONO_FEATURE_BTLS
+    -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="corlib.Debug">
+      <HintPath>..\..\lib\mono\4.5\net462\corlib.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\lib\mono\4.5\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>..\..\Mono\lib\mono\4.5\mscorlib.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\Mono\lib\mono\4.5\System.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\Mono\lib\mono\4.5\System.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <HintPath>..\..\lib\mono\4.5\System.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>..\..\Mono\lib\mono\4.5\System.Web.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>..\..\lib\mono\4.5\System.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

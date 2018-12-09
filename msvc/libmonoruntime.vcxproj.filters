@@ -570,6 +570,7 @@
     <ClInclude Include="..\mono\metadata\cominterop-win32-internals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\mono\metadata\appdomain-icalls.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <ProjectGuid>{C8FC1AD5-81D7-4C98-9247-1FF6F1A5BA63}</ProjectGuid>
+    <RootNamespace>testinvoke</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="mono.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MONO_BUILD_DIR_PREFIX)$(Platform)\obj\$(ProjectName)$(MONO_TARGET_SUFFIX)\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(MONO_EGLIB_INCLUDE_DIR);E:\Beta\dot64\mono08\mono\eglib;E:\Beta\dot64\mono08;E:\Beta\dot64\mono08\msvc\include\mono\metadata;E:\Beta\dot64\mono08\msvc\include;$(MONO_DIR);$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN32_LEAN_AND_MEAN;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Link>
+      <!-- <AdditionalDependencies>libmonoruntime-sgen.lib;eglib.lib;mono-2.0-sgen.lib;libgcmonosgen.lib;libmini-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>-->
+      <AdditionalDependencies>$(MONO_LIBMONO_LIB);$(MONO_LLVM_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\Beta\dot64\mono08\msvc\build\sgen\x64\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Console</SubSystem>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <!--
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(MONO_DIR);$(MONO_EGLIB_INCLUDE_DIR);$(MONO_EGLIB_SOURCE_DIR)%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBTEST_EGLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>eglib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+-->
+  <ItemGroup>
+    <ProjectReference Include="..\..\msvc\eglib.vcxproj">
+      <Project>{158073ed-99ae-4196-9edc-ddb2344f8466}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\msvc\genmdesc.vcxproj">
+      <Project>{b7098dfa-31e6-4006-8a15-1c9a4e925149}</Project>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\..\msvc\libgcmonosgen.vcxproj">
+      <Project>{c36612bd-22d3-4b95-85e2-7fdc4fc5d740}</Project>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+    </ProjectReference>
+    <ProjectReference Include="..\..\msvc\libmini.vcxproj">
+      <Project>{88d2eb79-592d-45f8-b849-ae021c1d983a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\msvc\libmono-dynamic.vcxproj">
+      <Project>{675f4175-ffb1-480d-ad36-f397578844d4}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\..\msvc\libmonoruntime.vcxproj">
+      <Project>{c36612bd-22d3-4b95-85e2-7fdc4fc5d739}</Project>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main-invoke.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

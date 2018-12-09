@@ -129,3 +129,7 @@ tmpinst-dir.stamp
 msvc/scripts/inputs/
 extensions-config.h
 
+.vs*/
+obj-net*/
+obj-net*/
+obj-legacy/
