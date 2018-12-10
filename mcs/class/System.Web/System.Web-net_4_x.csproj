@@ -1729,9 +1729,6 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\net_4_x\Mono.Data.Sqlite.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.WebBrowser">
-      <HintPath>..\lib\net_4_x\Mono.WebBrowser.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>..\lib\net_4_x\System.ComponentModel.DataAnnotations.dll</HintPath>
     </Reference>

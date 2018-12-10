@@ -2,6 +2,14 @@
 
 $dir = $PWD
 
+cd msvc\prepare\
+dotnet build prepare.csproj -o $dir
+cd $dir
+./prepare.exe $PWD\mcs core
+
+
+dotnet build mcs\tools\culevel\culevel.csproj 
+
 cd msvc\
 call winsetup.bat
 
@@ -13,15 +21,6 @@ cd mcs\jay
 
 & $msbuild jay.vcxproj
 # & $msbuild mcs\jay\jay.vcxproj
-
-# cd ..\..\msvc\scripts
-cd msvc\scripts
-# csc prepare.cs
-dotnet build prepare.csproj -o . -f net45
-
-cd msvc\scripts
-# !!!!!
-& ./prepare.exe ..\..\mcs core
 
 cd msvc
 & $msbuild .\libmonoutils.vcxproj
