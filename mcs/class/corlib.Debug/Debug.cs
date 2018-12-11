@@ -41,9 +41,14 @@ namespace System.Diagnostics
 
         public static void Break()
         {
-
             Debugger.Break();
         }
+
+        public static void WriteLine(string format, params object[] args)
+        {
+            Console.WriteLine(String.Format(format, args));
+        }
+
     }
 }
 

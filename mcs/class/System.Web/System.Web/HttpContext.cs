@@ -49,6 +49,7 @@ using System.Resources;
 using System.Web.Compilation;
 using System.Web.Profile;
 using CustomErrorMode = System.Web.Configuration.CustomErrorsMode;
+using System.Diagnostics;
 
 namespace System.Web
 {
@@ -99,6 +100,10 @@ namespace System.Web
 		
 		public HttpContext (HttpWorkerRequest wr)
 		{
+            if (Debugger.IsAttached) {
+                Debugger.Break();
+            }
+
 			WorkerRequest = wr;
 			request = new HttpRequest (WorkerRequest, this);
 			response = new HttpResponse (WorkerRequest, this);

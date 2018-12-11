@@ -56,7 +56,7 @@
     <Compile Include="Debug.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\corlib\corlib.csproj" />
+    <ProjectReference Include="..\corlib\corlib-net_4_x.csproj" />
     <ProjectReference Include="..\Mono.Security.Win32\Mono.Security.Win32-net_4_x.csproj" />
     <ProjectReference Include="..\Mono.Security\Mono.Security-net_4_x.csproj" />
     <ProjectReference Include="..\System.Configuration\System.Configuration-net_4_x.csproj" />
@@ -65,18 +65,6 @@
     <ProjectReference Include="..\System\System-net_4_x.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <!-- <ItemGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <Reference Include="./../../../external/binary-reference-assemblies/v4.7.1/System.Core.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../../external/binary-reference-assemblies/v4.7.1/System.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="./../../../external/binary-reference-assemblies/v4.7.1/System.Configuration.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../../external/binary-reference-assemblies/v4.7.1/System.Configuration.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-     -->
     <!--
     <ProjectReference Include="..\Mono.Security\Mono.Security.csproj">
       <Aliases>MonoSecurity</Aliases>
@@ -86,7 +74,6 @@
      <ProjectReference Include="..\..\msvc\scripts\genconsts.csproj">
       <Name>genconsts</Name>
     </ProjectReference>
-
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">echo $(TargetPath) $(TargetPath).tmp

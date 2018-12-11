@@ -20,18 +20,16 @@ namespace standalone_tests
             // & ./testMono1/bin/mono-sgen.exe TestMono1/bin/TestWeb.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555
 
             // Debugger.Break();
-
             var text = "Hello Mono Web";
 
             try {
-                // corlib.Debug.Console.Break();
-                // corlib.Debug.Console.Load();
+
+                System.Diagnostics.DebugMono1.Break();
 
                 char[] arr = text.ToCharArray();
-                // corlib.Debug.Console.WriteLine(arr);
                 Console.WriteLine(text);
 
-                // var typDebug = typeof(System.Diagnostics.DebugMono);
+                var typDebug = typeof(System.Diagnostics.Debug);
                 // var p = typDebug.GetProperty("IsDebug", BindingFlags.Static | BindingFlags.Public);
                 // p?.SetValue(null, true);
                 // System.Diagnostics.Debug.IsDebug = true;
@@ -86,9 +84,8 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
 
             var test = new WebTest("/");
             try {
-                if (Debugger.IsAttached)
-                    Debugger.Break();
 
+                System.Diagnostics.DebugMono1.BreakWeb();
 
                 HttpContext.Current = new HttpContext(test);
 
@@ -122,5 +119,37 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
         }
 
         public HttpContext Context { get; set; }
+    }
+}
+
+namespace System.Diagnostics
+{
+    using System.Diagnostics.Private;
+    using System.Web;
+
+    public static class DebugMono1
+    {
+        public static bool IsDebug { get; set; }
+
+        public static void Break()
+        {
+            // DebugMono2.Break();
+            DebugMono2.IsDebug = true;
+
+            DebugMono2.WriteLine("Hello corlib.Debug");
+            DebugMono2.WriteLine($"corlib.Debug : {typeof(DebugMono2).Assembly.Location}");
+            DebugMono2.WriteLine($"mscorlib   : {typeof(System.Object).Assembly.Location}");
+            DebugMono2.WriteLine($"System.Xml : {typeof(System.Xml.Formatting).Assembly.Location}");
+        }
+
+        public static void BreakWeb()
+        {
+            // DebugMono2.WriteLine($"System.Web : {typeof(Mono.Web.Util.SettingsMappingManager).Assembly.Location}");
+            DebugMono2.WriteLine($"System.Web : {typeof(System.Web.HttpContext).Assembly.Location}");
+            // corlib.Debug.Console.Break();
+            // corlib.Debug.Console.Load();
+            // corlib.Debug.Console.WriteLine(arr);
+
+        }
     }
 }

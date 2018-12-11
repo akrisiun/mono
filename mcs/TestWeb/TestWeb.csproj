@@ -14,13 +14,13 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <ContinueOnError>true</ContinueOnError>
     <RestorePackages>false</RestorePackages>
-    <OutputPath>E:\Beta\mono02\mono02\lib\mono\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <IntermediateOutputPath>obj-net_45</IntermediateOutputPath>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <NoStdLib>True</NoStdLib>
     <NoConfig>True</NoConfig>
 
-    <RuntimeMetadataVersion>net45</RuntimeMetadataVersion>
+    <RuntimeMetadataVersion>net462</RuntimeMetadataVersion>
     <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -41,31 +41,40 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\class\System.Web\System.Web-net_4_x.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="corlib.Debug">
-      <HintPath>..\..\lib\mono\4.5\corlib.Debug.dll</HintPath>
+      <HintPath>..\..\lib\mono\4.5\net45\corlib.Debug.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil1">
+      <HintPath>..\class\lib\net_4_x\Mono.Cecil1.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Security">
-      <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>
+      <HintPath>..\..\lib\mono\net45\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>..\..\Mono\lib\mono\4.5\mscorlib.dll</HintPath>
+      <HintPath>..\class\lib\net_4_x\mscorlib.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <!-- Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a -->
     <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <HintPath>..\..\Mono\lib\mono\4.5\System.dll</HintPath>
+      <HintPath>..\class\lib\net_4_x\System.dll</HintPath>
       <Private>false</Private>
     </Reference>
    <!-- System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 -->
     <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <HintPath>..\..\Mono\lib\mono\4.5\System.Core.dll</HintPath>
+      <HintPath>..\class\lib\net_4_x\System.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>..\class\lib\net_4_x\System.Xml.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\..\lib\mono\4.5\System.Security.dll</HintPath>
+      <HintPath>..\class\lib\net_4_x\System.Security.dll</HintPath>
     </Reference>
     <!--
      <ProjectReference Include="..\class\legacy\Mono.Cecil\Mono.Cecil-net_4_x.csproj" />
@@ -76,16 +85,21 @@
      System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
      System = "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35";
   	 string EcmaPublicKey = "b77a5c561934e089";
+     
+     e:\Beta\mono64\mono\lib\mono\net45\System.Web.dll
     -->
 
     
     <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\..\Mono\lib\mono\4.5\System.Web.dll</HintPath>
+      <HintPath>..\..\Mono\lib\mono\net45\System.Web.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="System.Xml">
-      <HintPath>..\..\lib\mono\4.5\System.Xml.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="..\..\Mono\lib\mono\net45\System.Web.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
