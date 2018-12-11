@@ -1141,10 +1141,6 @@
       <Project>{3821C69F-220D-4231-992C-0FE05311A005}</Project>
       <Name>System.Transactions-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Messaging/System.Messaging-net_4_x.csproj">
-      <Project>{4AC19C4C-5998-4F55-9C65-55ACB8D71AB2}</Project>
-      <Name>System.Messaging-net_4_x</Name>
-    </ProjectReference>
     <ProjectReference Include="../Mono.Security/Mono.Security-net_4_x.csproj">
       <Project>{42D59DE7-586F-4ACF-BDD5-E7869E39E3EF}</Project>
       <Name>Mono.Security-net_4_x</Name>

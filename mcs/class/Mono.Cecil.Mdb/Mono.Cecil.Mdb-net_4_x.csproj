@@ -100,15 +100,14 @@
       <Project>{2CA6026B-2DC8-4C4C-A12C-1E8234049DB7}</Project>
       <Name>corlib-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System/System-net_4_x.csproj">
-      <Project>{2762E921-91A8-4C87-91E9-BA628013F753}</Project>
-      <Name>System-net_4_x</Name>
+    <ProjectReference Include="..\legacy\Mono.Cecil\Mono.Cecil-net_4_x.csproj">
+      <Project>{6de38817-ec25-433a-ae58-0d30c5e6c460}</Project>
+      <Name>Mono.Cecil-net_4_x</Name>
     </ProjectReference>
-    <Reference Include="./../../class/lib/net_4_x/Mono.Cecil.dll">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>./../../class/lib/net_4_x/Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <ProjectReference Include="..\System.Net\System.Net-net_4_x.csproj">
+      <Project>{a455f1bb-6273-4bae-985c-563bed11d529}</Project>
+      <Name>System.Net-net_4_x</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

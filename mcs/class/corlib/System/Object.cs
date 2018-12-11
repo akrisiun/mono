@@ -69,7 +69,7 @@ namespace System {
 		// <summary>
 		//   Initializes a new instance of the object class.
 		// </summary>
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.MayFail)]
+		[ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 		public Object ()
 		{
 		}

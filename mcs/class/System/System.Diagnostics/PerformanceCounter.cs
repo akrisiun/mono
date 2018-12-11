@@ -32,19 +32,26 @@
 
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 
 namespace System.Diagnostics {
 
+    [InstallerType (typeof (PerformanceCounterInstaller))]
+    internal class PerformanceCounter : PerformanceCounter2, ISupportInitialize
+    {
+        public PerformanceCounter(string categoryName, 
+			string counterName,
+			bool readOnly) : base(categoryName, counterName, readOnly)
+        {
+        }
+    }
+
 	// must be safe for multithreaded operations
 	// [InstallerType (typeof (PerformanceCounterInstaller))]
-	public sealed class PerformanceCounter2 : Component, ISupportInitialize 
+    // sealed 
+	public class PerformanceCounter2 : Component, ISupportInitialize 
 	{
-
 		private string categoryName;
 		private string counterName;
 		private string instanceName;
@@ -72,7 +79,7 @@ namespace System.Diagnostics {
 		// throws: InvalidOperationException (if catName or countName
 		// is ""); ArgumentNullException if either is null
 		// sets instName to "", machname to "."
-		public PerformanceCounter2 (String categoryName, 
+		public PerformanceCounter2 (string categoryName, 
 			string counterName)
 			: this (categoryName, counterName, false)
 		{
@@ -205,6 +212,9 @@ namespace System.Diagnostics {
 					UpdateInfo ();
 				return type;
 			}
+            set {
+                type = value;
+            }
 		}
 
 		[MonoTODO]

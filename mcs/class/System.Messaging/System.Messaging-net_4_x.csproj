@@ -173,13 +173,12 @@
       <Project>{108227C7-8ED9-4483-949D-07BF0DA1A201}</Project>
       <Name>System.Windows.Forms-net_4_x</Name>
     </ProjectReference>
+    <ProjectReference Include="..\System.Runtime.Remoting\System.Runtime.Remoting-net_4_x.csproj">
+      <Project>{f19f77ae-1a81-4676-bab8-6c1da243a961}</Project>
+      <Name>System.Runtime.Remoting-net_4_x</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="System.Messaging/MessageQueue.resx">
-      <LogicalName>MessageQueue.resx</LogicalName>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
