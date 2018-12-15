@@ -50,10 +50,10 @@ using System.Security.Authentication.ExtendedProtection;
 using System.Web.Routing;
 
 namespace System.Web
-{	
-	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	public sealed partial class HttpRequest
+{
+    // CAS - no InheritanceDemand here as the class is sealed
+    // [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    public sealed partial class HttpRequest
 	{
 		HttpWorkerRequest worker_request;
 		HttpContext context;
@@ -1169,8 +1169,8 @@ namespace System.Web
 		}
 
 		public string this [string key] {
-			[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Low)]
-			get {
+            // [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Low)]
+            get {
 				// "The QueryString, Form, Cookies, or ServerVariables collection member
 				// specified in the key parameter."
 				string val = QueryString [key];
@@ -1266,7 +1266,7 @@ namespace System.Web
 					throw new ArgumentNullException (); // like 2.0, 1.x throws TypeInitializationException
 
 				string path = HttpRuntime.AppDomainAppPath;
-				if (SecurityManager.SecurityEnabled) {
+				if (SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand ();
 				}
 				return path;
@@ -1283,7 +1283,7 @@ namespace System.Web
 					physical_path = worker_request.MapPath (FilePath);
 				}
 
-				if (SecurityManager.SecurityEnabled) {
+				if (SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, physical_path).Demand ();
 				}
 				return physical_path;
@@ -1401,8 +1401,8 @@ namespace System.Web
 		}
 
 		public NameValueCollection ServerVariables {
-			[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Low)]
-			get {
+            // [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Low)]
+            get {
 				if (server_variables == null)
 					server_variables = new ServerVariablesCollection (this);
 
@@ -1868,14 +1868,14 @@ namespace System.Web
 			}
 		}
 
-		[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
-		public void InsertEntityBody ()
+        // [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
+        public void InsertEntityBody ()
 		{
 			throw new PlatformNotSupportedException ("This method is not supported.");
 		}
 
-		[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
-		public void InsertEntityBody (byte[] buffer, int offset, int count)
+        // [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.High)]
+        public void InsertEntityBody (byte[] buffer, int offset, int count)
 		{
 			throw new PlatformNotSupportedException ("This method is not supported.");
 		}

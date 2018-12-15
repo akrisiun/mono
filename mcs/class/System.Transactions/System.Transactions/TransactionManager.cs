@@ -80,7 +80,8 @@ namespace System.Transactions
 			throw new NotImplementedException ();
 		}
 
-		public static event TransactionStartedEventHandler
+#pragma warning disable 67
+        public static event TransactionStartedEventHandler
 			DistributedTransactionStarted;
 	}
 }

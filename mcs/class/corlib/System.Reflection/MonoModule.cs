@@ -91,7 +91,7 @@ namespace System.Reflection {
 		string FullyQualifiedName {
 			get {
 #if !MOBILE
-				if (SecurityManager.SecurityEnabled) {
+				if (SecurityManager.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fqname).Demand ();
 				}
 #endif

@@ -57,7 +57,9 @@ namespace System.Web
 	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	public sealed partial class HttpContext : IServiceProvider
 	{
-		internal HttpWorkerRequest WorkerRequest;
+#region props
+
+        internal HttpWorkerRequest WorkerRequest;
 		HttpApplication app_instance;
 		HttpRequest request;
 		HttpResponse response;
@@ -66,14 +68,14 @@ namespace System.Web
 		TraceContext trace_context;
 		IHttpHandler handler;
 		string error_page;
-		bool skip_authorization = false;
-		IPrincipal user;
+        bool skip_authorization;
+        IPrincipal user;
 		object errors;
 		Hashtable items;
 		object config_timeout;
 		int timeout_possible;
-		DateTime time_stamp = DateTime.UtcNow;
-		Timer timer;
+        DateTime time_stamp;
+        Timer timer;
 		Thread thread;
 		bool _isProcessingInclude;
 		
@@ -87,7 +89,7 @@ namespace System.Web
 		static Dictionary <string, IResourceProvider> resource_providers;
 		
 		internal static Assembly AppGlobalResourcesAssembly;
-		ProfileBase profile = null;
+		ProfileBase profile;
 		LinkedList<IHttpHandler> handlers;
 
 		static DefaultResourceProviderFactory DefaultProviderFactory {
@@ -97,10 +99,16 @@ namespace System.Web
 				return default_provider_factory;
 			}
 		}
-		
-		public HttpContext (HttpWorkerRequest wr)
+
+        #endregion
+
+        public HttpContext (HttpWorkerRequest wr)
 		{
-            if (Debugger.IsAttached) {
+            skip_authorization = false;
+            profile = null;
+            time_stamp = DateTime.UtcNow;
+
+            if (Debugger.IsAttached && Current == null) {
                 Debugger.Break();
             }
 
@@ -112,7 +120,11 @@ namespace System.Web
 
 		public HttpContext (HttpRequest request, HttpResponse response)
 		{
-			this.request = request;
+            skip_authorization = false;
+            profile = null;
+            time_stamp = DateTime.UtcNow;
+
+            this.request = request;
 			this.response = response;
 			this.request.Context = this;
 			this.response.Context = this;

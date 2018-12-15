@@ -30,10 +30,11 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Web.Caching;
-using System.Web.Util;
 
 namespace System.Web.Hosting {
-	sealed class DefaultVirtualPathProvider : VirtualPathProvider {
+
+	public sealed class DefaultVirtualPathProvider : VirtualPathProvider
+    {
 
 		internal DefaultVirtualPathProvider ()
 		{

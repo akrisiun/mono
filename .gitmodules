@@ -55,3 +55,6 @@
 [submodule "external/corefx"]
 	path = external/corefx
 	url = https://github.com/akrisiun/corefx.git
+[submodule "external/Mono.XSP"]
+	path = external/Mono.XSP
+	url = https://github.com/akrisiun/Mono.XSP

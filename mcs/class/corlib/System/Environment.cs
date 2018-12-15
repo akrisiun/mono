@@ -515,7 +515,7 @@ namespace System {
 		public static IDictionary GetEnvironmentVariables ()
 		{
 			StringBuilder sb = null;
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManager.SecurityEnabledMono) {
 				// we must have access to each variable to get the lot
 				sb = new StringBuilder ();
 				// but (performance-wise) we do not want a stack-walk

@@ -35,7 +35,7 @@ using System.Security.Permissions;
 namespace System.Web
 {
 	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	[Serializable]
 	public sealed class HttpCompileException : HttpException
 	{

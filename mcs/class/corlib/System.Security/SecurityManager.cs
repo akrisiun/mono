@@ -79,7 +79,12 @@ namespace System.Security {
 			}
 		}
 
-		[Obsolete ("The security manager cannot be turned off on MS runtime")]
+        public static bool SecurityEnabledMono {
+            get;
+            set;
+        }
+
+        [Obsolete ("The security manager cannot be turned off on MS runtime")]
 		extern public static bool SecurityEnabled {
 			[MethodImplAttribute (MethodImplOptions.InternalCall)]
 			get;
@@ -119,7 +124,7 @@ namespace System.Security {
 		{
 			if (perm == null)
 				return true;
-			if (!SecurityEnabled)
+			if (!SecurityEnabledMono)
 				return true;
 
 			// - Policy driven

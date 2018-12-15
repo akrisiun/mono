@@ -112,7 +112,7 @@ namespace System.Configuration
 		public string Filename
 		{
 			get {
-				if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabled) {
+				if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fileName).Demand ();
 				}
 				return fileName;
@@ -168,7 +168,7 @@ namespace System.Configuration
 			public string Filename
 			{
 				get {
-					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabled) {
+					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabledMono) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fileName).Demand ();
 					}
 					return fileName;
@@ -201,7 +201,7 @@ namespace System.Configuration
 			public string Filename
 			{
 				get {
-					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabled) {
+					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabledMono) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fileName).Demand ();
 					}
 					return fileName;
@@ -231,7 +231,7 @@ namespace System.Configuration
 			public string Filename
 			{
 				get {
-					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabled) {
+					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabledMono) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fileName).Demand ();
 					}
 					return fileName;
@@ -267,7 +267,7 @@ namespace System.Configuration
 			public string Filename
 			{
 				get {
-					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabled) {
+					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabledMono) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fileName).Demand ();
 					}
 					return fileName;
@@ -300,7 +300,7 @@ namespace System.Configuration
 			public string Filename
 			{
 				get {
-					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabled) {
+					if ((fileName != null) && (fileName.Length > 0) && SecurityManager.SecurityEnabledMono) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, fileName).Demand ();
 					}
 					return fileName;

@@ -1,7 +1,9 @@
 {
   "profiles": {
     "TestWeb": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "TestWeb\\bin\\net48\\TestWeb.exe",
+      "workingDirectory": "E:\\Beta\\dot64\\mono08\\mcs\\TestWeb"
     }
   }
 }

@@ -42,13 +42,13 @@ using System.Web.SessionState;
 
 namespace System.Web
 {
-	//
-	// Methods exposed through HttpContext.Server property
-	//
-	
-	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	public sealed class HttpServerUtility {
+    //
+    // Methods exposed through HttpContext.Server property
+    //
+
+    // CAS - no InheritanceDemand here as the class is sealed
+    // [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    public sealed class HttpServerUtility {
 		HttpContext context;
 		
 		internal HttpServerUtility (HttpContext context)

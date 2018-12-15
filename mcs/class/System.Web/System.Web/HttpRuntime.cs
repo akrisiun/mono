@@ -48,6 +48,22 @@ using Mono.Web.Util;
 using System.Threading;
 using System.CodeDom.Compiler;
 using System.Web.Compilation;
+using System.Runtime.InteropServices;
+
+namespace System.Security
+{
+    // Must match MonoDeclSecurityActions in /mono/metadata/reflection.h
+    // internal struct RuntimeDeclSecurityActions
+
+    [ComVisible(true)]
+    public static class SecurityManagerMono
+    {
+        public static bool SecurityEnabledMono {
+            get;
+            set;
+        }
+    }
+}
 
 namespace System.Web
 {	
@@ -150,7 +166,7 @@ namespace System.Web
 				// This value should not change across invocations
 				//
 				string dirname = (string) AppDomain.CurrentDomain.GetData (".appId");
-				if ((dirname != null) && (dirname.Length > 0) && SecurityManager.SecurityEnabled) {
+				if ((dirname != null) && (dirname.Length > 0) && SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, dirname).Demand ();
 				}
 				return dirname;
@@ -161,7 +177,7 @@ namespace System.Web
 		public static string AppDomainAppPath {
 			get {
 				string dirname = (string) AppDomain.CurrentDomain.GetData (".appPath");
-				if (SecurityManager.SecurityEnabled) {
+				if (SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, dirname).Demand ();
 				}
 				return dirname;
@@ -184,7 +200,7 @@ namespace System.Web
 		public static string AspInstallDirectory {
 			get {
 				string dirname = (string) AppDomain.CurrentDomain.GetData (".hostingInstallDir");
-				if ((dirname != null) && (dirname.Length > 0) && SecurityManager.SecurityEnabled) {
+				if ((dirname != null) && (dirname.Length > 0) && SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, dirname).Demand ();
 				}
 				return dirname;
@@ -215,7 +231,7 @@ namespace System.Web
 						_actual_bin_directory += Path.DirectorySeparatorChar;
 				}
 				
-				if (SecurityManager.SecurityEnabled)
+				if (SecurityManagerMono.SecurityEnabledMono)
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, _actual_bin_directory).Demand ();
 
 				return _actual_bin_directory;
@@ -237,7 +253,7 @@ namespace System.Web
 		public static string ClrInstallDirectory {
 			get {
 				string dirname = Path.GetDirectoryName (typeof (Object).Assembly.Location);
-				if ((dirname != null) && (dirname.Length > 0) && SecurityManager.SecurityEnabled) {
+				if ((dirname != null) && (dirname.Length > 0) && SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, dirname).Demand ();
 				}
 				return dirname;
@@ -247,7 +263,7 @@ namespace System.Web
 		public static string CodegenDir {
 			get {
 				string dirname = AppDomain.CurrentDomain.SetupInformation.DynamicBase;
-				if (SecurityManager.SecurityEnabled) {
+				if (SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, dirname).Demand ();
 				}
 				return dirname;
@@ -264,7 +280,7 @@ namespace System.Web
 		public static string MachineConfigurationDirectory {
 			get {
 				string dirname = Path.GetDirectoryName (ICalls.GetMachineConfigPath ());
-				if ((dirname != null) && (dirname.Length > 0) && SecurityManager.SecurityEnabled) {
+				if ((dirname != null) && (dirname.Length > 0) && SecurityManagerMono.SecurityEnabledMono) {
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, dirname).Demand ();
 				}
 				return dirname;
@@ -273,7 +289,11 @@ namespace System.Web
 
 		internal static HttpRuntimeSection Section { get { return runtime_section; } }
 
-		public static bool UsingIntegratedPipeline { get { return false; } }
+		public static bool UsingIntegratedPipeline {
+            // get { return false; }
+            get;
+            set;
+        }
 
 		public static Version IISVersion {
 			get {
@@ -326,7 +346,7 @@ namespace System.Web
 			context.Request.ReleaseResources ();
 			context.Response.ReleaseResources ();
 			HttpContext.Current = null;
-			HttpApplication.requests_total_counter.Increment ();
+			// HttpApplication.requests_total_counter.Increment ();
 			
 			return true;
 		}
@@ -550,7 +570,7 @@ namespace System.Web
 			AppDomain.Unload (AppDomain.CurrentDomain);
 		}
 
-		static string content503 = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n" +
+		static string content503 = "<!DOCTYPE html>\n" + // HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n" +
 			"<html><head>\n<title>503 Server Unavailable</title>\n</head><body>\n" +
 			"<h1>Server Unavailable</h1>\n" +
 			"</body></html>\n";
@@ -568,7 +588,7 @@ namespace System.Web
 			wr.SendResponseFromMemory (contentBytes, contentBytes.Length);
 			wr.FlushResponse (true);
 			wr.CloseConnection ();
-			HttpApplication.requests_total_counter.Increment ();
+			// HttpApplication.requests_total_counter.Increment ();
 		}
 
 		//
@@ -587,11 +607,11 @@ namespace System.Web
 			wr.SendResponseFromMemory (contentBytes, contentBytes.Length);
 			wr.FlushResponse (true);
 			wr.CloseConnection ();
-			HttpApplication.requests_total_counter.Increment ();
+			// HttpApplication.requests_total_counter.Increment ();
 		}
 
-		[AspNetHostingPermissionAttribute(SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Unrestricted)]
-		[MonoDocumentationNote ("Always returns null on Mono")]
+        // [AspNetHostingPermissionAttribute(SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Unrestricted)]
+        [MonoDocumentationNote ("Always returns null on Mono")]
 		public static NamedPermissionSet GetNamedPermissionSet ()
 		{
 			return null;

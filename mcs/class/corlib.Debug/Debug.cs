@@ -52,6 +52,66 @@ namespace System.Diagnostics
     }
 }
 
+namespace Mono.Web
+{
+    using global::System;
+    using System.Web;
+    using System.Web.Hosting;
+
+    // Mono.Web.DebugWeb
+    public class DebugWeb
+    {
+        public string appId { get; set; }
+        public string vpath { get; set; }
+        public string ppath { get; set; }
+
+        // Mono.Web.DebugWeb.CreateApplicationHost<HttpApplication>()
+        public static T CreateApplicationHost<T>(ApplicationManager manager = null) where T : class
+        {
+            // http://www.west-wind.com/presentations/aspnetruntime/aspnetruntime.asp
+            //  static object CreateApplicationHost(Type hostType, string virtualDir, string physicalDir)
+
+            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
+            // SecurityManagerMono.SecurityEnabledMono = false;
+
+            var type = typeof(T);
+            var app = ApplicationHost.CreateApplicationHost(type, "/", baseDir);
+
+            return app as T;
+        }
+
+        public static HttpApplication CreateApplicationHostApp()
+        {
+            var app = new HttpApplication();
+            return app;
+        }
+
+        /*
+        at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+        at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+        at System.Reflection.Assembly.Load(String assemblyString)
+        at System.Runtime.Serialization.FormatterServices.LoadAssemblyFromString(String assemblyName)
+        at System.Reflection.MemberInfoSerializationHolder..ctor(SerializationInfo info, StreamingContext context)
+        at System.AppDomain.DoCallBack(CrossAppDomainDelegate callBackDelegate)
+        at System.Web.Hosting.ApplicationHost.CreateApplicationHost(Type hostType, String virtualDir, String physicalDir) in 
+        mcs\class\System.Web\System.Web.Hosting\ApplicationHost.cs:line 272
+        */
+
+        public static object GetApplicationHost(ApplicationManager manager)
+        {
+            var obj = manager ?? ApplicationManager.GetApplicationManager();
+
+            // BareApplicationHost CreateHost(string appId, string vpath, string ppath)
+            // var manager = new HttpApplication
+            // BareApplicationHost
+
+            return obj;
+        }
+    }
+
+}
+
 namespace System.Diagnostics.Private
 {
     

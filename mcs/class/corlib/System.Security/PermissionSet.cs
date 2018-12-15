@@ -156,7 +156,7 @@ namespace System.Security {
 			}
 
 			// note: we must ignore the stack modifiers for the non-CAS permissions
-			if (SecurityManager.SecurityEnabled && (count > 0))
+			if (SecurityManager.SecurityEnabledMono && (count > 0))
 				throw new NotSupportedException ("Currently only declarative Assert are supported.");
 		}
 
@@ -217,7 +217,7 @@ namespace System.Security {
 			// don't start the stack walk if
 			// - the permission set only contains non CAS permissions; or
 			// - security isn't enabled (applis only to CAS!)
-			if (call_cas_only && SecurityManager.SecurityEnabled)
+			if (call_cas_only && SecurityManager.SecurityEnabledMono)
 				CasOnlyDemand (_declsec ? 5 : 3);
 		}
 
@@ -241,7 +241,7 @@ namespace System.Security {
 		[MonoTODO ("CAS support is experimental (and unsupported). Imperative mode is not implemented.")]
 		public void Deny ()
 		{
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 
 			foreach (IPermission p in list) {
@@ -329,7 +329,7 @@ namespace System.Security {
 		[MonoTODO ("CAS support is experimental (and unsupported). Imperative mode is not implemented.")]
 		public void PermitOnly ()
 		{
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 
 			foreach (IPermission p in list) {

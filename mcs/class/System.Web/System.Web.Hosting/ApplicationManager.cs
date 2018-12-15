@@ -34,9 +34,11 @@ using System.Security.Policy;
 using System.Threading;
 
 namespace System.Web.Hosting {
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	public sealed class ApplicationManager : MarshalByRefObject {
-		static ApplicationManager instance = new ApplicationManager ();
+    // [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    public sealed class ApplicationManager : MarshalByRefObject
+    {
+
+        static ApplicationManager instance = new ApplicationManager ();
 		int users;
 		Dictionary <string, BareApplicationHost> id_to_host;
 
@@ -52,9 +54,9 @@ namespace System.Web.Hosting {
 		}
 
 		[MonoTODO ("Need to take advantage of the configuration mapping capabilities of IApplicationHost")]
-		[SecurityPermissionAttribute(SecurityAction.Demand, Unrestricted = true)]
-		public IRegisteredObject CreateObject (IApplicationHost appHost, Type type)
-		{
+		// [SecurityPermission(SecurityAction.Demand, Unrestricted = true)]
+		public IRegisteredObject CreateObject(IApplicationHost appHost, Type type)
+        {
 			if (appHost == null)
 				throw new ArgumentNullException ("appHost");
 			if (type == null)
@@ -128,7 +130,16 @@ namespace System.Web.Hosting {
 			return CreateHost (appId, vpath, ppath);
 		}
 
-		BareApplicationHost CreateHost (string appId, string vpath, string ppath)
+        // TODO: ankr
+        public AppDomain GetAppDomain(IApplicationHost appHost)
+        {
+            AppDomain domain = AppDomain.CurrentDomain; // manager.GetAppDomain(appHost);
+
+            return domain;
+        }
+
+
+        BareApplicationHost CreateHost (string appId, string vpath, string ppath)
 		{
 			BareApplicationHost host;
 			host = (BareApplicationHost) ApplicationHost.CreateApplicationHost (typeof (BareApplicationHost), vpath, ppath);

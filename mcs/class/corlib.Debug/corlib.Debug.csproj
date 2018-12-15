@@ -4,8 +4,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">net_4_x</Platform>
     <LangVersion>latest</LangVersion>
-
-    <TargetFramework>net45</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    
     <OutputType>Library</OutputType>
     <NoWarn>612,618,3001,3002,3003,1635,1699</NoWarn>
     <LangVersion>latest</LangVersion>
@@ -15,14 +15,14 @@
     <ContinueOnError>true</ContinueOnError>
     <RestorePackages>false</RestorePackages>
 
+    <TargetFramework>net45</TargetFramework>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <NoStdLib>True</NoStdLib>
-    <RuntimeMetadataVersion>MONO</RuntimeMetadataVersion>
-    
-    <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!--<RuntimeMetadataVersion>MONO</RuntimeMetadataVersion>-->
     <AssemblyName>corlib.Debug</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <!-- Set AddAdditionalExplicitAssemblyReferences to false, otherwise if targetting .NET4.0, 
   Microsoft.NETFramework.props will force a dependency on the assembly System.Core. This
@@ -52,7 +52,7 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Console.cs" />
     <Compile Include="Debug.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,18 +63,15 @@
     <ProjectReference Include="..\System.Core\System.Core-net_4_x.csproj" />
     <ProjectReference Include="..\System.XML\System.Xml-net_4_x.csproj" />
     <ProjectReference Include="..\System\System-net_4_x.csproj" />
+    
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\..\Mono\lib\mono\net45\System.Web.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
   </ItemGroup>
   <ItemGroup>
-    <!--
-    <ProjectReference Include="..\Mono.Security\Mono.Security.csproj">
-      <Aliases>MonoSecurity</Aliases>
-      <Project>{117140AC-A163-4B86-9E69-A46EA268A9DB}</Project>
-      <Name>Mono.Security</Name>
-    </ProjectReference>
-     <ProjectReference Include="..\..\msvc\scripts\genconsts.csproj">
-      <Name>genconsts</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <!--
   <PropertyGroup>
     <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">echo $(TargetPath) $(TargetPath).tmp
     move $(TargetPath) $(TargetPath).tmp
@@ -84,5 +81,9 @@ copy $(TargetPath).tmp $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
   -->
   </ItemGroup>
-  
+
+  <Target Name="PostBuildTask" AfterTargets="Build">
+    <Message Condition=" Exists($(LibDir)) " Importance="High" Text="net*  -&gt; $(TargetDir)$(TargetName).dll" />
+    <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir)) And '$(TargetFramework)' == 'net45'" SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
+  </Target>
 </Project>

@@ -37,7 +37,8 @@ namespace System.Web.Hosting {
 		[MonoTODO ("Not implemented")]
 		public object Create (string appId, string appPath)
 		{
-			throw new NotImplementedException ();
+            // throw new NotImplementedException ();
+            return null;
 		}
 
 		public void Stop ()

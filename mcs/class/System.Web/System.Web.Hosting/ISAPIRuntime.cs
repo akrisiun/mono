@@ -33,48 +33,52 @@ using System.Security.Permissions;
 
 namespace System.Web.Hosting {
 
-        public sealed class ISAPIRuntime : MarshalByRefObject, IISAPIRuntime, IRegisteredObject {
+    public // sealed 
+        class ISAPIRuntime : MarshalByRefObject, IISAPIRuntime, IRegisteredObject
+    {
 
-		[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Minimal)]
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
-                public ISAPIRuntime ()
-		{
-		}
-		
-                public void DoGCCollect ()
-		{
-			// Do nothing.
-		}
-		
-		[MonoTODO ("Not implemented")]
-                public int ProcessRequest (IntPtr ecb, int iWRType)
-		{
-			throw new NotImplementedException ();
-		}
-		
-		[MonoTODO ("Not implemented")]
-                public void StartProcessing ()
-		{
-			throw new NotImplementedException ();
-		}
-		
-		[MonoTODO ("Not implemented")]
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
-                public void StopProcessing ()
-		{
-			throw new NotImplementedException ();
-		}
-
-		[MonoTODO ("Not implemented")]
-		public override object InitializeLifetimeService ()
-		{
-			throw new NotImplementedException ();
-		}
-
-		[MonoTODO ("Not implemented")]
-		void IRegisteredObject.Stop (bool immediate)
-		{
-			throw new NotImplementedException ();
-		}
+        // 	[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Minimal)]
+        // [SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
+        public ISAPIRuntime()
+        {
         }
+
+        public void DoGCCollect()
+        {
+            // Do nothing.
+        }
+
+        [MonoTODO("Not implemented")]
+        public virtual int ProcessRequest(IntPtr ecb, int iWRType)
+        {
+            // throw new NotImplementedException();
+            return 0;
+        }
+
+        [MonoTODO("Not implemented")]
+        public void StartProcessing()
+        {
+            // throw new NotImplementedException();
+        }
+
+        [MonoTODO("Not implemented")]
+        [SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
+        public void StopProcessing()
+        {
+            // throw new NotImplementedException();
+        }
+
+        [MonoTODO("Not implemented")]
+        public override object InitializeLifetimeService()
+        {
+            // throw new NotImplementedException();
+            return null;
+        }
+
+        [MonoTODO("Not implemented")]
+        void IRegisteredObject.Stop(bool immediate)
+        {
+            // throw new NotImplementedException();
+        }
+    }
 }

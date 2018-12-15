@@ -151,7 +151,7 @@ namespace System.Reflection {
 		{
 			string cb = get_code_base (escaped);
 #if !MOBILE
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManager.SecurityEnabledMono) {
 				// we cannot divulge local file informations
 				if (String.Compare ("FILE://", 0, cb, 0, 7, true, CultureInfo.InvariantCulture) == 0) {
 					string file = cb.Substring (7);
@@ -221,7 +221,7 @@ namespace System.Reflection {
 
 				string loc = get_location ();
 #if !MOBILE
-				if ((loc != String.Empty) && SecurityManager.SecurityEnabled) {
+				if ((loc != String.Empty) && SecurityManager.SecurityEnabledMono) {
 					// we cannot divulge local file informations
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, loc).Demand ();
 				}

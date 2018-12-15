@@ -135,7 +135,7 @@ namespace System.Security.Policy {
 		[Obsolete]
 		public void AddHost (object id) 
 		{
-			if (_locked && SecurityManager.SecurityEnabled) {
+			if (_locked && SecurityManager.SecurityEnabledMono) {
 				new SecurityPermission (SecurityPermissionFlag.ControlEvidence).Demand ();
 			}
 			HostEvidenceList.Add (id);

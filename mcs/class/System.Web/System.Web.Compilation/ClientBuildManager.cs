@@ -158,7 +158,7 @@ namespace System.Web.Compilation
 		[MonoTODO ("Not implemented")]
 		public void CompileApplicationDependencies ()
 		{
-			throw new NotImplementedException ();
+			// throw new NotImplementedException ();
 		}
 
 		public void CompileFile (string virtualPath)

@@ -47,7 +47,10 @@ namespace System.Web
 		Queue queue;
 		bool disposing;
 		Exception initialException;
-		PerformanceCounter requestsQueuedCounter;
+
+        // PerformanceCounter 
+#pragma warning disable 169
+        object requestsQueuedCounter;
 		
 		public QueueManager ()
 		{
@@ -80,11 +83,11 @@ namespace System.Web
 			if (initialException == null && ex != null)
 				initialException = ex;
 
-			requestsQueuedCounter = new PerformanceCounter ("ASP.NET", "Requests Queued");
-			requestsQueuedCounter.RawValue = 0;
-		}
+            // requestsQueuedCounter = new PerformanceCounter1 ("ASP.NET", "Requests Queued");
+            // requestsQueuedCounter.RawValue = 0;
+        }
 
-		public bool HasException {
+        public bool HasException {
 			get { return initialException != null; }
 		}
 
@@ -133,7 +136,7 @@ namespace System.Web
 		{
 			if (queue.Count < queueLimit) {
 				queue.Enqueue (wr);
-				requestsQueuedCounter.Increment ();
+				// requestsQueuedCounter.Increment ();
 				return;
 			}
 
@@ -144,7 +147,7 @@ namespace System.Web
 		{
 			if (queue.Count > 0) {
 				HttpWorkerRequest request = (HttpWorkerRequest) queue.Dequeue ();
-				requestsQueuedCounter.Decrement ();
+				// requestsQueuedCounter.Decrement ();
 				return request;
 			}
 

@@ -140,7 +140,7 @@ namespace System {
 			get {
 				string path = SetupInformationNoCopy.ApplicationBase;
 #if !MOBILE
-				if (SecurityManager.SecurityEnabled && (path != null) && (path.Length > 0)) {
+				if (SecurityManager.SecurityEnabledMono && (path != null) && (path.Length > 0)) {
 					// we cannot divulge local file informations
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand ();
 				}
@@ -153,7 +153,7 @@ namespace System {
 			get {
 				string path = SetupInformationNoCopy.PrivateBinPath;
 #if !MOBILE
-				if (SecurityManager.SecurityEnabled && (path != null) && (path.Length > 0)) {
+				if (SecurityManager.SecurityEnabledMono && (path != null) && (path.Length > 0)) {
 					// we cannot divulge local file informations
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand ();
 				}
@@ -170,7 +170,7 @@ namespace System {
 
 				string path = Path.Combine (setup.DynamicBase, setup.ApplicationName);
 #if !MOBILE
-				if (SecurityManager.SecurityEnabled && (path != null) && (path.Length > 0)) {
+				if (SecurityManager.SecurityEnabledMono && (path != null) && (path.Length > 0)) {
 					// we cannot divulge local file informations
 					new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand ();
 				}

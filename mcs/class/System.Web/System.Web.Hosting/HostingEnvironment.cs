@@ -40,9 +40,9 @@ using System.Web.Util;
 
 namespace System.Web.Hosting {
 
-	[AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Medium)]
-	[AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.High)]
-	public sealed class HostingEnvironment : MarshalByRefObject
+    // [AspNetHostingPermission (SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Medium)]
+    // [AspNetHostingPermission (SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.High)]
+    public sealed class HostingEnvironment : MarshalByRefObject
 	{
 		static bool is_hosted;
 #pragma warning disable 0649

@@ -19,7 +19,8 @@
     <RootNamespace>
     </RootNamespace>
     <AssemblyName>mscorlib</AssemblyName>
-    
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <RuntimeMetadataVersion>Mono</RuntimeMetadataVersion>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

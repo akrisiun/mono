@@ -75,7 +75,7 @@ namespace System.Web.Profile
 		/// <summary>
 		/// System.Configuration.Provider.ProviderBase.Initialize Method
 		/// </summary>
-		public // override 
+		public   override 
             void Initialize(string name, NameValueCollection config)
 		{
 			// Initialize values from web.config.

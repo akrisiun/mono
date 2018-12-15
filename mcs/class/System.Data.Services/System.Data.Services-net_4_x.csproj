@@ -178,10 +178,6 @@
       <Project>{FE596C31-BDA2-4850-8F79-F8F4DF70F44A}</Project>
       <Name>System.ServiceModel-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.ServiceModel.Web/System.ServiceModel.Web-net_4_x.csproj">
-      <Project>{54F4FA23-5AF3-4312-9294-3DB109F644CC}</Project>
-      <Name>System.ServiceModel.Web-net_4_x</Name>
-    </ProjectReference>
     <ProjectReference Include="../System.Data.Services.Client/System.Data.Services.Client-net_4_x.csproj">
       <Project>{2FFB9A8F-DB7B-41FF-9398-15DF81AE1BC8}</Project>
       <Name>System.Data.Services.Client-net_4_x</Name>

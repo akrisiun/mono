@@ -62,8 +62,13 @@ namespace System.Diagnostic.Web {
 		private string instanceName;
 		private string machineName;
 		IntPtr impl;
-		PerformanceCounterType type;
-		CounterSample old_sample;
+
+#pragma warning disable 649
+#pragma warning disable 169
+#pragma warning disable 414
+
+        PerformanceCounterType type;
+		// CounterSample old_sample;
 		private bool readOnly;
 		bool valid_old;
 		bool changed;
@@ -259,7 +264,7 @@ namespace System.Diagnostic.Web {
 		[MonitoringDescription ("The raw value of the counter.")]
 		public long RawValue {
 			get {
-				CounterSample sample;
+				// CounterSample sample;
 				if (changed)
 					UpdateInfo ();
                 // GetSample (impl, true, out sample);
@@ -352,7 +357,7 @@ namespace System.Diagnostic.Web {
 		// may throw InvalidOperationException, Win32Exception
 		public float NextValue ()
 		{
-			CounterSample sample;
+			// CounterSample sample;
 			if (changed)
 				UpdateInfo ();
 			// GetSample (impl, false, out sample);

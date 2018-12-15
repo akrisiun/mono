@@ -28,16 +28,50 @@
 //
 
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
+using System.Security;
 using System.Security.Permissions;
 using System.Security.Policy;
 using System.Text;
+using System.Web;
 using System.Web.Configuration;
+
+namespace System.Diagnostics
+{
+    public class DebugMono
+    {
+        static DebugMono()
+        {
+            IsDebug = true;
+        }
+
+        public static bool IsDebug { get; set; }
+
+        public static void SecurityEnabledMono(bool value)
+        {
+            HttpRuntime.UsingIntegratedPipeline = false;
+            SecurityManagerMono.SecurityEnabledMono = value;
+        }
+
+        public static void Break()
+        {
+            HttpRuntime.UsingIntegratedPipeline = false;
+            SecurityManagerMono.SecurityEnabledMono = false;
+
+            if (IsDebug)
+            {
+                IsDebug = false;
+                Debugger.Break();
+            }
+        }
+    }
+}
 
 namespace System.Web.Hosting {
 
 	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+	// [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
 	public sealed class ApplicationHost {
 		const string DEFAULT_WEB_CONFIG_NAME = "web.config";
 		internal const string MonoHostedDataKey = ".:!MonoAspNetHostedApp!:.";
@@ -126,7 +160,7 @@ namespace System.Web.Hosting {
 		//
 		//    http://www.west-wind.com/presentations/aspnetruntime/aspnetruntime.asp
 		// 
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
+		// [SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
 		public static object CreateApplicationHost (Type hostType, string virtualDir, string physicalDir)
 		{
 			if (physicalDir == null)
@@ -239,21 +273,46 @@ namespace System.Web.Hosting {
 			appdomain.SetData (MonoHostedDataKey, "yes");
 
 			appdomain.DoCallBack (SetHostingEnvironment);
-			return appdomain.CreateInstanceAndUnwrap (hostType.Module.Assembly.FullName, hostType.FullName);
+
+            // DebugMono.Break();
+            if (hostType.FullName.Contains("HttpApplication"))
+            {
+                var app = new HttpApplication();
+                return app;
+            }
+
+            return appdomain.CreateInstanceAndUnwrap (hostType.Module.Assembly.FullName, hostType.FullName);
 		}
 
-		static void SetHostingEnvironment ()
+        public static Exception HostingEnvironmentError { get; set; }
+
+
+        static void SetHostingEnvironment ()
 		{
 			bool shadow_copy_enabled = true;
-			HostingEnvironmentSection he = WebConfigurationManager.GetWebApplicationSection ("system.web/hostingEnvironment") as HostingEnvironmentSection;
-			if (he != null)
-				shadow_copy_enabled = he.ShadowCopyBinAssemblies;
+            HostingEnvironmentSection he = null;
+            DebugMono.Break(); 
 
-			if (shadow_copy_enabled) {
-				AppDomain current = AppDomain.CurrentDomain;
-				current.SetShadowCopyFiles ();
-				current.SetShadowCopyPath (current.SetupInformation.PrivateBinPath);
-			}
+            try
+            {
+                he = new HostingEnvironmentSection();
+
+                // he = WebConfigurationManager.GetWebApplicationSection("system.web/hostingEnvironment") as HostingEnvironmentSection;
+                if (he != null)
+                    shadow_copy_enabled = he.ShadowCopyBinAssemblies;
+
+                if (shadow_copy_enabled)
+                {
+                    AppDomain current = AppDomain.CurrentDomain;
+
+                    // [Obsolete("AppDomain.SetShadowCopyFiles has been deprecated. Please investigate the use of AppDomainSetup.ShadowCopyFiles instead. http://go.microsoft.com/fwlink/?linkid=14202")]
+                    // current.SetShadowCopyFiles();
+                    current.SetShadowCopyPath(current.SetupInformation.PrivateBinPath);
+                }
+
+            } catch (Exception ex) {
+                HostingEnvironmentError = ex.InnerException ?? ex;
+            }
 
 			HostingEnvironment.IsHosted = true;
 			HostingEnvironment.SiteName = HostingEnvironment.ApplicationID;

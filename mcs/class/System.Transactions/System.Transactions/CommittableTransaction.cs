@@ -57,7 +57,7 @@ namespace System.Transactions
 		
 		public void EndCommit (IAsyncResult ar)
 		{
-			if (ar != this)
+			if (ar != this as IAsyncResult)
 				throw new ArgumentException ("The IAsyncResult parameter must be the same parameter as returned by BeginCommit.", "asyncResult");
 
 			EndCommitInternal (asyncResult);

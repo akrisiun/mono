@@ -95,11 +95,12 @@ namespace System.Web
 	{
 		static readonly object disposedEvent = new object ();
 		static readonly object errorEvent = new object ();
-		
-		// we do this static rather than per HttpApplication because
-		// mono's perfcounters use the counter instance parameter for
-		// the process to access shared memory.
-		internal static PerformanceCounter requests_total_counter = new PerformanceCounter ("ASP.NET", "Requests Total");
+
+        // we do this static rather than per HttpApplication because
+        // mono's perfcounters use the counter instance parameter for
+        // the process to access shared memory.
+        internal static object // PerformanceCounter 
+                 requests_total_counter; //  new PerformanceCounter ("ASP.NET", "Requests Total");
 		
 		internal static readonly string [] BinDirs = {"Bin", "bin"};
 		object this_lock = new object();
@@ -1125,7 +1126,7 @@ namespace System.Web
 			else
 				done.Set ();
 
-			requests_total_counter.Increment ();
+			//  requests_total_counter.Increment ();
 		}
 
 		class Tim {

@@ -70,7 +70,7 @@ namespace System.Security {
 		public void Demand ()
 		{
 			// note: here we're sure it's a CAS demand
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 
 			// skip frames until we get the caller (of our caller)
@@ -142,7 +142,7 @@ namespace System.Security {
 #endif
 		public static void RevertAll ()
 		{
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 			throw new NotImplementedException ();
 		}
@@ -154,7 +154,7 @@ namespace System.Security {
 #endif
 		public static void RevertAssert ()
 		{
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 			throw new NotImplementedException ();
 		}
@@ -166,7 +166,7 @@ namespace System.Security {
 #endif
 		public static void RevertDeny ()
 		{
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 			throw new NotImplementedException ();
 		}
@@ -178,7 +178,7 @@ namespace System.Security {
 #endif
 		public static void RevertPermitOnly ()
 		{
-			if (!SecurityManager.SecurityEnabled)
+			if (!SecurityManager.SecurityEnabledMono)
 				return;
 			throw new NotImplementedException ();
 		}

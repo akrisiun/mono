@@ -32,13 +32,41 @@ using System.Security.Permissions;
 
 namespace System.Web {
 
-	[Serializable]
+    [Serializable]
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
+    public class AspNetHostingPermissionAttribute : CodeAccessSecurityAttribute
+    {
+#pragma warning disable 414
+        private AspNetHostingPermissionLevel _level;
+
+        public AspNetHostingPermissionAttribute(SecurityAction action, 
+               AspNetHostingPermissionLevel level = AspNetHostingPermissionLevel.Minimal)
+            : base(action)
+        {
+            // LAMESPEC: seems to initialize to None
+            _level = AspNetHostingPermissionLevel.None;
+        }
+
+        public override IPermission CreatePermission()
+        {
+            // if (base.Unrestricted)
+            return new AspNetHostingPermission(PermissionState.Unrestricted);
+        }
+
+        public AspNetHostingPermissionLevel Level {
+            get { return _level; }
+            set { _level = value; }
+        }
+    }
+
+
+    [Serializable]
 	[AttributeUsage (AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-	public sealed class AspNetHostingPermissionAttribute : CodeAccessSecurityAttribute {
+	public sealed class OriginAspNetHostingPermissionAttribute : CodeAccessSecurityAttribute {
 
 		private AspNetHostingPermissionLevel _level;
 
-		public AspNetHostingPermissionAttribute (SecurityAction action)
+		public OriginAspNetHostingPermissionAttribute(SecurityAction action)
 			: base (action)
 		{
 			// LAMESPEC: seems to initialize to None

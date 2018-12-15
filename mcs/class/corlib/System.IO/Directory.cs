@@ -94,7 +94,7 @@ namespace System.IO
 		static DirectoryInfo CreateDirectoriesInternal (string path)
 		{
 #if !MOBILE
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManager.SecurityEnabledMono) {
 				new FileIOPermission (FileIOPermissionAccess.Read | FileIOPermissionAccess.Write, path).Demand ();
 			}
 #endif
@@ -240,7 +240,7 @@ namespace System.IO
 
 			string result = InsecureGetCurrentDirectory();
 #if !MOBILE
-			if ((result != null) && (result.Length > 0) && SecurityManager.SecurityEnabled) {
+			if ((result != null) && (result.Length > 0) && SecurityManager.SecurityEnabledMono) {
 				new FileIOPermission (FileIOPermissionAccess.PathDiscovery, result).Demand ();
 			}
 #endif

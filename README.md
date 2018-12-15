@@ -1,3 +1,43 @@
+##  System.Web Host problem:
+
+```
+Asm: System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a E:\Beta\mono02\mono02\mcs\TestWeb\bin\System.Web.dll
+System.Web : E:\Beta\mono02\mono02\mcs\TestWeb\bin\System.Web.dll
+Web test success!
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+File name: 'System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, 
+	StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly,
+		StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at System.Runtime.Serialization.FormatterServices.LoadAssemblyFromString(String assemblyName)
+   at System.Reflection.MemberInfoSerializationHolder..ctor(SerializationInfo info, StreamingContext context)
+   at System.AppDomain.DoCallBack(CrossAppDomainDelegate callBackDelegate)
+   at System.Web.Hosting.ApplicationHost.CreateApplicationHost(Type hostType, String virtualDir, String physicalDir) 
+											      in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Hosting\ApplicationHost.cs:line 247
+   at Mono.Web.DebugWeb.CreateApplicationHost[T](ApplicationManager manager) in E:\Beta\mono02\mono02\mcs\class\corlib.Debug\Debug.cs:line 76
+   at standalone_tests.TestWeb.ManagerTest3()
+   at standalone_tests.Program.Main()
+
+Web test success!
+System.ArgumentException: Absolute path information is required.
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions contr              
+   ol, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.HttpRuntime.get_AppDomainAppId() in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web\HttpRuntime.cs:line 154
+   at System.Web.Hosting.HostingEnvironment.get_ApplicationID() in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Hosting\HostingEnvironment.cs:line 70
+   at System.Web.Hosting.ApplicationHost.SetHostingEnvironment() in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Hosting\ApplicationHost.cs:line 300
+   at System.AppDomain.DoCallBack(CrossAppDomainDelegate callBackDelegate)
+   at System.Web.Hosting.ApplicationHost.CreateApplicationHost(Type hostType, String virtualDir, String physicalDir) 
+											      in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Hosting\ApplicationHost.cs:line 264
+   at Mono.Web.DebugWeb.CreateApplicationHost[T](ApplicationManager manager) in E:\Beta\mono02\mono02\mcs\class\corlib.Debug\Debug.cs:line 76
+   at standalone_tests.TestWeb.ManagerTest3()
+```
+
 Mono is a software platform designed create cross platform applications. 
 It is an open source .NET Framework based Runtime.
 

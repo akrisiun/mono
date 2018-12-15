@@ -139,3 +139,6 @@ launchSettings.json
 external/corefx.uap/
 external/netcoreapp45/
 *.dll.tmp
+
+mcs/include/mono/
+mcs/packages/

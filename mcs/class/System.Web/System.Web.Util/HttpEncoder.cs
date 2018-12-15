@@ -33,6 +33,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 #if !NO_SYSTEM_WEB_DEPENDENCY && !MOBILE
@@ -166,11 +167,27 @@ namespace System.Web.Util
 #if MOBILE || NO_SYSTEM_WEB_DEPENDENCY
 			return defaultEncoder.Value;
 #else
-			var cfg = HttpRuntime.Section;
-			string typeName = cfg.EncoderType;
 
-			if (String.Compare (typeName, "System.Web.Util.HttpEncoder", StringComparison.OrdinalIgnoreCase) == 0)
-				return Default;
+            if (DebugMono.IsDebug)
+            {
+                DebugMono.Break();
+            }
+
+            string typeName = "";
+            try
+            {
+                var cfg = HttpRuntime.Section;
+                typeName = cfg.EncoderType;
+            }
+            catch {
+                DebugMono.Break();
+            } 
+
+            typeName = typeName == null ? typeName.Length == 0 ? "System.Web.Util.HttpEncoder" : typeName;
+
+            if (string.Compare(typeName, "System.Web.Util.HttpEncoder", StringComparison.OrdinalIgnoreCase) == 0) {
+                return Default;
+            }
 			
 			Type t = Type.GetType (typeName, false);
 			if (t == null)

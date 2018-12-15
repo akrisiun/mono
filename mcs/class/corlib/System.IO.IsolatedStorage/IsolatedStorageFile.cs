@@ -329,7 +329,7 @@ namespace System.IO.IsolatedStorage {
 		private static void Demand (IsolatedStorageScope scope)
 		{
 #if !MOBILE
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManager.SecurityEnabledMono) {
 				IsolatedStorageFilePermission isfp = new IsolatedStorageFilePermission (PermissionState.None);
 				isfp.UsageAllowed = ScopeToContainment (scope);
 				isfp.Demand ();
@@ -451,7 +451,7 @@ namespace System.IO.IsolatedStorage {
 				// no security manager is active so the rest of the code is useless
 				return Int64.MaxValue;
 #else
-				if (!SecurityManager.SecurityEnabled)
+				if (!SecurityManager.SecurityEnabledMono)
 					return Int64.MaxValue;
 
 				if (_resolved)

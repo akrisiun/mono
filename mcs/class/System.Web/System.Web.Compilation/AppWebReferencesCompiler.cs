@@ -73,7 +73,7 @@ namespace System.Web.Compilation
 			AssemblyBuilder ab = new AssemblyBuilder (codeDomProvider, "App_WebReferences_");
 			ab.CompilerOptions = ct.CompilerParameters;
 			
-			VirtualPath vp;
+			//VirtualPath vp;
 			//WsdlBuildProvider wbp;
 			//foreach (string file in files) {
 			//	vp = VirtualPath.PhysicalToVirtual (file);

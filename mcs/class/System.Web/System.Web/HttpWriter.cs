@@ -36,10 +36,10 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 	
 namespace System.Web
-{	
-	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	public sealed class HttpWriter : TextWriter
+{
+    // CAS - no InheritanceDemand here as the class is sealed
+    // [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    public sealed class HttpWriter : TextWriter
 	{
 		const long MAX_TOTAL_BUFFERS_SIZE = 4 * 1024 * 1024;
 		const uint SINGLE_BUFFER_SIZE = 128 * 1024;

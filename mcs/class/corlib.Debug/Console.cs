@@ -7,7 +7,7 @@ using System.IO;
 namespace corlib.Debug
 {
 	public static partial class Console
-	{
+    {
         static bool IsDebug { get => System.Diagnostics.DebugMono.IsDebug; }
 
         public static void Break() {

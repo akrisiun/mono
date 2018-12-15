@@ -33,13 +33,13 @@ using System.Security.Permissions;
 
 namespace System.Web
 {
-	//
-	// Since we don't have a use for this class right now and we don't run it under IIS 7, we
-	// will just call the base class to do the work in some cases and for the remaining methods
-	// we will mimic the behavior of WebPageTraceListener.
-	//
-	[AspNetHostingPermissionAttribute(SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	[HostProtectionAttribute(SecurityAction.LinkDemand, Synchronization = true)]
+    //
+    // Since we don't have a use for this class right now and we don't run it under IIS 7, we
+    // will just call the base class to do the work in some cases and for the remaining methods
+    // we will mimic the behavior of WebPageTraceListener.
+    //
+    // [AspNetHostingPermissionAttribute(SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    [HostProtectionAttribute(SecurityAction.LinkDemand, Synchronization = true)]
 	public sealed class IisTraceListener : TraceListener
 	{
 		public IisTraceListener ()

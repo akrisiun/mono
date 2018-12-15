@@ -121,7 +121,7 @@ namespace System.Web.Hosting {
 			get {
 				if (hosted) {
 					string path = ICalls.GetMachineConfigPath ();
-					if (SecurityManager.SecurityEnabled && (path != null) && (path.Length > 0)) {
+					if (SecurityManagerMono.SecurityEnabledMono && (path != null) && (path.Length > 0)) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand (); 
 					}
 					return path;
@@ -134,7 +134,7 @@ namespace System.Web.Hosting {
 			get {
 				if (hosted) {
 					string path = ICalls.GetMachineInstallDirectory ();
-					if (SecurityManager.SecurityEnabled && (path != null) && (path.Length > 0)) {
+					if (SecurityManagerMono.SecurityEnabledMono && (path != null) && (path.Length > 0)) {
 						new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand (); 
 					}
 					return path;
@@ -161,7 +161,7 @@ namespace System.Web.Hosting {
 
 		public override string GetAppPathTranslated ()
 		{
-			if (SecurityManager.SecurityEnabled && (app_physical_dir != null) && (app_physical_dir.Length > 0)) {
+			if (SecurityManagerMono.SecurityEnabledMono && (app_physical_dir != null) && (app_physical_dir.Length > 0)) {
 				new FileIOPermission (FileIOPermissionAccess.PathDiscovery, app_physical_dir).Demand (); 
 			}
 			return app_physical_dir;
@@ -186,7 +186,7 @@ namespace System.Web.Hosting {
 				local_page = page;
 			
 			string path = Path.Combine (app_physical_dir, local_page);
-			if (SecurityManager.SecurityEnabled && (path != null) && (path.Length > 0)) {
+			if (SecurityManagerMono.SecurityEnabledMono && (path != null) && (path.Length > 0)) {
 				new FileIOPermission (FileIOPermissionAccess.PathDiscovery, path).Demand (); 
 			}
 			return path;

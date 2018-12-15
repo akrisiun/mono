@@ -47,7 +47,7 @@ namespace System.Web.Mail
 		
 		public MailAttachment (string filename, MailEncoding encoding) 
 		{
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManagerMono.SecurityEnabledMono) {
 				new FileIOPermission (FileIOPermissionAccess.Read, filename).Demand ();
 			}
 

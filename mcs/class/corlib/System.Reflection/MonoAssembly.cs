@@ -160,7 +160,7 @@ namespace System.Reflection {
 
 #if !MOBILE
 			// CodeBase, which is restricted, will be copied into the AssemblyName object so...
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManager.SecurityEnabledMono) {
 				var _ = CodeBase; // this will ensure the Demand is made
 			}
 #endif

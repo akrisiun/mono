@@ -28,61 +28,43 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-static class Consts
+internal static class Consts
 {
 	//
 	// Use these assembly version constants to make code more maintainable.
 	//
 
-	public const string MonoVersion = "2.5.0";
+	// public const string MonoVersion = "2.5.0";
 	public const string MonoCompany = "Mono development team";
 	public const string MonoProduct = "Mono Common Language Infrastructure";
 	public const string MonoCopyright = "(c) Various Mono authors";
 
-#if MOBILE
-	// Versions of .NET Framework for Silverlight 4.0
-	public const string FxVersion = "2.0.5.0";
-	public const string VsVersion = "9.0.0.0"; // unused, but needed for compilation
-	public const string FxFileVersion = "4.0.50524.0";
-	public const string EnvironmentVersion = FxFileVersion;
-	
-	public const string VsFileVersion = "9.0.50727.42"; // unused, but needed for compilation
-#elif NET_4_6
-	public const string FxVersion = "4.0.0.0";
+    // expected corlib string (F602B559-7639-49B6-97EE-C433CE7A56F2) 
+    public const string MonoVersion = "5.18.0.0";
+    public const string MonoCorlibVersion = "F602B559-7639-49B6-97EE-C433CE7A56F2";
+
+
+#if NET_4_6
+    public const string FxVersion = "4.0.0.0";
 	public const string FxFileVersion = "4.6.57.0";
 	public const string EnvironmentVersion = "4.0.30319.42000";
 
 	public const string VsVersion = "0.0.0.0"; // Useless ?
 	public const string VsFileVersion = "11.0.0.0"; // TODO:
-#elif NET_4_5
+
+#elif NET_4_5 || NET_4_0
 	public const string FxVersion = "4.0.0.0";
 	public const string FxFileVersion = "4.0.30319.17020";
 	public const string EnvironmentVersion = FxFileVersion;
 
 	public const string VsVersion = "0.0.0.0"; // Useless ?
 	public const string VsFileVersion = "11.0.0.0"; // TODO:
-#elif NET_4_0
-	#error Profile NET_4_0 is not supported.
-#elif NET_3_5
-	#error Profile NET_3_5 is not supported.
-#elif NET_3_0
-	#error Profile NET_3_0 is not supported.
-#elif NET_2_0
-	#error Profile NET_2_0 is not supported.
-#elif NET_1_1
-	#error Profile NET_1_1 is not supported.
-#elif NET_1_0
-	#error Profile NET_1_0 is not supported.
 #else
 #error No profile symbols defined.
 #endif
-
-#if MOBILE
-	const string PublicKeyToken = "7cec85d7bea7798e";
-#else
+     
 	const string PublicKeyToken = "b77a5c561934e089";
-#endif
-
+ 
 	//
 	// Use these assembly name constants to make code more maintainable.
 	//

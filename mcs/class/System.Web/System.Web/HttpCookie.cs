@@ -41,10 +41,10 @@ namespace System.Web
 		Secure = 1,
 			HttpOnly = 2
 			}
-	
-	// CAS - no InheritanceDemand here as the class is sealed
-	[AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-	public sealed class HttpCookie {
+
+    // CAS - no InheritanceDemand here as the class is sealed
+    // [AspNetHostingPermission (SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
+    public sealed class HttpCookie {
 
 		string path = "/";
 		string domain;
