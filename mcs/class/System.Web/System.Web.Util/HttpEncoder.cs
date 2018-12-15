@@ -177,13 +177,13 @@ namespace System.Web.Util
             try
             {
                 var cfg = HttpRuntime.Section;
-                typeName = cfg.EncoderType;
+                typeName = cfg?.EncoderType;
             }
             catch {
                 DebugMono.Break();
             } 
 
-            typeName = typeName == null ? typeName.Length == 0 ? "System.Web.Util.HttpEncoder" : typeName;
+            typeName = typeName == null || typeName.Length == 0 ? "System.Web.Util.HttpEncoder" : typeName;
 
             if (string.Compare(typeName, "System.Web.Util.HttpEncoder", StringComparison.OrdinalIgnoreCase) == 0) {
                 return Default;

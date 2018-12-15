@@ -158,6 +158,26 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
             var manager = ApplicationManager.GetApplicationManager();
             var args = Environment.GetCommandLineArgs();
 
+            object webFactory = null;
+            object webConfig = null;
+            object systemWeb = null;
+
+            string path = AppDomain.CurrentDomain.BaseDirectory + "..\\web.config";
+            path = Path.GetFullPath(path);
+            try
+            {
+                webFactory = System.Web.Configuration.WebConfigurationManager.OpenMachineConfiguration();
+
+                webConfig = WebConfigurationManager.OpenWebConfiguration(path);
+
+                var sectionName = "system.web";
+                systemWeb = WebConfigurationManager.GetWebApplicationSection(sectionName);
+            }
+            catch (Exception ex) {
+
+                Console.WriteLine($"GetFactory: {ex}");
+            }
+
             var server = new Server();
 
             bool quiet = false;

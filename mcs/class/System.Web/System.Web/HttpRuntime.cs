@@ -516,10 +516,12 @@ namespace System.Web
 		{
 			if (wr == null)
 				throw new ArgumentNullException ("wr");
-			//
-			// Queue our request, fetch the next available one from the queue
-			//
-			HttpWorkerRequest request = queue_manager.GetNextRequest (wr);
+            //
+            // Queue our request, fetch the next available one from the queue
+            //
+            queue_manager = queue_manager ?? new QueueManager();
+
+            HttpWorkerRequest request = queue_manager.GetNextRequest (wr);
 			if (request == null)
 				return;
 

@@ -3,7 +3,7 @@
     "TestWeb": {
       "commandName": "Project",
       "commandLineArgs": "TestWeb\\bin\\net48\\TestWeb.exe",
-      "workingDirectory": "E:\\Beta\\dot64\\mono08\\mcs\\TestWeb"
+      "workingDirectory": "E:\\Beta\\mono02\\mono02\\mcs\\TestWeb\\"
     }
   }
 }

@@ -43,11 +43,14 @@ using _Configuration = System.Configuration.Configuration;
 using System.Web.Util;
 using System.Threading;
 using System.Web.Hosting;
-
+using System.Diagnostics;
 
 namespace System.Web.Configuration {
 
-	public static class WebConfigurationManager
+    // using Debug = System.Diagnostic.DebugMono;
+
+    // System.Web.Configuration.WebConfigurationManager.GetFactory()
+    public class WebConfigurationManager
 	{
 		sealed class ConfigPath 
 		{
@@ -94,39 +97,74 @@ namespace System.Web.Configuration {
 		const string CACHE_SIZE_OVERRIDING_KEY = "MONO_ASPNET_WEBCONFIG_CACHESIZE";
 		static LruCache<int, object> sectionCache;
 		
-		static WebConfigurationManager ()
-		{
-			var section_cache_size = DEFAULT_SECTION_CACHE_SIZE;
-			int section_cache_size_override;
-			bool size_overriden = false;
-			if (int.TryParse (Environment.GetEnvironmentVariable (CACHE_SIZE_OVERRIDING_KEY), out section_cache_size_override)) {
-				section_cache_size = section_cache_size_override;
-				size_overriden = true;
-				Console.WriteLine ("WebConfigurationManager's LRUcache Size overriden to: {0} (via {1})", section_cache_size_override, CACHE_SIZE_OVERRIDING_KEY);
-			}
-			sectionCache = new LruCache<int, object> (section_cache_size);
-			string eviction_warning = "WebConfigurationManager's LRUcache evictions count reached its max size";
-			if (!size_overriden)
-				eviction_warning += String.Format ("{0}Cache Size: {1} (overridable via {2})",
-				                                   Environment.NewLine, section_cache_size, CACHE_SIZE_OVERRIDING_KEY);
-			sectionCache.EvictionWarning = eviction_warning;
+        public static Exception CreateError { get; set; }
 
-			configFactory = ConfigurationManager.ConfigurationFactory;
-			_Configuration.SaveStart += ConfigurationSaveHandler;
-			_Configuration.SaveEnd += ConfigurationSaveHandler;
-			
-			// Part of fix for bug #491531
-			Type type = Type.GetType ("System.Configuration.CustomizableFileSettingsProvider, System", false);
-			if (type != null) {
-				FieldInfo fi = type.GetField ("webConfigurationFileMapType", BindingFlags.Static | BindingFlags.NonPublic);
-				if (fi != null && fi.FieldType == Type.GetType ("System.Type"))
-					fi.SetValue (null, typeof (ApplicationSettingsConfigurationFileMap));
-			}
+        static WebConfigurationManager()
+        {
+            DebugMono.Break();
 
-			sectionCacheLock = new ReaderWriterLockSlim ();
+            sectionCacheLock = new ReaderWriterLockSlim();
+            Instance = new WebConfigurationManager();
+        }
+
+        public static WebConfigurationManager Instance;
+
+        public WebConfigurationManager()
+        {
+            var section_cache_size = DEFAULT_SECTION_CACHE_SIZE;
+            int section_cache_size_override;
+            bool size_overriden = false;
+            try
+            {
+                if (int.TryParse(Environment.GetEnvironmentVariable(CACHE_SIZE_OVERRIDING_KEY), out section_cache_size_override))
+                {
+                    section_cache_size = section_cache_size_override;
+                    size_overriden = true;
+                    Console.WriteLine("WebConfigurationManager's LRUcache Size overriden to: {0} (via {1})", section_cache_size_override, CACHE_SIZE_OVERRIDING_KEY);
+                }
+                sectionCache = new LruCache<int, object>(section_cache_size);
+                string eviction_warning = "WebConfigurationManager's LRUcache evictions count reached its max size";
+                if (!size_overriden)
+                    eviction_warning += String.Format("{0}Cache Size: {1} (overridable via {2})",
+                                                       Environment.NewLine, section_cache_size, CACHE_SIZE_OVERRIDING_KEY);
+                sectionCache.EvictionWarning = eviction_warning;
+
+                GetFactory();
+
+                // Part of fix for bug #491531
+                Type type = Type.GetType("System.Configuration.CustomizableFileSettingsProvider, System", false);
+                if (type != null)
+                {
+                    FieldInfo fi = type.GetField("webConfigurationFileMapType", BindingFlags.Static | BindingFlags.NonPublic);
+                    if (fi != null && fi.FieldType == Type.GetType("System.Type"))
+                        fi.SetValue(null, typeof(ApplicationSettingsConfigurationFileMap));
+                }
+            }
+            catch (Exception ex) {
+                CreateError = ex;
+            }
+
 		}
 
-		static void ReenableWatcherOnConfigLocation (object state)
+        public static object GetFactory()
+        {
+            try
+            {
+                var x = ConfigurationFactory;
+
+                configFactory = ConfigurationManager.ConfigurationFactory;
+                _Configuration.SaveStart += ConfigurationSaveHandler;
+                _Configuration.SaveEnd += ConfigurationSaveHandler;
+
+            }
+            catch (Exception e1) {
+                CreateError = e1;
+            }
+
+            return configFactory;
+        }
+
+        static void ReenableWatcherOnConfigLocation (object state)
 		{
 			string path = state as string;
 			if (String.IsNullOrEmpty (path))
@@ -147,9 +185,11 @@ namespace System.Web.Configuration {
 				saveLocationsTimer.Change (SAVE_LOCATIONS_CHECK_INTERVAL, SAVE_LOCATIONS_CHECK_INTERVAL);
 		}
 		
-		static void ConfigurationSaveHandler (_Configuration sender, ConfigurationSaveEventArgs args)
+		static void ConfigurationSaveHandler(object senderObj, ConfigurationSaveEventArgs args)
 		{
-			try {
+            _Configuration sender = senderObj as _Configuration;
+
+            try {
 				sectionCacheLock.EnterWriteLock ();
 				sectionCache.Clear ();
 			} finally {
@@ -157,7 +197,9 @@ namespace System.Web.Configuration {
 			}
 			
 			lock (suppressAppReloadLock) {
+
 				string rootConfigPath = WebConfigurationHost.GetWebConfigFileName (HttpRuntime.AppDomainAppPath);
+
 				if (String.Compare (args.StreamPath, rootConfigPath, StringComparison.OrdinalIgnoreCase) == 0) {
 					SuppressAppReload (args.Start);
 					if (args.Start) {
@@ -254,7 +296,8 @@ namespace System.Web.Configuration {
 			return OpenWebConfiguration (path, site, locationSubPath, server, null, null, false);
 		}
 
-		static _Configuration OpenWebConfiguration (string path, string site, string locationSubPath, string server, string userName, string password, bool fweb)
+		static _Configuration OpenWebConfiguration (string path, string site, string locationSubPath, 
+               string server, string userName, string password, bool fweb)
 		{
 			if (String.IsNullOrEmpty (path))
 				path = "/";
@@ -265,38 +308,54 @@ namespace System.Web.Configuration {
 
 			string confKey = path + site + locationSubPath + server + userName + password;
 			_Configuration conf = null;
-			conf = (_Configuration) configurations [confKey];
+            DebugMono.Break(); // TODO
+            try
+            {
+                if (configurations.Count > 0)
+                {
+                    conf = (_Configuration)configurations[confKey];
+                }
+            }
+            catch { } 
 
-            Debug.Break(); // TODO
+            if (conf == null) {
+                try
+                {
+                    var conf2 = ConfigurationFactory.Create2(typeof(WebConfigurationHost), null, path, site,
+                           locationSubPath, server, userName, password, inAnotherApp);
+                    configurations[confKey] = conf2;
+                    var conf3 = new WebConfigurationHost();
 
-            //if (conf == null) {
-            //	conf = ConfigurationFactory.Create (typeof (WebConfigurationHost), null, path, site, locationSubPath, server, userName, password, inAnotherApp);
-            //	configurations [confKey] = conf;
-            //}
+                    conf = new _Configuration(parent: null, locationSubPath: "");
+                    IInternalConfigRoot root = new System.Configuration.Internal.InternalConfigRoot(conf); // conf.RootSectionGroup; // , params object[] hostInitParams)
+                    conf3.Init(root, null);
+                }
+                catch { }
+            }
             return conf;
 		}
 
 		public static _Configuration OpenMappedWebConfiguration (WebConfigurationFileMap fileMap, string path)
 		{
-            Debug.Break(); // TODO
+            DebugMono.Break(); // TODO
             return ConfigurationFactory.Create (typeof(WebConfigurationHost), fileMap, path);
 		}
 		
 		public static _Configuration OpenMappedWebConfiguration (WebConfigurationFileMap fileMap, string path, string site)
 		{
-            Debug.Break(); // TODO
+            DebugMono.Break(); // TODO
             return ConfigurationFactory.Create (typeof(WebConfigurationHost), fileMap, path, site);
 		}
 		
 		public static _Configuration OpenMappedWebConfiguration (WebConfigurationFileMap fileMap, string path, string site, string locationSubPath)
 		{
-            Debug.Break(); // TODO
+            DebugMono.Break(); // TODO
             return ConfigurationFactory.Create (typeof(WebConfigurationHost), fileMap, path, site, locationSubPath);
 		}
 		
 		public static _Configuration OpenMappedMachineConfiguration (ConfigurationFileMap fileMap)
 		{
-            Debug.Break(); // TODO
+            DebugMono.Break(); // TODO
             return ConfigurationFactory.Create (typeof(WebConfigurationHost), fileMap);
 		}
 
@@ -337,7 +396,8 @@ namespace System.Web.Configuration {
 
 		public static object GetSection (string sectionName, string path)
 		{
-			return GetSection (sectionName, path, HttpContext.Current);
+			var obj = GetSection (sectionName, path, HttpContext.Current);
+            return obj; // debug?
 		}
 
 		static bool LookUpLocation (string relativePath, ref _Configuration defaultConfiguration)
@@ -494,8 +554,11 @@ namespace System.Web.Configuration {
 				
 			
 			string rootPath = HttpRuntime.AppDomainAppVirtualPath;
-			ConfigPath curPath;
-			curPath = configPaths [path] as ConfigPath;
+			ConfigPath curPath = null;
+            if (configPaths.Count > 0)
+            {
+                curPath = configPaths[path] as ConfigPath;
+            }
 			if (curPath != null) {
 				inAnotherApp = curPath.InAnotherApp;
 				return curPath.Path;
@@ -517,8 +580,11 @@ namespace System.Web.Configuration {
 			 	if (dir == null)
 			 		return path;
 			}
-			
-			curPath = configPaths [dir] as ConfigPath;
+
+            if (configPaths.Count > 0)
+            {
+                curPath = configPaths[dir] as ConfigPath;
+            }
 			if (curPath != null) {
 				inAnotherApp = curPath.InAnotherApp;
 				return curPath.Path;
@@ -545,10 +611,13 @@ namespace System.Web.Configuration {
 				}
 			}
 
-			if (String.Compare (curPath.Path, path, StringComparison.Ordinal) != 0)
-				configPaths [path] = curPath;
-			else
-				configPaths [dir] = curPath;
+            if (configPaths.Count > 0)
+            {
+                if (string.Compare(curPath.Path, path, StringComparison.Ordinal) != 0)
+                    configPaths[path] = curPath;
+                else
+                    configPaths[dir] = curPath;
+            }
 			
 			return curPath.Path;
 		}
@@ -608,7 +677,9 @@ namespace System.Web.Configuration {
 			HttpContext ctx = HttpContext.Current;
 			HttpRequest req = ctx != null ? ctx.Request : null;
 			string applicationPath = req != null ? req.ApplicationPath : null;
-			return GetSection (sectionName, String.IsNullOrEmpty (applicationPath) ? String.Empty : applicationPath);
+            var path = string.IsNullOrEmpty(applicationPath) ? string.Empty : applicationPath;
+
+            return GetSection (sectionName, path);
 		}
 
 		public static NameValueCollection AppSettings {
@@ -765,7 +836,7 @@ namespace System.Configuration.Internal
 
         public Configuration Create(Type typeConfigHost, params object[] hostInitConfigurationParams)
         {
-            Debug.Break();
+            DebugMono.Break();
             return null;
         }
 
@@ -875,7 +946,7 @@ namespace System.Configuration
 
         public ConfigurationSectionGroupCollection SectionGroups {
             get {
-                Debug.Break(); // TODO
+                DebugMono.Break(); // TODO
                 return null; // RootSectionGroup.SectionGroups;
             }
         }
@@ -890,7 +961,7 @@ namespace System.Configuration
 
         public ConfigurationSectionGroup GetSectionGroup(string sectionGroupName)
         {
-            Debug.Break(); // TODO
+            DebugMono.Break(); // TODO
             ConfigurationSectionGroup sectionGroup = null; // TODO _configRecord.GetSectionGroup(sectionGroupName);
 
             return sectionGroup;
@@ -979,10 +1050,10 @@ namespace System.Configuration
                 resultRuntimeObject = null;
 
 #if true // DBG
-                Debug.Assert(requestIsHere || !checkPermission, "requestIsHere || !checkPermission");
+                // Debug.Assert(requestIsHere || !checkPermission, "requestIsHere || !checkPermission");
                 if (getLkg) {
-                    Debug.Assert(getRuntimeObject == true, "getRuntimeObject == true");
-                    Debug.Assert(requestIsHere == true, "requestIsHere == true");
+                    // Debug.Assert(getRuntimeObject == true, "getRuntimeObject == true");
+                    // Debug.Assert(requestIsHere == true, "requestIsHere == true");
                 }
 #endif
 
@@ -1005,7 +1076,7 @@ namespace System.Configuration
                 // check for a cached result
                 //
 
-                Debug.Break(); // TODO
+                DebugMono.Break(); // TODO
 
                 /*
                 bool hasResult = false;

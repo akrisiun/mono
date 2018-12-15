@@ -29,12 +29,29 @@
 //
 
 using System.Reflection;
+using System.IO;
 using System.Runtime.CompilerServices;
+
 namespace System.Web.Util
 {
-	class ICalls
-	{
-		ICalls () {}
+    public class ICalls
+    {
+        public ICalls() { }
+
+        static public string GetMachineConfigPath()
+        {
+            return System.Runtime.InteropServices.RuntimeEnvironment.SystemConfigurationFile;
+        }
+
+        static public string GetMachineInstallDirectory()
+            => Path.GetDirectoryName(GetMachineConfigPath());
+
+        // extern static public bool GetUnmanagedResourcesPtr(Assembly assembly, out IntPtr ptr, out int length);
+    }
+
+    class ICallsInternal
+    {
+        ICallsInternal() {}
 
 #if TARGET_DOTNET
 		static public string GetMachineConfigPath () {

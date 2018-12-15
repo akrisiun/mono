@@ -57,7 +57,11 @@ namespace System.Web.Configuration
 		const string MachineWebPath = ":web:";
 
 		string appVirtualPath;
-		
+
+        public WebConfigurationHost()
+        {
+        }
+
 		public virtual object CreateConfigurationContext (string configPath, string locationSubPath)
 		{
 			return new WebContext (WebApplicationLevel.AtApplication /* XXX */,
@@ -110,7 +114,7 @@ namespace System.Web.Configuration
 		
 		public virtual Type GetConfigType (string typeName, bool throwOnError)
 		{
-		        Type type = HttpApplication.LoadType (typeName);
+		    Type type = HttpApplication.LoadType (typeName);
 			if (type == null && throwOnError)
 				throw new ConfigurationErrorsException ("Type not found: '" + typeName + "'");
 			return type;

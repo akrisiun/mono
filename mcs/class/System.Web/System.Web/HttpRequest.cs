@@ -156,7 +156,11 @@ namespace System.Web
 		static HttpRequest ()
 		{
 			try {
-				UrlMappingsSection ums = WebConfigurationManager.GetWebApplicationSection ("system.web/urlMappings") as UrlMappingsSection;
+                var type = typeof(System.Configuration.Configuration);
+                var get_c = type.GetMethods();
+                var get_c1 = type.GetMethod("get_ConfigPath");
+
+                UrlMappingsSection ums = WebConfigurationManager.GetWebApplicationSection ("system.web/urlMappings") as UrlMappingsSection;
 				if (ums != null && ums.IsEnabled) {
 					urlMappings = ums.UrlMappings;
 					if (urlMappings.Count == 0)
@@ -172,10 +176,10 @@ namespace System.Web
 						RequestPathInvalidCharacters = CharsFromList (invalidChars);
 				}
 			} catch {
-				// unlikely to happen
-			}
-			
-			host_addresses = GetLocalHostAddresses ();
+                // unlikely to happen // Method not found: 'System.String System.Configuration.Configuration.get_ConfigPath()'.
+            }
+
+            host_addresses = GetLocalHostAddresses ();
 		}
 		
 		public HttpRequest (string filename, string url, string queryString)

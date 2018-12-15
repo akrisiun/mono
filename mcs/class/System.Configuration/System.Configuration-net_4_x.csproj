@@ -72,6 +72,7 @@
     <Compile Include="..\..\build\common\Locale.cs" />
     <Compile Include="..\..\build\common\MonoTODOAttribute.cs" />
     <Compile Include="Assembly\AssemblyInfo.cs" />
+    <Compile Include="InternalConfigRoot.cs" />
     <Compile Include="System.Configuration.Internal\DelegatingConfigHost.cs" />
     <Compile Include="System.Configuration.Internal\IConfigErrorInfo.cs" />
     <Compile Include="System.Configuration.Internal\IConfigSystem.cs" />

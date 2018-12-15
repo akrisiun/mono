@@ -639,10 +639,17 @@ namespace System.Web.Compilation
 				return;
 			
 			string appCode = Path.Combine (HttpRuntime.AppDomainAppPath, "App_Code");
-			ProfileSection ps = WebConfigurationManager.GetWebApplicationSection ("system.web/profile") as ProfileSection;
-			bool haveAppCodeDir = Directory.Exists (appCode);
-			bool haveCustomProfile = HaveCustomProfile (ps);
-			
+            bool haveAppCodeDir = false;
+            bool haveCustomProfile = false;
+            ProfileSection ps = null;
+            try
+            {
+                ps = WebConfigurationManager.GetWebApplicationSection("system.web/profile") as ProfileSection;
+                haveAppCodeDir = Directory.Exists(appCode);
+                haveCustomProfile = HaveCustomProfile(ps);
+            }
+            catch { }
+
 			if (!haveAppCodeDir && !haveCustomProfile)
 				return;
 
@@ -652,18 +659,23 @@ namespace System.Web.Compilation
 			bool haveCode = false;
 			if (haveAppCodeDir)
 				haveCode = ProcessAppCodeDir (appCode, defasm);
-			if (haveCustomProfile)
-				if (ProcessCustomProfile (ps, defasm))
-					haveCode = true;
+            if (haveCustomProfile && ps != null)
+            {
+                if (ProcessCustomProfile(ps, defasm))
+                    haveCode = true;
+            }
 
 			if (!haveCode)
 				return;
 			
 			HttpRuntime.EnableAssemblyMapping (true);
 			string[] binAssemblies = HttpApplication.BinDirectoryAssemblies;
-			
-			foreach (AppCodeAssembly aca in assemblies)
-				aca.Build (binAssemblies);
+
+            foreach (AppCodeAssembly aca in assemblies)
+            {
+                aca.Build(binAssemblies);
+            }
+
 			_alreadyCompiled = true;
 			DefaultAppCodeAssemblyName = Path.GetFileNameWithoutExtension (defasm.OutputAssemblyName);
 

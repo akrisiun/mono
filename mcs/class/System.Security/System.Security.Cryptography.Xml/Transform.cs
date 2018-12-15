@@ -47,7 +47,7 @@ namespace System.Security.Cryptography.Xml {
 
 		protected Transform ()
 		{
-			if (SecurityManager.SecurityEnabled) {
+			if (SecurityManager.SecurityEnabledMono) {
 				xmlResolver = new XmlSecureResolver (new XmlUrlResolver (), (Evidence) new Evidence ());
 			} else {
 				xmlResolver = new XmlUrlResolver ();

@@ -382,29 +382,57 @@ namespace System.Web.Compilation
 		{
 			AssertVirtualPathExists (vp);
 
-			CompilationSection cs = CompilationConfig;
-			lock (bigCompilationLock) {
-				bool entryExists;
-				if (HasCachedItemNoLock (vp.Absolute, out entryExists))
-					return;
+            CompilationSection cs = null;
+            try
+            {
 
-				if (recursionDepth == 0)
-					referencedAssemblies.Clear ();
+                // internal static object GetSection(string sectionName, string path, HttpContext context)
+                var sectionName = "";
+                var path = AppDomain.CurrentDomain.BaseDirectory + "..\\web.config";
 
-				recursionDepth++;
-				try {
-					BuildInner (vp, cs != null ? cs.Debug : false);
-					if (entryExists && recursionDepth <= 1)
-						// We count only update builds - first time a file
-						// (or a batch) is built doesn't count.
-						buildCount++;
-				} finally {
-					// See http://support.microsoft.com/kb/319947
-					if (buildCount > cs.NumRecompilesBeforeAppRestart)
-						HttpRuntime.UnloadAppDomain ();
-					recursionDepth--;
-				}
-			}
+                sectionName = "system.web";
+                var systemWeb = WebConfigurationManager.GetWebApplicationSection(sectionName);
+
+                //  var c = OpenWebConfiguration(path, null, null, null, null, null, false);
+
+                cs = CompilationConfig;
+
+                lock (bigCompilationLock)
+                {
+                    bool entryExists;
+                    if (HasCachedItemNoLock(vp.Absolute, out entryExists))
+                        return;
+
+                    if (recursionDepth == 0)
+                        referencedAssemblies.Clear();
+
+                    recursionDepth++;
+                    try
+                    {
+
+                        BuildInner(vp, cs != null ? cs.Debug : false);
+                        if (entryExists && recursionDepth <= 1)
+                            // We count only update builds - first time a file
+                            // (or a batch) is built doesn't count.
+                            buildCount++;
+                    }
+                    finally
+                    {
+
+                        // See http://support.microsoft.com/kb/319947
+                        if (buildCount > cs.NumRecompilesBeforeAppRestart)
+                            HttpRuntime.UnloadAppDomain();
+                        recursionDepth--;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (HttpContext.Current != null)
+                {
+                    HttpContext.Current.AddError(ex);
+                }
+            }
 		}
 
 		// This method assumes it is being called with the big compilation lock held

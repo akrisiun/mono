@@ -380,11 +380,15 @@ namespace System.Web.UI
 		[EditorBrowsable (EditorBrowsableState.Never)]
 		public static object ReadStringResource (Type t)
 		{
-			StringResourceData data = new StringResourceData ();
-			if (ICalls.GetUnmanagedResourcesPtr (t.Assembly, out data.Ptr, out data.Length))
-				return data;
-
-			throw new HttpException ("Unable to load the string resources.");
+			var data = new StringResourceData ();
+            try
+            {
+                if (ICallsInternal.GetUnmanagedResourcesPtr(t.Assembly, out data.Ptr, out data.Length))
+                    return data;
+            }
+            catch { } 
+            // throw new HttpException ("Unable to load the string resources.");
+            return null;
 		}
 
 		[EditorBrowsable (EditorBrowsableState.Never)]

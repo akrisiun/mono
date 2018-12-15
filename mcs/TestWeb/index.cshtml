@@ -1,0 +1,50 @@
+@using Sanitex;
+@using System.Web;
+@using System.Diagnostics
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        @{ 
+            if (Debugger.IsAttached)
+            {
+                Debugger.Launch();
+            }
+        }
+    </title>
+</head>
+<body>
+    @{
+        try
+        {
+        } catch (Exception ex) {
+            // Use C#6 : interpolated formats
+            Trace.Write($"Error {ex.Message}");
+        }
+    }
+
+    <h3>
+        <a href="netversion.aspx">netversion.aspx</a> .net test page
+        | <a href="/api/netversion">/api/netversion</a> api test
+        | <a href="http://127.0.0.1:90/nuget/default.aspx">Nuget90</a>
+    </h3>
+
+    
+    <div class="content">
+    @{
+        var writerText = new System.IO.StringWriter();
+        try
+        {
+            var http = System.Web.HttpContext.Current;
+            // http.Response.Write(result);
+        }
+        catch (Exception ex)
+        {
+            Trace.Write(ex.Message);
+        }
+    }
+    </div>
+
+</body>
+</html>
