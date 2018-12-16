@@ -323,17 +323,17 @@ namespace System.Web.Configuration {
                 try
                 {
                     var typeConfigHost = typeof(WebConfigurationHost);
-                    var conf2 = ConfigurationFactory.Create2(typeof(WebConfigurationHost), null, path, site,
-                           locationSubPath, server, userName, password, inAnotherApp);
-                    // configurations[confKey] = conf2;
-                    var conf3 = new WebConfigurationHost();
+                    object[] hostInitConfigurationParams = null;
+                    System.Array.Resize(ref hostInitConfigurationParams, 10);
 
-                    InternalConfigurationSystem system = new InternalConfigurationSystem();
-                    system.Init(typeConfigHost, null);
-                    conf = new _Configuration(system: system, locationSubPath: "");
+                    hostInitConfigurationParams[1] = AppDomain.CurrentDomain.BaseDirectory;  // fullPath 
+                    hostInitConfigurationParams[0] = new WebConfigurationFileMap(); //  map
+                    hostInitConfigurationParams[7] = false; // inAnotherApp = (bool)
 
-                    // IInternalConfigRoot root = new System.Configuration.Internal.InternalConfigRoot(conf); // conf.RootSectionGroup; // , params object[] hostInitParams)
-                    // conf3.Init(ref locationSub,   root, null);
+                    var factory = new InternalConfigConfigurationFactory();
+
+                    conf = factory.Create(typeConfigHost, hostInitConfigurationParams);
+
                     if (conf != null)
                     {
                         configurations[confKey] = conf;
@@ -400,7 +400,21 @@ namespace System.Web.Configuration {
 		public static object GetSection (string sectionName)
 		{
 			HttpContext context = HttpContext.Current;
-			return GetSection (sectionName, GetCurrentPath (context), context);
+
+            // C:\Windows\Microsoft.NET\Framework64\v4.0.30319\config\web.config
+            if (sectionName == "system.web/compilation")
+            {
+                var dom = AppDomain.CurrentDomain;
+                var c = dom.GetData(sectionName) as CompilationSection;
+                if (c == null)
+                {
+                    c = new CompilationSection { Debug = true };
+                    dom.SetData(sectionName, c);
+                }
+                return c;
+            }
+
+            return GetSection (sectionName, GetCurrentPath (context), context);
 		}
 
 		public static object GetSection (string sectionName, string path)
@@ -482,7 +496,8 @@ namespace System.Web.Configuration {
 					string vdir = VirtualPathUtility.GetDirectory (req.PathNoValidation);
 					if (vdir != null) {
 						vdir = vdir.TrimEnd (pathTrimChars);
-						if (String.Compare (c.ConfigPath, vdir, StringComparison.Ordinal) != 0 && LookUpLocation (vdir.Trim (pathTrimChars), ref c))
+						if (String.Compare (c.FilePath // .ConfigPath
+                                , vdir, StringComparison.Ordinal) != 0 && LookUpLocation (vdir.Trim (pathTrimChars), ref c))
 							cachePath = path;
 					}
 				}
@@ -493,9 +508,13 @@ namespace System.Web.Configuration {
 					cachePath = path;
 			}
 
-			ConfigurationSection section;
+			ConfigurationSection section = null;
 			lock (getSectionLock) {
-				section = c.GetSection (sectionName);
+                try
+                {
+                    section = c.GetSection(sectionName);
+                }
+                catch { } 
 			}
 			if (section == null)
 				return null;
@@ -605,9 +624,16 @@ namespace System.Web.Configuration {
 				return path;
 
 			curPath = new ConfigPath (path, inAnotherApp);
+            if (rootPath == null)
+            {
+                rootPath = "/";
+            }
+            int iMax = 10;
 			while (String.Compare (curPath.Path, rootPath, StringComparison.Ordinal) != 0) {
-				physPath = MapPath (req, curPath.Path);
-				if (physPath == null) {
+
+                physPath = MapPath (req, curPath.Path);
+                iMax--;
+                if (physPath == null || iMax == 0) {
 					curPath.Path = rootPath;
 					break;
 				}
@@ -690,7 +716,32 @@ namespace System.Web.Configuration {
 			string applicationPath = req != null ? req.ApplicationPath : null;
             var path = string.IsNullOrEmpty(applicationPath) ? string.Empty : applicationPath;
 
-            return GetSection (sectionName, path);
+            var domain = AppDomain.CurrentDomain;
+            if (sectionName == "system.web/compilation")
+            {
+                var c = domain.GetData(sectionName) as CompilationSection;
+                if (c == null)
+                {
+                    c = new CompilationSection { Debug = true };
+                    domain.SetData(sectionName, c);
+                }
+                if (c != null)
+                {
+                    return c;
+                }
+            }
+            object obj = null;
+            obj = domain.GetData(sectionName);
+            if (obj == null)
+            { 
+                obj = GetSection (sectionName, path);
+                if (obj != null)
+                {
+                    domain.SetData(sectionName, obj);
+                }
+            }
+
+            return obj;
 		}
 
 		public static NameValueCollection AppSettings {
@@ -821,6 +872,7 @@ namespace System.Web.Configuration {
 namespace System.Configuration.Internal
 {
     using System.Configuration;
+    using System.Web.Configuration;
 
     //
     // Call into System.Configuration.dll to create and initialize a Configuration object.
@@ -828,28 +880,88 @@ namespace System.Configuration.Internal
     [System.Runtime.InteropServices.ComVisible(false)]
     public interface IInternalConfigConfigurationFactory
     {
-        ClassConfiguration Create2(Type typeConfigHost, params object[] hostInitConfigurationParams);
+        // ClassConfiguration Create2(Type typeConfigHost, params object[] hostInitConfigurationParams);
 
         Configuration Create(Type typeConfigHost, params object[] hostInitConfigurationParams);
 
         string NormalizeLocationSubPath(string subPath, IConfigErrorInfo errorInfo);
     }
 
+    class InternalConfigurationSystemWeb : IConfigSystem
+    {
+        IInternalConfigHost host;
+        IInternalConfigRoot root;
+        object[] hostInitParams;
+
+        public void Init(Type typeConfigHost, params object[] hostInitParams)
+        {
+            this.hostInitParams = hostInitParams;
+            host = (IInternalConfigHost)Activator.CreateInstance(typeConfigHost);
+            root = new InternalConfigurationRoot();
+
+            root.Init(host, false);
+        }
+
+        public void Init(IInternalConfigHost typeConfigHost, params object[] hostInitParams)
+        {
+            host = typeConfigHost;
+            root = new InternalConfigurationRoot();
+
+            root.Init(host, false);
+        }
+
+        // void InitForConfiguration(ref string  locationSubPath, out string configPath, out string locationConfigPath);
+
+        public void InitForConfiguration(ref string locationConfigPath, out string parentConfigPath, out string parentLocationConfigPath)
+        {
+            host.InitForConfiguration(ref locationConfigPath, out parentConfigPath, out parentLocationConfigPath, root, hostInitParams);
+        }
+
+        public IInternalConfigHost Host {
+            get { return host; }
+        }
+
+        public IInternalConfigRoot Root {
+            get { return root; }
+        }
+    }
+
     internal sealed class InternalConfigConfigurationFactory : IInternalConfigConfigurationFactory
     {
 
-        private InternalConfigConfigurationFactory() { }
+        public InternalConfigConfigurationFactory() { }
 
+        /*
         ClassConfiguration IInternalConfigConfigurationFactory.Create2(Type typeConfigHost, params object[] hostInitConfigurationParams)
         {
             return new ClassConfiguration(null, typeConfigHost, hostInitConfigurationParams);
-        }
+        } */
 
-        public Configuration Create(Type typeConfigHost, params object[] hostInitConfigurationParams)
+        public _Configuration Create(Type typeConfigHost, params object[] hostInitConfigurationParams)
         {
             DebugMono.Break();
-            return null;
+
+            // var conf2 = ConfigurationFactory.Create2(typeof(WebConfigurationHost), null, path, site, locationSubPath, server, userName, password, inAnotherApp);
+            // configurations[confKey] = conf2;
+
+            _Configuration conf = null;
+            try
+            {
+                var conf3 = new WebConfigurationHost();
+
+                var system = new InternalConfigurationSystemWeb();
+                system.Init(typeConfigHost, hostInitConfigurationParams);
+                conf = new _Configuration(system: system, locationSubPath: "");
+            }
+            catch (Exception ex) {
+                CreateError = ex;
+            }
+            // IInternalConfigRoot root = new System.Configuration.Internal.InternalConfigRoot(conf); // conf.RootSectionGroup; // , params object[] hostInitParams)
+            // conf3.Init(ref locationSub,   root, null);
+            return conf;
         }
+
+        public static Exception CreateError;
 
         // Normalize a locationSubpath argument
         string IInternalConfigConfigurationFactory.NormalizeLocationSubPath(string subPath, IConfigErrorInfo errorInfo)

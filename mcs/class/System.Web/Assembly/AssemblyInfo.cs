@@ -52,21 +52,25 @@ using System.Web.UI;
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: AssemblyDefaultAlias("System.Web.dll")]
-[assembly: AssemblyInformationalVersion("0.0.0.1")]
+[assembly: AssemblyInformationalVersion("0.0.0.2")]
+
 [assembly: NeutralResourcesLanguage("en-US")]
 
 // [assembly: AllowPartiallyTrustedCallers()]
 
 [assembly: TagPrefix("System.Web.UI.WebControls", "asp")]
 #if !(TARGET_DOTNET)
+
 [assembly: AssemblyDelaySign(true)]
 [assembly: AssemblyKeyFile("../msfinal.pub")]
 
-[assembly: AssemblyFileVersion (Consts.FxVersion)]
+// public const string FxVersion = "4.0.0.1";
+[assembly: AssemblyFileVersion ("4.1.0.0")]
+// [assembly: AssemblyFileVersion (Consts.FxVersion)]
 
 [assembly: CompilationRelaxations (CompilationRelaxations.NoStringInterning)]
 [assembly: Dependency ("System", LoadHint.Always)]
-[assembly: SecurityRules (SecurityRuleSet.Level2, SkipVerificationInFullTrust=true)]
+[assembly: SecurityRules(SecurityRuleSet.Level2, SkipVerificationInFullTrust = true)]
 
 [assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipPasswordException))]
 [assembly: TypeForwardedTo (typeof (System.Web.Security.RoleProvider))]

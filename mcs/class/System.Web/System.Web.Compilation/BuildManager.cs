@@ -165,7 +165,18 @@ namespace System.Web.Compilation
 		}
 		
 		internal static CompilationSection CompilationConfig {
-			get { return WebConfigurationManager.GetWebApplicationSection ("system.web/compilation") as CompilationSection; }
+            get {
+                CompilationSection c = null;
+                try
+                {
+                    c = WebConfigurationManager.GetWebApplicationSection("system.web/compilation") as CompilationSection;
+                }
+                catch (Exception)
+                {
+                    c = new CompilationSection { Debug = true };
+                }
+                return c;
+            }
 		}
 
 		internal static bool HaveResources {
@@ -385,15 +396,13 @@ namespace System.Web.Compilation
             CompilationSection cs = null;
             try
             {
-
                 // internal static object GetSection(string sectionName, string path, HttpContext context)
-                var sectionName = "";
+                // var sectionName = "";
                 var path = AppDomain.CurrentDomain.BaseDirectory + "..\\web.config";
 
-                sectionName = "system.web";
-                var systemWeb = WebConfigurationManager.GetWebApplicationSection(sectionName);
-
-                //  var c = OpenWebConfiguration(path, null, null, null, null, null, false);
+                // sectionName = "system.web";
+                // var systemWeb = WebConfigurationManager.GetWebApplicationSection(sectionName);
+                // var c = OpenWebConfiguration(path, null, null, null, null, null, false);
 
                 cs = CompilationConfig;
 

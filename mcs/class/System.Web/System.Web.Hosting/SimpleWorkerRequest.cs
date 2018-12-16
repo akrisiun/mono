@@ -270,8 +270,9 @@ namespace System.Web.Hosting {
 				return null;
 			if (path != null && path.Length == 0)
 				return app_physical_dir;
-			
-			if (!path.StartsWith (app_virtual_dir))
+
+            app_virtual_dir = app_virtual_dir ?? path;
+            if (!path.StartsWith (app_virtual_dir))
 				throw new ArgumentNullException ("path is not rooted in the virtual directory");
 
 			string rest = path.Substring (app_virtual_dir.Length);

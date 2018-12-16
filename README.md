@@ -1,6 +1,17 @@
 ##  System.Web Host problem:
 
 ```
+ System.ThrowHelper.ThrowKeyNotFoundException()
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at System.Web.Configuration.CompilationSection.get_TempDirectory() in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Configuration_2.0\CompilationSection.cs:line 311
+   at System.Web.Compilation.AssemblyBuilder..ctor(VirtualPath virtualPath, CodeDomProvider provider, String assemblyBaseName) in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Compilation\AssemblyBuilder.cs:line 247
+   at System.Web.Compilation.AssemblyBuilder..ctor(CodeDomProvider provider) in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Compilation\AssemblyBuilder.cs:line 227
+   at System.Web.Compilation.AppCodeAssembly.Build(String[] binAssemblies) in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Compilation\AppCodeCompiler.cs:line 216
+   at System.Web.Compilation.AppCodeCompiler.Compile() in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web.Compilation\AppCodeCompiler.cs:line 676
+   at System.Web.HttpApplicationFactory.InitType(HttpContext context) in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web\HttpApplicationFactory.cs:line 455
+   at System.Web.HttpApplicationFactory.GetApplication(HttpContext context) in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web\HttpApplicationFactory.cs:line 472
+   at System.Web.HttpRuntime.Process(HttpWorkerRequest req) in E:\Beta\mono02\mono02\mcs\class\System.Web\System.Web\HttpRuntime.cs:line 475
+
 Asm: System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a E:\Beta\mono02\mono02\mcs\TestWeb\bin\System.Web.dll
 System.Web : E:\Beta\mono02\mono02\mcs\TestWeb\bin\System.Web.dll
 Web test success!

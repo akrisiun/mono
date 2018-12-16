@@ -6,7 +6,7 @@
 //
 // File: RtType.cs
 //
-// <OWNER>[....]</OWNER>
+// <OWNER>Microsoft</OWNER>
 //
 // Implements System.RuntimeType
 //
@@ -58,7 +58,7 @@ namespace System
 
     internal delegate void CtorDelegate(Object instance);
 
-    // Keep this in [....] with FormatFlags defined in typestring.h
+    // Keep this in sync with FormatFlags defined in typestring.h
     internal enum TypeNameFormatFlags
     {
         FormatBasic         = 0x00000000, // Not a bitmask, simply the tersest flag settings possible
@@ -3413,9 +3413,12 @@ namespace System
 
 #if MONO
             List<RuntimeType> list = null;
+            var nameComparison = ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
             foreach (RuntimeType t in GetInterfaces ()) {
-                if (t.Name != name)
-                    continue;
+
+                if (!String.Equals(t.Name, name, nameComparison)) {
+                       continue;
+                }
 
                 if (list == null)
                     list = new List<RuntimeType> (2);
@@ -3700,6 +3703,7 @@ namespace System
             return RuntimeTypeHandle.IsInstanceOfType(this, o);
         }
 
+#if !MONO
         [System.Runtime.InteropServices.ComVisible(true)]
         [Pure]
         public override bool IsSubclassOf(Type type) 
@@ -3729,6 +3733,7 @@ namespace System
 
             return false;
         }
+#endif
 
         public override bool IsAssignableFrom(System.Reflection.TypeInfo typeInfo){
             if(typeInfo==null) return false;
@@ -5263,10 +5268,12 @@ namespace System
 
                     // deal with the __COMObject case first. It is very special because from a reflection point of view it has no ctors
                     // so a call to GetMemberCons would fail
+                    bool publicOnly = (bindingAttr & BindingFlags.NonPublic) == 0;
+                    bool wrapExceptions = false; // (bindingAttr & BindingFlags.DoNotWrapExceptions) == 0;
                     if (argCnt == 0 && (bindingAttr & BindingFlags.Public) != 0 && (bindingAttr & BindingFlags.Instance) != 0
                         && (IsGenericCOMObjectImpl() || IsValueType)) 
                     {
-                        server = CreateInstanceDefaultCtor((bindingAttr & BindingFlags.NonPublic) == 0 , false, true, ref stackMark);
+                        server = CreateInstanceDefaultCtor(publicOnly, false, true, wrapExceptions, ref stackMark);
                     }
                     else 
                     {
@@ -5378,7 +5385,7 @@ namespace System
                             } else {
 #endif
                             // fast path??
-                            server = Activator.CreateInstance(this, true);
+                            server = Activator.CreateInstance(this, nonPublic: true, wrapExceptions: wrapExceptions);
 
 #if MONO && FEATURE_REMOTING
                             }
@@ -5440,6 +5447,10 @@ namespace System
             return server;
         }
 #endif
+#endif
+
+// $$$$$$$
+#if false // MONO
 #else
         // the cache entry
         class ActivatorCacheEntry
@@ -5535,10 +5546,13 @@ namespace System
 
         private static volatile ActivatorCache s_ActivatorCache;
 
+#if !MONO
         // the slow path of CreateInstanceDefaultCtor
         [System.Security.SecuritySafeCritical]  // auto-generated
         internal Object CreateInstanceSlow(bool publicOnly, bool skipCheckThis, bool fillCache, ref StackCrawlMark stackMark)
         {
+            // CreateInstanceSlow()
+
             RuntimeMethodHandleInternal runtime_ctor = default(RuntimeMethodHandleInternal);
             bool bNeedSecurityCheck = true;
             bool bCanBeCached = false;
@@ -5585,12 +5599,17 @@ namespace System
             return instance;
         }
 #endif
+
+
+#endif
+
+
         // Helper to invoke the default (parameterless) ctor.
         // fillCache is set in the SL2/3 compat mode or when called from Marshal.PtrToStructure.
         [System.Security.SecuritySafeCritical]  // auto-generated
         [DebuggerStepThroughAttribute]
         [Diagnostics.DebuggerHidden]
-        internal Object CreateInstanceDefaultCtor(bool publicOnly, bool skipCheckThis, bool fillCache, ref StackCrawlMark stackMark)
+        internal Object CreateInstanceDefaultCtor(bool publicOnly, bool skipCheckThis, bool fillCache, bool wrapExceptions, ref StackCrawlMark stackMark)
         {
             if (GetType() == typeof(ReflectionOnlyType))
                 throw new InvalidOperationException(Environment.GetResourceString("InvalidOperation_NotAllowedInReflectionOnly"));
@@ -5636,6 +5655,7 @@ namespace System
                 }
             }
 #endif
+            // wrapExceptions, 
             return CreateInstanceSlow(publicOnly, skipCheckThis, fillCache, ref stackMark);
         }
 #if !MONO
@@ -5650,9 +5670,9 @@ namespace System
             return RuntimeTypeHandle.IsComObject(this, true);
         }
 #endif
-        #endregion
+#endregion
 #if !MONO
-        #region Legacy Static Internal
+#region Legacy Static Internal
         [System.Security.SecurityCritical]
         [ResourceExposure(ResourceScope.None)]
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -5694,9 +5714,9 @@ namespace System
 #endif // FEATURE_COMINTEROP_UNMANAGED_ACTIVATION
 #endif
 
-        #endregion
+#endregion
 #endif
-        #region COM
+#region COM
 #if FEATURE_COMINTEROP && FEATURE_REMOTING && !MONO
         [System.Security.SecuritySafeCritical]  // auto-generated
         private Object ForwardCallToInvokeMember(String memberName, BindingFlags flags, Object target, int[] aWrapperTypes, ref MessageData msgData)
@@ -5892,7 +5912,7 @@ namespace System
         [Flags]
         private enum DispatchWrapperType : int
         {
-            // This enum must stay in [....] with the DispatchWrapperType enum defined in MLInfo.h
+            // This enum must stay in sync with the DispatchWrapperType enum defined in MLInfo.h
             Unknown         = 0x00000001,
             Dispatch        = 0x00000002,
             Record          = 0x00000004,
@@ -5904,7 +5924,7 @@ namespace System
 
         private static volatile OleAutBinder s_ForwardCallBinder;
 #endif // FEATURE_COMINTEROP && FEATURE_REMOTING
-        #endregion
+#endregion
     }
 
     // this is the introspection only type. This type overrides all the functions with runtime semantics
@@ -5932,7 +5952,7 @@ namespace System
 
     }
 #if !MONO
-    #region Library
+#region Library
     internal unsafe struct Utf8String
     {
         [System.Security.SecurityCritical]  // auto-generated
@@ -6054,7 +6074,7 @@ namespace System
             }
         }
     }
-    #endregion
+#endregion
 #endif
 }
 #if !MONO

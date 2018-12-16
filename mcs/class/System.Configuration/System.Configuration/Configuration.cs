@@ -53,7 +53,7 @@ namespace System.Configuration {
 	public sealed class Configuration
 	{		
 		Configuration parent;
-		Hashtable elementData = new Hashtable ();
+        Hashtable elementData;
 		string streamName;
 		ConfigurationSectionGroup rootSectionGroup;
 		ConfigurationLocationCollection locations;
@@ -71,29 +71,39 @@ namespace System.Configuration {
 		
 		internal Configuration (Configuration parent, string locationSubPath)
 		{
-			this.parent = parent;
+            elementData = new Hashtable();
+            this.parent = parent;
 			this.system = parent.system;
 			this.rootGroup = parent.rootGroup;
 			this.locationSubPath = locationSubPath;
 			this.configPath = parent.ConfigPath;
 		}
-		
-		internal Configuration (InternalConfigurationSystem system, string locationSubPath)
+
+        internal Configuration(InternalConfigurationSystem systemX, string locationSubPath)
+            : this(system: systemX, locationSubPath: locationSubPath)
+        { }
+
+        internal Configuration (IConfigSystem system, string locationSubPath)
 		{
-			hasFile = true;
+            elementData = new Hashtable();
+            hasFile = true;
 			this.system = system;
 
-			system.InitForConfiguration (ref locationSubPath, out configPath, out locationConfigPath);
-			
-			Configuration parent = null;
-			
-			if (locationSubPath != null) {
-				parent = new Configuration (system, locationSubPath);
-				if (locationConfigPath != null)
-					parent = parent.FindLocationConfiguration (locationConfigPath, parent);
-			}
-			
-			Init (system, configPath, parent);
+			system.InitForConfiguration(ref locationSubPath, out configPath, out locationConfigPath);
+
+            Configuration parent = null;
+
+            try
+            {
+                if (locationSubPath != null) {
+				    parent = new Configuration (system, locationSubPath);
+				    if (locationConfigPath != null)
+					    parent = parent.FindLocationConfiguration (locationConfigPath, parent);
+			    }
+
+                Init(system, configPath, parent);
+            }
+            catch { }
 		}
 		
 		internal Configuration FindLocationConfiguration (string relativePath, Configuration defaultConfiguration)
@@ -108,7 +118,10 @@ namespace System.Configuration {
 				}
 			}
 
-			string relConfigPath = configPath.Substring (1) + "/";
+            if (configPath.Length == 0)
+                return parentConfig;
+
+            string relConfigPath = configPath.Substring (1) + "/";
 			if (relativePath.StartsWith (relConfigPath, StringComparison.Ordinal))
 				relativePath = relativePath.Substring (relConfigPath.Length);
 
@@ -124,22 +137,32 @@ namespace System.Configuration {
 		{
 			this.system = system;
 			this.configPath = configPath;
-			streamName = system.Host.GetStreamName (configPath);
-			this.parent = parent;
-			if (parent != null)
-				rootGroup = parent.rootGroup;
-			else {
-				rootGroup = new SectionGroupInfo ();
-				rootGroup.StreamName = streamName;
-			}
+
+            try
+            {
+                try
+                {
+                    streamName = system.Host?.GetStreamName(configPath);
+                }
+                catch { } 
+
+                this.parent = parent;
+                if (parent != null)
+				    rootGroup = parent.rootGroup;
+			    else {
+				    rootGroup = new SectionGroupInfo ();
+				    rootGroup.StreamName = streamName;
+			    }
 			
-			try {
 				if (streamName != null)
 					Load ();
-			} catch (XmlException ex) {
-				throw new ConfigurationErrorsException (ex.Message, ex, streamName, 0);
+
+			} catch (Exception ex) {
+                InitError = ex; // throw new ConfigurationErrorsException (ex.Message, ex, streamName, 0);
 			}
 		}
+
+        public static Exception InitError { get; set; }
 		
 		internal Configuration Parent {
 			get { return parent; }

@@ -87,7 +87,46 @@ namespace System
 			return GetFunctionPointer (value);
 		}
 
-		[ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
+        /// <summary>
+        ///  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
+        [SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
+        internal static IntPtr GetFunctionPointer(RuntimeMethodHandleInternal handle)
+        {
+            return GetFunctionPointer(handle.Value);
+        }
+
+        /*
+        https://source.dot.net/#System.Private.CoreLib/src/System/RuntimeHandles.cs,a6494e59afc3e504
+        [DllImport(JitHelpers.QCall, CharSet = CharSet.Unicode)]
+        internal static extern IntPtr GetFunctionPointer(RuntimeMethodHandleInternal handle);
+
+        public IntPtr GetFunctionPointer()
+        {
+            IntPtr ptr = GetFunctionPointer(EnsureNonNullMethodInfo(m_value).Value);
+            GC.KeepAlive(m_value);
+            return ptr;
+        }
+        */
+
+        // E:\Beta\mono02\mono02\mono08\mono\metadata\icall-def.h
+        // ICALL_TYPE(RTH, "System.RuntimeTypeHandle", RTH_1)
+        // HANDLES(ICALL(RTH_3, "GetAttributes", ves_icall_RuntimeTypeHandle_GetAttributes))
+    
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        internal static extern MethodAttributes GetAttributes(RuntimeMethodHandleInternal method);
+
+        internal static MethodAttributes GetAttributes(IRuntimeMethodInfo method)
+        {
+            MethodAttributes retVal = RuntimeMethodHandle.GetAttributes(method.Value);
+            GC.KeepAlive(method);
+            return retVal;
+        }
+
+
+        [ReliabilityContractAttribute (Consistency.WillNotCorruptState, Cer.Success)]
 		public override bool Equals (object obj)
 		{
 			if (obj == null || GetType () != obj.GetType ())

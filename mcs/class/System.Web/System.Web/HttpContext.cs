@@ -113,12 +113,13 @@ namespace System.Web
             }
 
 			WorkerRequest = wr;
-			request = new HttpRequest (WorkerRequest, this);
-			response = new HttpResponse (WorkerRequest, this);
-			SessionStateBehavior = SessionStateBehavior.Default;
-		}
+            // -> Current set
+            // request = new HttpRequest (WorkerRequest, this);
+            // response = new HttpResponse (WorkerRequest, this);
+            // SessionStateBehavior = SessionStateBehavior.Default;
+        }
 
-		public HttpContext (HttpRequest request, HttpResponse response)
+        public HttpContext (HttpRequest request, HttpResponse response)
 		{
             skip_authorization = false;
             profile = null;
@@ -189,7 +190,16 @@ namespace System.Web
 			}
 
 			set {
-				CallContext.SetData ("c", value);
+
+                CallContext.SetData("c", value);
+
+                if (value != null && value.request == null && value.WorkerRequest != null)
+                {
+                    var WorkerRequest = value.WorkerRequest;
+                    value.request = new HttpRequest(WorkerRequest, value);
+                    value.response = new HttpResponse(WorkerRequest, value);
+                    value.SessionStateBehavior = SessionStateBehavior.Default;
+                }
 			}
 		}
 

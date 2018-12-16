@@ -36,6 +36,8 @@ namespace System.Configuration.Internal
 		IInternalConfigHost Host { get; }
 		IInternalConfigRoot Root { get; }
 		void Init (Type typeConfigHost, params object[] hostInitParams);
-	}
+
+        void InitForConfiguration(ref string locationSubPath, out string configPath, out string locationConfigPath);
+    }
 }
 

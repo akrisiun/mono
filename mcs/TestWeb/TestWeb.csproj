@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <RuntimeMetadataVersion>net462</RuntimeMetadataVersion>
+    <!--<RuntimeMetadataVersion>net48</RuntimeMetadataVersion>-->
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <RuntimeIdentifiers>win7-x64</RuntimeIdentifiers>
     
@@ -27,6 +27,7 @@
     <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SignAssembly>true</SignAssembly>
+    <!--[assembly: AssemblyKeyFile ("../msfinal.pub")]-->
     <AssemblyOriginatorKeyFile>..\mono.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
@@ -48,10 +49,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\external\Mono.XSP\src\Mono.WebServer.XSP\Mono.WebServer.XSP.csproj" />
-    <ProjectReference Include="..\..\external\Mono.XSP\src\Mono.WebServer\Mono.WebServer.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Mono.Cecil1">
@@ -65,10 +62,16 @@
     <Reference Include="Mono.Security">
       <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration">
-      <HintPath>..\..\lib\mono\4.5\System.Configuration.dll</HintPath>
+    <Reference Include="Mono.WebBrowser">
+      <HintPath>..\..\lib\mono\4.5\Mono.WebBrowser.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.WebServer">
+      <HintPath>..\..\lib\mono\4.5\Mono.WebServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.WebServer.XSP">
+      <HintPath>..\..\lib\mono\4.5\Mono.WebServer.XSP.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
     <!-- Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a -->
    <!-- System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 -->
     <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -96,13 +99,17 @@
     -->
 
     
-    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\..\Mono\lib\mono\net45\System.Web.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
   </ItemGroup>
-
   <ItemGroup>
+    <Reference Include="System.Configuration, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\..\Mono\lib\mono\4.5\System.Configuration.dll</HintPath>
+    </Reference>
+    <None Update="..\..\Mono\lib\mono\net45\System.Configuration.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\..\Mono\lib\mono\4.5\System.Web.dll</HintPath>
+    </Reference>
     <None Update="..\..\Mono\lib\mono\net45\System.Web.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -123,6 +130,9 @@
 
     <Copy Condition=" '$(SolutionDir)' == '*Undefined*'" SourceFiles="$(LibDir)\System.Web.dll" DestinationFiles=" $(TargetDir)System.Web.dll" SkipUnchangedFiles="false" />
     <Copy Condition=" '$(SolutionDir)' == '*Undefined*'" SourceFiles="$(LibDir)\System.Web.pdb" DestinationFiles=" $(TargetDir)System.Web.pdb" SkipUnchangedFiles="false" />
+    <Message Condition=" Exists($(LibDir)) " Importance="High" Text="           $(LibDir)\System.Configuration.dll -&gt;    $(TargetDir)System.Configuration.dll" />
+    <Copy Condition=" '$(SolutionDir)' == '*Undefined*'" SourceFiles="$(LibDir)\System.Configuration.dll" DestinationFiles=" $(TargetDir)System.Configuration.dll" SkipUnchangedFiles="false" />
+    <Copy Condition=" '$(SolutionDir)' == '*Undefined*'" SourceFiles="$(LibDir)\System.Configuration.pdb" DestinationFiles=" $(TargetDir)System.Configuration.pdb" SkipUnchangedFiles="false" />
     <Message Condition=" Exists($(LibDir)) " Importance="High" Text="           $(LibDir)\System.Web.dll -&gt;    $(TargetDir)bin\System.Web.dll" />
     <Copy Condition=" '$(SolutionDir)' == '*Undefined*'" SourceFiles="$(LibDir)\System.Web.dll" DestinationFiles=" $(TargetDir)bin\System.Web.dll" SkipUnchangedFiles="false" />
     <Copy Condition=" '$(SolutionDir)' == '*Undefined*'" SourceFiles="$(LibDir)\System.Web.pdb" DestinationFiles=" $(TargetDir)bin\System.Web.pdb" SkipUnchangedFiles="false" />

@@ -14,6 +14,12 @@
 		},
 		{
 			"path": "class\\System.Web"
+		},
+		{
+			"path": "class\\referencesource"
+		},
+		{
+			"path": "class\\System.Configuration"
 		}
 	],
 	"settings": {}

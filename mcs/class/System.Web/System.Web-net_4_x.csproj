@@ -1513,13 +1513,7 @@
     <Compile Include="System.Web\XmlSiteMapProvider.cs" />
     <Compile Include="System.Web\UplevelHelper.cs" />
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
   <PropertyGroup>
     <PreBuildEvent Condition=" '$(OS)' != 'Windows_NT' ">
 mono $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelper.cs $(ProjectDir)\UplevelHelperDefinitions.xml
@@ -1731,7 +1725,7 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>..\lib\net_4_x\System.ComponentModel.DataAnnotations.dll</HintPath>
     </Reference>
-    <Reference Include="System.Configuration">
+    <Reference Include="System.Configuration, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\lib\net_4_x\System.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">

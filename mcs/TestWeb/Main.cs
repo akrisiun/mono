@@ -29,15 +29,16 @@ namespace standalone_tests
             // & ./testMono1/bin/mono-sgen.exe TestMono1/bin/TestWeb.exe --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555
 
             // Debugger.Break();
-            var text = "Hello Mono Web";
+            var text = "Hello Mono Web, enter..";
+            Console.ReadLine();
             TestStr.Test1(text);
 
             Exception err = null;
             Server server = null;
             var host = TestWeb.Test2();
 
-            MyAspHost.Run();
-            Console.ReadLine();
+            //MyAspHost.Run();
+            // Console.ReadLine();
 
             try
             {
@@ -291,8 +292,8 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
 
             var app = context.ApplicationInstance ?? new HttpApplication();
 
-            var isDev = HostingEnvironment.IsDevelopmentEnvironment;
-            Console.WriteLine($"IsDevelopmentEnvironment= {isDev}");
+            // var isDev = HostingEnvironment.IsDevelopmentEnvironment;
+            // Console.WriteLine($"IsDevelopmentEnvironment= {isDev}");
 
             (app as IHttpHandler).ProcessRequest(context);
 

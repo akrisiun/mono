@@ -1618,7 +1618,8 @@ namespace System.Web
 			} else if (!VirtualPathUtility.IsAbsolute (virtualPath))
 				virtualPath = VirtualPathUtility.ToAbsolute (virtualPath, false);
 
-			bool isAppVirtualPath = String.Compare (virtualPath, appVirtualPath, RuntimeHelpers.StringComparison) == 0;
+            appVirtualPath = appVirtualPath ?? virtualPath;
+            bool isAppVirtualPath = String.Compare (virtualPath, appVirtualPath, RuntimeHelpers.StringComparison) == 0;
 			appVirtualPath = VirtualPathUtility.AppendTrailingSlash (appVirtualPath);
 			if (!allowCrossAppMapping){
 				if (!StrUtils.StartsWith (virtualPath, appVirtualPath, true))

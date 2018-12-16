@@ -59,6 +59,18 @@ namespace System.Configuration
 		object IInternalConfigSystem.GetSection (string configKey)
 		{
             ConfigurationSection s = null;
+            if (configKey == "appSettings")
+            {
+                var dom = AppDomain.CurrentDomain;
+                var c = dom.GetData(configKey);
+                if (c == null) {
+                    c = new System.Collections.Specialized.NameValueCollection();
+                    dom.SetData(configKey, c);
+                }
+
+                return c;
+            }
+
             try { s = Configuration.GetSection(configKey); }
             catch { }
 			return s != null ? s.GetRuntimeObject () : null;
