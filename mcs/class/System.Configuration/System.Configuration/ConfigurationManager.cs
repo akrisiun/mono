@@ -135,7 +135,11 @@ namespace System.Configuration {
 			return ConfigurationFactory.Create (typeof(ExeConfigurationHost), fileMap, userLevel);
 		}
 
-		public static Configuration OpenMachineConfiguration ()
+        public static object ConfigurationFactory2 {
+            get => configFactory;
+        }
+
+        public static Configuration OpenMachineConfiguration ()
 		{
 			ConfigurationFileMap map = new ConfigurationFileMap ();
 			return ConfigurationFactory.Create (typeof(MachineConfigurationHost), map);
@@ -146,7 +150,8 @@ namespace System.Configuration {
 			return ConfigurationFactory.Create (typeof(MachineConfigurationHost), fileMap);
 		}
 		
-		internal static IInternalConfigConfigurationFactory ConfigurationFactory {
+		// internal
+        public static IInternalConfigConfigurationFactory ConfigurationFactory {
 			get { return configFactory; }
 		}
 

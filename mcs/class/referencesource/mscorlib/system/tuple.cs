@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Runtime.CompilerServices;
 
 namespace System {
 
@@ -14,6 +15,11 @@ namespace System {
         int GetHashCode(IEqualityComparer comparer);
         int Size { get; }
 
+    }
+
+    internal interface ITupleInternal : ITuple {
+        // string ToString(StringBuilder sb);
+        // int GetHashCode(IEqualityComparer comparer);
     }
 
     public static class Tuple {
@@ -50,7 +56,8 @@ namespace System {
         }
 
         // From System.Web.Util.HashCodeCombiner
-        internal static int CombineHashCodes(int h1, int h2) {
+        internal static int CombineHashCodes(int h1, int h2)
+        {
             return (((h1 << 5) + h1) ^ h2);
         }
 
@@ -80,7 +87,7 @@ namespace System {
     }
 
     [Serializable]
-    public class Tuple<T1> : IStructuralEquatable, IStructuralComparable, IComparable, ITuple {
+    public class Tuple<T1> : IStructuralEquatable, IStructuralComparable, IComparable, ITupleInternal, ITuple {
 
         private readonly T1 m_Item1;
 

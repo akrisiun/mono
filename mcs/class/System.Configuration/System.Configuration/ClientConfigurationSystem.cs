@@ -58,7 +58,9 @@ namespace System.Configuration
 
 		object IInternalConfigSystem.GetSection (string configKey)
 		{
-			ConfigurationSection s = Configuration.GetSection (configKey);
+            ConfigurationSection s = null;
+            try { s = Configuration.GetSection(configKey); }
+            catch { }
 			return s != null ? s.GetRuntimeObject () : null;
 		}
 

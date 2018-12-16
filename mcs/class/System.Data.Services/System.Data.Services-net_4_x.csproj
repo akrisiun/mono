@@ -174,17 +174,9 @@
       <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
       <Name>System.Core-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.ServiceModel/System.ServiceModel-net_4_x.csproj">
-      <Project>{FE596C31-BDA2-4850-8F79-F8F4DF70F44A}</Project>
-      <Name>System.ServiceModel-net_4_x</Name>
-    </ProjectReference>
     <ProjectReference Include="../System.Data.Services.Client/System.Data.Services.Client-net_4_x.csproj">
       <Project>{2FFB9A8F-DB7B-41FF-9398-15DF81AE1BC8}</Project>
       <Name>System.Data.Services.Client-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.ServiceModel.Activation/System.ServiceModel.Activation-net_4_x.csproj">
-      <Project>{7A23227C-591B-4F80-9D62-4D0271073D82}</Project>
-      <Name>System.ServiceModel.Activation-net_4_x</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

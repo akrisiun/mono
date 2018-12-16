@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Remoting;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Hosting;
@@ -33,10 +34,13 @@ namespace standalone_tests
 
             Exception err = null;
             Server server = null;
+            var host = TestWeb.Test2();
+
+            MyAspHost.Run();
+            Console.ReadLine();
+
             try
             {
-                var host = TestWeb.Test2();
-
                 server = TestWeb.HostXsp2();
 
                 // TestWeb.ManagerTest3();
@@ -86,6 +90,48 @@ namespace standalone_tests
                 // corlib.Debug.
                 Console.WriteLine(arr2);
             }
+        }
+    }
+
+    // http://radio-weblogs.com/0105476/stories/2002/07/12/executingAspxPagesWithoutAWebServer.html 
+    public class MyAspHost
+    {
+        public static object CreateApplicationHost(Type hostType, string virtualDir, string physicalDir)
+        {
+            if (!(physicalDir.EndsWith("\\")))
+                physicalDir = physicalDir + "\\";
+            string aspDir = HttpRuntime.AspInstallDirectory;
+            string domainId = DateTime.Now.ToString().GetHashCode().ToString("x");
+            string appName = (virtualDir + physicalDir).GetHashCode().ToString("x");
+            AppDomainSetup setup = new AppDomainSetup();
+            setup.ApplicationName = appName;
+            setup.ConfigurationFile = "web.config";  // not necessary execept for debugging
+            AppDomain ad = AppDomain.CreateDomain(domainId, null, setup);
+            ad.SetData(".appDomain", "*");
+            ad.SetData(".appPath", physicalDir);
+            ad.SetData(".appVPath", virtualDir);
+            ad.SetData(".domainId", domainId);
+            ad.SetData(".hostingVirtualPath", virtualDir);
+            ad.SetData(".hostingInstallDir", aspDir);
+
+            ObjectHandle oh = ad.CreateInstance(hostType.Module.Assembly.FullName, hostType.FullName);
+            return oh.Unwrap();
+        }
+
+        public static void Run() // string[] args)
+        {
+            MyExeHost myHost = (MyExeHost)CreateApplicationHost(typeof(MyExeHost), "/", Directory.GetCurrentDirectory());
+            myHost.ProcessRequest("netversion.aspx");
+        }
+    }
+
+    public class MyExeHost : MarshalByRefObject
+    {
+        public void ProcessRequest(String page)
+        {
+            HttpWorkerRequest hwr =
+                new SimpleWorkerRequest(page, null, Console.Out);
+            HttpRuntime.ProcessRequest(hwr);
         }
     }
 
@@ -402,16 +448,14 @@ namespace System.Diagnostics
             DebugMono2.WriteLine($"corlib.Debug : {typeof(DebugMono2).Assembly.Location}");
             DebugMono2.WriteLine($"mscorlib   : {typeof(System.Object).Assembly.Location}");
             DebugMono2.WriteLine($"System.Xml : {typeof(System.Xml.Formatting).Assembly.Location}");
+            DebugMono2.WriteLine($"Configuration : {typeof(System.Configuration.Configuration).Assembly.Location}");
         }
 
         public static void BreakWeb()
         {
             // DebugMono2.WriteLine($"System.Web : {typeof(Mono.Web.Util.SettingsMappingManager).Assembly.Location}");
             DebugMono2.WriteLine($"System.Web : {typeof(System.Web.HttpContext).Assembly.Location}");
-            // corlib.Debug.Console.Break();
-            // corlib.Debug.Console.Load();
             // corlib.Debug.Console.WriteLine(arr);
-
         }
     }
 }

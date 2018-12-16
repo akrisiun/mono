@@ -98,10 +98,6 @@
       <Project>{87FD2F0F-5222-4AE6-BD63-2D4975E11E5B}</Project>
       <Name>System.Xml-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.ServiceModel/System.ServiceModel-net_4_x.csproj">
-      <Project>{FE596C31-BDA2-4850-8F79-F8F4DF70F44A}</Project>
-      <Name>System.ServiceModel-net_4_x</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

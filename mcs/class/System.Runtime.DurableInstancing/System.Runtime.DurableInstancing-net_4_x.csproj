@@ -158,10 +158,6 @@
       <Project>{3821C69F-220D-4231-992C-0FE05311A005}</Project>
       <Name>System.Transactions-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.ServiceModel.Internals/System.ServiceModel.Internals-net_4_x.csproj">
-      <Project>{5769B536-7E8E-4C2A-8671-6B256D0F620B}</Project>
-      <Name>System.ServiceModel.Internals-net_4_x</Name>
-    </ProjectReference>
     <ProjectReference Include="../System.Runtime.Serialization/System.Runtime.Serialization-net_4_x.csproj">
       <Project>{D845AD9D-3CCB-49CB-9543-028678E94938}</Project>
       <Name>System.Runtime.Serialization-net_4_x</Name>

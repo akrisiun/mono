@@ -227,10 +227,6 @@
       <Project>{87FD2F0F-5222-4AE6-BD63-2D4975E11E5B}</Project>
       <Name>System.Xml-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../WindowsBase/WindowsBase-net_4_x.csproj">
-      <Project>{A8F39368-ECD9-41A5-A562-CC7C82B3CC86}</Project>
-      <Name>WindowsBase-net_4_x</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

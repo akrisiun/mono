@@ -16,7 +16,8 @@
     <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>System.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -1548,10 +1549,6 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
       <Project>{87FD2F0F-5222-4AE6-BD63-2D4975E11E5B}</Project>
       <Name>System.Xml-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.EnterpriseServices/System.EnterpriseServices-net_4_x.csproj">
-      <Project>{61E3D008-E273-4E12-860A-8ADA031098C2}</Project>
-      <Name>System.EnterpriseServices-net_4_x</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -1760,7 +1757,6 @@ $(ProjectDir)\..\lib\net_4_x\culevel.exe -o $(ProjectDir)\System.Web\UplevelHelp
       <HintPath>..\lib\net_4_x\System.Web.ApplicationServices.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <Target Name="PostBuildTask" AfterTargets="Build">
     <Message Importance="High" Text="net*  -&gt;    $(TargetDir)$(TargetName).dll" />
   </Target>

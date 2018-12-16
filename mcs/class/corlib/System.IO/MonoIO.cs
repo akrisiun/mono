@@ -205,13 +205,57 @@ namespace System.IO
 						       bool ignoreMetadataErrors,
 						       out MonoIOError error);
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
-		public extern static FileAttributes GetFileAttributes (string path, out MonoIOError error);
+        //[MethodImplAttribute (MethodImplOptions.InternalCall)]
+        //public extern static FileAttributes GetFileAttributes (string path, out MonoIOError error);
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
-		public extern static bool SetFileAttributes (string path, FileAttributes attrs, out MonoIOError error);
+        //      [MethodImplAttribute (MethodImplOptions.InternalCall)]
+        //public extern static bool SetFileAttributes (string path, FileAttributes attrs, out MonoIOError error);
 
-		[MethodImplAttribute (MethodImplOptions.InternalCall)]
+        // E:\Beta\mono02\mono02\mcs\class\corlib\System.IO\MonoIO.cs
+        // System.IO.MonoIO::GetFileAttributes(char*, System.IO.MonoIOError&) ->
+        // E:\Beta\mono02\mono02\mono08\mono\metadata\w32file.c
+        // gint32 ves_icall_System_IO_MonoIO_GetFileAttributes(const gunichar2* path, gint32 *error)
+
+        // System.IO.MonoIO::GetFileAttributes(string, System.IO.MonoIOError&)" (tested without signature also)
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        private unsafe extern static FileAttributes GetFileAttributes0(char* path, out MonoIOError error);
+
+        public class Interopt
+        {
+            [MethodImpl(MethodImplOptions.InternalCall)]
+            private unsafe extern static FileAttributes GetFileAttributes(string path, out MonoIOError error);
+
+            [MethodImpl(MethodImplOptions.InternalCall)]
+            private extern static bool SetFileAttributes(string path, FileAttributes attrs, out MonoIOError error);
+        }
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        private extern static bool SetFileAttributes0(char* path, FileAttributes attrs, out MonoIOError error);
+
+        public static FileAttributes GetFileAttributes(string path, out MonoIOError error)
+        {
+            unsafe
+            {
+                fixed (char* pathChars = path)
+                {
+                    return GetFileAttributes0(pathChars, out error);
+                }
+            }
+        }
+
+        public static bool SetFileAttributes(string path, FileAttributes attrs, out MonoIOError error)
+        {
+            unsafe
+            {
+                fixed (char* pathChars = path)
+                {
+                    return SetFileAttributes0(pathChars, attrs, out error);
+                }
+            }
+        }
+
+        [MethodImplAttribute (MethodImplOptions.InternalCall)]
 		private extern static MonoFileType GetFileType (IntPtr handle, out MonoIOError error);
 
 		public static MonoFileType GetFileType (SafeHandle safeHandle, out MonoIOError error)

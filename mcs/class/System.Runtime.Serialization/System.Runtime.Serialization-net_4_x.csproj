@@ -270,10 +270,6 @@
       <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
       <Name>System.Core-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.ServiceModel.Internals/System.ServiceModel.Internals-net_4_x.csproj">
-      <Project>{5769B536-7E8E-4C2A-8671-6B256D0F620B}</Project>
-      <Name>System.ServiceModel.Internals-net_4_x</Name>
-    </ProjectReference>
     <ProjectReference Include="../System.Data/System.Data-net_4_x.csproj">
       <Project>{EC439BB8-FFED-4A32-A05D-2FA3A70CAD64}</Project>
       <Name>System.Data-net_4_x</Name>
@@ -281,10 +277,6 @@
     <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
       <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
       <Name>System.Configuration-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../SMDiagnostics/SMDiagnostics-net_4_x.csproj">
-      <Project>{8B8C3ED9-96F9-49B3-B355-9FD3D29DD3AD}</Project>
-      <Name>SMDiagnostics-net_4_x</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

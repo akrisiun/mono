@@ -158,7 +158,7 @@ namespace System.Web
 			try {
                 var type = typeof(System.Configuration.Configuration);
                 var get_c = type.GetMethods();
-                var get_c1 = type.GetMethod("get_ConfigPath");
+                var get_c1 = type.GetMethod("get_FilePath");
 
                 UrlMappingsSection ums = WebConfigurationManager.GetWebApplicationSection ("system.web/urlMappings") as UrlMappingsSection;
 				if (ums != null && ums.IsEnabled) {

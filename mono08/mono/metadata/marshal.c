@@ -4969,19 +4969,23 @@ copy_managed_common (MonoArrayHandle managed, gconstpointer native, gint32 start
 
 	// FIXME? move checks to managed
 	if (m_class_get_rank (klass) != 1) {
-		mono_error_set_argument (error, "array", "array is multi-dimensional");
+		if (error)
+			mono_error_set_argument (error, "array", "array is multi-dimensional");
 		return 0;
 	}
 	if (start_index < 0) {
-		mono_error_set_argument (error, "startIndex", "Must be >= 0");
+		if (error)
+			mono_error_set_argument (error, "startIndex", "Must be >= 0");
 		return 0;
 	}
 	if (length < 0) {
-		mono_error_set_argument (error, "length", "Must be >= 0");
+		if (error)
+			mono_error_set_argument (error, "length", "Must be >= 0");
 		return 0;
 	}
 	if (start_index + length > mono_array_handle_length (managed)) {
-		mono_error_set_argument (error, "length", "start_index + length > array length");
+		if (error)
+			mono_error_set_argument (error, "length", "start_index + length > array length");
 		return 0;
 	}
 
@@ -4995,6 +4999,12 @@ copy_managed_common (MonoArrayHandle managed, gconstpointer native, gint32 start
 }
 
 void
+ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged0(MonoArrayHandle src, gint32 start_index,
+	gpointer dest, gint32 length, gconstpointer managed_source_addr, MonoError *error)
+{
+	ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged(src, start_index, dest, length, managed_source_addr, error);
+}
+void
 ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged (MonoArrayHandle src, gint32 start_index,
 		gpointer dest, gint32 length, gconstpointer managed_source_addr, MonoError *error)
 {
@@ -5005,6 +5015,12 @@ ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged (MonoArrayHan
 	mono_gchandle_free (gchandle);
 }
 
+void
+ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged0(gconstpointer src, gint32 start_index,
+	MonoArrayHandle dest, gint32 length, gpointer managed_dest_addr, MonoError *error)
+{
+	ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged(src, start_index, dest, length, managed_dest_addr, error);
+}
 void
 ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged (gconstpointer src, gint32 start_index,
 		MonoArrayHandle dest, gint32 length, gpointer managed_dest_addr, MonoError *error)

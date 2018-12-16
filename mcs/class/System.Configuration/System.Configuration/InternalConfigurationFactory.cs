@@ -32,7 +32,7 @@ using System.Configuration.Internal;
 
 namespace System.Configuration {
 
-	class InternalConfigurationFactory: IInternalConfigConfigurationFactory
+	public class InternalConfigurationFactory: IInternalConfigConfigurationFactory
 	{
 		public Configuration Create (Type typeConfigHost, params object[] hostInitConfigurationParams)
 		{

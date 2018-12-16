@@ -69,7 +69,25 @@ namespace System.Runtime.InteropServices
 #endif
 		}
 
-		[MonoTODO]
+        /*
+        // Arg_MissingMethodException
+        // at(wrapper managed-to-native) System.Runtime.InteropServices.Marshal.copy_from_unmanaged(intptr, int, System.Array, int)
+        public static void copy_from_unmanaged2(IntPtr ptr, int startIndex, System.Array a, int len)
+        {
+            HANDLES(ICALL(MARSHAL_41, "copy_from_unmanaged_fixed", ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged))
+            HANDLES(ICALL(MARSHAL_42, "copy_to_unmanaged_fixed", ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged))
+            copy_to_unmanaged0
+            // E:\Beta\mono02\mono02\mono08\mono\metadata\marshal.h(662):
+            // ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged(gconstpointer src, gint32 start_index,
+
+            internal extern static void copy_from_unmanaged(IntPtr source, int startIndex,
+            // at System.Runtime.InteropServices.Marshal.Copy(System.IntPtr source, System.Char[] destination, 
+            // System.Int32 startIndex, System.Int32 length)[0x00001] in <3a2fee22b8664c4da27e95df271fd6ea>:0
+            Marshal.Copy()
+        }
+        */
+
+        [MonoTODO]
 		public static bool AreComObjectsAvailableForCleanup ()
 		{
 			return false;
@@ -110,52 +128,63 @@ namespace System.Runtime.InteropServices
 			throw new NotImplementedException ();
 		}
 
-		[MethodImplAttribute(MethodImplOptions.InternalCall)]
-		internal extern static void copy_to_unmanaged (Array source, int startIndex,
-							       IntPtr destination, int length);
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal extern static void copy_to_unmanaged0(Array source, int startIndex,
+        					        IntPtr destination, int length);
 
-		[MethodImplAttribute(MethodImplOptions.InternalCall)]
-		internal extern static void copy_from_unmanaged (IntPtr source, int startIndex,
-								 Array destination, int length);
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        unsafe private extern static void copy_from_unmanaged_fixed(IntPtr source, int startIndex,
+               Array destination, int length, void* fixed_destination_element);
 
-		public static void Copy (byte[] source, int startIndex, IntPtr destination, int length)
+        unsafe internal static void copy_from_unmanaged(IntPtr source, int startIndex, Array destination, int length)
+        {
+            copy_from_unmanaged_fixed(source, startIndex, destination, length, null);
+        }
+
+        unsafe internal static void copy_from_unmanaged(byte[] source, int startIndex, IntPtr destination, int length)
+        {
+            // IntPtr ptr = &source;
+            copy_to_unmanaged0(source, startIndex, destination, length);
+        }
+
+        public static void Copy (byte[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+			copy_to_unmanaged0 (source, startIndex, destination, length);
 		}
 
 		public static void Copy (char[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (short[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (int[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (long[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (float[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (double[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (IntPtr[] source, int startIndex, IntPtr destination, int length)
 		{
-			copy_to_unmanaged (source, startIndex, destination, length);
+            copy_to_unmanaged0(source, startIndex, destination, length);
 		}
 
 		public static void Copy (IntPtr source, byte[] destination, int startIndex, int length)
@@ -165,7 +194,12 @@ namespace System.Runtime.InteropServices
 
 		public static void Copy (IntPtr source, char[] destination, int startIndex, int length)
 		{
-			copy_from_unmanaged (source, startIndex, destination, length);
+            unsafe
+            {
+                // array
+                Array dest = destination;
+                copy_from_unmanaged_fixed(source, startIndex, dest, length, null);
+            }
 		}
 
 		public static void Copy (IntPtr source, short[] destination, int startIndex, int length)
@@ -1093,7 +1127,7 @@ namespace System.Runtime.InteropServices
 			s.CopyTo (0, asChars, 0, s.Length);
 			asChars[s.Length] = '\0';
 
-			copy_to_unmanaged (asChars, 0, ctm, length);
+            copy_to_unmanaged0(asChars, 0, ctm, length);
 			return ctm;
 		}
 
@@ -1169,7 +1203,7 @@ namespace System.Runtime.InteropServices
 					buffer [j+1] = 0;
 				}
 				copy [i] = 0;
-				copy_to_unmanaged (copy, 0, ctm, len+1);
+                copy_to_unmanaged0(copy, 0, ctm, len+1);
 			} finally {
 				// Ensure that we clear the buffer.
 				for (int i = len; i > 0; ){

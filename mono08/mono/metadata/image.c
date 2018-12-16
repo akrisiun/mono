@@ -1898,6 +1898,8 @@ mono_image_fixup_vtable (MonoImage *image)
 		g_assert (slot);
 		slot_type = vtfixup->type;
 		slot_count = vtfixup->count;
+
+// #pragma warning disable 4311
 		if (slot_type & VTFIXUP_TYPE_32BIT)
 			while (slot_count--) {
 				*((guint32*) slot) = (guint32) mono_marshal_get_vtfixup_ftnptr (image, *((guint32*) slot), slot_type);

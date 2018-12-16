@@ -612,14 +612,6 @@
       <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
       <Name>System.Core-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Numerics/System.Numerics-net_4_x.csproj">
-      <Project>{BD2FFDDC-BD89-4041-82F5-A696C941C7BE}</Project>
-      <Name>System.Numerics-net_4_x</Name>
-    </ProjectReference>
-    <ProjectReference Include="../System.EnterpriseServices/System.EnterpriseServices-net_4_x.csproj">
-      <Project>{61E3D008-E273-4E12-860A-8ADA031098C2}</Project>
-      <Name>System.EnterpriseServices-net_4_x</Name>
-    </ProjectReference>
     <ProjectReference Include="../Mono.Data.Tds/Mono.Data.Tds-net_4_x.csproj">
       <Project>{39F59AE4-1381-4275-B14E-16D786F40B93}</Project>
       <Name>Mono.Data.Tds-net_4_x</Name>

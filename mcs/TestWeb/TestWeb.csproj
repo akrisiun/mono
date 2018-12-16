@@ -31,6 +31,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="mono.snk" />
+    <None Remove="v4.0_4.0.0.0__b03f5f7f11d50a3a.lnk" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="Main.cs" />
   </ItemGroup>
   
@@ -52,15 +57,18 @@
     <Reference Include="Mono.Cecil1">
       <HintPath>..\class\lib\net_4_x\Mono.Cecil1.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Security">
-      <HintPath>..\..\lib\mono\net45\Mono.Security.dll</HintPath>
-    </Reference>
     
     <!--lib\mono\4.5\corlib.Debug.dll-->
     <Reference Include="corlib.Debug">
       <HintPath>..\..\lib\mono\4.5\corlib.Debug.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration">
+      <HintPath>..\..\lib\mono\4.5\System.Configuration.dll</HintPath>
+    </Reference>
     <!-- Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a -->
    <!-- System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 -->
     <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

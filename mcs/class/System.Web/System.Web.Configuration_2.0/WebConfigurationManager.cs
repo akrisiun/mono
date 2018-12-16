@@ -152,7 +152,7 @@ namespace System.Web.Configuration {
             {
                 var x = ConfigurationFactory;
 
-                configFactory = ConfigurationManager.ConfigurationFactory;
+                configFactory = ConfigurationManager.ConfigurationFactory2;
                 _Configuration.SaveStart += ConfigurationSaveHandler;
                 _Configuration.SaveEnd += ConfigurationSaveHandler;
 
@@ -313,22 +313,31 @@ namespace System.Web.Configuration {
             {
                 if (configurations.Count > 0)
                 {
-                    conf = (_Configuration)configurations[confKey];
+                    conf = configurations[confKey] as _Configuration;
                 }
             }
-            catch { } 
+            catch { }
 
+            string locationSub = "";
             if (conf == null) {
                 try
                 {
+                    var typeConfigHost = typeof(WebConfigurationHost);
                     var conf2 = ConfigurationFactory.Create2(typeof(WebConfigurationHost), null, path, site,
                            locationSubPath, server, userName, password, inAnotherApp);
-                    configurations[confKey] = conf2;
+                    // configurations[confKey] = conf2;
                     var conf3 = new WebConfigurationHost();
 
-                    conf = new _Configuration(parent: null, locationSubPath: "");
-                    IInternalConfigRoot root = new System.Configuration.Internal.InternalConfigRoot(conf); // conf.RootSectionGroup; // , params object[] hostInitParams)
-                    conf3.Init(root, null);
+                    InternalConfigurationSystem system = new InternalConfigurationSystem();
+                    system.Init(typeConfigHost, null);
+                    conf = new _Configuration(system: system, locationSubPath: "");
+
+                    // IInternalConfigRoot root = new System.Configuration.Internal.InternalConfigRoot(conf); // conf.RootSectionGroup; // , params object[] hostInitParams)
+                    // conf3.Init(ref locationSub,   root, null);
+                    if (conf != null)
+                    {
+                        configurations[confKey] = conf;
+                    }
                 }
                 catch { }
             }
@@ -419,7 +428,9 @@ namespace System.Web.Configuration {
 				return null;
 			
 			_Configuration c = OpenWebConfiguration (path, null, null, null, null, null, false);
-			string configPath = c.ConfigPath;
+
+            /// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+            string configPath = c.FilePath; // not: c.ConfigPath;
 			int baseCacheKey = 0;
 			int cacheKey;
 			bool pathPresent = !String.IsNullOrEmpty (path);

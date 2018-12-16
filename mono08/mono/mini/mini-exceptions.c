@@ -2475,7 +2475,7 @@ mono_handle_exception_internal (MonoContext *ctx, MonoObject *obj, gboolean resu
 
 	if (!resume) {
 		MonoContext ctx_cp = *ctx;
-		if (mono_trace_is_enabled ()) {
+		if (1) { // mono_trace_is_enabled ()) {
 			ERROR_DECL (error);
 			MonoMethod *system_exception_get_message = mono_class_get_method_from_name_checked (mono_defaults.exception_class, "get_Message", 0, 0, error);
 			mono_error_cleanup (error);

@@ -372,6 +372,12 @@ ves_icall_System_IO_MonoIO_DeleteFile (const gunichar2 *path, gint32 *error)
 	return(ret);
 }
 
+gint32
+ves_icall_System_IO_MonoIO_GetFileAttributes0(const gunichar2 *path, gint32 *error)
+{
+	return ves_icall_System_IO_MonoIO_GetFileAttributes(path, error);
+}
+
 gint32 
 ves_icall_System_IO_MonoIO_GetFileAttributes (const gunichar2 *path, gint32 *error)
 {
@@ -393,6 +399,12 @@ ves_icall_System_IO_MonoIO_GetFileAttributes (const gunichar2 *path, gint32 *err
 	return(ret);
 }
 
+MonoBoolean
+ves_icall_System_IO_MonoIO_SetFileAttributes0(const gunichar2 *path, gint32 attrs,
+	gint32 *error)
+{
+	return ves_icall_System_IO_MonoIO_SetFileAttributes(path, attrs, error);
+}
 MonoBoolean
 ves_icall_System_IO_MonoIO_SetFileAttributes (const gunichar2 *path, gint32 attrs,
 					      gint32 *error)

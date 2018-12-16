@@ -5,18 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">net_4_x</Platform>
     <LangVersion>latest</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    
+    <TargetFramework>net45</TargetFramework>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+
     <OutputType>Library</OutputType>
     <NoWarn>612,618,3001,3002,3003,1635,1699</NoWarn>
     <LangVersion>latest</LangVersion>
-    <HostPlatform Condition=" '$(HostPlatform)' == '' and '$(OS)' == 'Windows_NT'">win32</HostPlatform>
 
+    <HostPlatform Condition=" '$(HostPlatform)' == '' and '$(OS)' == 'Windows_NT'">win32</HostPlatform>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <ContinueOnError>true</ContinueOnError>
     <RestorePackages>false</RestorePackages>
-
-    <TargetFramework>net45</TargetFramework>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
 
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <NoStdLib>True</NoStdLib>
@@ -84,6 +83,7 @@ copy $(TargetPath).tmp $(TargetPath)</PostBuildEvent>
 
   <Target Name="PostBuildTask" AfterTargets="Build">
     <Message Condition=" Exists($(LibDir)) " Importance="High" Text="net*  -&gt; $(TargetDir)$(TargetName).dll" />
-    <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir)) And '$(TargetFramework)' == 'net45'" SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
+    <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir)) And '$(TargetFramework)' == 'net45'"
+          SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
   </Target>
 </Project>

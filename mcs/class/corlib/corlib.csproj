@@ -3,22 +3,21 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">net_4_x</Platform>
-    <ProjectGuid>{4627BDAB-CA24-40D0-A627-01692BA51B44}</ProjectGuid>
+    <ProjectGuid>{DBE81DD8-5288-443E-8177-0B4EC698656A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <NoWarn>612,618,3001,3002,3003,1635,1699</NoWarn>
     <LangVersion>latest</LangVersion>
     <HostPlatform Condition=" '$(HostPlatform)' == '' and '$(OS)' == 'Windows_NT'">win32</HostPlatform>
-    
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <GenerateResourceMSBuildArchitecture>CurrentArchitecture</GenerateResourceMSBuildArchitecture>    
+    <GenerateResourceMSBuildArchitecture>CurrentArchitecture</GenerateResourceMSBuildArchitecture>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-
     <NoStdLib>True</NoStdLib>
     <RuntimeMetadataVersion>Mono</RuntimeMetadataVersion>
     <NoConfig>True</NoConfig>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyName>mscorlib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <LibDir>./../../../lib/mono/4.5</LibDir>
   </PropertyGroup>
   <!-- Set AddAdditionalExplicitAssemblyReferences to false, otherwise if targetting .NET4.0, 
   Microsoft.NETFramework.props will force a dependency on the assembly System.Core. This
@@ -27,8 +26,8 @@
     <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'net_4_x' ">
-    <!--<OutputPath>./../../class/lib/net_4_x-$(HostPlatform)</OutputPath>-->
-    <OutputPath>./../../../lib/mono/4.5</OutputPath>
+    <OutputPath>./../../class/lib/net_4_x</OutputPath>
+    <!--<OutputPath>./../../../lib/mono/4.5</OutputPath> -->
     <IntermediateOutputPath>./../../class/obj/$(AssemblyName)-net_4_x-$(HostPlatform)</IntermediateOutputPath>
     <DefineConstants>INSIDE_CORLIB;MONO_CULTURE_DATA;LIBC;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ENCODINGNLS;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;BIT64;NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ENCODINGNLS;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_FEATURE_CONSOLE;FEATURE_CRYPTO_CONFIGURABLE</DefineConstants>
     <DebugSymbols>true</DebugSymbols>
@@ -36,7 +35,6 @@
     <NoWarn>612,618,1635,1699</NoWarn>
     <Optimize>false</Optimize>
   </PropertyGroup>
-
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -46,7 +44,6 @@
     <IntermediateOutputPath>./../../class/obj/$(AssemblyName)-net_4_x-$(HostPlatform)</IntermediateOutputPath>
     <DefineConstants>INSIDE_CORLIB;MONO_CULTURE_DATA;LIBC;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ENCODINGNLS;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;BIT64;NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ENCODINGNLS;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_FEATURE_CONSOLE;FEATURE_CRYPTO_CONFIGURABLE</DefineConstants>
   </PropertyGroup>
-
   <!-- Set AddAdditionalExplicitAssemblyReferences to false, otherwise if targetting .NET4.0, 
   Microsoft.NETFramework.props will force a dependency on the assembly System.Core. This
   is a problem to compile the Mono mscorlib.dll -->
@@ -55,7 +52,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
+    <OutputPath>./../../class/lib/net_4_x</OutputPath>
+    <!--<OutputPath>bin\x64\Debug\</OutputPath>-->
     <DefineConstants>TRACE;INSIDE_CORLIB;MONO_CULTURE_DATA;LIBC;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;NET_4_0;NET_4_5;NET_4_6;MONO;WIN_PLATFORM;FEATURE_PAL;GENERICS_WORK;FEATURE_LIST_PREDICATES;FEATURE_SERIALIZATION;FEATURE_ASCII;FEATURE_LATIN1;FEATURE_UTF7;FEATURE_UTF32;MONO_HYBRID_ENCODING_SUPPORT;FEATURE_ASYNC_IO;NEW_EXPERIMENTAL_ASYNC_IO;FEATURE_UTF32;FEATURE_EXCEPTIONDISPATCHINFO;FEATURE_CORRUPTING_EXCEPTIONS;FEATURE_EXCEPTION_NOTIFICATIONS;FEATURE_STRONGNAME_MIGRATION;FEATURE_USE_LCID;FEATURE_FUSION;FEATURE_CRYPTO;FEATURE_X509_SECURESTRINGS;FEATURE_SYNCHRONIZATIONCONTEXT;FEATURE_SYNCHRONIZATIONCONTEXT_WAIT;HAS_CORLIB_CONTRACTS;FEATURE_MACL;FEATURE_REMOTING;MONO_COM;FEATURE_COMINTEROP;FEATURE_ROLE_BASED_SECURITY;MONO_FEATURE_THREAD_ABORT;MONO_FEATURE_THREAD_SUSPEND_RESUME;MONO_FEATURE_MULTIPLE_APPDOMAINS;MONO_FEATURE_CONSOLE</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>612,618,1635,1699</NoWarn>
@@ -84,12 +82,10 @@
     <Compile Include="corert\System.Private.CoreLib\src\System\Collections\ObjectEqualityComparer.cs" />
     <Compile Include="corert\System.Private.CoreLib\src\System\Tuple.cs" />
     <Compile Include="corert\System.Private.CoreLib\src\System\ValueTuple.cs" />
-
     <Compile Include="corert\Runtime.CompilerServices\ITuple.cs" />
     <Compile Include="corert\Runtime.CompilerServices\TupleElementNamesAttribute.cs" />
     <!-- corert\src\System.Private.CoreLib\src\System -->
     <Compile Include="corert\Runtime.CompilerServices\TupleExtensions.cs" />
-    
     <Compile Include="..\..\build\common\AssemblyRef.cs" />
     <Compile Include="..\..\build\common\Consts.cs" />
     <Compile Include="..\..\build\common\Locale.cs" />
@@ -1081,7 +1077,7 @@
     <Compile Include="System.Reflection\ReflectionTypeLoadException.cs" />
     <Compile Include="System.Reflection\StrongNameKeyPair.cs" />
     <Compile Include="System.Resources\Win32Resources.cs" />
-  </ItemGroup>    
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="System.Runtime.CompilerServices\ConditionalWeakTable.cs" />
     <Compile Include="System.Runtime.CompilerServices\RuntimeHelpers.cs" />
@@ -1248,7 +1244,6 @@
     <Compile Include="System.Runtime\System.Runtime.Remoting.Contexts\IDynamicMessageSink.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Contexts\IDynamicProperty.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Contexts\SynchronizationAttribute.cs" />
-    
     <Compile Include="System.Runtime\System.Runtime.Remoting.Lifetime\ClientSponsor.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Lifetime\ILease.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Lifetime\ISponsor.cs" />
@@ -1294,8 +1289,8 @@
     <Compile Include="System.Runtime\System.Runtime.Remoting.Messaging\ServerContextTerminatorSink.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Messaging\ServerObjectTerminatorSink.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Messaging\StackBuilderSink.cs" />
- </ItemGroup>
- <ItemGroup>    
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="System.Runtime\System.Runtime.Remoting.Metadata.W3cXsd2001\ISoapXsd.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Metadata.W3cXsd2001\SoapAnyUri.cs" />
     <Compile Include="System.Runtime\System.Runtime.Remoting.Metadata.W3cXsd2001\SoapBase64Binary.cs" />
@@ -1371,9 +1366,8 @@
     <Compile Include="System.Runtime\GCLatencyMode.cs" />
     <Compile Include="System.Runtime\GCSettings.cs" />
     <Compile Include="System.Runtime\MemoryFailPoint.cs" />
- </ItemGroup>
- <ItemGroup>    
-    
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="System.Security.AccessControl\AccessControlActions.cs" />
     <Compile Include="System.Security.AccessControl\AccessControlModification.cs" />
     <Compile Include="System.Security.AccessControl\AccessControlSections.cs" />
@@ -1707,7 +1701,6 @@
     <Compile Include="System\WeakReference_T.cs" />
     <Compile Include="System\WindowsConsoleDriver.cs" />
   </ItemGroup>
-
   <PropertyGroup>
     <PreBuildEvent Condition=" '$(OS)' != 'Windows_NT' ">
     </PreBuildEvent>
@@ -1748,4 +1741,9 @@
       <LogicalName>collation.cjkKOlv2.bin</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
+  <Target Name="PostBuildTask" AfterTargets="Build">
+    <Message Condition=" Exists($(LibDir)) " Importance="High" Text="net45  -&gt; $(LibDir)/$(TargetName).dll" />
+    <!-- And '$(TargetFramework)' == 'net45' -->
+    <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir))" SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
+  </Target>
 </Project>

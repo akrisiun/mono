@@ -654,12 +654,22 @@ ves_icall_marshal_alloc (gsize size);
 
 ICALL_EXPORT
 void
-ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged (MonoArrayHandle src, gint32 start_index,
-		gpointer dest, gint32 length, gconstpointer managed_source_addr, MonoError *error);
+ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged(MonoArrayHandle src, gint32 start_index,
+	gpointer dest, gint32 length, gconstpointer managed_source_addr, MonoError *error);
+
+ICALL_EXPORT
+void
+ves_icall_System_Runtime_InteropServices_Marshal_copy_to_unmanaged0(MonoArrayHandle src, gint32 start_index,
+	gpointer dest, gint32 length, gconstpointer managed_source_addr, MonoError *error);
 
 ICALL_EXPORT
 void
 ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged (gconstpointer src, gint32 start_index,
+	MonoArrayHandle dest, gint32 length, gpointer managed_dest_addr, MonoError *error);
+
+ICALL_EXPORT
+void
+ves_icall_System_Runtime_InteropServices_Marshal_copy_from_unmanaged0(gconstpointer src, gint32 start_index,
 	MonoArrayHandle dest, gint32 length, gpointer managed_dest_addr, MonoError *error);
 
 ICALL_EXPORT

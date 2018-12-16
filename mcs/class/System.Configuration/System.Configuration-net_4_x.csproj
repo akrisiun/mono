@@ -19,6 +19,8 @@
     </RootNamespace>
     <AssemblyName>System.Configuration</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <LibDir>./../../../lib/mono/4.5</LibDir>
+    
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -229,4 +231,11 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+  
+  <Target Name="PostBuildTask" AfterTargets="Build">
+    <Message Condition=" Exists($(LibDir)) " Importance="High" Text="net45  -&gt; $(LibDir)/$(TargetName).dll" />
+    <!-- And '$(TargetFramework)' == 'net45' -->
+    <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir))"
+          SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
+  </Target>
 </Project>

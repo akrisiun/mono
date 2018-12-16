@@ -25,23 +25,23 @@ namespace System {
     using System.Diagnostics.Contracts;
     
     [System.Runtime.InteropServices.ComVisible(true)]
-    [Serializable] public class MissingMemberException : MemberAccessException, ISerializable {
-        public MissingMemberException() 
+    [Serializable] public class MissingMemberException2 : MemberAccessException, ISerializable {
+        public MissingMemberException2() 
             : base(Environment.GetResourceString("Arg_MissingMemberException")) {
             SetErrorCode(__HResults.COR_E_MISSINGMEMBER);
         }
     
-        public MissingMemberException(String message) 
+        public MissingMemberException2(String message) 
             : base(message) {
             SetErrorCode(__HResults.COR_E_MISSINGMEMBER);
         }
     
-        public MissingMemberException(String message, Exception inner) 
+        public MissingMemberException2(String message, Exception inner) 
             : base(message, inner) {
             SetErrorCode(__HResults.COR_E_MISSINGMEMBER);
         }
 
-        protected MissingMemberException(SerializationInfo info, StreamingContext context) : base (info, context) {
+        protected MissingMemberException2(SerializationInfo info, StreamingContext context) : base (info, context) {
             ClassName = (String)info.GetString("MMClassName");
             MemberName = (String)info.GetString("MMMemberName");
             Signature = (byte[])info.GetValue("MMSignature", typeof(byte[]));
@@ -62,29 +62,23 @@ namespace System {
             }
         }
     
-#if true // MONO
-        internal static string FormatSignature(byte[] signature)
-        {
-            return "";
-        }
-#else
         // Called to format signature
         [System.Security.SecurityCritical]  // auto-generated
         [ResourceExposure(ResourceScope.None)]
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal static extern String FormatSignature(byte [] signature);
-#endif
+    
     
     
         // Potentially called from the EE
-        private MissingMemberException(String className, String memberName, byte[] signature)
+        private MissingMemberException2(String className, String memberName, byte[] signature)
         {
             ClassName   = className;
             MemberName  = memberName;
             Signature   = signature;
         }
     
-        public MissingMemberException(String className, String memberName)
+        public MissingMemberException2(String className, String memberName)
         {
             ClassName   = className;
             MemberName  = memberName;
