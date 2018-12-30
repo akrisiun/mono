@@ -842,7 +842,7 @@ namespace System.Runtime.Serialization
             else
             {
                 ContractCodeDomInfo baseContractCodeDomInfo = GetContractCodeDomInfo(classDataContract.BaseContract);
-                Fx.Assert(baseContractCodeDomInfo.IsProcessed, "Cannot generate code for type if code for base type has not been generated");
+                // Fx.Assert(baseContractCodeDomInfo.IsProcessed, "Cannot generate code for type if code for base type has not been generated");
                 type.BaseTypes.Add(baseContractCodeDomInfo.TypeReference);
                 AddBaseMemberNames(baseContractCodeDomInfo, contractCodeDomInfo);
                 if (baseContractCodeDomInfo.ReferencedTypeExists)

@@ -71,7 +71,7 @@ namespace System.Xml
         const int maxBytesPerChar = 3;
         Encoding encoding;
         char[] chars;
-        InternalWriteBase64TextAsyncWriter internalWriteBase64TextAsyncWriter;
+        // InternalWriteBase64TextAsyncWriter internalWriteBase64TextAsyncWriter;
 
         static readonly byte[] startDecl = 
         {
@@ -416,8 +416,8 @@ namespace System.Xml
             WriteEscapedText(s.Value);
         }
 
-        [Fx.Tag.SecurityNote(Critical = "Contains unsafe code.",
-            Safe = "Unsafe code is effectively encapsulated, all inputs are validated.")]
+        //[Fx.Tag.SecurityNote(Critical = "Contains unsafe code.",
+        //    Safe = "Unsafe code is effectively encapsulated, all inputs are validated.")]
         [SecuritySafeCritical]
         unsafe public override void WriteEscapedText(string s)
         {
@@ -431,8 +431,8 @@ namespace System.Xml
             }
         }
 
-        [Fx.Tag.SecurityNote(Critical = "Contains unsafe code.",
-            Safe = "Unsafe code is effectively encapsulated, all inputs are validated.")]
+        //[Fx.Tag.SecurityNote(Critical = "Contains unsafe code.",
+        //    Safe = "Unsafe code is effectively encapsulated, all inputs are validated.")]
         [SecuritySafeCritical]
         unsafe public override void WriteEscapedText(char[] s, int offset, int count)
         {
@@ -445,7 +445,7 @@ namespace System.Xml
             }
         }
 
-        [Fx.Tag.SecurityNote(Critical = "Contains unsafe code. Caller needs to validate arguments.")]
+        // [Fx.Tag.SecurityNote(Critical = "Contains unsafe code. Caller needs to validate arguments.")]
         [SecurityCritical]
         unsafe void UnsafeWriteEscapedText(char* chars, int count)
         {
@@ -745,494 +745,494 @@ namespace System.Xml
             }
         }
 
-        internal override AsyncCompletionResult WriteBase64TextAsync(AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> xmlNodeWriterState)
-        {
-            if (internalWriteBase64TextAsyncWriter == null)
-            {
-                internalWriteBase64TextAsyncWriter = new InternalWriteBase64TextAsyncWriter(this);
-            }
+        //internal override AsyncCompletionResult WriteBase64TextAsync(AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> xmlNodeWriterState)
+        //{
+        //    if (internalWriteBase64TextAsyncWriter == null)
+        //    {
+        //        internalWriteBase64TextAsyncWriter = new InternalWriteBase64TextAsyncWriter(this);
+        //    }
 
-            return this.internalWriteBase64TextAsyncWriter.StartAsync(xmlNodeWriterState);
-        }
+        //    return this.internalWriteBase64TextAsyncWriter.StartAsync(xmlNodeWriterState);
+        //}
 
-        class InternalWriteBase64TextAsyncWriter
-        {
-            AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> nodeState;
-            AsyncEventArgs<XmlWriteBase64AsyncArguments> writerState;
-            XmlWriteBase64AsyncArguments writerArgs;
-            XmlUTF8NodeWriter writer;
-            GetBufferAsyncEventArgs getBufferState;
-            GetBufferArgs getBufferArgs;
-            static AsyncEventArgsCallback onTrailByteComplete = new AsyncEventArgsCallback(OnTrailBytesComplete);
-            static AsyncEventArgsCallback onWriteComplete = new AsyncEventArgsCallback(OnWriteComplete);
-            static AsyncEventArgsCallback onGetBufferComplete = new AsyncEventArgsCallback(OnGetBufferComplete);
+        //class InternalWriteBase64TextAsyncWriter
+        //{
+        //    AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> nodeState;
+        //    AsyncEventArgs<XmlWriteBase64AsyncArguments> writerState;
+        //    XmlWriteBase64AsyncArguments writerArgs;
+        //    XmlUTF8NodeWriter writer;
+        //    GetBufferAsyncEventArgs getBufferState;
+        //    GetBufferArgs getBufferArgs;
+        //    static AsyncEventArgsCallback onTrailByteComplete = new AsyncEventArgsCallback(OnTrailBytesComplete);
+        //    static AsyncEventArgsCallback onWriteComplete = new AsyncEventArgsCallback(OnWriteComplete);
+        //    static AsyncEventArgsCallback onGetBufferComplete = new AsyncEventArgsCallback(OnGetBufferComplete);
 
-            public InternalWriteBase64TextAsyncWriter(XmlUTF8NodeWriter writer)
-            {
-                this.writer = writer;
-                this.writerState = new AsyncEventArgs<XmlWriteBase64AsyncArguments>();
-                this.writerArgs = new XmlWriteBase64AsyncArguments();
-            }
+        //    public InternalWriteBase64TextAsyncWriter(XmlUTF8NodeWriter writer)
+        //    {
+        //        this.writer = writer;
+        //        this.writerState = new AsyncEventArgs<XmlWriteBase64AsyncArguments>();
+        //        this.writerArgs = new XmlWriteBase64AsyncArguments();
+        //    }
 
-            internal AsyncCompletionResult StartAsync(AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> xmlNodeWriterState)
-            {
-                Fx.Assert(xmlNodeWriterState != null, "xmlNodeWriterState cannot be null.");
-                Fx.Assert(this.nodeState == null, "nodeState is not null.");
+        //    internal AsyncCompletionResult StartAsync(AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> xmlNodeWriterState)
+        //    {
+        //        Fx.Assert(xmlNodeWriterState != null, "xmlNodeWriterState cannot be null.");
+        //        Fx.Assert(this.nodeState == null, "nodeState is not null.");
 
-                this.nodeState = xmlNodeWriterState;
-                XmlNodeWriterWriteBase64TextArgs nodeWriterArgs = xmlNodeWriterState.Arguments;
+        //        this.nodeState = xmlNodeWriterState;
+        //        XmlNodeWriterWriteBase64TextArgs nodeWriterArgs = xmlNodeWriterState.Arguments;
 
-                if (nodeWriterArgs.TrailCount > 0)
-                {
-                    this.writerArgs.Buffer = nodeWriterArgs.TrailBuffer;
-                    this.writerArgs.Offset = 0;
-                    this.writerArgs.Count = nodeWriterArgs.TrailCount;
+        //        if (nodeWriterArgs.TrailCount > 0)
+        //        {
+        //            this.writerArgs.Buffer = nodeWriterArgs.TrailBuffer;
+        //            this.writerArgs.Offset = 0;
+        //            this.writerArgs.Count = nodeWriterArgs.TrailCount;
 
-                    this.writerState.Set(onTrailByteComplete, this.writerArgs, this);
-                    if (this.InternalWriteBase64TextAsync(this.writerState) != AsyncCompletionResult.Completed)
-                    {
-                        return AsyncCompletionResult.Queued;
-                    }
-                    this.writerState.Complete(true);
-                }
+        //            this.writerState.Set(onTrailByteComplete, this.writerArgs, this);
+        //            if (this.InternalWriteBase64TextAsync(this.writerState) != AsyncCompletionResult.Completed)
+        //            {
+        //                return AsyncCompletionResult.Queued;
+        //            }
+        //            this.writerState.Complete(true);
+        //        }
 
-                if (this.WriteBufferAsync() == AsyncCompletionResult.Completed)
-                {
-                    this.nodeState = null;
-                    return AsyncCompletionResult.Completed;
-                }
+        //        if (this.WriteBufferAsync() == AsyncCompletionResult.Completed)
+        //        {
+        //            this.nodeState = null;
+        //            return AsyncCompletionResult.Completed;
+        //        }
 
-                return AsyncCompletionResult.Queued;
-            }
+        //        return AsyncCompletionResult.Queued;
+        //    }
 
-            static private void OnTrailBytesComplete(IAsyncEventArgs eventArgs)
-            {
-                InternalWriteBase64TextAsyncWriter thisPtr = (InternalWriteBase64TextAsyncWriter)eventArgs.AsyncState;
-                Exception completionException = null;
-                bool completeSelf = false;
+        //    static private void OnTrailBytesComplete(IAsyncEventArgs eventArgs)
+        //    {
+        //        InternalWriteBase64TextAsyncWriter thisPtr = (InternalWriteBase64TextAsyncWriter)eventArgs.AsyncState;
+        //        Exception completionException = null;
+        //        bool completeSelf = false;
 
-                try
-                {
-                    if (eventArgs.Exception != null)
-                    {
-                        completionException = eventArgs.Exception;
-                        completeSelf = true;
-                    }
-                    else if (thisPtr.WriteBufferAsync() == AsyncCompletionResult.Completed)
-                    {
-                        completeSelf = true;
-                    }
-                }
-                catch (Exception exception)
-                {
-                    if (Fx.IsFatal(exception))
-                    {
-                        throw;
-                    }
+        //        try
+        //        {
+        //            if (eventArgs.Exception != null)
+        //            {
+        //                completionException = eventArgs.Exception;
+        //                completeSelf = true;
+        //            }
+        //            else if (thisPtr.WriteBufferAsync() == AsyncCompletionResult.Completed)
+        //            {
+        //                completeSelf = true;
+        //            }
+        //        }
+        //        catch (Exception exception)
+        //        {
+        //            if (Fx.IsFatal(exception))
+        //            {
+        //                throw;
+        //            }
 
-                    completionException = exception;
-                    completeSelf = true;
-                }
+        //            completionException = exception;
+        //            completeSelf = true;
+        //        }
 
-                if (completeSelf)
-                {
-                    AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> state = thisPtr.nodeState;
-                    thisPtr.nodeState = null;
-                    state.Complete(false, eventArgs.Exception);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> state = thisPtr.nodeState;
+        //            thisPtr.nodeState = null;
+        //            state.Complete(false, eventArgs.Exception);
+        //        }
+        //    }
 
-            AsyncCompletionResult WriteBufferAsync()
-            {
-                this.writerArgs.Buffer = nodeState.Arguments.Buffer;
-                this.writerArgs.Offset = nodeState.Arguments.Offset;
-                this.writerArgs.Count = nodeState.Arguments.Count;
+        //    AsyncCompletionResult WriteBufferAsync()
+        //    {
+        //        this.writerArgs.Buffer = nodeState.Arguments.Buffer;
+        //        this.writerArgs.Offset = nodeState.Arguments.Offset;
+        //        this.writerArgs.Count = nodeState.Arguments.Count;
 
-                this.writerState.Set(onWriteComplete, this.writerArgs, this);
-                if (this.InternalWriteBase64TextAsync(this.writerState) == AsyncCompletionResult.Completed)
-                {
-                    this.writerState.Complete(true);
-                    return AsyncCompletionResult.Completed;
-                }
+        //        this.writerState.Set(onWriteComplete, this.writerArgs, this);
+        //        if (this.InternalWriteBase64TextAsync(this.writerState) == AsyncCompletionResult.Completed)
+        //        {
+        //            this.writerState.Complete(true);
+        //            return AsyncCompletionResult.Completed;
+        //        }
 
-                return AsyncCompletionResult.Queued;
-            }
+        //        return AsyncCompletionResult.Queued;
+        //    }
 
-            static void OnWriteComplete(IAsyncEventArgs eventArgs)
-            {
-                InternalWriteBase64TextAsyncWriter thisPtr = (InternalWriteBase64TextAsyncWriter)eventArgs.AsyncState;
-                AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> state = thisPtr.nodeState;
-                thisPtr.nodeState = null;
-                state.Complete(false, eventArgs.Exception);
-            }
+        //    static void OnWriteComplete(IAsyncEventArgs eventArgs)
+        //    {
+        //        InternalWriteBase64TextAsyncWriter thisPtr = (InternalWriteBase64TextAsyncWriter)eventArgs.AsyncState;
+        //        AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> state = thisPtr.nodeState;
+        //        thisPtr.nodeState = null;
+        //        state.Complete(false, eventArgs.Exception);
+        //    }
 
-            AsyncCompletionResult InternalWriteBase64TextAsync(AsyncEventArgs<XmlWriteBase64AsyncArguments> writerState)
-            {
-                GetBufferAsyncEventArgs bufferState = this.getBufferState;
-                GetBufferArgs bufferArgs = this.getBufferArgs;
-                XmlWriteBase64AsyncArguments writerArgs = writerState.Arguments;
+        //    AsyncCompletionResult InternalWriteBase64TextAsync(AsyncEventArgs<XmlWriteBase64AsyncArguments> writerState)
+        //    {
+        //        GetBufferAsyncEventArgs bufferState = this.getBufferState;
+        //        GetBufferArgs bufferArgs = this.getBufferArgs;
+        //        XmlWriteBase64AsyncArguments writerArgs = writerState.Arguments;
 
-                if (bufferState == null)
-                {
-                    // Need to initialize the cached getBufferState 
-                    // used to call GetBufferAsync() multiple times.
-                    bufferState = new GetBufferAsyncEventArgs();
-                    bufferArgs = new GetBufferArgs();
-                    this.getBufferState = bufferState;
-                    this.getBufferArgs = bufferArgs;
-                }
+        //        if (bufferState == null)
+        //        {
+        //            // Need to initialize the cached getBufferState 
+        //            // used to call GetBufferAsync() multiple times.
+        //            bufferState = new GetBufferAsyncEventArgs();
+        //            bufferArgs = new GetBufferArgs();
+        //            this.getBufferState = bufferState;
+        //            this.getBufferArgs = bufferArgs;
+        //        }
 
-                Base64Encoding encoding = XmlConverter.Base64Encoding;
+        //        Base64Encoding encoding = XmlConverter.Base64Encoding;
 
-                while (writerArgs.Count >= 3)
-                {
-                    int byteCount = Math.Min(bufferLength / 4 * 3, writerArgs.Count - writerArgs.Count % 3);
-                    int charCount = byteCount / 3 * 4;
+        //        while (writerArgs.Count >= 3)
+        //        {
+        //            int byteCount = Math.Min(bufferLength / 4 * 3, writerArgs.Count - writerArgs.Count % 3);
+        //            int charCount = byteCount / 3 * 4;
 
-                    bufferArgs.Count = charCount;
-                    bufferState.Set(onGetBufferComplete, bufferArgs, this);
-                    if (writer.GetBufferAsync(bufferState) == AsyncCompletionResult.Completed)
-                    {
-                        GetBufferEventResult getbufferResult = bufferState.Result;
-                        bufferState.Complete(true);
-                        writer.Advance(encoding.GetChars(
-                            writerArgs.Buffer,
-                            writerArgs.Offset,
-                            byteCount,
-                            getbufferResult.Buffer,
-                            getbufferResult.Offset));
-                        writerArgs.Offset += byteCount;
-                        writerArgs.Count -= byteCount;
-                    }
-                    else
-                    {
-                        return AsyncCompletionResult.Queued;
-                    }
-                }
+        //            bufferArgs.Count = charCount;
+        //            bufferState.Set(onGetBufferComplete, bufferArgs, this);
+        //            if (writer.GetBufferAsync(bufferState) == AsyncCompletionResult.Completed)
+        //            {
+        //                GetBufferEventResult getbufferResult = bufferState.Result;
+        //                bufferState.Complete(true);
+        //                writer.Advance(encoding.GetChars(
+        //                    writerArgs.Buffer,
+        //                    writerArgs.Offset,
+        //                    byteCount,
+        //                    getbufferResult.Buffer,
+        //                    getbufferResult.Offset));
+        //                writerArgs.Offset += byteCount;
+        //                writerArgs.Count -= byteCount;
+        //            }
+        //            else
+        //            {
+        //                return AsyncCompletionResult.Queued;
+        //            }
+        //        }
 
-                if (writerArgs.Count > 0)
-                {
-                    bufferArgs.Count = 4;
-                    bufferState.Set(onGetBufferComplete, bufferArgs, this);
-                    if (writer.GetBufferAsync(bufferState) == AsyncCompletionResult.Completed)
-                    {
-                        GetBufferEventResult getbufferResult = bufferState.Result;
-                        bufferState.Complete(true);
-                        writer.Advance(encoding.GetChars(
-                            writerArgs.Buffer,
-                            writerArgs.Offset,
-                            writerArgs.Count,
-                            getbufferResult.Buffer,
-                            getbufferResult.Offset));
-                    }
-                    else
-                    {
-                        return AsyncCompletionResult.Queued;
-                    }
-                }
+        //        if (writerArgs.Count > 0)
+        //        {
+        //            bufferArgs.Count = 4;
+        //            bufferState.Set(onGetBufferComplete, bufferArgs, this);
+        //            if (writer.GetBufferAsync(bufferState) == AsyncCompletionResult.Completed)
+        //            {
+        //                GetBufferEventResult getbufferResult = bufferState.Result;
+        //                bufferState.Complete(true);
+        //                writer.Advance(encoding.GetChars(
+        //                    writerArgs.Buffer,
+        //                    writerArgs.Offset,
+        //                    writerArgs.Count,
+        //                    getbufferResult.Buffer,
+        //                    getbufferResult.Offset));
+        //            }
+        //            else
+        //            {
+        //                return AsyncCompletionResult.Queued;
+        //            }
+        //        }
 
-                return AsyncCompletionResult.Completed;
-            }
+        //        return AsyncCompletionResult.Completed;
+        //    }
 
-            static void OnGetBufferComplete(IAsyncEventArgs state)
-            {
-                GetBufferEventResult result = ((GetBufferAsyncEventArgs)state).Result;
-                InternalWriteBase64TextAsyncWriter thisPtr = (InternalWriteBase64TextAsyncWriter)state.AsyncState;
-                XmlWriteBase64AsyncArguments writerArgs = thisPtr.writerState.Arguments;
+        //    static void OnGetBufferComplete(IAsyncEventArgs state)
+        //    {
+        //        GetBufferEventResult result = ((GetBufferAsyncEventArgs)state).Result;
+        //        InternalWriteBase64TextAsyncWriter thisPtr = (InternalWriteBase64TextAsyncWriter)state.AsyncState;
+        //        XmlWriteBase64AsyncArguments writerArgs = thisPtr.writerState.Arguments;
 
-                Exception completionException = null;
-                bool completeSelf = false;
+        //        Exception completionException = null;
+        //        bool completeSelf = false;
 
-                try
-                {
-                    if (state.Exception != null)
-                    {
-                        completionException = state.Exception;
-                        completeSelf = true;
-                    }
-                    else
-                    {
-                        byte[] chars = result.Buffer;
-                        int offset = result.Offset;
+        //        try
+        //        {
+        //            if (state.Exception != null)
+        //            {
+        //                completionException = state.Exception;
+        //                completeSelf = true;
+        //            }
+        //            else
+        //            {
+        //                byte[] chars = result.Buffer;
+        //                int offset = result.Offset;
 
-                        Base64Encoding encoding = XmlConverter.Base64Encoding;
-                        int byteCount = Math.Min(bufferLength / 4 * 3, writerArgs.Count - writerArgs.Count % 3);
-                        int charCount = byteCount / 3 * 4;
+        //                Base64Encoding encoding = XmlConverter.Base64Encoding;
+        //                int byteCount = Math.Min(bufferLength / 4 * 3, writerArgs.Count - writerArgs.Count % 3);
+        //                int charCount = byteCount / 3 * 4;
 
-                        thisPtr.writer.Advance(encoding.GetChars(
-                                   writerArgs.Buffer,
-                                   writerArgs.Offset,
-                                   byteCount,
-                                   chars,
-                                   offset));
+        //                thisPtr.writer.Advance(encoding.GetChars(
+        //                           writerArgs.Buffer,
+        //                           writerArgs.Offset,
+        //                           byteCount,
+        //                           chars,
+        //                           offset));
 
-                        if (byteCount >= 3)
-                        {
-                            writerArgs.Offset += byteCount;
-                            writerArgs.Count -= byteCount;
-                        }
+        //                if (byteCount >= 3)
+        //                {
+        //                    writerArgs.Offset += byteCount;
+        //                    writerArgs.Count -= byteCount;
+        //                }
 
-                        if (thisPtr.InternalWriteBase64TextAsync(thisPtr.writerState) == AsyncCompletionResult.Completed)
-                        {
-                            completeSelf = true;
-                        }
-                    }
-                }
-                catch (Exception exception)
-                {
-                    if (Fx.IsFatal(exception))
-                    {
-                        throw;
-                    }
+        //                if (thisPtr.InternalWriteBase64TextAsync(thisPtr.writerState) == AsyncCompletionResult.Completed)
+        //                {
+        //                    completeSelf = true;
+        //                }
+        //            }
+        //        }
+        //        catch (Exception exception)
+        //        {
+        //            if (Fx.IsFatal(exception))
+        //            {
+        //                throw;
+        //            }
 
-                    completionException = exception;
-                    completeSelf = true;
-                }
+        //            completionException = exception;
+        //            completeSelf = true;
+        //        }
 
-                if (completeSelf)
-                {
-                    thisPtr.writerState.Complete(false, completionException);
-                }
-            }
-        }
+        //        if (completeSelf)
+        //        {
+        //            thisPtr.writerState.Complete(false, completionException);
+        //        }
+        //    }
+        //}
 
-        public override IAsyncResult BeginWriteBase64Text(byte[] trailBytes, int trailByteCount, byte[] buffer, int offset, int count, AsyncCallback callback, object state)
-        {
-            return new WriteBase64TextAsyncResult(trailBytes, trailByteCount, buffer, offset, count, this, callback, state);
-        }
+        //public override IAsyncResult BeginWriteBase64Text(byte[] trailBytes, int trailByteCount, byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+        //{
+        //    return new WriteBase64TextAsyncResult(trailBytes, trailByteCount, buffer, offset, count, this, callback, state);
+        //}
 
-        public override void EndWriteBase64Text(IAsyncResult result)
-        {
-            WriteBase64TextAsyncResult.End(result);
-        }
+        //public override void EndWriteBase64Text(IAsyncResult result)
+        //{
+        //    WriteBase64TextAsyncResult.End(result);
+        //}
 
-        IAsyncResult BeginInternalWriteBase64Text(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
-        {
-            return new InternalWriteBase64TextAsyncResult(buffer, offset, count, this, callback, state);
-        }
+        //IAsyncResult BeginInternalWriteBase64Text(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+        //{
+        //    return new InternalWriteBase64TextAsyncResult(buffer, offset, count, this, callback, state);
+        //}
 
         void EndInternalWriteBase64Text(IAsyncResult result)
         {
-            InternalWriteBase64TextAsyncResult.End(result);
+           // InternalWriteBase64TextAsyncResult.End(result);
         }
 
-        class WriteBase64TextAsyncResult : AsyncResult
-        {
-            static AsyncCompletion onTrailBytesComplete = new AsyncCompletion(OnTrailBytesComplete);
-            static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
+        //class WriteBase64TextAsyncResult : AsyncResult
+        //{
+        //    static AsyncCompletion onTrailBytesComplete = new AsyncCompletion(OnTrailBytesComplete);
+        //    static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
 
-            byte[] trailBytes;
-            int trailByteCount;
-            byte[] buffer;
-            int offset;
-            int count;
+        //    byte[] trailBytes;
+        //    int trailByteCount;
+        //    byte[] buffer;
+        //    int offset;
+        //    int count;
 
-            XmlUTF8NodeWriter writer;
+        //    XmlUTF8NodeWriter writer;
 
-            public WriteBase64TextAsyncResult(byte[] trailBytes, int trailByteCount, byte[] buffer, int offset, int count, XmlUTF8NodeWriter writer, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                this.writer = writer;
-                this.trailBytes = trailBytes;
-                this.trailByteCount = trailByteCount;
-                this.buffer = buffer;
-                this.offset = offset;
-                this.count = count;
+        //    public WriteBase64TextAsyncResult(byte[] trailBytes, int trailByteCount, byte[] buffer, int offset, int count, XmlUTF8NodeWriter writer, AsyncCallback callback, object state)
+        //        : base(callback, state)
+        //    {
+        //        this.writer = writer;
+        //        this.trailBytes = trailBytes;
+        //        this.trailByteCount = trailByteCount;
+        //        this.buffer = buffer;
+        //        this.offset = offset;
+        //        this.count = count;
 
-                bool completeSelf = HandleWriteTrailBytes(null);
+        //        bool completeSelf = HandleWriteTrailBytes(null);
 
-                if (completeSelf)
-                {
-                    this.Complete(true);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            this.Complete(true);
+        //        }
+        //    }
 
-            static bool OnTrailBytesComplete(IAsyncResult result)
-            {
-                WriteBase64TextAsyncResult thisPtr = (WriteBase64TextAsyncResult)result.AsyncState;
-                return thisPtr.HandleWriteTrailBytes(result);
-            }
+        //    static bool OnTrailBytesComplete(IAsyncResult result)
+        //    {
+        //        WriteBase64TextAsyncResult thisPtr = (WriteBase64TextAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleWriteTrailBytes(result);
+        //    }
 
-            static bool OnComplete(IAsyncResult result)
-            {
-                WriteBase64TextAsyncResult thisPtr = (WriteBase64TextAsyncResult)result.AsyncState;
-                return thisPtr.HandleWriteBase64Text(result);
-            }
+        //    static bool OnComplete(IAsyncResult result)
+        //    {
+        //        WriteBase64TextAsyncResult thisPtr = (WriteBase64TextAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleWriteBase64Text(result);
+        //    }
 
-            bool HandleWriteTrailBytes(IAsyncResult result)
-            {
-                if (this.trailByteCount > 0)
-                {
-                    if (result == null)
-                    {
-                        result = writer.BeginInternalWriteBase64Text(this.trailBytes, 0, this.trailByteCount, PrepareAsyncCompletion(onTrailBytesComplete), this);
-                        if (!result.CompletedSynchronously)
-                        {
-                            return false;
-                        }
-                    }
-                    writer.EndInternalWriteBase64Text(result);
-                }
+        //    bool HandleWriteTrailBytes(IAsyncResult result)
+        //    {
+        //        if (this.trailByteCount > 0)
+        //        {
+        //            //if (result == null)
+        //            //{
+        //            //    result = writer.BeginInternalWriteBase64Text(this.trailBytes, 0, this.trailByteCount, PrepareAsyncCompletion(onTrailBytesComplete), this);
+        //            //    if (!result.CompletedSynchronously)
+        //            //    {
+        //            //        return false;
+        //            //    }
+        //            //}
+        //            writer.EndInternalWriteBase64Text(result);
+        //        }
 
-                return HandleWriteBase64Text(null);
-            }
+        //        return HandleWriteBase64Text(null);
+        //    }
 
-            bool HandleWriteBase64Text(IAsyncResult result)
-            {
-                if (result == null)
-                {
-                    result = writer.BeginInternalWriteBase64Text(this.buffer, this.offset, this.count, PrepareAsyncCompletion(onComplete), this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //    bool HandleWriteBase64Text(IAsyncResult result)
+        //    {
+        //        if (result == null)
+        //        {
+        //            result = writer.BeginInternalWriteBase64Text(this.buffer, this.offset, this.count, PrepareAsyncCompletion(onComplete), this);
+        //            if (!result.CompletedSynchronously)
+        //            {
+        //                return false;
+        //            }
+        //        }
 
-                writer.EndInternalWriteBase64Text(result);
-                return true;
-            }
+        //        writer.EndInternalWriteBase64Text(result);
+        //        return true;
+        //    }
 
-            public static void End(IAsyncResult result)
-            {
-                AsyncResult.End<WriteBase64TextAsyncResult>(result);
-            }
-        }
+        //    public static void End(IAsyncResult result)
+        //    {
+        //        AsyncResult.End<WriteBase64TextAsyncResult>(result);
+        //    }
+        //}
 
-        class InternalWriteBase64TextAsyncResult : AsyncResult
-        {
-            byte[] buffer;
-            int offset;
-            int count;
-            Base64Encoding encoding;
+        //class InternalWriteBase64TextAsyncResult : AsyncResult
+        //{
+        //    byte[] buffer;
+        //    int offset;
+        //    int count;
+        //    Base64Encoding encoding;
 
-            XmlUTF8NodeWriter writer;
-            static AsyncCallback onWriteCharacters = Fx.ThunkCallback(OnWriteCharacters);
-            static AsyncCompletion onWriteTrailingCharacters = new AsyncCompletion(OnWriteTrailingCharacters);
+        //    XmlUTF8NodeWriter writer;
+        //    static AsyncCallback onWriteCharacters = Fx.ThunkCallback(OnWriteCharacters);
+        //    static AsyncCompletion onWriteTrailingCharacters = new AsyncCompletion(OnWriteTrailingCharacters);
 
-            public InternalWriteBase64TextAsyncResult(byte[] buffer, int offset, int count, XmlUTF8NodeWriter writer, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                this.buffer = buffer;
-                this.offset = offset;
-                this.count = count;
-                this.writer = writer;
-                this.encoding = XmlConverter.Base64Encoding;
+        //    public InternalWriteBase64TextAsyncResult(byte[] buffer, int offset, int count, XmlUTF8NodeWriter writer, AsyncCallback callback, object state)
+        //        : base(callback, state)
+        //    {
+        //        this.buffer = buffer;
+        //        this.offset = offset;
+        //        this.count = count;
+        //        this.writer = writer;
+        //        this.encoding = XmlConverter.Base64Encoding;
 
-                bool completeSelf = ContinueWork();
+        //        bool completeSelf = ContinueWork();
 
-                if (completeSelf)
-                {
-                    this.Complete(true);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            this.Complete(true);
+        //        }
+        //    }
 
 
-            static bool OnWriteTrailingCharacters(IAsyncResult result)
-            {
-                InternalWriteBase64TextAsyncResult thisPtr = (InternalWriteBase64TextAsyncResult)result.AsyncState;
-                return thisPtr.HandleWriteTrailingCharacters(result);
-            }
+        //    static bool OnWriteTrailingCharacters(IAsyncResult result)
+        //    {
+        //        InternalWriteBase64TextAsyncResult thisPtr = (InternalWriteBase64TextAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleWriteTrailingCharacters(result);
+        //    }
 
-            bool ContinueWork()
-            {
-                while (this.count >= 3)
-                {
-                    if (HandleWriteCharacters(null))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        // needs to jump async
-                        return false;
-                    }
-                }
+        //    bool ContinueWork()
+        //    {
+        //        while (this.count >= 3)
+        //        {
+        //            if (HandleWriteCharacters(null))
+        //            {
+        //                continue;
+        //            }
+        //            else
+        //            {
+        //                // needs to jump async
+        //                return false;
+        //            }
+        //        }
 
-                if (count > 0)
-                {
-                    return HandleWriteTrailingCharacters(null);
-                }
-                return true;
-            }
+        //        if (count > 0)
+        //        {
+        //            return HandleWriteTrailingCharacters(null);
+        //        }
+        //        return true;
+        //    }
 
-            bool HandleWriteCharacters(IAsyncResult result)
-            {
-                int byteCount = Math.Min(bufferLength / 4 * 3, count - count % 3);
-                int charCount = byteCount / 3 * 4;
-                int charOffset;
+        //    bool HandleWriteCharacters(IAsyncResult result)
+        //    {
+        //        int byteCount = Math.Min(bufferLength / 4 * 3, count - count % 3);
+        //        int charCount = byteCount / 3 * 4;
+        //        int charOffset;
 
-                if (result == null)
-                {
-                    result = writer.BeginGetBuffer(charCount, onWriteCharacters, this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //        if (result == null)
+        //        {
+        //            result = writer.BeginGetBuffer(charCount, onWriteCharacters, this);
+        //            if (!result.CompletedSynchronously)
+        //            {
+        //                return false;
+        //            }
+        //        }
 
-                byte[] chars = writer.EndGetBuffer(result, out charOffset);
+        //        byte[] chars = writer.EndGetBuffer(result, out charOffset);
 
-                writer.Advance(encoding.GetChars(this.buffer, this.offset, byteCount, chars, charOffset));
-                this.offset += byteCount;
-                this.count -= byteCount;
+        //        writer.Advance(encoding.GetChars(this.buffer, this.offset, byteCount, chars, charOffset));
+        //        this.offset += byteCount;
+        //        this.count -= byteCount;
 
-                return true;
-            }
+        //        return true;
+        //    }
 
-            bool HandleWriteTrailingCharacters(IAsyncResult result)
-            {
-                if (result == null)
-                {
-                    result = writer.BeginGetBuffer(4, PrepareAsyncCompletion(onWriteTrailingCharacters), this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //    bool HandleWriteTrailingCharacters(IAsyncResult result)
+        //    {
+        //        if (result == null)
+        //        {
+        //            result = writer.BeginGetBuffer(4, PrepareAsyncCompletion(onWriteTrailingCharacters), this);
+        //            if (!result.CompletedSynchronously)
+        //            {
+        //                return false;
+        //            }
+        //        }
 
-                int charOffset;
-                byte[] chars = writer.EndGetBuffer(result, out charOffset);
-                writer.Advance(encoding.GetChars(this.buffer, this.offset, this.count, chars, charOffset));
-                return true;
-            }
+        //        int charOffset;
+        //        byte[] chars = writer.EndGetBuffer(result, out charOffset);
+        //        writer.Advance(encoding.GetChars(this.buffer, this.offset, this.count, chars, charOffset));
+        //        return true;
+        //    }
 
-            static void OnWriteCharacters(IAsyncResult result)
-            {
-                if (result.CompletedSynchronously)
-                {
-                    return;
-                }
+        //    static void OnWriteCharacters(IAsyncResult result)
+        //    {
+        //        if (result.CompletedSynchronously)
+        //        {
+        //            return;
+        //        }
 
-                InternalWriteBase64TextAsyncResult thisPtr = (InternalWriteBase64TextAsyncResult)result.AsyncState;
-                Exception completionException = null;
-                bool completeSelf = false;
+        //        InternalWriteBase64TextAsyncResult thisPtr = (InternalWriteBase64TextAsyncResult)result.AsyncState;
+        //        Exception completionException = null;
+        //        bool completeSelf = false;
 
-                try
-                {
-                    thisPtr.HandleWriteCharacters(result);
-                    completeSelf = thisPtr.ContinueWork();
-                }
-                catch (Exception ex)
-                {
-                    if (Fx.IsFatal(ex))
-                    {
-                        throw;
-                    }
-                    completeSelf = true;
-                    completionException = ex;
-                }
+        //        try
+        //        {
+        //            thisPtr.HandleWriteCharacters(result);
+        //            completeSelf = thisPtr.ContinueWork();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            if (Fx.IsFatal(ex))
+        //            {
+        //                throw;
+        //            }
+        //            completeSelf = true;
+        //            completionException = ex;
+        //        }
 
-                if (completeSelf)
-                {
-                    thisPtr.Complete(false, completionException);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            thisPtr.Complete(false, completionException);
+        //        }
+        //    }
 
-            public static void End(IAsyncResult result)
-            {
-                AsyncResult.End<InternalWriteBase64TextAsyncResult>(result);
-            }
-        }
+        //    public static void End(IAsyncResult result)
+        //    {
+        //        AsyncResult.End<InternalWriteBase64TextAsyncResult>(result);
+        //    }
+        //}
 
         public override void WriteTimeSpanText(TimeSpan value)
         {

@@ -35,7 +35,7 @@ namespace System.Xml
         const string xmlNamespace = "http://www.w3.org/XML/1998/namespace";
         static BinHexEncoding binhexEncoding;
         static string[] prefixes = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-        XmlBaseWriterNodeWriterAsyncHelper nodeWriterAsyncHelper;
+        //XmlBaseWriterNodeWriterAsyncHelper nodeWriterAsyncHelper;
 
         protected XmlBaseWriter()
         {
@@ -1365,148 +1365,148 @@ namespace System.Xml
             }
         }
 
-        internal override IAsyncResult BeginWriteBase64(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
-        {
-            if (IsClosed)
-                ThrowClosed();
+        //internal override IAsyncResult BeginWriteBase64(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+        //{
+        //    if (IsClosed)
+        //        ThrowClosed();
 
-            EnsureBufferBounds(buffer, offset, count);
+        //    EnsureBufferBounds(buffer, offset, count);
 
-            return new WriteBase64AsyncResult(buffer, offset, count, this, callback, state);
-        }
+        //    return new WriteBase64AsyncResult(buffer, offset, count, this, callback, state);
+        //}
 
-        internal override void EndWriteBase64(IAsyncResult result)
-        {
-            WriteBase64AsyncResult.End(result);
-        }
+        //internal override void EndWriteBase64(IAsyncResult result)
+        //{
+        //    WriteBase64AsyncResult.End(result);
+        //}
 
-        internal override AsyncCompletionResult WriteBase64Async(AsyncEventArgs<XmlWriteBase64AsyncArguments> state)
-        {
-            if (this.nodeWriterAsyncHelper == null)
-            {
-                this.nodeWriterAsyncHelper = new XmlBaseWriterNodeWriterAsyncHelper(this);
-            }
+        //internal override AsyncCompletionResult WriteBase64Async(AsyncEventArgs<XmlWriteBase64AsyncArguments> state)
+        //{
+        //    if (this.nodeWriterAsyncHelper == null)
+        //    {
+        //        this.nodeWriterAsyncHelper = new XmlBaseWriterNodeWriterAsyncHelper(this);
+        //    }
 
-            this.nodeWriterAsyncHelper.SetArguments(state);
+        //    this.nodeWriterAsyncHelper.SetArguments(state);
 
-            if (this.nodeWriterAsyncHelper.StartAsync() == AsyncCompletionResult.Completed)
-            {                
-                return AsyncCompletionResult.Completed;
-            }
+        //    if (this.nodeWriterAsyncHelper.StartAsync() == AsyncCompletionResult.Completed)
+        //    {                
+        //        return AsyncCompletionResult.Completed;
+        //    }
 
-            return AsyncCompletionResult.Queued;
-        }
+        //    return AsyncCompletionResult.Queued;
+        //}
 
-        class WriteBase64AsyncResult : AsyncResult
-        {
-            static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
-            XmlBaseWriter writer;
-            byte[] buffer;
-            int offset;
-            int count;
-            int actualByteCount;
-            int totalByteCount;
+        //class WriteBase64AsyncResult : AsyncResult
+        //{
+        //    static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
+        //    XmlBaseWriter writer;
+        //    byte[] buffer;
+        //    int offset;
+        //    int count;
+        //    int actualByteCount;
+        //    int totalByteCount;
 
-            public WriteBase64AsyncResult(byte[] buffer, int offset, int count, XmlBaseWriter writer, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                this.writer = writer;
-                this.buffer = buffer;
-                this.offset = offset;
-                this.count = count;
+        //    public WriteBase64AsyncResult(byte[] buffer, int offset, int count, XmlBaseWriter writer, AsyncCallback callback, object state)
+        //        : base(callback, state)
+        //    {
+        //        this.writer = writer;
+        //        this.buffer = buffer;
+        //        this.offset = offset;
+        //        this.count = count;
 
-                bool completeSelf = true;
+        //        bool completeSelf = true;
 
-                if (this.count > 0)
-                {
-                    if (writer.trailByteCount > 0)
-                    {
-                        while (writer.trailByteCount < 3 && this.count > 0)
-                        {
-                            writer.trailBytes[writer.trailByteCount++] = buffer[this.offset++];
-                            this.count--;
-                        }
-                    }
+        //        if (this.count > 0)
+        //        {
+        //            if (writer.trailByteCount > 0)
+        //            {
+        //                while (writer.trailByteCount < 3 && this.count > 0)
+        //                {
+        //                    writer.trailBytes[writer.trailByteCount++] = buffer[this.offset++];
+        //                    this.count--;
+        //                }
+        //            }
 
-                    this.totalByteCount = writer.trailByteCount + this.count;
-                    this.actualByteCount = totalByteCount - (totalByteCount % 3);
+        //            this.totalByteCount = writer.trailByteCount + this.count;
+        //            this.actualByteCount = totalByteCount - (totalByteCount % 3);
 
-                    if (writer.trailBytes == null)
-                    {
-                        writer.trailBytes = new byte[3];
-                    }
+        //            if (writer.trailBytes == null)
+        //            {
+        //                writer.trailBytes = new byte[3];
+        //            }
 
-                    if (actualByteCount >= 3)
-                    {
-                        if (writer.attributeValue != null)
-                        {
-                            writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(writer.trailBytes, 0, writer.trailByteCount));
-                            writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(buffer, this.offset, actualByteCount - writer.trailByteCount));
-                        }
+        //            if (actualByteCount >= 3)
+        //            {
+        //                if (writer.attributeValue != null)
+        //                {
+        //                    writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(writer.trailBytes, 0, writer.trailByteCount));
+        //                    writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(buffer, this.offset, actualByteCount - writer.trailByteCount));
+        //                }
 
-                        // StartContent/WriteBase64Text/EndContent will be called from HandleWriteBase64 as appropriate
-                        completeSelf = HandleWriteBase64Text(null);
-                    }
-                    else
-                    {
-                        Buffer.BlockCopy(buffer, this.offset, writer.trailBytes, writer.trailByteCount, this.count);
-                        writer.trailByteCount += this.count;
-                    }
-                }
+        //                // StartContent/WriteBase64Text/EndContent will be called from HandleWriteBase64 as appropriate
+        //                completeSelf = HandleWriteBase64Text(null);
+        //            }
+        //            else
+        //            {
+        //                Buffer.BlockCopy(buffer, this.offset, writer.trailBytes, writer.trailByteCount, this.count);
+        //                writer.trailByteCount += this.count;
+        //            }
+        //        }
 
-                if (completeSelf)
-                {
-                    this.Complete(true);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            this.Complete(true);
+        //        }
+        //    }
 
-            static bool OnComplete(IAsyncResult result)
-            {
-                WriteBase64AsyncResult thisPtr = (WriteBase64AsyncResult)result.AsyncState;
-                return thisPtr.HandleWriteBase64Text(result);
-            }
+        //    static bool OnComplete(IAsyncResult result)
+        //    {
+        //        WriteBase64AsyncResult thisPtr = (WriteBase64AsyncResult)result.AsyncState;
+        //        return thisPtr.HandleWriteBase64Text(result);
+        //    }
 
-            bool HandleWriteBase64Text(IAsyncResult result)
-            {
-                // in this code block if count > 0 && actualByteCount >= 3
-                if (!writer.isXmlnsAttribute)
-                {
-                    if (result == null)
-                    {
-                        this.writer.StartContent();
-                        result = this.writer.writer.BeginWriteBase64Text(this.writer.trailBytes,
-                            this.writer.trailByteCount,
-                            this.buffer,
-                            this.offset,
-                            this.actualByteCount - this.writer.trailByteCount,
-                            PrepareAsyncCompletion(onComplete),
-                            this);
+        //    //bool HandleWriteBase64Text(IAsyncResult result)
+        //    //{
+        //    //    // in this code block if count > 0 && actualByteCount >= 3
+        //    //    if (!writer.isXmlnsAttribute)
+        //    //    {
+        //    //        if (result == null)
+        //    //        {
+        //    //            this.writer.StartContent();
+        //    //            result = this.writer.writer.BeginWriteBase64Text(this.writer.trailBytes,
+        //    //                this.writer.trailByteCount,
+        //    //                this.buffer,
+        //    //                this.offset,
+        //    //                this.actualByteCount - this.writer.trailByteCount,
+        //    //                PrepareAsyncCompletion(onComplete),
+        //    //                this);
 
-                        if (!result.CompletedSynchronously)
-                        {
-                            return false;
-                        }
-                    }
-                    this.writer.writer.EndWriteBase64Text(result);
-                    this.writer.EndContent();
-                }
+        //    //            if (!result.CompletedSynchronously)
+        //    //            {
+        //    //                return false;
+        //    //            }
+        //    //        }
+        //    //        this.writer.writer.EndWriteBase64Text(result);
+        //    //        this.writer.EndContent();
+        //    //    }
 
-                this.writer.trailByteCount = (totalByteCount - actualByteCount);
-                if (this.writer.trailByteCount > 0)
-                {
-                    int trailOffset = offset + count - this.writer.trailByteCount;
-                    for (int i = 0; i < this.writer.trailByteCount; i++)
-                        this.writer.trailBytes[i] = this.buffer[trailOffset++];
-                }
+        //    //    this.writer.trailByteCount = (totalByteCount - actualByteCount);
+        //    //    if (this.writer.trailByteCount > 0)
+        //    //    {
+        //    //        int trailOffset = offset + count - this.writer.trailByteCount;
+        //    //        for (int i = 0; i < this.writer.trailByteCount; i++)
+        //    //            this.writer.trailBytes[i] = this.buffer[trailOffset++];
+        //    //    }
 
-                return true;
-            }
+        //    //    return true;
+        //    //}
 
-            public static void End(IAsyncResult result)
-            {
-                AsyncResult.End<WriteBase64AsyncResult>(result);
-            }
-        }
+        //    //public static void End(IAsyncResult result)
+        //    //{
+        //    //    AsyncResult.End<WriteBase64AsyncResult>(result);
+        //    //}
+        //}
 
         public override void WriteBinHex(byte[] buffer, int offset, int count)
         {
@@ -2470,179 +2470,179 @@ namespace System.Xml
             }
         }
 
-        class XmlBaseWriterNodeWriterAsyncHelper
-        {
-            static AsyncEventArgsCallback onWriteComplete;
+        //class XmlBaseWriterNodeWriterAsyncHelper
+        //{
+        //    static AsyncEventArgsCallback onWriteComplete;
 
-            XmlBaseWriter writer;
-            byte[] buffer;
-            int offset;
-            int count;
-            int actualByteCount;
-            int totalByteCount;
-            AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> nodeWriterAsyncState;
-            XmlNodeWriterWriteBase64TextArgs nodeWriterArgs;
-            AsyncEventArgs<XmlWriteBase64AsyncArguments> inputState;
+        //    XmlBaseWriter writer;
+        //    byte[] buffer;
+        //    int offset;
+        //    int count;
+        //    int actualByteCount;
+        //    int totalByteCount;
+        //    AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> nodeWriterAsyncState;
+        //    XmlNodeWriterWriteBase64TextArgs nodeWriterArgs;
+        //    AsyncEventArgs<XmlWriteBase64AsyncArguments> inputState;
 
-            public XmlBaseWriterNodeWriterAsyncHelper(XmlBaseWriter writer)
-            {
-                this.writer = writer;
-            }
+        //    public XmlBaseWriterNodeWriterAsyncHelper(XmlBaseWriter writer)
+        //    {
+        //        this.writer = writer;
+        //    }
 
-            public void SetArguments(AsyncEventArgs<XmlWriteBase64AsyncArguments> inputState)
-            {
-                Fx.Assert(inputState != null, "InputState cannot be null.");
-                this.inputState = inputState;
-                this.buffer = inputState.Arguments.Buffer;
-                this.offset = inputState.Arguments.Offset;
-                this.count = inputState.Arguments.Count;
-            }
+        //    public void SetArguments(AsyncEventArgs<XmlWriteBase64AsyncArguments> inputState)
+        //    {
+        //        Fx.Assert(inputState != null, "InputState cannot be null.");
+        //        this.inputState = inputState;
+        //        this.buffer = inputState.Arguments.Buffer;
+        //        this.offset = inputState.Arguments.Offset;
+        //        this.count = inputState.Arguments.Count;
+        //    }
 
-            public AsyncCompletionResult StartAsync()
-            {
-                bool completeSelf = true;
+        //    public AsyncCompletionResult StartAsync()
+        //    {
+        //        bool completeSelf = true;
 
-                if (this.count > 0)
-                {
-                    // Bytes that have been already been read.
-                    if (this.writer.trailByteCount > 0)
-                    {
-                        // Copy over up to 3 trailing bytes into the trailBytes buffer.
-                        while (this.writer.trailByteCount < 3 && this.count > 0)
-                        {
-                            this.writer.trailBytes[this.writer.trailByteCount++] = this.buffer[this.offset++];
-                            this.count--;
-                        }
-                    }
+        //        if (this.count > 0)
+        //        {
+        //            // Bytes that have been already been read.
+        //            if (this.writer.trailByteCount > 0)
+        //            {
+        //                // Copy over up to 3 trailing bytes into the trailBytes buffer.
+        //                while (this.writer.trailByteCount < 3 && this.count > 0)
+        //                {
+        //                    this.writer.trailBytes[this.writer.trailByteCount++] = this.buffer[this.offset++];
+        //                    this.count--;
+        //                }
+        //            }
 
-                    this.totalByteCount = this.writer.trailByteCount + this.count;
-                    this.actualByteCount = this.totalByteCount - (this.totalByteCount % 3);
+        //            this.totalByteCount = this.writer.trailByteCount + this.count;
+        //            this.actualByteCount = this.totalByteCount - (this.totalByteCount % 3);
 
-                    if (this.writer.trailBytes == null)
-                    {
-                        this.writer.trailBytes = new byte[3];
-                    }
+        //            if (this.writer.trailBytes == null)
+        //            {
+        //                this.writer.trailBytes = new byte[3];
+        //            }
 
-                    if (actualByteCount >= 3)
-                    {
-                        if (this.writer.attributeValue != null)
-                        {
-                            this.writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(this.writer.trailBytes, 0, this.writer.trailByteCount));
-                            this.writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(this.buffer, this.offset, actualByteCount - this.writer.trailByteCount));
-                        }
+        //            if (actualByteCount >= 3)
+        //            {
+        //                if (this.writer.attributeValue != null)
+        //                {
+        //                    this.writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(this.writer.trailBytes, 0, this.writer.trailByteCount));
+        //                    this.writer.WriteAttributeText(XmlConverter.Base64Encoding.GetString(this.buffer, this.offset, actualByteCount - this.writer.trailByteCount));
+        //                }
 
-                        // StartContent/WriteBase64Text/EndContent will be called from HandleWriteBase64 as appropriate
-                        completeSelf = HandleWriteBase64Text(false);
-                    }
-                    else
-                    {
-                        Buffer.BlockCopy(this.buffer, this.offset, this.writer.trailBytes, this.writer.trailByteCount, this.count);
-                        this.writer.trailByteCount += this.count;
-                    }
-                }
+        //                // StartContent/WriteBase64Text/EndContent will be called from HandleWriteBase64 as appropriate
+        //                completeSelf = HandleWriteBase64Text(false);
+        //            }
+        //            else
+        //            {
+        //                Buffer.BlockCopy(this.buffer, this.offset, this.writer.trailBytes, this.writer.trailByteCount, this.count);
+        //                this.writer.trailByteCount += this.count;
+        //            }
+        //        }
 
-                if (completeSelf)
-                {
-                    this.Clear();
-                    return AsyncCompletionResult.Completed;
-                }
+        //        if (completeSelf)
+        //        {
+        //            this.Clear();
+        //            return AsyncCompletionResult.Completed;
+        //        }
 
-                return AsyncCompletionResult.Queued;
-            }
+        //        return AsyncCompletionResult.Queued;
+        //    }
 
-            static void OnWriteComplete(IAsyncEventArgs asyncEventArgs)
-            {
-                bool completeSelf = false;
-                Exception completionException = null;
-                XmlBaseWriterNodeWriterAsyncHelper thisPtr = (XmlBaseWriterNodeWriterAsyncHelper)asyncEventArgs.AsyncState;
-                AsyncEventArgs<XmlWriteBase64AsyncArguments> inputState = thisPtr.inputState;
+        //    static void OnWriteComplete(IAsyncEventArgs asyncEventArgs)
+        //    {
+        //        bool completeSelf = false;
+        //        Exception completionException = null;
+        //        XmlBaseWriterNodeWriterAsyncHelper thisPtr = (XmlBaseWriterNodeWriterAsyncHelper)asyncEventArgs.AsyncState;
+        //        AsyncEventArgs<XmlWriteBase64AsyncArguments> inputState = thisPtr.inputState;
 
-                try
-                {
-                    if (asyncEventArgs.Exception != null)
-                    {
-                        completionException = asyncEventArgs.Exception;
-                        completeSelf = true;
-                    }
-                    else
-                    {
-                        completeSelf = thisPtr.HandleWriteBase64Text(true);
-                    }
-                }
-                catch (Exception exception)
-                {
-                    if (Fx.IsFatal(exception))
-                    {
-                        throw;
-                    }
+        //        try
+        //        {
+        //            if (asyncEventArgs.Exception != null)
+        //            {
+        //                completionException = asyncEventArgs.Exception;
+        //                completeSelf = true;
+        //            }
+        //            else
+        //            {
+        //                completeSelf = thisPtr.HandleWriteBase64Text(true);
+        //            }
+        //        }
+        //        catch (Exception exception)
+        //        {
+        //            if (Fx.IsFatal(exception))
+        //            {
+        //                throw;
+        //            }
 
-                    completionException = exception;
-                    completeSelf = true;
-                }
+        //            completionException = exception;
+        //            completeSelf = true;
+        //        }
 
-                if (completeSelf)
-                {
-                    thisPtr.Clear();
-                    inputState.Complete(false, completionException);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            thisPtr.Clear();
+        //            inputState.Complete(false, completionException);
+        //        }
+        //    }
 
-            bool HandleWriteBase64Text(bool isAsyncCallback)
-            {
-                Fx.Assert(this.count > 0 && this.actualByteCount >= 3, "HandleWriteBase64Text cannot be invoked with less than 3 bytes.");
-                if (!writer.isXmlnsAttribute)
-                {
-                    if (!isAsyncCallback)
-                    {
-                        if (this.nodeWriterAsyncState == null)
-                        {
-                            this.nodeWriterAsyncState = new AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs>();
-                            this.nodeWriterArgs = new XmlNodeWriterWriteBase64TextArgs();
-                        }
-                        if (onWriteComplete == null)
-                        {
-                            onWriteComplete = new AsyncEventArgsCallback(OnWriteComplete);
-                        }
+        //    bool HandleWriteBase64Text(bool isAsyncCallback)
+        //    {
+        //        Fx.Assert(this.count > 0 && this.actualByteCount >= 3, "HandleWriteBase64Text cannot be invoked with less than 3 bytes.");
+        //        if (!writer.isXmlnsAttribute)
+        //        {
+        //            if (!isAsyncCallback)
+        //            {
+        //                if (this.nodeWriterAsyncState == null)
+        //                {
+        //                    this.nodeWriterAsyncState = new AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs>();
+        //                    this.nodeWriterArgs = new XmlNodeWriterWriteBase64TextArgs();
+        //                }
+        //                if (onWriteComplete == null)
+        //                {
+        //                    onWriteComplete = new AsyncEventArgsCallback(OnWriteComplete);
+        //                }
 
-                        this.writer.StartContent();
-                        this.nodeWriterArgs.TrailBuffer = this.writer.trailBytes;
-                        this.nodeWriterArgs.TrailCount = this.writer.trailByteCount;
-                        this.nodeWriterArgs.Buffer = this.buffer;
-                        this.nodeWriterArgs.Offset = this.offset;
-                        this.nodeWriterArgs.Count = this.actualByteCount - this.writer.trailByteCount;
+        //                this.writer.StartContent();
+        //                this.nodeWriterArgs.TrailBuffer = this.writer.trailBytes;
+        //                this.nodeWriterArgs.TrailCount = this.writer.trailByteCount;
+        //                this.nodeWriterArgs.Buffer = this.buffer;
+        //                this.nodeWriterArgs.Offset = this.offset;
+        //                this.nodeWriterArgs.Count = this.actualByteCount - this.writer.trailByteCount;
 
-                        this.nodeWriterAsyncState.Set(onWriteComplete, this.nodeWriterArgs, this);
-                        if (this.writer.writer.WriteBase64TextAsync(this.nodeWriterAsyncState) != AsyncCompletionResult.Completed)
-                        {
-                            return false;
-                        }
+        //                this.nodeWriterAsyncState.Set(onWriteComplete, this.nodeWriterArgs, this);
+        //                if (this.writer.writer.WriteBase64TextAsync(this.nodeWriterAsyncState) != AsyncCompletionResult.Completed)
+        //                {
+        //                    return false;
+        //                }
 
-                        this.nodeWriterAsyncState.Complete(true);
-                    }
+        //                this.nodeWriterAsyncState.Complete(true);
+        //            }
 
-                    this.writer.EndContent();
-                }
+        //            this.writer.EndContent();
+        //        }
 
-                this.writer.trailByteCount = (this.totalByteCount - this.actualByteCount);
-                if (this.writer.trailByteCount > 0)
-                {
-                    int trailOffset = offset + count - this.writer.trailByteCount;
-                    for (int i = 0; i < this.writer.trailByteCount; i++)
-                        this.writer.trailBytes[i] = this.buffer[trailOffset++];
-                }
+        //        this.writer.trailByteCount = (this.totalByteCount - this.actualByteCount);
+        //        if (this.writer.trailByteCount > 0)
+        //        {
+        //            int trailOffset = offset + count - this.writer.trailByteCount;
+        //            for (int i = 0; i < this.writer.trailByteCount; i++)
+        //                this.writer.trailBytes[i] = this.buffer[trailOffset++];
+        //        }
 
-                return true;
-            }
+        //        return true;
+        //    }
 
-            void Clear()
-            {
-                this.inputState = null;
-                this.buffer = null;
-                this.offset = 0;
-                this.count = 0;
-                this.actualByteCount = 0;
-                this.totalByteCount = 0;
-            }
-        }
+        //    void Clear()
+        //    {
+        //        this.inputState = null;
+        //        this.buffer = null;
+        //        this.offset = 0;
+        //        this.count = 0;
+        //        this.actualByteCount = 0;
+        //        this.totalByteCount = 0;
+        //    }
+        //}
     }
 }

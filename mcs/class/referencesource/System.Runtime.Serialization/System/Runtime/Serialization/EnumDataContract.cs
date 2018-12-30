@@ -160,7 +160,7 @@ namespace System.Runtime.Serialization
                 Add(typeof(ulong), "unsignedLong");
             }
 
-            [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "typeToName", Justification = "No need to support type equivalence here.")]
+            // [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "typeToName", Justification = "No need to support type equivalence here.")]
             static internal void Add(Type type, string localName)
             {
                 XmlQualifiedName stableName = CreateQualifiedName(localName, Globals.SchemaNamespace);

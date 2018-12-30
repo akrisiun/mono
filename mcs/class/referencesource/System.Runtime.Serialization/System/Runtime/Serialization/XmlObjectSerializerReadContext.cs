@@ -8,7 +8,7 @@ namespace System.Runtime.Serialization
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Runtime.Diagnostics;
+ //   using System.Runtime.Diagnostics;
 #if !MONO
     using System.ServiceModel.Diagnostics;
 #endif
@@ -216,8 +216,8 @@ namespace System.Runtime.Serialization
                         Dictionary<string, string> values = new Dictionary<string, string>(2);
                         values["FactoryType"] = attributes.FactoryTypeNamespace + ":" + attributes.FactoryTypeName;
                         values["ISerializableType"] = dataContract.StableName.Namespace + ":" + dataContract.StableName.Name;
-                        TraceUtility.Trace(TraceEventType.Warning, TraceCode.FactoryTypeNotFound,
-                            SR.GetString(SR.TraceCodeFactoryTypeNotFound), new DictionaryTraceRecord(values));
+                        //TraceUtility.Trace(TraceEventType.Warning, TraceCode.FactoryTypeNotFound,
+                        //    SR.GetString(SR.TraceCodeFactoryTypeNotFound), new DictionaryTraceRecord(values));
                     }
                 }
             }
@@ -318,8 +318,8 @@ namespace System.Runtime.Serialization
             ReadAttributes(xmlReader);
             if (DiagnosticUtility.ShouldTraceVerbose)
             {
-                TraceUtility.Trace(TraceEventType.Verbose, TraceCode.ElementIgnored,
-                    SR.GetString(SR.TraceCodeElementIgnored), new StringTraceRecord("Element", xmlReader.NamespaceURI + ":" + xmlReader.LocalName));
+                //TraceUtility.Trace(TraceEventType.Verbose, TraceCode.ElementIgnored,
+                //    SR.GetString(SR.TraceCodeElementIgnored), new StringTraceRecord("Element", xmlReader.NamespaceURI + ":" + xmlReader.LocalName));
             }
             xmlReader.Skip();
         }

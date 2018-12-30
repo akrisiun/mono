@@ -12,7 +12,7 @@ namespace System.Runtime.Serialization
     using System.Globalization;
     using System.IO;
     using System.Security;
-    using System.Runtime.Diagnostics;
+   // using System.Runtime.Diagnostics;
     using System.Xml;
     using System.Xml.Schema;
     using DataContractDictionary = System.Collections.Generic.Dictionary<System.Xml.XmlQualifiedName, DataContract>;
@@ -732,8 +732,8 @@ namespace System.Runtime.Serialization
                 xmlDataContract.HasRoot = true;
                 if (DiagnosticUtility.ShouldTraceVerbose)
                 {
-                    TraceUtility.Trace(TraceEventType.Verbose, TraceCode.XsdImportAnnotationFailed,
-                        SR.GetString(SR.TraceCodeXsdImportAnnotationFailed), new StringTraceRecord("Type", typeName.Namespace + ":" + typeName.Name));
+                    //TraceUtility.Trace(TraceEventType.Verbose, TraceCode.XsdImportAnnotationFailed,
+                    //    SR.GetString(SR.TraceCodeXsdImportAnnotationFailed), new StringTraceRecord("Type", typeName.Namespace + ":" + typeName.Name));
                 }
             }
             if (!isAnonymous)

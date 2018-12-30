@@ -50,10 +50,10 @@ namespace System.Runtime.Serialization.Configuration
             {
                 return;
             }
-            if (!PartialTrustHelpers.IsInFullTrust())
-            {
-                throw System.Runtime.Serialization.DiagnosticUtility.ExceptionUtility.ThrowHelperError(new ConfigurationErrorsException(SR.GetString(SR.ConfigDataContractSerializerSectionLoadError)));
-            }
+            //if (!PartialTrustHelpers.IsInFullTrust())
+            //{
+            //    throw System.Runtime.Serialization.DiagnosticUtility.ExceptionUtility.ThrowHelperError(new ConfigurationErrorsException(SR.GetString(SR.ConfigDataContractSerializerSectionLoadError)));
+            //}
         }
     }
 }

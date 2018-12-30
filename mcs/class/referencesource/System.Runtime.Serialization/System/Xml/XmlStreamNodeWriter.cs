@@ -21,10 +21,10 @@ namespace System.Xml
         const int maxBytesPerChar = 3;
         Encoding encoding;
         int hasPendingWrite;
-        AsyncEventArgs<object> flushBufferState;
+        //AsyncEventArgs<object> flushBufferState;
         static UTF8Encoding UTF8Encoding = new UTF8Encoding(false, true);
         static AsyncCallback onFlushBufferComplete;
-        static AsyncEventArgsCallback onGetFlushComplete;
+        // static AsyncEventArgsCallback onGetFlushComplete;
 
         protected XmlStreamNodeWriter()
         {
@@ -104,200 +104,200 @@ namespace System.Xml
             return buffer;
         }
 
-        internal AsyncCompletionResult GetBufferAsync(GetBufferAsyncEventArgs getBufferState)
-        {
-            Fx.Assert(getBufferState != null, "GetBufferAsyncEventArgs cannot be null.");
-            int count = getBufferState.Arguments.Count;
-            Fx.Assert(count >= 0 && count <= bufferLength, String.Empty);
-            int finalOffset = 0;
+//        internal AsyncCompletionResult GetBufferAsync(GetBufferAsyncEventArgs getBufferState)
+//        {
+//            Fx.Assert(getBufferState != null, "GetBufferAsyncEventArgs cannot be null.");
+//            int count = getBufferState.Arguments.Count;
+//            Fx.Assert(count >= 0 && count <= bufferLength, String.Empty);
+//            int finalOffset = 0;
 
-            int bufferOffset = this.offset;
-            if (bufferOffset + count <= bufferLength)
-            {
-                finalOffset = bufferOffset;
-            }
-            else
-            {
-                if (onGetFlushComplete == null)
-                {
-                    onGetFlushComplete = new AsyncEventArgsCallback(GetBufferFlushComplete);
-                }
-                if (flushBufferState == null)
-                {
-                    this.flushBufferState = new AsyncEventArgs<object>();
-                }
+//            int bufferOffset = this.offset;
+//            if (bufferOffset + count <= bufferLength)
+//            {
+//                finalOffset = bufferOffset;
+//            }
+//            else
+//            {
+//                if (onGetFlushComplete == null)
+//                {
+//                    onGetFlushComplete = new AsyncEventArgsCallback(GetBufferFlushComplete);
+//                }
+//                if (flushBufferState == null)
+//                {
+//                    this.flushBufferState = new AsyncEventArgs<object>();
+//                }
 
-                this.flushBufferState.Set(onGetFlushComplete, getBufferState, this);
-                if (FlushBufferAsync(this.flushBufferState) == AsyncCompletionResult.Completed)
-                {
-                    finalOffset = 0;
-                    this.flushBufferState.Complete(true);
-                }
-                else
-                {
-                    return AsyncCompletionResult.Queued;
-                }
-            }
-#if DEBUG
-            Fx.Assert(finalOffset + count <= bufferLength, "");
-            for (int i = 0; i < count; i++)
-            {
-                buffer[finalOffset + i] = (byte)'<';
-            }
-#endif
-            //return the buffer and finalOffset;
-            getBufferState.Result = getBufferState.Result ?? new GetBufferEventResult();
-            getBufferState.Result.Buffer = this.buffer;
-            getBufferState.Result.Offset = finalOffset;
-            return AsyncCompletionResult.Completed;
-        }
+//                this.flushBufferState.Set(onGetFlushComplete, getBufferState, this);
+//                if (FlushBufferAsync(this.flushBufferState) == AsyncCompletionResult.Completed)
+//                {
+//                    finalOffset = 0;
+//                    this.flushBufferState.Complete(true);
+//                }
+//                else
+//                {
+//                    return AsyncCompletionResult.Queued;
+//                }
+//            }
+//#if DEBUG
+//            Fx.Assert(finalOffset + count <= bufferLength, "");
+//            for (int i = 0; i < count; i++)
+//            {
+//                buffer[finalOffset + i] = (byte)'<';
+//            }
+//#endif
+//            //return the buffer and finalOffset;
+//            getBufferState.Result = getBufferState.Result ?? new GetBufferEventResult();
+//            getBufferState.Result.Buffer = this.buffer;
+//            getBufferState.Result.Offset = finalOffset;
+//            return AsyncCompletionResult.Completed;
+//        }
 
-        static void GetBufferFlushComplete(IAsyncEventArgs completionState)
-        {
-            XmlStreamNodeWriter thisPtr = (XmlStreamNodeWriter)completionState.AsyncState;
-            GetBufferAsyncEventArgs getBufferState = (GetBufferAsyncEventArgs)thisPtr.flushBufferState.Arguments;
-            getBufferState.Result = getBufferState.Result ?? new GetBufferEventResult();
-            getBufferState.Result.Buffer = thisPtr.buffer;
-            getBufferState.Result.Offset = 0;
-            getBufferState.Complete(false, completionState.Exception);
-        }
+//        static void GetBufferFlushComplete(IAsyncEventArgs completionState)
+//        {
+//            XmlStreamNodeWriter thisPtr = (XmlStreamNodeWriter)completionState.AsyncState;
+//            GetBufferAsyncEventArgs getBufferState = (GetBufferAsyncEventArgs)thisPtr.flushBufferState.Arguments;
+//            getBufferState.Result = getBufferState.Result ?? new GetBufferEventResult();
+//            getBufferState.Result.Buffer = thisPtr.buffer;
+//            getBufferState.Result.Offset = 0;
+//            getBufferState.Complete(false, completionState.Exception);
+//        }
 
-        AsyncCompletionResult FlushBufferAsync(AsyncEventArgs<object> state)
-        {
-            if (Interlocked.CompareExchange(ref this.hasPendingWrite, 1, 0) != 0)
-            {
-                throw FxTrace.Exception.AsError(new InvalidOperationException(SR.GetString(SR.FlushBufferAlreadyInUse)));
-            }
+//        AsyncCompletionResult FlushBufferAsync(AsyncEventArgs<object> state)
+//        {
+//            if (Interlocked.CompareExchange(ref this.hasPendingWrite, 1, 0) != 0)
+//            {
+//                throw FxTrace.Exception.AsError(new InvalidOperationException(SR.GetString(SR.FlushBufferAlreadyInUse)));
+//            }
 
-            if (this.offset != 0)
-            {
-                if (onFlushBufferComplete == null)
-                {
-                    onFlushBufferComplete = new AsyncCallback(OnFlushBufferCompete);
-                }
+//            if (this.offset != 0)
+//            {
+//                if (onFlushBufferComplete == null)
+//                {
+//                    onFlushBufferComplete = new AsyncCallback(OnFlushBufferCompete);
+//                }
 
-                IAsyncResult result = stream.BeginWrite(buffer, 0, this.offset, onFlushBufferComplete, this);
-                if (!result.CompletedSynchronously)
-                {
-                    return AsyncCompletionResult.Queued;
-                }
+//                IAsyncResult result = stream.BeginWrite(buffer, 0, this.offset, onFlushBufferComplete, this);
+//                if (!result.CompletedSynchronously)
+//                {
+//                    return AsyncCompletionResult.Queued;
+//                }
 
-                stream.EndWrite(result);
-                this.offset = 0;
-            }
+//                stream.EndWrite(result);
+//                this.offset = 0;
+//            }
 
-            if (Interlocked.CompareExchange(ref this.hasPendingWrite, 0, 1) != 1)
-            {
-                throw FxTrace.Exception.AsError(new InvalidOperationException(SR.GetString(SR.NoAsyncWritePending)));
-            }
+//            if (Interlocked.CompareExchange(ref this.hasPendingWrite, 0, 1) != 1)
+//            {
+//                throw FxTrace.Exception.AsError(new InvalidOperationException(SR.GetString(SR.NoAsyncWritePending)));
+//            }
 
-            return AsyncCompletionResult.Completed;
-        }
+//            return AsyncCompletionResult.Completed;
+//        }
 
-        static void OnFlushBufferCompete(IAsyncResult result)
-        {
-            if (result.CompletedSynchronously)
-            {
-                return;
-            }
+//        static void OnFlushBufferCompete(IAsyncResult result)
+//        {
+//            if (result.CompletedSynchronously)
+//            {
+//                return;
+//            }
 
-            XmlStreamNodeWriter thisPtr = (XmlStreamNodeWriter)result.AsyncState;
-            Exception completionException = null;
-            try
-            {
-                thisPtr.stream.EndWrite(result);
-                thisPtr.offset = 0;
-                if (Interlocked.CompareExchange(ref thisPtr.hasPendingWrite, 0, 1) != 1)
-                {
-                    throw FxTrace.Exception.AsError(new InvalidOperationException(SR.GetString(SR.NoAsyncWritePending)));
-                }
-            }
-            catch (Exception ex)
-            {
-                if (Fx.IsFatal(ex))
-                {
-                    throw;
-                }
+//            XmlStreamNodeWriter thisPtr = (XmlStreamNodeWriter)result.AsyncState;
+//            Exception completionException = null;
+//            try
+//            {
+//                thisPtr.stream.EndWrite(result);
+//                thisPtr.offset = 0;
+//                if (Interlocked.CompareExchange(ref thisPtr.hasPendingWrite, 0, 1) != 1)
+//                {
+//                    throw FxTrace.Exception.AsError(new InvalidOperationException(SR.GetString(SR.NoAsyncWritePending)));
+//                }
+//            }
+//            catch (Exception ex)
+//            {
+//                if (Fx.IsFatal(ex))
+//                {
+//                    throw;
+//                }
 
-                completionException = ex;
-            }
+//                completionException = ex;
+//            }
 
-            thisPtr.flushBufferState.Complete(false, completionException);
-        }
+//            thisPtr.flushBufferState.Complete(false, completionException);
+//        }
 
-        protected IAsyncResult BeginGetBuffer(int count, AsyncCallback callback, object state)
-        {
-            Fx.Assert(count >= 0 && count <= bufferLength, "");
-            return new GetBufferAsyncResult(count, this, callback, state);
-        }
+//        protected IAsyncResult BeginGetBuffer(int count, AsyncCallback callback, object state)
+//        {
+//            Fx.Assert(count >= 0 && count <= bufferLength, "");
+//            return new GetBufferAsyncResult(count, this, callback, state);
+//        }
 
-        protected byte[] EndGetBuffer(IAsyncResult result, out int offset)
-        {
-            return GetBufferAsyncResult.End(result, out offset);
-        }
+//        protected byte[] EndGetBuffer(IAsyncResult result, out int offset)
+//        {
+//            return GetBufferAsyncResult.End(result, out offset);
+//        }
 
-        class GetBufferAsyncResult : AsyncResult
-        {
-            XmlStreamNodeWriter writer;
-            int offset;
-            int count;
-            static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
+//        class GetBufferAsyncResult : AsyncResult
+//        {
+//            XmlStreamNodeWriter writer;
+//            int offset;
+//            int count;
+//            static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
 
-            public GetBufferAsyncResult(int count, XmlStreamNodeWriter writer, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                this.count = count;
-                this.writer = writer;
-                int bufferOffset = writer.offset;
+//            public GetBufferAsyncResult(int count, XmlStreamNodeWriter writer, AsyncCallback callback, object state)
+//                : base(callback, state)
+//            {
+//                this.count = count;
+//                this.writer = writer;
+//                int bufferOffset = writer.offset;
 
-                bool completeSelf = false;
+//                bool completeSelf = false;
 
-                if (bufferOffset + count <= bufferLength)
-                {
-                    this.offset = bufferOffset;
-                    completeSelf = true;
-                }
-                else
-                {
-                    IAsyncResult result = writer.BeginFlushBuffer(PrepareAsyncCompletion(onComplete), this);
-                    completeSelf = SyncContinue(result);
-                }
+//                if (bufferOffset + count <= bufferLength)
+//                {
+//                    this.offset = bufferOffset;
+//                    completeSelf = true;
+//                }
+//                else
+//                {
+//                    IAsyncResult result = writer.BeginFlushBuffer(PrepareAsyncCompletion(onComplete), this);
+//                    completeSelf = SyncContinue(result);
+//                }
 
-                if (completeSelf)
-                {
-                    this.Complete(true);
-                }
-            }
+//                if (completeSelf)
+//                {
+//                    this.Complete(true);
+//                }
+//            }
 
-            static bool OnComplete(IAsyncResult result)
-            {
-                GetBufferAsyncResult thisPtr = (GetBufferAsyncResult)result.AsyncState;
-                return thisPtr.HandleFlushBuffer(result);
-            }
+//            static bool OnComplete(IAsyncResult result)
+//            {
+//                GetBufferAsyncResult thisPtr = (GetBufferAsyncResult)result.AsyncState;
+//                return thisPtr.HandleFlushBuffer(result);
+//            }
 
-            bool HandleFlushBuffer(IAsyncResult result)
-            {
-                writer.EndFlushBuffer(result);
-                this.offset = 0;
+//            bool HandleFlushBuffer(IAsyncResult result)
+//            {
+//                writer.EndFlushBuffer(result);
+//                this.offset = 0;
 
-#if DEBUG
-                Fx.Assert(this.offset + this.count <= bufferLength, "");
-                for (int i = 0; i < this.count; i++)
-                {
-                    writer.buffer[this.offset + i] = (byte)'<';
-                }
-#endif
-                return true;
-            }
+//#if DEBUG
+//                Fx.Assert(this.offset + this.count <= bufferLength, "");
+//                for (int i = 0; i < this.count; i++)
+//                {
+//                    writer.buffer[this.offset + i] = (byte)'<';
+//                }
+//#endif
+//                return true;
+//            }
 
-            public static byte[] End(IAsyncResult result, out int offset)
-            {
-                GetBufferAsyncResult thisPtr = AsyncResult.End<GetBufferAsyncResult>(result);
+//            public static byte[] End(IAsyncResult result, out int offset)
+//            {
+//                GetBufferAsyncResult thisPtr = AsyncResult.End<GetBufferAsyncResult>(result);
 
-                offset = thisPtr.offset;
-                return thisPtr.writer.buffer;
-            }
-        }
+//                offset = thisPtr.offset;
+//                return thisPtr.writer.buffer;
+//            }
+//        }
 
         protected void Advance(int count)
         {
@@ -361,125 +361,125 @@ namespace System.Xml
             }
         }
 
-        public IAsyncResult BeginWriteBytes(byte[] byteBuffer, int byteOffset, int byteCount, AsyncCallback callback, object state)
-        {
-            return new WriteBytesAsyncResult(byteBuffer, byteOffset, byteCount, this, callback, state);
-        }
+        //public IAsyncResult BeginWriteBytes(byte[] byteBuffer, int byteOffset, int byteCount, AsyncCallback callback, object state)
+        //{
+        //    return new WriteBytesAsyncResult(byteBuffer, byteOffset, byteCount, this, callback, state);
+        //}
 
-        public void EndWriteBytes(IAsyncResult result)
-        {
-            WriteBytesAsyncResult.End(result);
-        }
+        //public void EndWriteBytes(IAsyncResult result)
+        //{
+        //    WriteBytesAsyncResult.End(result);
+        //}
 
-        class WriteBytesAsyncResult : AsyncResult
-        {
-            static AsyncCompletion onHandleGetBufferComplete = new AsyncCompletion(OnHandleGetBufferComplete);
-            static AsyncCompletion onHandleFlushBufferComplete = new AsyncCompletion(OnHandleFlushBufferComplete);
-            static AsyncCompletion onHandleWrite = new AsyncCompletion(OnHandleWrite);
+        //class WriteBytesAsyncResult : AsyncResult
+        //{
+        //    static AsyncCompletion onHandleGetBufferComplete = new AsyncCompletion(OnHandleGetBufferComplete);
+        //    static AsyncCompletion onHandleFlushBufferComplete = new AsyncCompletion(OnHandleFlushBufferComplete);
+        //    static AsyncCompletion onHandleWrite = new AsyncCompletion(OnHandleWrite);
 
-            byte[] byteBuffer;
-            int byteOffset;
-            int byteCount;
-            XmlStreamNodeWriter writer;
+        //    byte[] byteBuffer;
+        //    int byteOffset;
+        //    int byteCount;
+        //    XmlStreamNodeWriter writer;
 
-            public WriteBytesAsyncResult(byte[] byteBuffer, int byteOffset, int byteCount, XmlStreamNodeWriter writer, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                this.byteBuffer = byteBuffer;
-                this.byteOffset = byteOffset;
-                this.byteCount = byteCount;
-                this.writer = writer;
+        //    public WriteBytesAsyncResult(byte[] byteBuffer, int byteOffset, int byteCount, XmlStreamNodeWriter writer, AsyncCallback callback, object state)
+        //        : base(callback, state)
+        //    {
+        //        this.byteBuffer = byteBuffer;
+        //        this.byteOffset = byteOffset;
+        //        this.byteCount = byteCount;
+        //        this.writer = writer;
 
-                bool completeSelf = false;
+        //        bool completeSelf = false;
 
-                if (byteCount < bufferLength)
-                {
-                    completeSelf = HandleGetBuffer(null);
-                }
-                else
-                {
-                    completeSelf = HandleFlushBuffer(null);
-                }
+        //        if (byteCount < bufferLength)
+        //        {
+        //            completeSelf = HandleGetBuffer(null);
+        //        }
+        //        else
+        //        {
+        //            completeSelf = HandleFlushBuffer(null);
+        //        }
 
-                if (completeSelf)
-                {
-                    this.Complete(true);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            this.Complete(true);
+        //        }
+        //    }
 
-            static bool OnHandleGetBufferComplete(IAsyncResult result)
-            {
-                WriteBytesAsyncResult thisPtr = (WriteBytesAsyncResult)result.AsyncState;
-                return thisPtr.HandleGetBuffer(result);
-            }
+        //    static bool OnHandleGetBufferComplete(IAsyncResult result)
+        //    {
+        //        WriteBytesAsyncResult thisPtr = (WriteBytesAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleGetBuffer(result);
+        //    }
 
-            static bool OnHandleFlushBufferComplete(IAsyncResult result)
-            {
-                WriteBytesAsyncResult thisPtr = (WriteBytesAsyncResult)result.AsyncState;
-                return thisPtr.HandleFlushBuffer(result);
-            }
+        //    static bool OnHandleFlushBufferComplete(IAsyncResult result)
+        //    {
+        //        WriteBytesAsyncResult thisPtr = (WriteBytesAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleFlushBuffer(result);
+        //    }
 
-            static bool OnHandleWrite(IAsyncResult result)
-            {
-                WriteBytesAsyncResult thisPtr = (WriteBytesAsyncResult)result.AsyncState;
-                return thisPtr.HandleWrite(result);
-            }
+        //    static bool OnHandleWrite(IAsyncResult result)
+        //    {
+        //        WriteBytesAsyncResult thisPtr = (WriteBytesAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleWrite(result);
+        //    }
 
-            bool HandleGetBuffer(IAsyncResult result)
-            {
-                if (result == null)
-                {
-                    result = writer.BeginGetBuffer(this.byteCount, PrepareAsyncCompletion(onHandleGetBufferComplete), this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //    bool HandleGetBuffer(IAsyncResult result)
+        //    {
+        //        if (result == null)
+        //        {
+        //            //result = writer.BeginGetBuffer(this.byteCount, PrepareAsyncCompletion(onHandleGetBufferComplete), this);
+        //            //if (!result.CompletedSynchronously)
+        //            //{
+        //            //    return false;
+        //            //}
+        //        }
 
-                int offset;
-                byte[] buffer = writer.EndGetBuffer(result, out offset);
+        //        int offset;
+        //        byte[] buffer = null; //  writer.EndGetBuffer(result, out offset);
 
-                Buffer.BlockCopy(this.byteBuffer, this.byteOffset, buffer, offset, this.byteCount);
-                writer.Advance(this.byteCount);
+        //        Buffer.BlockCopy(this.byteBuffer, this.byteOffset, buffer, offset, this.byteCount);
+        //        writer.Advance(this.byteCount);
 
-                return true;
-            }
+        //        return true;
+        //    }
 
-            bool HandleFlushBuffer(IAsyncResult result)
-            {
-                if (result == null)
-                {
-                    result = writer.BeginFlushBuffer(PrepareAsyncCompletion(onHandleFlushBufferComplete), this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //    //bool HandleFlushBuffer(IAsyncResult result)
+        //    //{
+        //    //    if (result == null)
+        //    //    {
+        //    //        result = writer.BeginFlushBuffer(PrepareAsyncCompletion(onHandleFlushBufferComplete), this);
+        //    //        if (!result.CompletedSynchronously)
+        //    //        {
+        //    //            return false;
+        //    //        }
+        //    //    }
 
-                writer.EndFlushBuffer(result);
-                return HandleWrite(null);
-            }
+        //    //    writer.EndFlushBuffer(result);
+        //    //    return HandleWrite(null);
+        //    //}
 
-            bool HandleWrite(IAsyncResult result)
-            {
-                if (result == null)
-                {
-                    result = writer.stream.BeginWrite(this.byteBuffer, this.byteOffset, this.byteCount, PrepareAsyncCompletion(onHandleWrite), this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //    //bool HandleWrite(IAsyncResult result)
+        //    //{
+        //    //    if (result == null)
+        //    //    {
+        //    //        result = writer.stream.BeginWrite(this.byteBuffer, this.byteOffset, this.byteCount, PrepareAsyncCompletion(onHandleWrite), this);
+        //    //        if (!result.CompletedSynchronously)
+        //    //        {
+        //    //            return false;
+        //    //        }
+        //    //    }
 
-                writer.stream.EndWrite(result);
-                return true;
-            }
+        //    //    writer.stream.EndWrite(result);
+        //    //    return true;
+        //    //}
 
-            public static void End(IAsyncResult result)
-            {
-                AsyncResult.End<WriteBytesAsyncResult>(result);
-            }
-        }
+        //    //public static void End(IAsyncResult result)
+        //    //{
+        //    //    AsyncResult.End<WriteBytesAsyncResult>(result);
+        //    //}
+        //}
 
         [Fx.Tag.SecurityNote(Critical = "Contains unsafe code. Caller needs to validate arguments.")]
         [SecurityCritical]
@@ -697,66 +697,66 @@ namespace System.Xml
             }
         }
 
-        protected virtual IAsyncResult BeginFlushBuffer(AsyncCallback callback, object state)
-        {
-            return new FlushBufferAsyncResult(this, callback, state);
-        }
+        //protected virtual IAsyncResult BeginFlushBuffer(AsyncCallback callback, object state)
+        //{
+        //    return new FlushBufferAsyncResult(this, callback, state);
+        //}
 
-        protected virtual void EndFlushBuffer(IAsyncResult result)
-        {
-            FlushBufferAsyncResult.End(result);
-        }
+        //protected virtual void EndFlushBuffer(IAsyncResult result)
+        //{
+        //    FlushBufferAsyncResult.End(result);
+        //}
 
-        class FlushBufferAsyncResult : AsyncResult
-        {
-            static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
-            XmlStreamNodeWriter writer;
+        //class FlushBufferAsyncResult : AsyncResult
+        //{
+        //    static AsyncCompletion onComplete = new AsyncCompletion(OnComplete);
+        //    XmlStreamNodeWriter writer;
 
-            public FlushBufferAsyncResult(XmlStreamNodeWriter writer, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                this.writer = writer;
-                bool completeSelf = true;
+        //    public FlushBufferAsyncResult(XmlStreamNodeWriter writer, AsyncCallback callback, object state)
+        //        : base(callback, state)
+        //    {
+        //        this.writer = writer;
+        //        bool completeSelf = true;
 
-                if (writer.offset != 0)
-                {
-                    completeSelf = HandleFlushBuffer(null);
-                }
+        //        if (writer.offset != 0)
+        //        {
+        //            completeSelf = HandleFlushBuffer(null);
+        //        }
 
-                if (completeSelf)
-                {
-                    this.Complete(true);
-                }
-            }
+        //        if (completeSelf)
+        //        {
+        //            this.Complete(true);
+        //        }
+        //    }
 
-            static bool OnComplete(IAsyncResult result)
-            {
-                FlushBufferAsyncResult thisPtr = (FlushBufferAsyncResult)result.AsyncState;
-                return thisPtr.HandleFlushBuffer(result);
-            }
+        //    static bool OnComplete(IAsyncResult result)
+        //    {
+        //        FlushBufferAsyncResult thisPtr = (FlushBufferAsyncResult)result.AsyncState;
+        //        return thisPtr.HandleFlushBuffer(result);
+        //    }
 
-            bool HandleFlushBuffer(IAsyncResult result)
-            {
-                if (result == null)
-                {
-                    result = this.writer.stream.BeginWrite(writer.buffer, 0, writer.offset, PrepareAsyncCompletion(onComplete), this);
-                    if (!result.CompletedSynchronously)
-                    {
-                        return false;
-                    }
-                }
+        //    bool HandleFlushBuffer(IAsyncResult result)
+        //    {
+        //        if (result == null)
+        //        {
+        //            result = this.writer.stream.BeginWrite(writer.buffer, 0, writer.offset, PrepareAsyncCompletion(onComplete), this);
+        //            if (!result.CompletedSynchronously)
+        //            {
+        //                return false;
+        //            }
+        //        }
 
-                this.writer.stream.EndWrite(result);
-                this.writer.offset = 0;
+        //        this.writer.stream.EndWrite(result);
+        //        this.writer.offset = 0;
 
-                return true;
-            }
+        //        return true;
+        //    }
 
-            public static void End(IAsyncResult result)
-            {
-                AsyncResult.End<FlushBufferAsyncResult>(result);
-            }
-        }
+        //    public static void End(IAsyncResult result)
+        //    {
+        //        AsyncResult.End<FlushBufferAsyncResult>(result);
+        //    }
+        //}
 
         public override void Flush()
         {
@@ -787,8 +787,8 @@ namespace System.Xml
             internal int Offset { get; set; }
         }
 
-        internal class GetBufferAsyncEventArgs : AsyncEventArgs<GetBufferArgs, GetBufferEventResult>
-        {
-        }
+        //internal class GetBufferAsyncEventArgs : AsyncEventArgs<GetBufferArgs, GetBufferEventResult>
+        //{
+        //}
     }
 }

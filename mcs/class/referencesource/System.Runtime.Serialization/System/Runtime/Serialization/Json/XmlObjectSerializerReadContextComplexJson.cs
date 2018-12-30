@@ -111,7 +111,8 @@ namespace System.Runtime.Serialization.Json
                 case TypeCode.Decimal:
                     return new DataNode<decimal>((decimal)numericalValue);
                 default:
-                    throw Fx.AssertAndThrow("JsonObjectDataContract.ParseJsonNumber shouldn't return a TypeCode that we're not expecting");
+                    throw new NotImplementedException // Fx.AssertAndThrow
+                        ("JsonObjectDataContract.ParseJsonNumber shouldn't return a TypeCode that we're not expecting");
             }
         }
 

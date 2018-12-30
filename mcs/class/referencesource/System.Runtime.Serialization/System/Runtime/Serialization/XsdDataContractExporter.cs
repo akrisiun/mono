@@ -12,7 +12,7 @@ namespace System.Runtime.Serialization
     using System.Collections.ObjectModel;
     using System.Reflection;
     using System.Diagnostics;
-    using System.ServiceModel.Diagnostics;
+    // using System.ServiceModel.Diagnostics;
     using System.Runtime.Serialization.Diagnostics;
 
     public class XsdDataContractExporter

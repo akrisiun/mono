@@ -10,7 +10,7 @@
 namespace System.Runtime.Serialization.Diagnostics.Application
 {
     using System.Runtime;
-    using System.Runtime.Diagnostics;
+    // using System.Runtime.Diagnostics;
     using System.Security;
     
     
@@ -21,8 +21,9 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         
         static System.Globalization.CultureInfo resourceCulture;
         
-        [System.Security.SecurityCriticalAttribute()]
-        static System.Runtime.Diagnostics.EventDescriptor[] eventDescriptors;
+        // [System.Security.SecurityCriticalAttribute()]
+        static object[] // System.Runtime.Diagnostics.EventDescriptor[] 
+            eventDescriptors;
         
         static object syncLock = new object();
         
@@ -75,11 +76,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="param0">Parameter 0 for event: {0}</param>
         internal static void ReaderQuotaExceeded(string param0)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(0))
-            {
-                TD.WriteEtwEvent(0, null, param0, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(0))
+            //{
+            //    TD.WriteEtwEvent(0, null, param0, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -98,11 +99,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="SurrogateType">Parameter 0 for event: DataContract serialize {0} with surrogates start.</param>
         internal static void DCSerializeWithSurrogateStart(string SurrogateType)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(1))
-            {
-                TD.WriteEtwEvent(1, null, SurrogateType, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(1))
+            //{
+            //    TD.WriteEtwEvent(1, null, SurrogateType, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -120,11 +121,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void DCSerializeWithSurrogateStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(2))
-            {
-                TD.WriteEtwEvent(2, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(2))
+            //{
+            //    TD.WriteEtwEvent(2, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -143,11 +144,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="SurrogateType">Parameter 0 for event: DataContract deserialize {0} with surrogates start.</param>
         internal static void DCDeserializeWithSurrogateStart(string SurrogateType)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(3))
-            {
-                TD.WriteEtwEvent(3, null, SurrogateType, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(3))
+            //{
+            //    TD.WriteEtwEvent(3, null, SurrogateType, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -165,11 +166,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void DCDeserializeWithSurrogateStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(4))
-            {
-                TD.WriteEtwEvent(4, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(4))
+            //{
+            //    TD.WriteEtwEvent(4, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -187,11 +188,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void ImportKnownTypesStart()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(5))
-            {
-                TD.WriteEtwEvent(5, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(5))
+            //{
+            //    TD.WriteEtwEvent(5, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -200,7 +201,7 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static bool ImportKnownTypesStopIsEnabled()
         {
-            return (FxTrace.ShouldTraceVerbose && TD.IsEtwEventEnabled(6));
+            return true; // (FxTrace.ShouldTraceVerbose && TD.IsEtwEventEnabled(6));
         }
         
         /// <summary>
@@ -209,11 +210,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void ImportKnownTypesStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(6))
-            {
-                TD.WriteEtwEvent(6, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(6))
+            //{
+            //    TD.WriteEtwEvent(6, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -222,7 +223,7 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static bool DCResolverResolveIsEnabled()
         {
-            return (FxTrace.ShouldTraceVerbose && TD.IsEtwEventEnabled(7));
+            return true; // (FxTrace.ShouldTraceVerbose && TD.IsEtwEventEnabled(7));
         }
         
         /// <summary>
@@ -232,11 +233,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="TypeName">Parameter 0 for event: DataContract resolver resolving {0} start.</param>
         internal static void DCResolverResolve(string TypeName)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(7))
-            {
-                TD.WriteEtwEvent(7, null, TypeName, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(7))
+            //{
+            //    TD.WriteEtwEvent(7, null, TypeName, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -245,7 +246,7 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static bool DCGenWriterStartIsEnabled()
         {
-            return (FxTrace.ShouldTraceVerbose && TD.IsEtwEventEnabled(8));
+            return true; // (FxTrace.ShouldTraceVerbose && TD.IsEtwEventEnabled(8));
         }
         
         /// <summary>
@@ -256,11 +257,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="TypeName">Parameter 1 for event: DataContract generate {0} writer for {1} start.</param>
         internal static void DCGenWriterStart(string Kind, string TypeName)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(8))
-            {
-                TD.WriteEtwEvent(8, null, Kind, TypeName, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(8))
+            //{
+            //    TD.WriteEtwEvent(8, null, Kind, TypeName, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -278,11 +279,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void DCGenWriterStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(9))
-            {
-                TD.WriteEtwEvent(9, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(9))
+            //{
+            //    TD.WriteEtwEvent(9, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -302,11 +303,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="TypeName">Parameter 1 for event: DataContract generate {0} reader for {1} start.</param>
         internal static void DCGenReaderStart(string Kind, string TypeName)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(10))
-            {
-                TD.WriteEtwEvent(10, null, Kind, TypeName, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(10))
+            //{
+            //    TD.WriteEtwEvent(10, null, Kind, TypeName, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -324,11 +325,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void DCGenReaderStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(11))
-            {
-                TD.WriteEtwEvent(11, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(11))
+            //{
+            //    TD.WriteEtwEvent(11, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -348,11 +349,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="TypeName">Parameter 1 for event: Json generate {0} reader for {1} start.</param>
         internal static void DCJsonGenReaderStart(string Kind, string TypeName)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(12))
-            {
-                TD.WriteEtwEvent(12, null, Kind, TypeName, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(12))
+            //{
+            //    TD.WriteEtwEvent(12, null, Kind, TypeName, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -370,11 +371,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void DCJsonGenReaderStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(13))
-            {
-                TD.WriteEtwEvent(13, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(13))
+            //{
+            //    TD.WriteEtwEvent(13, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -394,11 +395,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="TypeName">Parameter 1 for event: Json generate {0} writer for {1} start.</param>
         internal static void DCJsonGenWriterStart(string Kind, string TypeName)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(14))
-            {
-                TD.WriteEtwEvent(14, null, Kind, TypeName, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(14))
+            //{
+            //    TD.WriteEtwEvent(14, null, Kind, TypeName, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -416,11 +417,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void DCJsonGenWriterStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(15))
-            {
-                TD.WriteEtwEvent(15, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(15))
+            //{
+            //    TD.WriteEtwEvent(15, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -439,11 +440,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="DCType">Parameter 0 for event: Generate Xml serializable for '{0}' start.</param>
         internal static void GenXmlSerializableStart(string DCType)
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(16))
-            {
-                TD.WriteEtwEvent(16, null, DCType, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(16))
+            //{
+            //    TD.WriteEtwEvent(16, null, DCType, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -461,11 +462,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// </summary>
         internal static void GenXmlSerializableStop()
         {
-            TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
-            if (TD.IsEtwEventEnabled(17))
-            {
-                TD.WriteEtwEvent(17, null, payload.AppDomainFriendlyName);
-            }
+            //TracePayload payload = FxTrace.Trace.GetSerializedPayload(null, null, null);
+            //if (TD.IsEtwEventEnabled(17))
+            //{
+            //    TD.WriteEtwEvent(17, null, payload.AppDomainFriendlyName);
+            //}
         }
         
         /// <summary>
@@ -476,28 +477,28 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         [System.Security.SecuritySafeCriticalAttribute()]
         static void CreateEventDescriptors()
         {
-            System.Runtime.Diagnostics.EventDescriptor[] descriptors = new System.Runtime.Diagnostics.EventDescriptor[] {
-                    new System.Runtime.Diagnostics.EventDescriptor(1420, 0, (byte)TraceChannel.Analytic, (byte)TraceEventLevel.Error, (byte)TraceEventOpcode.Info, 0xa00, 0x2000000000400000),
-                    new System.Runtime.Diagnostics.EventDescriptor(5001, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0xa20, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5002, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0xa20, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5003, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0xa1f, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5004, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0xa1f, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5005, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f3, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5006, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f3, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5007, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9e0, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5008, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f0, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5009, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f0, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5010, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9ef, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5011, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9ef, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5012, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9ef, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5013, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9ef, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5014, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f0, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5015, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f0, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5016, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f1, 0x1000000000000002),
-                    new System.Runtime.Diagnostics.EventDescriptor(5017, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f1, 0x1000000000000002)};
-            ushort[] e2eEvents = new ushort[0];
-            FxTrace.UpdateEventDefinitions(descriptors, e2eEvents);
-            eventDescriptors = descriptors;
+            //System.Runtime.Diagnostics.EventDescriptor[] descriptors = new System.Runtime.Diagnostics.EventDescriptor[] {
+            //        new System.Runtime.Diagnostics.EventDescriptor(1420, 0, (byte)TraceChannel.Analytic, (byte)TraceEventLevel.Error, (byte)TraceEventOpcode.Info, 0xa00, 0x2000000000400000),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5001, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0xa20, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5002, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0xa20, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5003, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0xa1f, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5004, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0xa1f, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5005, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f3, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5006, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f3, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5007, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9e0, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5008, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f0, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5009, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f0, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5010, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9ef, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5011, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9ef, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5012, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9ef, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5013, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9ef, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5014, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f0, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5015, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f0, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5016, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Start, 0x9f1, 0x1000000000000002),
+            //        new System.Runtime.Diagnostics.EventDescriptor(5017, 0, (byte)TraceChannel.Debug, (byte)TraceEventLevel.Verbose, (byte)TraceEventOpcode.Stop, 0x9f1, 0x1000000000000002)};
+            //ushort[] e2eEvents = new ushort[0];
+            //FxTrace.UpdateEventDefinitions(descriptors, e2eEvents);
+            //eventDescriptors = descriptors;
         }
         
         /// <summary>
@@ -531,11 +532,11 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         /// <param name="eventIndex">The index of the event descriptor</param>
         static bool IsEtwEventEnabled(int eventIndex)
         {
-            if (FxTrace.Trace.IsEtwProviderEnabled)
-            {
-                EnsureEventDescriptors();
-                return FxTrace.IsEventEnabled(eventIndex);
-            }
+            //if (FxTrace.Trace.IsEtwProviderEnabled)
+            //{
+            //    EnsureEventDescriptors();
+            //    return FxTrace.IsEventEnabled(eventIndex);
+            //}
             return false;
         }
         
@@ -549,10 +550,10 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         // Critical = Calls SecurityCritical method EtwProvider.WriteEvent
         // Safe = We only allow setting of provider id from SecurityCritical code, access to EventDescriptors is SecurityCritical, and ETW limits buffer sizes.
         [System.Security.SecuritySafeCriticalAttribute()]
-        static bool WriteEtwEvent(int eventIndex, System.Runtime.Diagnostics.EventTraceActivity eventParam0, string eventParam1, string eventParam2)
+        static bool WriteEtwEvent(int eventIndex, object eventParam0, string eventParam1, string eventParam2)
         {
             EnsureEventDescriptors();
-            return FxTrace.Trace.EtwProvider.WriteEvent(ref eventDescriptors[eventIndex], eventParam0, eventParam1, eventParam2);
+            return true; // FxTrace.Trace.EtwProvider.WriteEvent(ref eventDescriptors[eventIndex], eventParam0, eventParam1, eventParam2);
         }
         
         /// <summary>
@@ -564,10 +565,10 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         // Critical = Calls SecurityCritical method EtwProvider.WriteEvent
         // Safe = We only allow setting of provider id from SecurityCritical code, access to EventDescriptors is SecurityCritical, and ETW limits buffer sizes.
         [System.Security.SecuritySafeCriticalAttribute()]
-        static bool WriteEtwEvent(int eventIndex, System.Runtime.Diagnostics.EventTraceActivity eventParam0, string eventParam1)
+        static bool WriteEtwEvent(int eventIndex, object eventParam0, string eventParam1)
         {
             EnsureEventDescriptors();
-            return FxTrace.Trace.EtwProvider.WriteEvent(ref eventDescriptors[eventIndex], eventParam0, eventParam1);
+            return true; // FxTrace.Trace.EtwProvider.WriteEvent(ref eventDescriptors[eventIndex], eventParam0, eventParam1);
         }
         
         /// <summary>
@@ -581,10 +582,10 @@ namespace System.Runtime.Serialization.Diagnostics.Application
         // Critical = Calls SecurityCritical method EtwProvider.WriteEvent
         // Safe = We only allow setting of provider id from SecurityCritical code, access to EventDescriptors is SecurityCritical, and ETW limits buffer sizes.
         [System.Security.SecuritySafeCriticalAttribute()]
-        static bool WriteEtwEvent(int eventIndex, System.Runtime.Diagnostics.EventTraceActivity eventParam0, string eventParam1, string eventParam2, string eventParam3)
+        static bool WriteEtwEvent(int eventIndex, object eventParam0, string eventParam1, string eventParam2, string eventParam3)
         {
             EnsureEventDescriptors();
-            return FxTrace.Trace.EtwProvider.WriteEvent(ref eventDescriptors[eventIndex], eventParam0, eventParam1, eventParam2, eventParam3);
+            return true; // FxTrace.Trace.EtwProvider.WriteEvent(ref eventDescriptors[eventIndex], eventParam0, eventParam1, eventParam2, eventParam3);
         }
     }
 }

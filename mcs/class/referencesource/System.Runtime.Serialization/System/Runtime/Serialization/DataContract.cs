@@ -535,7 +535,7 @@ namespace System.Runtime.Serialization
                     int newSize = (value < Int32.MaxValue / 2) ? value * 2 : Int32.MaxValue;
                     if (newSize <= value)
                     {
-                        Fx.Assert("DataContract cache overflow");
+                        // Fx.Assert("DataContract cache overflow");
                         throw DiagnosticUtility.ExceptionUtility.ThrowHelperError(new SerializationException(SR.GetString(SR.DataContractCacheOverflow)));
                     }
                     Array.Resize<DataContract>(ref dataContractCache, newSize);
@@ -663,7 +663,7 @@ namespace System.Runtime.Serialization
                 return typeHandle;
             }
 
-            [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "typeToBuiltInContract", Justification = "No need to support type equivalence here.")]
+            // [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "typeToBuiltInContract", Justification = "No need to support type equivalence here.")]
             public static DataContract GetBuiltInDataContract(Type type)
             {
                 if (type.IsInterface && !CollectionDataContract.IsCollectionInterface(type))
@@ -1281,7 +1281,7 @@ namespace System.Runtime.Serialization
             return (DataContract.GetBuiltInDataContract(type) != null || ClassDataContract.IsNonAttributedTypeValidForSerialization(type));
         }
 
-        [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "previousCollectionTypes", Justification = "No need to support type equivalence here.")]
+        // [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "previousCollectionTypes", Justification = "No need to support type equivalence here.")]
         static void ValidatePreviousCollectionTypes(Type collectionType, Type itemType, Dictionary<Type, object> previousCollectionTypes)
         {
             previousCollectionTypes.Add(collectionType, collectionType);
@@ -1919,30 +1919,31 @@ namespace System.Runtime.Serialization
         private static string GetNamespacesDigest(string namespaces)
         {
             byte[] namespaceBytes = Encoding.UTF8.GetBytes(namespaces);
-            byte[] digestBytes = HashHelper.ComputeHash(namespaceBytes);
-            char[] digestChars = new char[24];
-            const int digestLen = 6;
-            int digestCharsLen = Convert.ToBase64CharArray(digestBytes, 0, digestLen, digestChars, 0);
-            StringBuilder digest = new StringBuilder();
-            for (int i = 0; i < digestCharsLen; i++)
-            {
-                char ch = digestChars[i];
-                switch (ch)
-                {
-                    case '=':
-                        break;
-                    case '/':
-                        digest.Append("_S");
-                        break;
-                    case '+':
-                        digest.Append("_P");
-                        break;
-                    default:
-                        digest.Append(ch);
-                        break;
-                }
-            }
-            return digest.ToString();
+            byte[] digestBytes = null; // HashHelper.ComputeHash(namespaceBytes);
+            throw new NotImplementedException();
+            //char[] digestChars = new char[24];
+            //const int digestLen = 6;
+            //int digestCharsLen = Convert.ToBase64CharArray(digestBytes, 0, digestLen, digestChars, 0);
+            //StringBuilder digest = new StringBuilder();
+            //for (int i = 0; i < digestCharsLen; i++)
+            //{
+            //    char ch = digestChars[i];
+            //    switch (ch)
+            //    {
+            //        case '=':
+            //            break;
+            //        case '/':
+            //            digest.Append("_S");
+            //            break;
+            //        case '+':
+            //            digest.Append("_P");
+            //            break;
+            //        default:
+            //            digest.Append(ch);
+            //            break;
+            //    }
+            //}
+            //return digest.ToString();
         }
 
         private static string ExpandGenericParameters(string format, Type type)
@@ -2034,7 +2035,7 @@ namespace System.Runtime.Serialization
             return knownDataContracts;
         }
 
-        [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "typesChecked", Justification = "No need to support type equivalence here.")]
+        // [SuppressMessage(FxCop.Category.Usage, "CA2301:EmbeddableTypesInContainersRule", MessageId = "typesChecked", Justification = "No need to support type equivalence here.")]
         static void ImportKnownTypeAttributes(Type type, Dictionary<Type, Type> typesChecked, ref DataContractDictionary knownDataContracts)
         {
             if (TD.ImportKnownTypesStartIsEnabled())

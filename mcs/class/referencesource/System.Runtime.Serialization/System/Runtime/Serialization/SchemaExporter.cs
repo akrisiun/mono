@@ -12,8 +12,8 @@ namespace System.Runtime.Serialization
     using System.Globalization;
     using System.IO;
     using System.Reflection;
-    using System.Runtime.Diagnostics;
-    using System.ServiceModel.Diagnostics;
+    //using System.Runtime.Diagnostics;
+    //using System.ServiceModel.Diagnostics;
     using System.Security;
     using System.Xml;
     using System.Xml.Schema;
@@ -538,8 +538,8 @@ namespace System.Runtime.Serialization
                                          );
                 else if (DiagnosticUtility.ShouldTraceVerbose)
                 {
-                    TraceUtility.Trace(TraceEventType.Verbose, TraceCode.XsdExportAnnotationFailed,
-                        SR.GetString(SR.TraceCodeXsdExportAnnotationFailed), new StringTraceRecord("Type", typeQName.Namespace + ":" + typeQName.Name));
+                    //TraceUtility.Trace(TraceEventType.Verbose, TraceCode.XsdExportAnnotationFailed,
+                    //    SR.GetString(SR.TraceCodeXsdExportAnnotationFailed), new StringTraceRecord("Type", typeQName.Namespace + ":" + typeQName.Name));
                 }
             }
         }
@@ -582,8 +582,8 @@ namespace System.Runtime.Serialization
                                 { "ItemType", item.ToString() },
                                 { "Name", qname.Namespace + ":" + qname.Name }
                             };
-                            TraceUtility.Trace(TraceEventType.Warning, TraceCode.XsdExportDupItems,
-                                SR.GetString(SR.TraceCodeXsdExportDupItems), new DictionaryTraceRecord(values));
+                            //TraceUtility.Trace(TraceEventType.Warning, TraceCode.XsdExportDupItems,
+                            //    SR.GetString(SR.TraceCodeXsdExportDupItems), new DictionaryTraceRecord(values));
                         }
                         schema.Items.Remove(item);
                     }

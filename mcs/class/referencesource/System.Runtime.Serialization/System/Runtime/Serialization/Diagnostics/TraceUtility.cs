@@ -7,8 +7,7 @@ namespace System.Runtime.Serialization.Diagnostics
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Globalization;
-    using System.Runtime;
-    using System.Runtime.Diagnostics;
+   // using System.Runtime.Diagnostics;
 #if !MONO
     using System.ServiceModel.Diagnostics;
 #endif
@@ -42,12 +41,12 @@ namespace System.Runtime.Serialization.Diagnostics
             Trace(severity, traceCode, traceDescription, null);
         }
 
-        internal static void Trace(TraceEventType severity, int traceCode, string traceDescription, TraceRecord record)
+        internal static void Trace(TraceEventType severity, int traceCode, string traceDescription, object record)
         {
             Trace(severity, traceCode, traceDescription, record, null);
         }
 
-        internal static void Trace(TraceEventType severity, int traceCode, string traceDescription, TraceRecord record, Exception exception)
+        internal static void Trace(TraceEventType severity, int traceCode, string traceDescription, object record, Exception exception)
         {
             Fx.Assert(traceCodes.ContainsKey(traceCode), 
                 string.Format(CultureInfo.InvariantCulture, "Unsupported trace code: Please add trace code 0x{0} to the dictionary TraceUtility.traceCodes in {1}", 

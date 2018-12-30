@@ -28,8 +28,8 @@ namespace System.Runtime.Serialization
             }
         }
 
-        [SuppressMessage(FxCop.Category.ReliabilityBasic, "Reliability104:CaughtAndHandledExceptionsRule", 
-            Justification = "Handle the configuration exceptions here to avoid regressions on customer's existing scenarios")]
+        //[SuppressMessage(FxCop.Category.ReliabilityBasic, "Reliability104:CaughtAndHandledExceptionsRule", 
+        //    Justification = "Handle the configuration exceptions here to avoid regressions on customer's existing scenarios")]
         static void EnsureSettingsLoaded()
         {
             if (!settingsInitalized)

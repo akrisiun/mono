@@ -10,7 +10,7 @@ namespace System.Runtime.Serialization
     using System.IO;
     using System.Xml;
     using System.Runtime.CompilerServices;
-    using System.Runtime.Diagnostics;
+    //using System.Runtime.Diagnostics;
     using System.Text;
     using System.Security;
     using DataContractDictionary = System.Collections.Generic.Dictionary<System.Xml.XmlQualifiedName, DataContract>;
@@ -71,11 +71,11 @@ namespace System.Runtime.Serialization
                 CheckNull(writer, "writer");
                 if (DiagnosticUtility.ShouldTraceInformation)
                 {
-                    TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectBegin,
-                        SR.GetString(SR.TraceCodeWriteObjectBegin), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
-                    InternalWriteObject(writer, graph, dataContractResolver);
-                    TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectEnd,
-                        SR.GetString(SR.TraceCodeWriteObjectEnd), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
+                    //TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectBegin,
+                    //    SR.GetString(SR.TraceCodeWriteObjectBegin), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
+                    //InternalWriteObject(writer, graph, dataContractResolver);
+                    //TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectEnd,
+                    //    SR.GetString(SR.TraceCodeWriteObjectEnd), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
                 }
                 else
                 {
@@ -152,15 +152,15 @@ namespace System.Runtime.Serialization
                 CheckNull(writer, "writer");
                 if (DiagnosticUtility.ShouldTraceInformation)
                 {
-                    TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectContentBegin,
-                        SR.GetString(SR.TraceCodeWriteObjectContentBegin), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
+                    //TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectContentBegin,
+                    //    SR.GetString(SR.TraceCodeWriteObjectContentBegin), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
                     if (writer.WriteState != WriteState.Element)
                     {
                         throw DiagnosticUtility.ExceptionUtility.ThrowHelperError(XmlObjectSerializer.CreateSerializationException(SR.GetString(SR.XmlWriterMustBeInElement, writer.WriteState)));
                     }
                     InternalWriteObjectContent(writer, graph);
-                    TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectContentEnd,
-                        SR.GetString(SR.TraceCodeWriteObjectContentEnd), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
+                    //TraceUtility.Trace(TraceEventType.Information, TraceCode.WriteObjectContentEnd,
+                    //    SR.GetString(SR.TraceCodeWriteObjectContentEnd), new StringTraceRecord("Type", GetTypeInfo(GetSerializeType(graph))));
                 }
                 else
                 {
@@ -301,11 +301,11 @@ namespace System.Runtime.Serialization
                 CheckNull(reader, "reader");
                 if (DiagnosticUtility.ShouldTraceInformation)
                 {
-                    TraceUtility.Trace(TraceEventType.Information, TraceCode.ReadObjectBegin,
-                        SR.GetString(SR.TraceCodeReadObjectBegin), new StringTraceRecord("Type", GetTypeInfo(GetDeserializeType())));
+                    //TraceUtility.Trace(TraceEventType.Information, TraceCode.ReadObjectBegin,
+                    //    SR.GetString(SR.TraceCodeReadObjectBegin), new StringTraceRecord("Type", GetTypeInfo(GetDeserializeType())));
                     object retObj = InternalReadObject(reader, verifyObjectName, dataContractResolver);
-                    TraceUtility.Trace(TraceEventType.Information, TraceCode.ReadObjectEnd,
-                        SR.GetString(SR.TraceCodeReadObjectEnd), new StringTraceRecord("Type", GetTypeInfo(GetDeserializeType())));
+                    //TraceUtility.Trace(TraceEventType.Information, TraceCode.ReadObjectEnd,
+                    //    SR.GetString(SR.TraceCodeReadObjectEnd), new StringTraceRecord("Type", GetTypeInfo(GetDeserializeType())));
                     return retObj;
                 }
                 else

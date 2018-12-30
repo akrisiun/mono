@@ -9,7 +9,7 @@ namespace System.Runtime.Serialization
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Security;
-    using System.ServiceModel.Diagnostics;
+    //using System.ServiceModel.Diagnostics;
     using System.Xml;
     using System.Xml.Schema;
     using System.Runtime.Serialization.Diagnostics;

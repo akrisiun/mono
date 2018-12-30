@@ -9,6 +9,13 @@ namespace System.Runtime.Serialization
 {
 
     internal class Fx {
+
+        public static bool IsFatal(Exception ex) => false;
+
+        public static void Assert(string text) { }
+
+        public static void Assert(bool ok, string text, params string[] parm) { }
+
         internal class Tag {
             public class SecurityNote : Attribute
             {
@@ -28,14 +35,15 @@ namespace System.Runtime.Serialization
 
 
     internal static class FxTrace {
+
 		//public static EtwDiagnosticTrace Trace {
 		//	get {
 		//		return Fx.Trace;
 		//	}
 		//}
 
-		//public static bool ShouldTraceError = true;
-		//public static bool ShouldTraceVerbose = true;
+		public static bool ShouldTraceError = true;
+		public static bool ShouldTraceVerbose = true;
 
 		//public static ExceptionTrace Exception {
 		//	get {

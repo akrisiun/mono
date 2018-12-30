@@ -21,14 +21,14 @@ namespace System.Runtime.Serialization {
 				return ThrowHelper (e, TraceEventType.Error);
 			}
 
-			internal static Exception ThrowHelperCallback (string msg, Exception e)
-			{
-				return new CallbackException (msg, e);
-			}
+			//internal static Exception ThrowHelperCallback (string msg, Exception e)
+			//{
+			//	return new CallbackException (msg, e);
+			//}
 
 			internal static Exception ThrowHelperCallback (Exception e)
 			{
-				return new CallbackException ("Callback exception", e);
+				return new Exception ("Callback exception", e);
 			}
 
 			internal static Exception ThrowHelper (Exception e, TraceEventType type)
@@ -53,7 +53,7 @@ namespace System.Runtime.Serialization {
 
 			internal static Exception ThrowHelperFatal (string msg, Exception e)
 			{
-				return new FatalException (msg, e);
+				return new Exception (msg, e);
 			}
 		}
 	}

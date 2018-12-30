@@ -55,13 +55,27 @@ using System.Runtime.InteropServices;
 [assembly: NeutralResourcesLanguage ("en-US")]
 [assembly: CLSCompliant (true)]
 [assembly: AssemblyDelaySign (true)]
-#if MOBILE
-[assembly: AssemblyKeyFile ("../silverlight.pub")]
-#else
+
+
 [assembly: AssemblyKeyFile ("../ecma.pub")]
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: ComCompatibleVersion (1, 0, 3300, 0)]
 [assembly: SecurityCritical (SecurityCriticalScope.Explicit)]
-#endif
 
 [assembly: ComVisible (false)]
+
+
+internal static class Consts
+{
+    public const string MonoCompany = "Mono development team";
+    public const string MonoProduct = "Mono Common Language Infrastructure";
+    public const string MonoCopyright = "(c) Various Mono authors";
+    public const string MonoVersion = "5.18.0.0";
+    public const string MonoCorlibVersion = "F602B559-7639-49B6-97EE-C433CE7A56F2";
+    public const string FxVersion = "4.0.0.0";
+    public const string FxFileVersion = "4.6.57.0";
+    public const string EnvironmentVersion = "4.0.30319.42000";
+    public const string VsVersion = "0.0.0.0";
+    public const string VsFileVersion = "11.0.0.0";
+
+}

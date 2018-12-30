@@ -5,6 +5,7 @@
 namespace System.Xml
 {
     using System.Runtime;
+    using System.Runtime.Serialization;
 
     enum StringHandleConstStringType
     {
@@ -124,7 +125,7 @@ namespace System.Xml
                 return bufferReader.GetDictionaryString(key).Value;
             if (type == StringHandleType.ConstString)
                 return constStrings[key];
-            Fx.Assert(type == StringHandleType.EscapedUTF8, "");
+            // Fx.Assert(type == StringHandleType.EscapedUTF8, "");
             return bufferReader.GetEscapedString(offset, length);
         }
 

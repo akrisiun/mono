@@ -4,6 +4,7 @@
 namespace System.Xml
 {
     using System.Runtime;
+    using System.Runtime.Serialization;
 
     enum PrefixHandleType
     {
@@ -125,7 +126,7 @@ namespace System.Xml
 
         public static byte[] GetString(PrefixHandleType type, out int offset, out int length)
         {
-            Fx.Assert(type != PrefixHandleType.Buffer, "");
+            // Fx.Assert(type != PrefixHandleType.Buffer, "");
             if (type == PrefixHandleType.Empty)
             {
                 offset = 0;

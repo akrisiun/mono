@@ -27,23 +27,23 @@ namespace System.Xml
             }
         }
 
-        internal virtual AsyncCompletionResult WriteBase64TextAsync(AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> state)
-        {
-            // We do not guard this invocation. The caller of the NodeWriter should ensure that that 
-            // they override the FastAsync guard clause for the XmlDictionaryWriter and that the 
-            // nodeWriter has an implemenation for WriteBase64TextAsync.
-            throw Fx.AssertAndThrow("WriteBase64TextAsync not implemented.");
-        }
+        //internal virtual AsyncCompletionResult WriteBase64TextAsync(AsyncEventArgs<XmlNodeWriterWriteBase64TextArgs> state)
+        //{
+        //    // We do not guard this invocation. The caller of the NodeWriter should ensure that that 
+        //    // they override the FastAsync guard clause for the XmlDictionaryWriter and that the 
+        //    // nodeWriter has an implemenation for WriteBase64TextAsync.
+        //    throw Fx.AssertAndThrow("WriteBase64TextAsync not implemented.");
+        //}
 
-        public virtual IAsyncResult BeginWriteBase64Text(byte[] trailBuffer, int trailCount, byte[] buffer, int offset, int count, AsyncCallback callback, object state)
-        {
-            return new WriteBase64TextAsyncResult(trailBuffer, trailCount, buffer, offset, count, this, callback, state);
-        }
+        //public virtual IAsyncResult BeginWriteBase64Text(byte[] trailBuffer, int trailCount, byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+        //{
+        //    return new WriteBase64TextAsyncResult(trailBuffer, trailCount, buffer, offset, count, this, callback, state);
+        //}
 
-        public virtual void EndWriteBase64Text(IAsyncResult result)
-        {
-            WriteBase64TextAsyncResult.End(result);
-        }
+        //public virtual void EndWriteBase64Text(IAsyncResult result)
+        //{
+        //    WriteBase64TextAsyncResult.End(result);
+        //}
 
         public abstract void Flush();
         public abstract void Close();
@@ -148,34 +148,34 @@ namespace System.Xml
             public override void WriteQualifiedName(string prefix, XmlDictionaryString localName) { }
         }
 
-        class WriteBase64TextAsyncResult : ScheduleActionItemAsyncResult
-        {
-            byte[] trailBuffer;
-            int trailCount;
-            byte[] buffer;
-            int offset;
-            int count;
-            XmlNodeWriter nodeWriter;
+        //class WriteBase64TextAsyncResult : ScheduleActionItemAsyncResult
+        //{
+        //    byte[] trailBuffer;
+        //    int trailCount;
+        //    byte[] buffer;
+        //    int offset;
+        //    int count;
+        //    XmlNodeWriter nodeWriter;
 
-            public WriteBase64TextAsyncResult(byte[] trailBuffer, int trailCount, byte[] buffer, int offset, int count, XmlNodeWriter nodeWriter, AsyncCallback callback, object state)
-                : base(callback, state)
-            {
-                Fx.Assert(nodeWriter != null, "nodeWriter should never be null");
+        //    public WriteBase64TextAsyncResult(byte[] trailBuffer, int trailCount, byte[] buffer, int offset, int count, XmlNodeWriter nodeWriter, AsyncCallback callback, object state)
+        //        : base(callback, state)
+        //    {
+        //        Fx.Assert(nodeWriter != null, "nodeWriter should never be null");
 
-                this.trailBuffer = trailBuffer;
-                this.trailCount = trailCount;
-                this.buffer = buffer;
-                this.offset = offset;
-                this.count = count;
-                this.nodeWriter = nodeWriter;
+        //        this.trailBuffer = trailBuffer;
+        //        this.trailCount = trailCount;
+        //        this.buffer = buffer;
+        //        this.offset = offset;
+        //        this.count = count;
+        //        this.nodeWriter = nodeWriter;
 
-                Schedule();
-            }
+        //        Schedule();
+        //    }
 
-            protected override void OnDoWork()
-            {
-                this.nodeWriter.WriteBase64Text(this.trailBuffer, this.trailCount, this.buffer, this.offset, this.count);
-            }
-        }
+        //    protected override void OnDoWork()
+        //    {
+        //        this.nodeWriter.WriteBase64Text(this.trailBuffer, this.trailCount, this.buffer, this.offset, this.count);
+        //    }
+        //}
     }
 }
