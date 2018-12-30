@@ -46,13 +46,13 @@ namespace System.Web.Security
 
 		public MembershipPasswordAttribute ()
 		{
-			if (Membership.Provider != null)
-			{
-				MinRequiredNonAlphanumericCharacters = Membership.Provider.MinRequiredNonAlphanumericCharacters;
-				MinRequiredPasswordLength = Membership.Provider.MinRequiredPasswordLength;
-				PasswordStrengthRegularExpression = Membership.Provider.PasswordStrengthRegularExpression;
-			}
-			else
+			//if (Membership.Provider != null)
+			//{
+			//	MinRequiredNonAlphanumericCharacters = Membership.Provider.MinRequiredNonAlphanumericCharacters;
+			//	MinRequiredPasswordLength = Membership.Provider.MinRequiredPasswordLength;
+			//	PasswordStrengthRegularExpression = Membership.Provider.PasswordStrengthRegularExpression;
+			//}
+			//else
 			{
 				MinRequiredPasswordLength = 7;
 				MinRequiredNonAlphanumericCharacters = 1;

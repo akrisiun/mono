@@ -953,7 +953,8 @@ namespace System.Configuration.Internal
                 system.Init(typeConfigHost, hostInitConfigurationParams);
                 // 
                 // conf = new _Configuration(system: system, locationSubPath: "");
-                conf = System.Conf.NewConfiguration(system: system, locationSubPath: "") as _Configuration;
+                
+                // conf = System.Conf.NewConfiguration(system: system, locationSubPath: "") as _Configuration;
             }
             catch (Exception ex) {
                 CreateError = ex;

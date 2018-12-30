@@ -786,22 +786,22 @@ namespace System.Web.UI.WebControls
 			if (args.Cancel)
 				return;
 
-			MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
-			if (user == null) {
-				OnUserLookupError (EventArgs.Empty);
-				((UserNameContainer) UserNameTemplateContainer).FailureTextLiteral.Text = UserNameFailureText;
-				return;
-			}
+			//MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
+			//if (user == null) {
+			//	OnUserLookupError (EventArgs.Empty);
+			//	((UserNameContainer) UserNameTemplateContainer).FailureTextLiteral.Text = UserNameFailureText;
+			//	return;
+			//}
 
-			if (!MembershipProviderInternal.RequiresQuestionAndAnswer) {
-				GenerateAndSendEmail ();
+			//if (!MembershipProviderInternal.RequiresQuestionAndAnswer) {
+			//	GenerateAndSendEmail ();
 
-				_currentStep = PasswordReciveryStep.StepSuccess;
-				return;
-			}
+			//	_currentStep = PasswordReciveryStep.StepSuccess;
+			//	return;
+			//}
 
-			Question = user.PasswordQuestion;
-			_currentStep = PasswordReciveryStep.StepAnswer;
+			//Question = user.PasswordQuestion;
+			//_currentStep = PasswordReciveryStep.StepAnswer;
 			return;
 		}
 
@@ -812,11 +812,11 @@ namespace System.Web.UI.WebControls
 			if (args.Cancel)
 				return;
 
-			MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
-			if (user == null || string.IsNullOrEmpty (user.Email)) {
-				((QuestionContainer) QuestionTemplateContainer).FailureTextLiteral.Text = GeneralFailureText;
-				return;
-			}
+			//MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
+			//if (user == null || string.IsNullOrEmpty (user.Email)) {
+			//	((QuestionContainer) QuestionTemplateContainer).FailureTextLiteral.Text = GeneralFailureText;
+			//	return;
+			//}
 
 			GenerateAndSendEmail ();
 
@@ -827,21 +827,21 @@ namespace System.Web.UI.WebControls
 		void GenerateAndSendEmail ()
 		{
 			string newPassword = "";
-			try {
-				if (MembershipProviderInternal.EnablePasswordRetrieval) {
-					newPassword = MembershipProviderInternal.GetPassword (UserName, Answer);
-				}
-				else if (MembershipProviderInternal.EnablePasswordReset) {
-					newPassword = MembershipProviderInternal.ResetPassword (UserName, Answer);
-				}
-				else
-					throw new HttpException ("Membership provider does not support password retrieval or reset.");
-			}
-			catch (MembershipPasswordException) {
-				OnAnswerLookupError (EventArgs.Empty);
-				((QuestionContainer) QuestionTemplateContainer).FailureTextLiteral.Text = QuestionFailureText;
-				return;
-			}
+			//try {
+			//	//if (MembershipProviderInternal.EnablePasswordRetrieval) {
+			//	//	newPassword = MembershipProviderInternal.GetPassword (UserName, Answer);
+			//	//}
+			//	//else if (MembershipProviderInternal.EnablePasswordReset) {
+			//	//	//newPassword = MembershipProviderInternal.ResetPassword (UserName, Answer);
+			//	//}
+			//	//else
+			//		throw new HttpException ("Membership provider does not support password retrieval or reset.");
+			//}
+			//catch (MembershipPasswordException) {
+			//	OnAnswerLookupError (EventArgs.Empty);
+			//	((QuestionContainer) QuestionTemplateContainer).FailureTextLiteral.Text = QuestionFailureText;
+			//	return;
+			//}
 
 			SendPasswordByMail (UserName, newPassword);
 		}
@@ -849,51 +849,51 @@ namespace System.Web.UI.WebControls
 		void InitMemberShipProvider ()
 		{
 			string mp = MembershipProvider;
-			_provider = (mp.Length == 0) ? _provider = Membership.Provider : Membership.Providers [mp];
-			if (_provider == null)
-				throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
+			//_provider = (mp.Length == 0) ? _provider = Membership.Provider : Membership.Providers [mp];
+			//if (_provider == null)
+			//	throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
 		}
 
 		void SendPasswordByMail (string username, string password)
 		{
-			MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
-			if (user == null)
-				return;
+			//MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
+			//if (user == null)
+			//	return;
 
-			// DO NOT change format of the message - it has to be exactly the same as in
-			// .NET as some software (e.g. YetAnotherForum) depends on it.
-			string messageText = "Please return to the site and log in using the following information.\n" +
-				"User Name: <%USERNAME%>\nPassword: <%PASSWORD%>\n";
+			//// DO NOT change format of the message - it has to be exactly the same as in
+			//// .NET as some software (e.g. YetAnotherForum) depends on it.
+			//string messageText = "Please return to the site and log in using the following information.\n" +
+			//	"User Name: <%USERNAME%>\nPassword: <%PASSWORD%>\n";
 
-			ListDictionary dictionary = new ListDictionary (StringComparer.OrdinalIgnoreCase);
-			dictionary.Add ("<%USERNAME%>", username);
-			dictionary.Add ("<% UserName %>", username);
-			dictionary.Add ("<%PASSWORD%>", password);
-			dictionary.Add ("<% Password %>", password);
+			//ListDictionary dictionary = new ListDictionary (StringComparer.OrdinalIgnoreCase);
+			//dictionary.Add ("<%USERNAME%>", username);
+			//dictionary.Add ("<% UserName %>", username);
+			//dictionary.Add ("<%PASSWORD%>", password);
+			//dictionary.Add ("<% Password %>", password);
 
-			MailMessage message = null;
+			//MailMessage message = null;
 			
-			if (MailDefinition.BodyFileName.Length == 0)
-				message = MailDefinition.CreateMailMessage (user.Email, dictionary, messageText, this);
-			else
-				message = MailDefinition.CreateMailMessage (user.Email, dictionary, this);
+			//if (MailDefinition.BodyFileName.Length == 0)
+			//	message = MailDefinition.CreateMailMessage (user.Email, dictionary, messageText, this);
+			//else
+			//	message = MailDefinition.CreateMailMessage (user.Email, dictionary, this);
 
-			if (string.IsNullOrEmpty (message.Subject))
-				message.Subject = "Password";
+			//if (string.IsNullOrEmpty (message.Subject))
+			//	message.Subject = "Password";
 
-			MailMessageEventArgs args = new MailMessageEventArgs (message);
-			OnSendingMail (args);
+			//MailMessageEventArgs args = new MailMessageEventArgs (message);
+			//OnSendingMail (args);
 
-			SmtpClient smtpClient = new SmtpClient ();
-			try {
-				smtpClient.Send (message);
-			}
-			catch (Exception e) {
-				SendMailErrorEventArgs mailArgs = new SendMailErrorEventArgs (e);
-				OnSendMailError (mailArgs);
-				if (!mailArgs.Handled)
-					throw e;
-			}
+			//SmtpClient smtpClient = new SmtpClient ();
+			//try {
+			//	smtpClient.Send (message);
+			//}
+			//catch (Exception e) {
+			//	SendMailErrorEventArgs mailArgs = new SendMailErrorEventArgs (e);
+			//	OnSendMailError (mailArgs);
+			//	if (!mailArgs.Handled)
+			//		throw e;
+			//}
 		}
 
 		#region Event handlers

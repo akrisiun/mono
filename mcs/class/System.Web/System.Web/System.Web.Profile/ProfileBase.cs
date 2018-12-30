@@ -175,10 +175,10 @@ namespace System.Web.Profile
 
 		void InitPropertiesValues ()
 		{
-			if (!_propertiyValuesLoaded) {
-				_propertiyValues = ProfileManager.Provider.GetPropertyValues (_settingsContext, Properties);
-				_propertiyValuesLoaded = true;
-			}
+			//if (!_propertiyValuesLoaded) {
+			//	_propertiyValues = ProfileManager.Provider.GetPropertyValues (_settingsContext, Properties);
+			//	_propertiyValuesLoaded = true;
+			//}
 		}
 
 		static Type GetPropertyType (ProfileGroupSettings pgs, ProfilePropertySettings pps)
@@ -244,7 +244,7 @@ namespace System.Web.Profile
 				} else if (attributes [i] is SettingsProviderAttribute) {
 					Type providerType = HttpApplication.LoadType (((SettingsProviderAttribute) attributes [i]).ProviderTypeName);
 					sp.Provider = (SettingsProvider) Activator.CreateInstance (providerType);
-					sp.Provider.Initialize (null, null);
+					// sp.Provider.Initialize (null, null);
 				} else if (attributes [i] is SettingsSerializeAsAttribute) {
 					sp.SerializeAs = ((SettingsSerializeAsAttribute) attributes [i]).SerializeAs;
 				} else if (attributes [i] is SettingsAllowAnonymousAttribute) {
@@ -258,8 +258,8 @@ namespace System.Web.Profile
 					attDict.Add (attributes [i].GetType (), attributes [i]);
 			}
 
-			if (sp.Provider == null)
-				sp.Provider = ProfileManager.Provider;
+			//if (sp.Provider == null)
+			//	sp.Provider = ProfileManager.Provider;
 
 			if (sp.Attributes ["AllowAnonymous"] == null)
 				sp.Attributes ["AllowAnonymous"] = false;
@@ -278,7 +278,7 @@ namespace System.Web.Profile
 			sp.Attributes.Add ("AllowAnonymous", pps.AllowAnonymous);
 			sp.DefaultValue = pps.DefaultValue;
 			sp.IsReadOnly = pps.ReadOnly;
-			sp.Provider = ProfileManager.Provider;
+			// sp.Provider = ProfileManager.Provider;
 			sp.ThrowOnErrorDeserializing = false;
 			sp.ThrowOnErrorSerializing = true;
 
@@ -312,15 +312,15 @@ namespace System.Web.Profile
 			_settingsContext.Add ("UserName", username);
 			_settingsContext.Add ("IsAuthenticated", isAuthenticated);
 			SettingsProviderCollection spc = new SettingsProviderCollection();
-			spc.Add (ProfileManager.Provider);
+			// spc.Add (ProfileManager.Provider);
 			base.Initialize (Context, ProfileBase.Properties, spc);
 		}
 
 		public override void Save ()
 		{
-			if (IsDirty) {
-				ProfileManager.Provider.SetPropertyValues (_settingsContext, _propertiyValues);
-			}
+			//if (IsDirty) {
+			//	ProfileManager.Provider.SetPropertyValues (_settingsContext, _propertiyValues);
+			//}
 		}
 
 		public bool IsAnonymous {

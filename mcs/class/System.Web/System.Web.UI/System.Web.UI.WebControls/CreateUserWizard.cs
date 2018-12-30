@@ -725,7 +725,7 @@ namespace System.Web.UI.WebControls
 				else
 					ViewState ["MembershipProvider"] = value;
 
-				_provider = null;
+				//_provider = null;
 			}
 		}
 
@@ -1010,7 +1010,7 @@ namespace System.Web.UI.WebControls
 
 		[DefaultValue (true)]
 		protected internal bool QuestionAndAnswerRequired {
-			get { return MembershipProviderInternal.RequiresQuestionAndAnswer; }
+			get {  false; } // return MembershipProviderInternal.RequiresQuestionAndAnswer; }
 		}
 
 		public event EventHandler ContinueButtonClick {
@@ -1420,9 +1420,9 @@ namespace System.Web.UI.WebControls
 		void InitMemberShipProvider ()
 		{
 			string mp = MembershipProvider;
-			_provider = (mp.Length == 0) ? _provider = Membership.Provider : Membership.Providers [mp];
-			if (_provider == null)
-				throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
+			//_provider = (mp.Length == 0) ? _provider = Membership.Provider : Membership.Providers [mp];
+			//if (_provider == null)
+			//	throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
 		}
 
 		bool CreateUser ()
@@ -1435,97 +1435,97 @@ namespace System.Web.UI.WebControls
 
 			OnCreatingUser (new LoginCancelEventArgs (false));
 
-			MembershipCreateStatus status;
-			MembershipUser newUser = MembershipProviderInternal.CreateUser (
-				UserName, Password, Email, Question, Answer, !DisableCreatedUser, null, out status);
+			//MembershipCreateStatus status;
+			//MembershipUser newUser = MembershipProviderInternal.CreateUser (
+			//	UserName, Password, Email, Question, Answer, !DisableCreatedUser, null, out status);
 
-			if ((newUser != null) && (status == MembershipCreateStatus.Success)) {
-				OnCreatedUser (new EventArgs ());
-				SendPasswordByMail (newUser, Password);
-				return true;
-			}
+			//if ((newUser != null) && (status == MembershipCreateStatus.Success)) {
+			//	OnCreatedUser (new EventArgs ());
+			//	SendPasswordByMail (newUser, Password);
+			//	return true;
+			//}
 
-			switch (status) {
-				case MembershipCreateStatus.DuplicateUserName:
-					ShowErrorMessage (DuplicateUserNameErrorMessage);
-					break;
+			//switch (status) {
+			//	case MembershipCreateStatus.DuplicateUserName:
+			//		ShowErrorMessage (DuplicateUserNameErrorMessage);
+			//		break;
 
-				case MembershipCreateStatus.InvalidPassword:
-					ShowErrorMessage (String.Format (InvalidPasswordErrorMessage, MembershipProviderInternal.MinRequiredPasswordLength, MembershipProviderInternal.MinRequiredNonAlphanumericCharacters));
-					break;
+			//	case MembershipCreateStatus.InvalidPassword:
+			//		ShowErrorMessage (String.Format (InvalidPasswordErrorMessage, MembershipProviderInternal.MinRequiredPasswordLength, MembershipProviderInternal.MinRequiredNonAlphanumericCharacters));
+			//		break;
 
-				case MembershipCreateStatus.DuplicateEmail:
-					ShowErrorMessage (DuplicateEmailErrorMessage);
-					break;
+			//	case MembershipCreateStatus.DuplicateEmail:
+			//		ShowErrorMessage (DuplicateEmailErrorMessage);
+			//		break;
 
-				case MembershipCreateStatus.InvalidEmail:
-					ShowErrorMessage (InvalidEmailErrorMessage);
-					break;
+			//	case MembershipCreateStatus.InvalidEmail:
+			//		ShowErrorMessage (InvalidEmailErrorMessage);
+			//		break;
 
-				case MembershipCreateStatus.InvalidQuestion:
-					ShowErrorMessage (InvalidQuestionErrorMessage);
-					break;
+			//	case MembershipCreateStatus.InvalidQuestion:
+			//		ShowErrorMessage (InvalidQuestionErrorMessage);
+			//		break;
 
-				case MembershipCreateStatus.InvalidAnswer:
-					ShowErrorMessage (InvalidAnswerErrorMessage);
-					break;
+			//	case MembershipCreateStatus.InvalidAnswer:
+			//		ShowErrorMessage (InvalidAnswerErrorMessage);
+			//		break;
 
-				case MembershipCreateStatus.UserRejected:
-				case MembershipCreateStatus.InvalidUserName:
-				case MembershipCreateStatus.ProviderError:
-				case MembershipCreateStatus.InvalidProviderUserKey:
-					ShowErrorMessage (UnknownErrorMessage);
-					break;
+			//	case MembershipCreateStatus.UserRejected:
+			//	case MembershipCreateStatus.InvalidUserName:
+			//	case MembershipCreateStatus.ProviderError:
+			//	case MembershipCreateStatus.InvalidProviderUserKey:
+			//		ShowErrorMessage (UnknownErrorMessage);
+			//		break;
 
 
-			}
+			//}
 
-			OnCreateUserError (new CreateUserErrorEventArgs (status));
+			// OnCreateUserError (new CreateUserErrorEventArgs (status));
 
 			return false;
 		}
 
-		void SendPasswordByMail (MembershipUser user, string password)
-		{
-			if (user == null)
-				return;
+		//void SendPasswordByMail (MembershipUser user, string password)
+		//{
+		//	if (user == null)
+		//		return;
 			
-			if (_mailDefinition == null)
-				return;
+		//	if (_mailDefinition == null)
+		//		return;
 			
-			string messageText = "A new account has been created for you. Please go to the site and log in using the following information.\nUser Name: <%USERNAME%>\nPassword: <%PASSWORD%>";
+		//	string messageText = "A new account has been created for you. Please go to the site and log in using the following information.\nUser Name: <%USERNAME%>\nPassword: <%PASSWORD%>";
 
-			ListDictionary dictionary = new ListDictionary ();
-			dictionary.Add ("<%USERNAME%>", user.UserName);
-			dictionary.Add ("<%PASSWORD%>", password);
+		//	ListDictionary dictionary = new ListDictionary ();
+		//	dictionary.Add ("<%USERNAME%>", user.UserName);
+		//	dictionary.Add ("<%PASSWORD%>", password);
 
-			MailMessage message = null;
+		//	MailMessage message = null;
 			
-			if (MailDefinition.BodyFileName.Length == 0)
-				message = MailDefinition.CreateMailMessage (user.Email, dictionary, messageText, this);
-			else
-				message = MailDefinition.CreateMailMessage (user.Email, dictionary, this);
+		//	if (MailDefinition.BodyFileName.Length == 0)
+		//		message = MailDefinition.CreateMailMessage (user.Email, dictionary, messageText, this);
+		//	else
+		//		message = MailDefinition.CreateMailMessage (user.Email, dictionary, this);
 
-			if (string.IsNullOrEmpty (message.Subject))
-				message.Subject = "Account information";
+		//	if (string.IsNullOrEmpty (message.Subject))
+		//		message.Subject = "Account information";
 
-			MailMessageEventArgs args = new MailMessageEventArgs (message);
-			OnSendingMail (args);
+		//	MailMessageEventArgs args = new MailMessageEventArgs (message);
+		//	OnSendingMail (args);
 
-			SmtpClient smtpClient = new SmtpClient ();
-			try {
-				smtpClient.Send (message);
-			} catch (Exception e) {
-				SendMailErrorEventArgs mailArgs = new SendMailErrorEventArgs (e);
-				OnSendMailError (mailArgs);
-				if (!mailArgs.Handled)
-					throw e;
-			}
-		}
+		//	SmtpClient smtpClient = new SmtpClient ();
+		//	try {
+		//		smtpClient.Send (message);
+		//	} catch (Exception e) {
+		//		SendMailErrorEventArgs mailArgs = new SendMailErrorEventArgs (e);
+		//		OnSendMailError (mailArgs);
+		//		if (!mailArgs.Handled)
+		//			throw e;
+		//	}
+		//}
 
 		void Login ()
 		{
-			bool userValidated = MembershipProviderInternal.ValidateUser (UserName, Password);
+			bool userValidated = true; // MembershipProviderInternal.ValidateUser (UserName, Password);
 			if (userValidated)
 				FormsAuthentication.SetAuthCookie (UserName, false);
 		}
@@ -1538,7 +1538,7 @@ namespace System.Web.UI.WebControls
 
 		string GeneratePassword ()
 		{
-			return Membership.GeneratePassword (8, 3);
+			return ""; // Membership.GeneratePassword (8, 3);
 		}
 
 		#endregion

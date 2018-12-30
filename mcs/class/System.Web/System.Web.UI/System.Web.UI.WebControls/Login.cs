@@ -1300,13 +1300,13 @@ namespace System.Web.UI.WebControls {
 			
 			if (!HasOnAuthenticateHandler ()) {
 				string mp = MembershipProvider;
-				MembershipProvider provider = (mp.Length == 0) ?
-					provider = Membership.Provider : Membership.Providers [mp];
-				if (provider == null) {
-					throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
-				}
+				//MembershipProvider provider = (mp.Length == 0) ?
+				//	provider = Membership.Provider : Membership.Providers [mp];
+				//if (provider == null) {
+				//	throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
+				//}
 
-				aea.Authenticated = provider.ValidateUser (UserName, Password);
+				//aea.Authenticated = provider.ValidateUser (UserName, Password);
 			}
 			OnAuthenticate (aea);
 

@@ -50,7 +50,7 @@ namespace standalone_tests
             }
             catch (Exception ex)
             {
-                err = ex.InnerException ?? ex;
+                //err = ex.InnerException ?? ex;
                 Console.WriteLine($"{err}");
                 Console.WriteLine($"{err.StackTrace}");
             }

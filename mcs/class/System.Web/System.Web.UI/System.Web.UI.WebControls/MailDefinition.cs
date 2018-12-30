@@ -140,13 +140,13 @@ namespace System.Web.UI.WebControls
 			if (From.Length > 0)
 				msg.From = new MailAddress (From);
 			else {
-				SmtpSection smtpSection = (SmtpSection) WebConfigurationManager.GetSection ("system.net/mailSettings/smtp");
-				if (smtpSection != null) {
-					if (string.IsNullOrEmpty (smtpSection.From))
-						throw new HttpException ("A from e-mail address must be specified in the From property or the system.net/mailSettings/smtp config section");
+				//SmtpSection smtpSection = (SmtpSection) WebConfigurationManager.GetSection ("system.net/mailSettings/smtp");
+				//if (smtpSection != null) {
+				//	if (string.IsNullOrEmpty (smtpSection.From))
+				//		throw new HttpException ("A from e-mail address must be specified in the From property or the system.net/mailSettings/smtp config section");
 
-					msg.From = new MailAddress (smtpSection.From);
-				}
+				//	msg.From = new MailAddress (smtpSection.From);
+				//}
 			}
 
 			string [] recipientsArr = recipients.Split (',');

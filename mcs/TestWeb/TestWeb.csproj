@@ -72,7 +72,7 @@
       <HintPath>..\..\lib\mono\4.5\Mono.WebServer.XSP.exe</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration">
+    <Reference Include="System.Configuration, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
       <HintPath>..\..\lib\mono\4.5\System.Configuration.dll</HintPath>
       <Private>true</Private>
     </Reference>

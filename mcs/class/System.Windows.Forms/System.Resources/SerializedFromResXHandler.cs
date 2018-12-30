@@ -100,14 +100,14 @@ namespace System.Resources {
 				if (mime_type == ResXResourceWriter.SoapSerializedObjectMimeType) {
 					//FIXME: theres a test in the suite to check that a type converter converts from invariant string
 					//do i need to take the string culture into consideration here?
-					SoapFormatter soapF = new SoapFormatter ();
-					if (binder == null)
-						binder = new CustomBinder (typeResolver);
-					soapF.Binder = binder;
-					byte [] data = Convert.FromBase64String (dataString);
-					using (MemoryStream s = new MemoryStream (data)) {
-						return soapF.Deserialize (s);
-					}
+					//SoapFormatter soapF = new SoapFormatter ();
+					//if (binder == null)
+					//	binder = new CustomBinder (typeResolver);
+					//soapF.Binder = binder;
+					//byte [] data = Convert.FromBase64String (dataString);
+					//using (MemoryStream s = new MemoryStream (data)) {
+					//	return soapF.Deserialize (s);
+					//}
 				} else if (mime_type == ResXResourceWriter.BinSerializedObjectMimeType) {
 					BinaryFormatter binF = new BinaryFormatter ();
 					if (binder == null)
@@ -125,6 +125,7 @@ namespace System.Resources {
 				else
 					throw ex;
 			}
+			return null; 
 		}
 
 		sealed class CustomBinder : SerializationBinder 
