@@ -89,7 +89,8 @@ namespace System.Web.Configuration {
 			get; set;
 		}
 
-		protected internal override void Reset (ConfigurationElement parentElement)
+		protected // internal override 
+             void Reset (ConfigurationElement parentElement)
 		{
 			base.Reset (parentElement);
 			decryption_key = null;
@@ -162,7 +163,8 @@ namespace System.Web.Configuration {
 			}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

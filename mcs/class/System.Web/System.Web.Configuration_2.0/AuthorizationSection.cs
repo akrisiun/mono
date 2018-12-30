@@ -60,7 +60,8 @@ namespace System.Web.Configuration {
 			get { return (AuthorizationRuleCollection) base [rulesProp];}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

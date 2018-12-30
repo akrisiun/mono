@@ -177,7 +177,8 @@ namespace System.Web.Configuration
 		}
 
 		[MonoTODO ("why override this?")]
-		protected internal override object GetRuntimeObject ()
+		public new // internal override
+			object GetRuntimeObject ()
 		{
 			return this;
 		}
@@ -321,7 +322,8 @@ namespace System.Web.Configuration
 
         }
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

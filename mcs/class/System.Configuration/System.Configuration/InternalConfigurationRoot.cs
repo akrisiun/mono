@@ -32,7 +32,7 @@ using System.Configuration.Internal;
 
 namespace System.Configuration
 {
-	class InternalConfigurationRoot: IInternalConfigRoot
+	public class InternalConfigurationRoot: IInternalConfigRoot
 	{
 		IInternalConfigHost host;
 		bool isDesignTime;

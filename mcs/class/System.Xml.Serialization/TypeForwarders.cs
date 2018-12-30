@@ -28,7 +28,7 @@
 [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.Xml.Serialization.XmlTypeMapping))]
 [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.Xml.Serialization.XmlMappingAccess))]
 [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.Xml.Serialization.XmlSerializer))]
-[assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.ServiceModel.XmlSerializerFormatAttribute))]
+// [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.ServiceModel.XmlSerializerFormatAttribute))]
 [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.Xml.Serialization.XmlArrayItemAttributes))]
 [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.Xml.Serialization.XmlAttributeOverrides))]
 [assembly: System.Runtime.CompilerServices.TypeForwardedToAttribute(typeof(System.Xml.Serialization.XmlAttributes))]

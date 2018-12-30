@@ -307,13 +307,15 @@ namespace System.Web.Configuration
 				base [controlRenderingCompatibilityVersionProp] = value;
 			}
 		}
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 
-		protected internal override void DeserializeSection (XmlReader reader)
+		public new // internal override
+			 void DeserializeSection (XmlReader reader)
 		{
-			base.DeserializeSection (reader);
+			// base.DeserializeSection (reader);
 
 			/* XXX more here?.. */
 		}

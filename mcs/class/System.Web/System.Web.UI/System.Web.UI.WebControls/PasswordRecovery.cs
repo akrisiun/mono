@@ -65,7 +65,7 @@ namespace System.Web.UI.WebControls
 		Style _validatorTextStyle;
 
 		MailDefinition _mailDefinition;
-		MembershipProvider _provider = null;
+		// MembershipProvider _provider = null;
 
 		ITemplate _questionTemplate = null;
 		ITemplate _successTemplate = null;
@@ -569,16 +569,16 @@ namespace System.Web.UI.WebControls
 			get { return HtmlTextWriterTag.Table; }
 		}
 
-		internal virtual MembershipProvider MembershipProviderInternal
-		{
-			get
-			{
-				if (_provider == null)
-					InitMemberShipProvider ();
+		//internal virtual MembershipProvider MembershipProviderInternal
+		//{
+		//	get
+		//	{
+		//		if (_provider == null)
+		//			InitMemberShipProvider ();
 
-				return _provider;
-			}
-		}
+		//		return _provider;
+		//	}
+		//}
 
 		#endregion
 

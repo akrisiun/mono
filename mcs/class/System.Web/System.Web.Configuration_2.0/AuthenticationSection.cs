@@ -66,7 +66,8 @@ namespace System.Web.Configuration
 		{
 		}
 
-		protected internal override void Reset (ConfigurationElement parentElement)
+		public new // internal override 
+             void Reset (ConfigurationElement parentElement)
 		{
 			base.Reset (parentElement);
 		}
@@ -88,7 +89,8 @@ namespace System.Web.Configuration
 			set { base [modeProp] = value; }
 		}
 		
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

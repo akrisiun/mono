@@ -39,8 +39,8 @@ using System.Web.Configuration;
 
 namespace System.Web.Security
 {
-
-	public class SqlRoleProvider : RoleProvider
+#if false
+	public class SqlRoleProvider // : RoleProvider
 	{
 
 		string applicationName;
@@ -434,5 +434,6 @@ namespace System.Web.Security
 			}
 		}
 	}
+#endif
 }
 

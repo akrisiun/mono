@@ -128,7 +128,8 @@ namespace System.Web.Configuration {
 		}
 
 		[MonoTODO ("Not implemented")]
-		protected internal override bool IsModified ()
+		public new // internal override 
+             bool IsModified ()
 		{
 			if (((CommaDelimitedStringCollection)Roles).IsModified || ((CommaDelimitedStringCollection)Users).IsModified || ((CommaDelimitedStringCollection)Verbs).IsModified)
 				return true;
@@ -156,20 +157,23 @@ namespace System.Web.Configuration {
 			VerifyData ();
 		}
 
-		protected internal override void Reset (ConfigurationElement parentElement)
+		public new // internal override 
+             void Reset (ConfigurationElement parentElement)
 		{
 			AuthorizationRule r = (AuthorizationRule)parentElement;
 			Action = r.Action;
 
-			base.Reset (parentElement);
+			// base.Reset (parentElement);
 		}
 
-		protected internal override void ResetModified ()
+		public new // internal override 
+             void ResetModified ()
 		{
-			base.ResetModified ();
+			// base.ResetModified ();
 		}
 
-		protected internal override bool SerializeElement (XmlWriter writer, bool serializeCollectionKey)
+		public new // internal override 
+             bool SerializeElement (XmlWriter writer, bool serializeCollectionKey)
 		{
 			if (saveMode != ConfigurationSaveMode.Full && !IsModified ())
 				return true;
@@ -189,14 +193,16 @@ namespace System.Web.Configuration {
 			return true;
 		}
 
-		protected internal override void SetReadOnly ()
+		public new // internal override 
+             void SetReadOnly ()
 		{
-			base.SetReadOnly();
+			// base.SetReadOnly();
 		}
 
-		protected internal override void Unmerge (ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode)
+		public new // internal override 
+             void Unmerge (ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode)
 		{
-			base.Unmerge (sourceElement, parentElement, saveMode);
+			// base.Unmerge (sourceElement, parentElement, saveMode);
 			this.saveMode = saveMode;
 
 			AuthorizationRule source = sourceElement as AuthorizationRule;
@@ -227,7 +233,8 @@ namespace System.Web.Configuration {
 			get { return (StringCollection) base [verbsProp];}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

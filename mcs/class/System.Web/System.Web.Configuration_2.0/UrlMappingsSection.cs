@@ -62,7 +62,8 @@ namespace System.Web.Configuration {
 			get { return (UrlMappingCollection) base [urlMappingsProp];}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new  // internal override
+            ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

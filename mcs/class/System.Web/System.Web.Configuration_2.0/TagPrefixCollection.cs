@@ -85,7 +85,8 @@ namespace System.Web.Configuration
 			get { return "add"; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

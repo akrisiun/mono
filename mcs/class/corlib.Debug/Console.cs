@@ -8,7 +8,7 @@ namespace corlib.Debug
 {
 	public static partial class Console
     {
-        static bool IsDebug { get => System.Diagnostics.DebugMono.IsDebug; }
+        static bool IsDebug { get; set; } // => System.Diagnostics.DebugMono.IsDebug; }
 
         public static void Break() {
 

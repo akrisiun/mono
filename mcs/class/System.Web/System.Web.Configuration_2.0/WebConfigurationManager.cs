@@ -153,8 +153,8 @@ namespace System.Web.Configuration {
                 var x = ConfigurationFactory;
 
                 configFactory = ConfigurationManager.ConfigurationFactory2;
-                _Configuration.SaveStart += ConfigurationSaveHandler;
-                _Configuration.SaveEnd += ConfigurationSaveHandler;
+                //_Configuration.SaveStart += ConfigurationSaveHandler;
+                //_Configuration.SaveEnd += ConfigurationSaveHandler;
 
             }
             catch (Exception e1) {
@@ -185,7 +185,7 @@ namespace System.Web.Configuration {
 				saveLocationsTimer.Change (SAVE_LOCATIONS_CHECK_INTERVAL, SAVE_LOCATIONS_CHECK_INTERVAL);
 		}
 		
-		static void ConfigurationSaveHandler(object senderObj, ConfigurationSaveEventArgs args)
+		static void ConfigurationSaveHandler(object senderObj, object args) // ConfigurationSaveEventArgs args)
 		{
             _Configuration sender = senderObj as _Configuration;
 
@@ -200,27 +200,27 @@ namespace System.Web.Configuration {
 
 				string rootConfigPath = WebConfigurationHost.GetWebConfigFileName (HttpRuntime.AppDomainAppPath);
 
-				if (String.Compare (args.StreamPath, rootConfigPath, StringComparison.OrdinalIgnoreCase) == 0) {
-					SuppressAppReload (args.Start);
-					if (args.Start) {
-						HttpApplicationFactory.DisableWatcher (VirtualPathUtility.RemoveTrailingSlash (HttpRuntime.AppDomainAppPath), "?eb.?onfig");
+				//if (String.Compare (args.StreamPath, rootConfigPath, StringComparison.OrdinalIgnoreCase) == 0) {
+				//	SuppressAppReload (args.Start);
+				//	if (args.Start) {
+				//		HttpApplicationFactory.DisableWatcher (VirtualPathUtility.RemoveTrailingSlash (HttpRuntime.AppDomainAppPath), "?eb.?onfig");
 
-						lock (saveLocationsCacheLock) {
-							if (saveLocationsCache == null)
-								saveLocationsCache = new Dictionary <string, DateTime> (StringComparer.Ordinal);
-							if (saveLocationsCache.ContainsKey (rootConfigPath))
-								saveLocationsCache [rootConfigPath] = DateTime.Now;
-							else
-								saveLocationsCache.Add (rootConfigPath, DateTime.Now);
+				//		lock (saveLocationsCacheLock) {
+				//			if (saveLocationsCache == null)
+				//				saveLocationsCache = new Dictionary <string, DateTime> (StringComparer.Ordinal);
+				//			if (saveLocationsCache.ContainsKey (rootConfigPath))
+				//				saveLocationsCache [rootConfigPath] = DateTime.Now;
+				//			else
+				//				saveLocationsCache.Add (rootConfigPath, DateTime.Now);
 
-							if (saveLocationsTimer == null)
-								saveLocationsTimer = new Timer (ReenableWatcherOnConfigLocation,
-												rootConfigPath,
-												SAVE_LOCATIONS_CHECK_INTERVAL,
-												SAVE_LOCATIONS_CHECK_INTERVAL);
-						}
-					}
-				}
+				//			if (saveLocationsTimer == null)
+				//				saveLocationsTimer = new Timer (ReenableWatcherOnConfigLocation,
+				//								rootConfigPath,
+				//								SAVE_LOCATIONS_CHECK_INTERVAL,
+				//								SAVE_LOCATIONS_CHECK_INTERVAL);
+				//		}
+				//	}
+				//}
 			}
 		}
 		
@@ -428,11 +428,11 @@ namespace System.Web.Configuration {
 			if (String.IsNullOrEmpty (relativePath))
 				return false;
 
-			_Configuration cnew = defaultConfiguration.FindLocationConfiguration (relativePath, defaultConfiguration);
-			if (cnew == defaultConfiguration)
-				return false;
+			//_Configuration cnew = defaultConfiguration.FindLocationConfiguration (relativePath, defaultConfiguration);
+			//if (cnew == defaultConfiguration)
+			//	return false;
 
-			defaultConfiguration = cnew;
+			// defaultConfiguration = cnew;
 			return true;
 		}
 		
@@ -519,7 +519,7 @@ namespace System.Web.Configuration {
 			if (section == null)
 				return null;
 
-			object value = SettingsMappingManager.MapSection (section.GetRuntimeObject ());
+            object value = null; // TODO: SettingsMappingManager.MapSection (section.GetRuntimeObject ());
 			if (cachePath != null)
 				cacheKey = baseCacheKey ^ cachePath.GetHashCode ();
 			else
@@ -951,7 +951,9 @@ namespace System.Configuration.Internal
 
                 var system = new InternalConfigurationSystemWeb();
                 system.Init(typeConfigHost, hostInitConfigurationParams);
-                conf = new _Configuration(system: system, locationSubPath: "");
+                // 
+                // conf = new _Configuration(system: system, locationSubPath: "");
+                conf = System.Conf.NewConfiguration(system: system, locationSubPath: "") as _Configuration;
             }
             catch (Exception ex) {
                 CreateError = ex;
@@ -1104,10 +1106,10 @@ namespace System.Configuration
 
         public ConfigurationLocationCollection Locations {
             get {
-                if (_locations == null)
-                {
-                    _locations = _configRecord.GetLocationCollection(this);
-                }
+                //if (_locations == null)
+                //{
+                //    _locations = _configRecord.GetLocationCollection(this);
+                //}
 
                 return _locations;
             }
@@ -1118,10 +1120,10 @@ namespace System.Configuration
             public string ConfigurationFilePath { get; set; }
             public bool HasStream { get; set; }
 
-            public ConfigurationLocationCollection GetLocationCollection(ClassConfiguration @this)
-            {
-                return new ConfigurationLocationCollection();
-            }
+            //public ConfigurationLocationCollection GetLocationCollection(ClassConfiguration @this)
+            //{
+            //    return new ConfigurationLocationCollection();
+            //}
 
             public static MgmtConfigurationRecord Create(string _configRoot, object _configRecord,
                     string locationConfigPath, string locationSubPath)

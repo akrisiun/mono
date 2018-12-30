@@ -1,10 +1,12 @@
 //
-// System.Web.UI.WebControls.ProfileProviderCollection.cs
+// System.Web.Security.RoleProviderCollection
 //
 // Authors:
-//	Chris Toshok (toshok@ximian.com)
+//	Ben Maurer (bmaurer@users.sourceforge.net)
 //
-// (C) 2005 Novell, Inc (http://www.novell.com)
+// (C) 2003 Ben Maurer
+//
+
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -26,30 +28,28 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System;
-using System.Configuration;
 using System.Configuration.Provider;
 
-namespace System.Web.Profile
+namespace System.Web.Security
 {
-	public sealed class ProfileProviderCollection : SettingsProviderCollection
+	public sealed class RoleProviderCollection : ProviderCollection
 	{
-		public ProfileProviderCollection ()
-		{
-		}
-
-		public override void Add (ProviderBase provider)
-		{
-			base.Add (provider);
-		}
-
-		public new ProfileProvider this[string name] {
-			get {
-				return (ProfileProvider) base [name];
-			}
-		}
-
+		//public override void Add (ProviderBase provider)
+		//{
+		//	if (provider is RoleProvider)
+		//		base.Add (provider);
+		//	else
+		//		throw new HttpException ();
+		//}
+		
+		//public new RoleProvider this [string name] {
+		//	get { return (RoleProvider) base [name]; }
+		//}
+		
+		//public void CopyTo (RoleProvider[] array, int index)
+		//{
+		//	base.CopyTo (array, index);
+		//}
 	}
-	
 }
 

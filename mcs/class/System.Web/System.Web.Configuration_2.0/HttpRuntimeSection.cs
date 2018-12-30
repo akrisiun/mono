@@ -350,7 +350,8 @@ namespace System.Web.Configuration
 			get { return (Version) base [targetFrameworkProp]; }
 			set { base [targetFrameworkProp] = value; }
 		}
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 		[ConfigurationProperty ("allowDynamicModuleRegistration", DefaultValue = "True")]

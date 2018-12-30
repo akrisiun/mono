@@ -55,7 +55,8 @@ namespace System.Web.Configuration {
 			get { return (ClientTargetCollection) base [clientTargetsProp];}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

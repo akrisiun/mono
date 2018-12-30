@@ -83,6 +83,12 @@ namespace System.Configuration {
             : this(system: systemX, locationSubPath: locationSubPath)
         { }
 
+        public static Configuration NewConfiguration(object system, string locationSubPath) 
+        {
+            var cfg = new Configuration(system as IConfigSystem, locationSubPath);
+            return cfg;
+        }
+
         internal Configuration (IConfigSystem system, string locationSubPath)
 		{
             elementData = new Hashtable();

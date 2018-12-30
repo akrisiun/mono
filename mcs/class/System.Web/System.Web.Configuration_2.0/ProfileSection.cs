@@ -103,7 +103,8 @@ namespace System.Web.Configuration
 			}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+            ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

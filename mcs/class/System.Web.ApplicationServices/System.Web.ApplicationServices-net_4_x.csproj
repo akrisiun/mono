@@ -115,12 +115,13 @@
       <Project>{2762E921-91A8-4C87-91E9-BA628013F753}</Project>
       <Name>System-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
-      <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
-      <Name>System.Configuration-net_4_x</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration">
+      <HintPath>..\..\..\lib\mono\4.5\System.Configuration.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

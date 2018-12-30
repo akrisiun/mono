@@ -45,7 +45,7 @@ namespace System.Web.UI.WebControls
 		public static readonly string ContinueButtonCommandName = "Continue";
 		string _password = String.Empty;
 		string _confirmPassword = String.Empty;
-		MembershipProvider _provider = null;
+		// MembershipProvider _provider = null;
 		ITextControl _errorMessageLabel = null;
 		MailDefinition _mailDefinition = null;
 
@@ -729,14 +729,14 @@ namespace System.Web.UI.WebControls
 			}
 		}
 
-		internal virtual MembershipProvider MembershipProviderInternal {
-			get {
-				if (_provider == null)
-					InitMemberShipProvider ();
+		//internal virtual MembershipProvider MembershipProviderInternal {
+		//	get {
+		//		if (_provider == null)
+		//			InitMemberShipProvider ();
 
-				return _provider;
-			}
-		}
+		//		return _provider;
+		//	}
+		//}
 
 		[DesignerSerializationVisibility (DesignerSerializationVisibility.Hidden)]
 		[Browsable (false)]

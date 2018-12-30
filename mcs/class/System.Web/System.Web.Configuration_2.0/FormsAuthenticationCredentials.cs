@@ -69,7 +69,8 @@ namespace System.Web.Configuration
 			get { return (FormsAuthenticationUserCollection) base[usersProp]; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 		

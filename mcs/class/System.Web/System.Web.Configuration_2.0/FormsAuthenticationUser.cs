@@ -74,7 +74,8 @@ namespace System.Web.Configuration
 			set { base[passwordProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

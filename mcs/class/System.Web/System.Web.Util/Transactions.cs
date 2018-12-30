@@ -26,7 +26,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-using System.EnterpriseServices;
+// using System.EnterpriseServices;
 using System.Security.Permissions;
 
 namespace System.Web.Util
@@ -40,20 +40,20 @@ namespace System.Web.Util
 		{
 		}
 
-		public static void InvokeTransacted (TransactedCallback callback, TransactionOption mode)
-		{
-			bool abortedTransaction = false;
-			InvokeTransacted (callback, mode, ref abortedTransaction);
-		}
+		//public static void InvokeTransacted (TransactedCallback callback, TransactionOption mode)
+		//{
+		//	bool abortedTransaction = false;
+		//	InvokeTransacted (callback, mode, ref abortedTransaction);
+		//}
 
-		[MonoTODO ("Not implemented, not supported by Mono")]
-		public static void InvokeTransacted (TransactedCallback callback, 
-							TransactionOption mode, 
-							ref bool transactionAborted)
-		{
-			// note: this is the documented exception for (Windows) OS prior to NT
-			// so in this case we won't throw a NotImplementedException
-			throw new PlatformNotSupportedException ("Not supported on mono");
-		}
+		//[MonoTODO ("Not implemented, not supported by Mono")]
+		//public static void InvokeTransacted (TransactedCallback callback, 
+		//					TransactionOption mode, 
+		//					ref bool transactionAborted)
+		//{
+		//	// note: this is the documented exception for (Windows) OS prior to NT
+		//	// so in this case we won't throw a NotImplementedException
+		//	throw new PlatformNotSupportedException ("Not supported on mono");
+		//}
 	}
 }

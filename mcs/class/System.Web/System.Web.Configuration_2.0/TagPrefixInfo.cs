@@ -87,7 +87,8 @@ namespace System.Web.Configuration
 			/* XXX do some sort of element validation here? */
 		}
 
-		protected internal override ConfigurationElementProperty ElementProperty {
+		public new // internal override
+			 ConfigurationElementProperty ElementProperty {
 			get { return elementProperty; }
 		}
 
@@ -139,7 +140,8 @@ namespace System.Web.Configuration
 			set { base[tagPrefixProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

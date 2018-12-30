@@ -60,7 +60,8 @@ namespace System.Web.Configuration {
 			set { base[historySizeProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override 
+            ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

@@ -130,7 +130,8 @@ namespace System.Web.Configuration {
 			get { return (CustomError)BaseGet (statusCode); }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 	}

@@ -35,8 +35,7 @@ using System.Web.Util;
 
 namespace System.Web.Security
 {
-	sealed class MembershipHelper
-	: IMembershipHelper
+	public sealed class MembershipHelper // : IMembershipHelper
 	{
 		internal const int SALT_BYTES = 16;
 

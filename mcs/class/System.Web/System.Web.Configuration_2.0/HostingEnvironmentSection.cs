@@ -83,7 +83,8 @@ namespace System.Web.Configuration {
 			set { base[shutdownTimeoutProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

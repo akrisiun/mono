@@ -49,6 +49,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\class\corlib.Debug\corlib.Debug.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Mono.Cecil1">
@@ -56,9 +59,6 @@
     </Reference>
     
     <!--lib\mono\4.5\corlib.Debug.dll-->
-    <Reference Include="corlib.Debug">
-      <HintPath>..\..\lib\mono\4.5\corlib.Debug.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\lib\mono\4.5\Mono.Security.dll</HintPath>
     </Reference>
@@ -72,11 +72,18 @@
       <HintPath>..\..\lib\mono\4.5\Mono.WebServer.XSP.exe</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration">
+      <HintPath>..\..\lib\mono\4.5\System.Configuration.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
     <!-- Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a -->
    <!-- System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 -->
     <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <HintPath>..\class\lib\net_4_x\System.Core.dll</HintPath>
       <Private>false</Private>
+    </Reference>
+    <Reference Include="System.Web8">
+      <HintPath>..\..\lib\mono\4.5\System.Web8.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
       <HintPath>..\class\lib\net_4_x\System.Xml.dll</HintPath>
@@ -101,15 +108,9 @@
     
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Configuration, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\..\Mono\lib\mono\4.5\System.Configuration.dll</HintPath>
-    </Reference>
     <None Update="..\..\Mono\lib\mono\net45\System.Configuration.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\..\Mono\lib\mono\4.5\System.Web.dll</HintPath>
-    </Reference>
     <None Update="..\..\Mono\lib\mono\net45\System.Web.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

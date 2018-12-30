@@ -65,13 +65,15 @@ namespace System.Web.Configuration
 		}
 
 		// Why override?
-		protected internal override void DeserializeSection (XmlReader reader)
+		public new // internal override 
+             void DeserializeSection (XmlReader reader)
 		{
 			base.DeserializeSection (reader);
 		}
 
 		// Why override?
-		protected internal override void Reset (ConfigurationElement parentElement)
+		public new // internal override 
+             void Reset (ConfigurationElement parentElement)
 		{
 			base.Reset (parentElement);
 		}
@@ -99,7 +101,8 @@ namespace System.Web.Configuration
 			set { base [redirectModeProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

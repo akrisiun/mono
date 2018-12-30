@@ -109,7 +109,8 @@ namespace System.Web.Configuration
 			get { return base [providersProp] as ProviderSettingsCollection; }
 		}
 		
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

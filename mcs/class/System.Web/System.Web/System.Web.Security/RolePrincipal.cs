@@ -93,7 +93,7 @@ namespace System.Web.Security {
 				return new string[0];
 
 			if (!IsRoleListCached || Expired) {
-				_cachedArray = Provider.GetRolesForUser (_identity.Name);
+				//_cachedArray = Provider.GetRolesForUser (_identity.Name);
 				_cachedRoles = new HybridDictionary (true);
 
 				foreach (string r in _cachedArray)
@@ -247,22 +247,22 @@ namespace System.Web.Security {
 			get { return _issueDate; }
 		}
 		
-		public string ProviderName {
-			get { return String.IsNullOrEmpty(_providerName) ? Provider.Name : _providerName; }
-		}
+		//public string ProviderName {
+		//	get { return String.IsNullOrEmpty(_providerName) ? Provider.Name : _providerName; }
+		//}
 		
 		public int Version {
 			get { return _version; }
 		}
 
-		RoleProvider Provider {
-			get {
-				if (String.IsNullOrEmpty (_providerName))
-					return Roles.Provider;
+		//RoleProvider Provider {
+		//	get {
+		//		if (String.IsNullOrEmpty (_providerName))
+		//			return Roles.Provider;
 
-				return Roles.Providers [_providerName];
-			}
-		}
+		//		return Roles.Providers [_providerName];
+		//	}
+		//}
 
 		public void SetDirty ()
 		{

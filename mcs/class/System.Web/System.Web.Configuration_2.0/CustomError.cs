@@ -95,9 +95,9 @@ namespace System.Web.Configuration {
 			set { base[statusCodeProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
-			get { return properties; }
-		}
+		//protected internal override ConfigurationPropertyCollection Properties {
+		//	get { return properties; }
+		//}
 
 	}
 

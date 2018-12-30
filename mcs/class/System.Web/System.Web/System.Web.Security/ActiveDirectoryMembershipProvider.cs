@@ -34,7 +34,8 @@ using System.Collections.Specialized;
 namespace System.Web.Security {
 
 	[MonoTODO ("that's only a stub")]
-	public class ActiveDirectoryMembershipProvider : MembershipProvider {
+	public class ActiveDirectoryMembershipProvider // : MembershipProvider 
+    {
 		
 		[MonoTODO ("Not implemented")]
 		public override bool ChangePassword (string username, string oldPwd, string newPwd)

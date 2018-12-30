@@ -192,9 +192,9 @@ namespace System.Web.Configuration {
 			/* XXX do some sort of element validation here? */
 		}
 
-		protected internal override ConfigurationElementProperty ElementProperty {
-			get { return elementProperty; }
-		}
+		//protected internal override ConfigurationElementProperty ElementProperty {
+		//	get { return elementProperty; }
+		//}
 
 		[ConfigurationProperty ("autoConfig", DefaultValue = "False")]
 		public bool AutoConfig {
@@ -379,9 +379,9 @@ namespace System.Web.Configuration {
 			set { base[webGardenProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
-			get { return properties; }
-		}
+		//protected internal override ConfigurationPropertyCollection Properties {
+		//	get { return properties; }
+		//}
 
 	}
 

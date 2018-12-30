@@ -766,9 +766,9 @@
       <Project>{19954F80-065E-4D46-8FEF-62BA4D6CFDAD}</Project>
       <Name>System-secxml-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
       <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
-      <Name>System.Configuration-net_4_x</Name>
+      <Name>System.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

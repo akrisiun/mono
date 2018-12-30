@@ -49,12 +49,13 @@ namespace System.Web.Configuration {
 			properties.Add (outputCacheProfilesProp);
 		}
 
-		[ConfigurationProperty ("outputCacheProfiles")]
-		public OutputCacheProfileCollection OutputCacheProfiles {
-			get { return (OutputCacheProfileCollection) base [outputCacheProfilesProp];}
-		}
+		//[ConfigurationProperty ("outputCacheProfiles")]
+		//public OutputCacheProfileCollection OutputCacheProfiles {
+		//	get { return (OutputCacheProfileCollection) base [outputCacheProfilesProp];}
+		//}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			 ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

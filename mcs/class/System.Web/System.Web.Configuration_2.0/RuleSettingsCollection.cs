@@ -103,7 +103,8 @@ namespace System.Web.Configuration {
 			set { if (BaseGet (index) != null) BaseRemoveAt (index); BaseAdd (index, value); }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			  ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

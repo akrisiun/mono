@@ -30,7 +30,7 @@ namespace standalone_tests
 
             // Debugger.Break();
             var text = "Hello Mono Web, enter..";
-            Console.ReadLine();
+            // Console.ReadLine();
             TestStr.Test1(text);
 
             Exception err = null;
@@ -65,10 +65,10 @@ namespace standalone_tests
         {
             try {
 
-                System.Diagnostics.DebugMono1.Break();
+                // System.Diagnostics.DebugMono1.Break();
 
                 char[] arr = text.ToCharArray();
-                Console.WriteLine(text);
+                // Console.WriteLine(text);
 
                 /*
                 #1
@@ -213,9 +213,9 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
             path = Path.GetFullPath(path);
             try
             {
-                webFactory = System.Web.Configuration.WebConfigurationManager.OpenMachineConfiguration();
+                webFactory = Conf.OpenMachineConfiguration();
 
-                webConfig = WebConfigurationManager.OpenWebConfiguration(path);
+                webConfig = Conf.OpenWebConfiguration(path);
 
                 var sectionName = "system.web";
                 systemWeb = WebConfigurationManager.GetWebApplicationSection(sectionName);
@@ -235,7 +235,7 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
 
         public static TestHost ManagerTest3()
         {
-            var manager = ApplicationManager.GetApplicationManager();
+            ApplicationManager manager = ApplicationManager.GetApplicationManager();
             IApplicationHost appHost = null;
             TestHost host = new TestHost();
             appHost = host;
@@ -249,7 +249,9 @@ by security transparent method 'System.Web.Hosting.SimpleWorkerRequest..ctor(Sys
             // http://www.west-wind.com/presentations/aspnetruntime/aspnetruntime.asp
             //  static object CreateApplicationHost(Type hostType, string virtualDir, string physicalDir)
 
-            var app = Mono.Web.DebugWeb.CreateApplicationHost<HttpApplication>(manager);
+            HttpApplication app = null; // 
+            // app = Mono.Web.DebugWeb.CreateApplicationHost<HttpApplication>(manager);
+            app = System.Conf.CreateApplicationHost(manager);
 
             // domain.DoCallBack
             // public void DoCallBack(CrossAppDomainDelegate callBackDelegate)

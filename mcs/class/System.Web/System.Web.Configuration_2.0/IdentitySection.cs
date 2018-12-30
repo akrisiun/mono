@@ -54,16 +54,19 @@ namespace System.Web.Configuration {
 		}
 
 		[MonoTODO ("why override this?")]
-		protected internal override object GetRuntimeObject ()
+		protected // internal override 
+             object GetRuntimeObject ()
 		{
 			return this;
 		}
 
-		protected internal override void Reset (ConfigurationElement parentElement)
+		protected // internal override 
+             void Reset (ConfigurationElement parentElement)
 		{
 		}
 
-		protected internal override void Unmerge (ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode)
+		protected // internal override 
+             void Unmerge (ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode)
 		{
 		}
 
@@ -85,7 +88,8 @@ namespace System.Web.Configuration {
 			set { base[userNameProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

@@ -41,52 +41,53 @@ using System.Web.UI;
 
 // General Information about the System.Web assembly
 
-[assembly: AssemblyVersion (Consts.FxVersion)]
-[assembly: SatelliteContractVersion (Consts.FxVersion)]
+// [assembly: AssemblyVersion (Consts.FxVersion)]
+// [assembly: SatelliteContractVersion (Consts.FxVersion)]
 
-[assembly: AssemblyTitle("System.Web.dll")]
-[assembly: AssemblyDescription("System.Web.dll")]
-[assembly: AssemblyCompany (Consts.MonoCompany)]
-[assembly: AssemblyProduct (Consts.MonoProduct)]
-[assembly: AssemblyCopyright (Consts.MonoCopyright)]
+// [assembly: AssemblyTitle("System.Web.dll")]
+// [assembly: AssemblyDescription("System.Web.dll")]
+// [assembly: AssemblyCompany (Consts.MonoCompany)]
+// [assembly: AssemblyProduct (Consts.MonoProduct)]
+// [assembly: AssemblyCopyright (Consts.MonoCopyright)]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: AssemblyDefaultAlias("System.Web.dll")]
-[assembly: AssemblyInformationalVersion("0.0.0.2")]
+// [assembly: AssemblyInformationalVersion("0.0.0.2")]
 
 [assembly: NeutralResourcesLanguage("en-US")]
 
 // [assembly: AllowPartiallyTrustedCallers()]
 
 [assembly: TagPrefix("System.Web.UI.WebControls", "asp")]
+
 #if !(TARGET_DOTNET)
 
-[assembly: AssemblyDelaySign(true)]
-[assembly: AssemblyKeyFile("../msfinal.pub")]
+//[assembly: AssemblyDelaySign(true)]
+//[assembly: AssemblyKeyFile("../msfinal.pub")]
 
 // public const string FxVersion = "4.0.0.1";
-[assembly: AssemblyFileVersion ("4.1.0.0")]
+// [assembly: AssemblyFileVersion ("4.1.0.0")]
 // [assembly: AssemblyFileVersion (Consts.FxVersion)]
 
 [assembly: CompilationRelaxations (CompilationRelaxations.NoStringInterning)]
 [assembly: Dependency ("System", LoadHint.Always)]
 [assembly: SecurityRules(SecurityRuleSet.Level2, SkipVerificationInFullTrust = true)]
 
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipPasswordException))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.RoleProvider))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipCreateStatus))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipCreateUserException))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipPasswordFormat))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.ValidatePasswordEventArgs))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipValidatePasswordEventHandler))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipUser))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipUserCollection))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipProviderCollection))]
-[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipProvider))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipPasswordException))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.RoleProvider))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipCreateStatus))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipCreateUserException))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipPasswordFormat))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.ValidatePasswordEventArgs))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipValidatePasswordEventHandler))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipUser))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipUserCollection))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipProviderCollection))]
+//[assembly: TypeForwardedTo (typeof (System.Web.Security.MembershipProvider))]
 
 [assembly: InternalsVisibleTo ("Microsoft.Web.Infrastructure, PublicKey=0024000004800000940000000602000000240000525341310004000001000100b5fc90e7027f67871e773a8fde8938c81dd402ba65b9201d60593e96c492651e889cc13f1415ebb53fac1131ae0bd333c5ee6021672d9718ea31a8aebd0da0072f25d87dba6fc90ffd598ed4da35e44c398c454307e8e33b8426143daec9f596836f97c8f74750e5975c64e2189f45def46b2a2b1247adc3652bf5c308055da9")]
 
-[assembly: InternalsVisibleTo ("System.Web.Extensions, PublicKey=0024000004800000940000000602000000240000525341310004000001000100b5fc90e7027f67871e773a8fde8938c81dd402ba65b9201d60593e96c492651e889cc13f1415ebb53fac1131ae0bd333c5ee6021672d9718ea31a8aebd0da0072f25d87dba6fc90ffd598ed4da35e44c398c454307e8e33b8426143daec9f596836f97c8f74750e5975c64e2189f45def46b2a2b1247adc3652bf5c308055da9")]
+[assembly: InternalsVisibleTo (       "System.Web.Extensions, PublicKey=0024000004800000940000000602000000240000525341310004000001000100b5fc90e7027f67871e773a8fde8938c81dd402ba65b9201d60593e96c492651e889cc13f1415ebb53fac1131ae0bd333c5ee6021672d9718ea31a8aebd0da0072f25d87dba6fc90ffd598ed4da35e44c398c454307e8e33b8426143daec9f596836f97c8f74750e5975c64e2189f45def46b2a2b1247adc3652bf5c308055da9")]
 [assembly: InternalsVisibleTo ("TestWeb, PublicKey=0024000004800000940000000602000000240000525341310004000001000100b5fc90e7027f67871e773a8fde8938c81dd402ba65b9201d60593e96c492651e889cc13f1415ebb53fac1131ae0bd333c5ee6021672d9718ea31a8aebd0da0072f25d87dba6fc90ffd598ed4da35e44c398c454307e8e33b8426143daec9f596836f97c8f74750e5975c64e2189f45def46b2a2b1247adc3652bf5c308055da9")]
 
 #endif

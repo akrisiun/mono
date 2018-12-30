@@ -71,7 +71,7 @@ namespace System.Web.UI.WebControls
 		Style _validatorTextStyle = null;
 
 		MailDefinition _mailDefinition = null;
-		MembershipProvider _provider = null;
+		// MembershipProvider _provider = null;
 
 		ITemplate _changePasswordTemplate = null;
 		ITemplate _successTemplate = null;
@@ -495,7 +495,7 @@ namespace System.Web.UI.WebControls
 				else
 					ViewState ["MembershipProvider"] = value;
 
-				_provider = null;
+				// _provider = null;
 			}
 		}
 
@@ -778,9 +778,9 @@ namespace System.Web.UI.WebControls
 		void InitMemberShipProvider ()
 		{
 			string mp = MembershipProvider;
-			_provider = (mp.Length == 0) ? Membership.Provider : Membership.Providers [mp];
-			if (_provider == null)
-				throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
+			//_provider = (mp.Length == 0) ? Membership.Provider : Membership.Providers [mp];
+			//if (_provider == null)
+			//	throw new HttpException (Locale.GetText ("No provider named '{0}' could be found.", mp));
 		}
 
 		void ProcessChangePasswordEvent (CommandEventArgs args)
@@ -795,7 +795,7 @@ namespace System.Web.UI.WebControls
 
 			bool res = false;
 			try {
-				res = MembershipProviderInternal.ChangePassword (UserName, CurrentPassword, NewPassword);
+				//res = MembershipProviderInternal.ChangePassword (UserName, CurrentPassword, NewPassword);
 			} catch {
 			}
 			
@@ -807,10 +807,10 @@ namespace System.Web.UI.WebControls
 					SendMail (UserName, NewPassword);
 			} else {
 				OnChangePasswordError (EventArgs.Empty);
-				string lastError = string.Format (
-					"Password incorrect or New Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}.",
-					MembershipProviderInternal.MinRequiredPasswordLength,
-					MembershipProviderInternal.MinRequiredNonAlphanumericCharacters);
+                string lastError = string.Format(
+                    "Password incorrect or New Password invalid. New Password length minimum: {0}. Non-alphanumeric characters required: {1}.");
+					//MembershipProviderInternal.MinRequiredPasswordLength,
+					//MembershipProviderInternal.MinRequiredNonAlphanumericCharacters);
 
 				ChangePasswordContainer container = (ChangePasswordContainer) ChangePasswordTemplateContainer;
 				container.FailureTextLiteral.Text = lastError;
@@ -842,15 +842,15 @@ namespace System.Web.UI.WebControls
 
 		void SendMail (string username, string password)
 		{
-			MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
-			if (user == null)
-				return;
+			//MembershipUser user = MembershipProviderInternal.GetUser (UserName, false);
+			//if (user == null)
+			//	return;
 
 			ListDictionary dictionary = new ListDictionary ();
 			dictionary.Add ("<%USERNAME%>", username);
 			dictionary.Add ("<%PASSWORD%>", password);
 
-			MailMessage message = MailDefinition.CreateMailMessage (user.Email, dictionary, this);
+            MailMessage message = null; // MailDefinition.CreateMailMessage (user.Email, dictionary, this);
 
 			MailMessageEventArgs args = new MailMessageEventArgs (message);
 			OnSendingMail (args);
@@ -874,14 +874,14 @@ namespace System.Web.UI.WebControls
 			get { return HtmlTextWriterTag.Table; }
 		}
 
-		internal virtual MembershipProvider MembershipProviderInternal {
-			get {
-				if (_provider == null)
-					InitMemberShipProvider ();
+		//internal virtual MembershipProvider MembershipProviderInternal {
+		//	get {
+		//		if (_provider == null)
+		//			InitMemberShipProvider ();
 
-				return _provider;
-			}
-		}
+		//		return _provider;
+		//	}
+		//}
 
 		#endregion
 

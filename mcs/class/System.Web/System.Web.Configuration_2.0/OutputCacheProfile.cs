@@ -162,7 +162,8 @@ namespace System.Web.Configuration {
 			set { base[varyByParamProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

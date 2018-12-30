@@ -52,7 +52,8 @@ namespace System.Web.Configuration {
 			properties.Add (clientScriptsLocationProp);
 		}
 
-		protected internal override object GetRuntimeObject ()
+		public new // internal override
+			 object GetRuntimeObject ()
 		{
 			Hashtable ht = new Hashtable ();
 
@@ -67,7 +68,8 @@ namespace System.Web.Configuration {
 			get { return (string) base [clientScriptsLocationProp];}
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new // internal override
+			ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

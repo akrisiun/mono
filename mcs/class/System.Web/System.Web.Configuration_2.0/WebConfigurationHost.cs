@@ -78,10 +78,10 @@ namespace System.Web.Configuration
 		
 		public virtual string DecryptSection (string encryptedXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedSection)
 		{
-			if (protectedSection == null)
+		//	if (protectedSection == null)
 				throw new ArgumentNullException ("protectedSection");
 
-			return protectedSection.EncryptSection (encryptedXml, protectionProvider);
+			//return protectedSection.EncryptSection (encryptedXml, protectionProvider);
 		}
 		
 		public virtual void DeleteStream (string streamName)
@@ -91,10 +91,10 @@ namespace System.Web.Configuration
 		
 		public virtual string EncryptSection (string clearXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedSection)
 		{
-			if (protectedSection == null)
-				throw new ArgumentNullException ("protectedSection");
+		//	if (protectedSection == null)
+			throw new ArgumentNullException ("protectedSection");
 
-			return protectedSection.EncryptSection (clearXml, protectionProvider);
+		//	return protectedSection.EncryptSection (clearXml, protectionProvider);
 		}
 		
 		public virtual string GetConfigPathFromLocationSubPath (string configPath, string locationSubPath)

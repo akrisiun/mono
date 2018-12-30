@@ -167,7 +167,8 @@ namespace System.Web.Configuration {
 			set { base[uiCultureProp] = value; }
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public // internal override 
+            new ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

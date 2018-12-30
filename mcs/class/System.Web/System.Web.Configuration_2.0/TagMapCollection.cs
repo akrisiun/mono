@@ -74,7 +74,8 @@ namespace System.Web.Configuration
 			BaseRemove (tagMapInformation.TagType);
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		protected // internal override 
+             ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

@@ -616,9 +616,9 @@
       <Project>{39F59AE4-1381-4275-B14E-16D786F40B93}</Project>
       <Name>Mono.Data.Tds-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
       <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
-      <Name>System.Configuration-net_4_x</Name>
+      <Name>System.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="../System.Transactions/System.Transactions-net_4_x.csproj">
       <Project>{3821C69F-220D-4231-992C-0FE05311A005}</Project>

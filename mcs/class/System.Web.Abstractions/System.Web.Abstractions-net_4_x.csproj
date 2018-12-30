@@ -101,9 +101,9 @@
       <Project>{359142A1-D80F-401E-AA64-7167C9317649}</Project>
       <Name>System.Core-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Web/System.Web-net_4_x.csproj">
+    <ProjectReference Include="..\System.Web\System.Web8.csproj">
       <Project>{9DB806CB-B828-49B7-BAE2-2E52402CB4DC}</Project>
-      <Name>System.Web-net_4_x</Name>
+      <Name>System.Web8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

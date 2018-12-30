@@ -93,7 +93,9 @@ namespace System.Web.Configuration
 			return base.IsElementRemovable (element);
 		}
 
-		protected internal override ConfigurationPropertyCollection Properties {
+		public new
+			// internal override
+			ConfigurationPropertyCollection Properties {
 			get { return properties; }
 		}
 

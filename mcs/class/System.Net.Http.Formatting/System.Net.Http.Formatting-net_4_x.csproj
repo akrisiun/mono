@@ -362,9 +362,9 @@
       <Project>{EC439BB8-FFED-4A32-A05D-2FA3A70CAD64}</Project>
       <Name>System.Data-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
       <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
-      <Name>System.Configuration-net_4_x</Name>
+      <Name>System.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

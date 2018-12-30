@@ -853,9 +853,9 @@
       <Project>{8F86C287-38A5-49F8-BE6D-1E0E3D74AF39}</Project>
       <Name>System.ComponentModel.DataAnnotations-net_4_x</Name>
     </ProjectReference>
-    <ProjectReference Include="../System.Configuration/System.Configuration-net_4_x.csproj">
+    <ProjectReference Include="..\System.Configuration\System.Configuration.csproj">
       <Project>{D5CDC09C-F19A-4811-A6C8-70F51CBFB644}</Project>
-      <Name>System.Configuration-net_4_x</Name>
+      <Name>System.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

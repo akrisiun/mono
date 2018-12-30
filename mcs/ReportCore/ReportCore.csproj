@@ -141,7 +141,7 @@
     <Reference Condition="'$(OS)' == 'Windows_NT'" Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\class\System.Configuration\System.Configuration-net_4_x.csproj" />
+    <ProjectReference Include="..\class\System.Configuration\System.Configuration.csproj" />
     <ProjectReference Include="..\class\System.Core\System.Core-net_4_x.csproj" />
     <ProjectReference Include="..\class\System.Data\System.Data-net_4_x.csproj" />
     <ProjectReference Include="..\class\System.Dynamic\System.Dynamic-net_4_x.csproj" />
