@@ -1,0 +1,50 @@
+﻿<Project>
+    <Sdk Name="Microsoft.NET.Sdk" />
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <LibDir>..\..\lib\</LibDir>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Remove="IQToolkit.Sql\Core\Session\**" />
+      <EmbeddedResource Remove="IQToolkit.Sql\Core\Session\**" />
+      <None Remove="IQToolkit.Sql\Core\Session\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="DynamicExpression\CustomTypeProviders\DefaultDynamicLinqCustomTypeProvider.cs" />
+      <Compile Remove="DynamicExpression\TypeConverterFactory.cs" />
+      <Compile Remove="IQToolkit.Sql\Core\Data\EntitySession.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NETCore.Runtime.CoreCLR" Version="2.0.8" />
+        <PackageReference Include="Microsoft.NETCore.Jit" Version="2.0.8" />
+        
+        <PackageReference Include="System.Data.Common" Version="4.3.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.5.1" />
+        <PackageReference Include="System.Linq" Version="4.3.0" />
+        <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+        <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
+        <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+    </ItemGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'netcoreapp2.0'  or '$(TargetFramework)' == 'netcoreapp3.0' ">
+        <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net452' or '$(TargetFramework)' == 'net461'">
+        <Reference Include="System" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="Microsoft.CSharp" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="DynamicExpression\" />
+    </ItemGroup>
+    
+    <Target Name="PostBuildTask" AfterTargets="Build">
+        <Message Condition="'$(TargetFramework)' == 'net461'" Importance="High" Text="net461 -&gt; $(LibDir)$(TargetName).dll" />
+        <Message Condition="'$(TargetFramework)' == 'net461' And !Exists($(LibDir))" Importance="High" Text="no folder $(LibDir)" />
+        <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir)) And '$(TargetFramework)' == 'net461'" SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
+        <Copy Condition="'$(TargetFramework)' == 'net461' And Exists($(LibDir))" SourceFiles="$(TargetDir)\$(TargetName).pdb" DestinationFiles="$(LibDir)\$(TargetName).pdb" SkipUnchangedFiles="false" />
+    </Target>
+</Project>

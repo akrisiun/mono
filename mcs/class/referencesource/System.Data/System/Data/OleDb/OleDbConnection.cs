@@ -390,9 +390,9 @@ namespace System.Data.OleDb {
             }
         }
 
-        public void EnlistDistributedTransaction(System.EnterpriseServices.ITransaction transaction) {
-            EnlistDistributedTransactionHelper(transaction);
-        }
+        //public void EnlistDistributedTransaction(System.EnterpriseServices.ITransaction transaction) {
+        //    EnlistDistributedTransactionHelper(transaction);
+        //}
 
         internal object GetDataSourcePropertyValue(Guid propertySet, int propertyID) {
             OleDbConnectionInternal connection = GetOpenConnection();

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+      <TargetFramework>net462</TargetFramework>
+      <!--<RuntimeMetadataVersion>net48</RuntimeMetadataVersion>-->
+      <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+      <RuntimeIdentifiers>win7-x64</RuntimeIdentifiers>
+
+  </PropertyGroup>
+  <Import Project="..\..\VersionWeb.props" />
+  <PropertyGroup>
+
+    <AssemblyName>Mono.ReportLib</AssemblyName>
+    <PackageVersion>1.6.3</PackageVersion>
+    <Version>1.6.3.0</Version>
+
+    <RootNamespace>standalone_tests</RootNamespace>
+    <LibDir>..\..\lib\mono\4.5</LibDir>
+    <NoWarn>1699,612,618,436,618</NoWarn>
+
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>bin\</OutputPath>
+    <IntermediateOutputPath>obj-net_45</IntermediateOutputPath>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <!--<NoStdLib>True</NoStdLib>-->
+
+    <NoConfig>True</NoConfig>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+</PropertyGroup>
+  <PropertyGroup>
+    <Description>Base data objects library</Description>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Mono</RootNamespace>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <ContinueOnError>true</ContinueOnError>
+    <!-- Nuget stuff and workarounds -->
+    <RestorePackages>true</RestorePackages>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\mono.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\lib\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WEB;NET46;NETCORE20;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net45' or '$(Configuration)|$(TargetFramework)' == 'Debug|net451' or '$(Configuration)|$(TargetFramework)' == 'Debug|net452' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40;NET45;WEB;XLSX;MINI;NETCORE;NET451;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net461' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40;NET45;NET46;WEB;XLSX;MINI;NETCORE;NET451;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Release|net451' or '$(Configuration)|$(TargetFramework)' == 'Release|net452' or '$(Configuration)|$(TargetFramework)' == 'Release|net461'  or '$(Configuration)|$(TargetFramework)' == 'Release|net47' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;NET40;NET45;WEB;XLSX;NET451;NETCORE;NET451;</DefineConstants>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'netstandard20' or '$(TargetFramework)' == 'netcoreapp2.0'">
+    <!-- #DEFINE NETSTANDARD20 -->
+    <DefineConstants>TRACE;NETSTANDARD20;WEB;XLSX;NET451;NETCORE;NET46;NET47;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+    <!-- #DEFINE NETSTANDARD20 -->
+    <DefineConstants>TRACE;NETSTANDARD20;WEB;XLSX;NETCORE;NET47;NETCORE30</DefineConstants>
+   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>	
+    <None Remove="Svg\**" />
+    <None Remove="Wpf\**" />
+    <Compile Remove="**\*.cs.bak" />
+    <Compile Remove="**\*.bak" />
+    <None Remove="**\*.bak" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(OS)' != 'Windows_NT'">
+    <Compile Remove="Report\Excel*.cs" />
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'netstandard20' or '$(TargetFramework)' == 'netcoreapp3.0'">
+    <None Remove="XHtml\**" />
+    <None Remove="XLinq\**" />
+    <!--<Compile Include="XLinq\*.cs" />-->
+    <!-- if osx
+    export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5/
+    $env:FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5/
+    -->
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
+    <PackageReference Include="System.Text.Encoding.Extensions" Version="4.3.0" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net462'  or '$(TargetFramework)' == 'net47' ">
+
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <PackageReference Include="System.IO.Packaging" Version="4.5.0">
+      <Aliases>package</Aliases>
+      <Private>true</Private>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45' or '$(TargetFramework)' == 'net451' or '$(TargetFramework)' == 'net452' or '$(TargetFramework)' == 'net461'">
+    <Reference Include="System" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+
+    <Reference Include="System.Configuration, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\..\lib\mono\4.5\System.Configuration.dll</HintPath>
+    </Reference>
+
+      <!--<PackageReference Include="npoi.nozip" Version="2.3.0" />-->
+    <Reference Condition="'$(OS)' == 'Windows_NT'" Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\class\System.Configuration\System.Configuration-net_4_x.csproj" />
+    <ProjectReference Include="..\class\System.Core\System.Core-net_4_x.csproj" />
+    <ProjectReference Include="..\class\System.Data\System.Data-net_4_x.csproj" />
+    <ProjectReference Include="..\class\System.Dynamic\System.Dynamic-net_4_x.csproj" />
+    <ProjectReference Include="..\class\System.Xml.Linq\System.Xml.Linq-net_4_x.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuildTask" AfterTargets="Build">
+    <Message Condition="'$(TargetFramework)' == 'net45'" Importance="High" Text="net45 -&gt; $(LibDir)$(TargetName).dll" />
+    <Message Condition="'$(TargetFramework)' == 'net45' And !Exists($(LibDir))" Importance="High" Text="no folder $(LibDir)" />
+    <Copy Condition=" '$(SolutionDir)' != '*Undefined*' And Exists($(LibDir)) And '$(TargetFramework)' == 'net45'" SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFiles=" $(LibDir)\$(TargetName).dll" SkipUnchangedFiles="false" />
+    <Copy Condition="'$(TargetFramework)' == 'net45' And Exists($(LibDir))" SourceFiles="$(TargetDir)\$(TargetName).pdb" DestinationFiles="$(LibDir)\$(TargetName).pdb" SkipUnchangedFiles="false" />
+  </Target>
+</Project>

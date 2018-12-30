@@ -38,7 +38,7 @@ namespace System.Data.Common {
     using System.Xml;
     using SysTx = System.Transactions;
 #if !MOBILE
-    using SysES = System.EnterpriseServices;
+    // using SysES = System.EnterpriseServices;
 #endif
     using System.Runtime.Versioning;
 
@@ -1906,15 +1906,15 @@ namespace System.Data.Common {
 
         [System.Runtime.CompilerServices.MethodImplAttribute(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
         static internal bool IsSysTxEqualSysEsTransaction() {
-#if MOBILE
+//#if MOBILE
             return false;
-#else
-            // This Method won't JIT inproc (ES isn't available), so we code it
-            // separately and call it behind an if statement.
-            bool result = (!SysES.ContextUtil.IsInTransaction && null == SysTx.Transaction.Current)
-                       || (SysES.ContextUtil.IsInTransaction  && SysTx.Transaction.Current == (SysTx.Transaction)SysES.ContextUtil.SystemTransaction);
-            return result;
-#endif
+//#else
+//            // This Method won't JIT inproc (ES isn't available), so we code it
+//            // separately and call it behind an if statement.
+//            bool result = (!SysES.ContextUtil.IsInTransaction && null == SysTx.Transaction.Current)
+//                       || (SysES.ContextUtil.IsInTransaction  && SysTx.Transaction.Current == (SysTx.Transaction)SysES.ContextUtil.SystemTransaction);
+//            return result;
+//#endif
         }
 
         static internal bool NeedManualEnlistment() {

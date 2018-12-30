@@ -15,14 +15,10 @@ namespace System.Data.OleDb {
     using System.Data.ProviderBase;
     using System.Diagnostics;
     using System.Globalization;
-    using System.IO;
-    using System.Runtime.CompilerServices;
     using System.Runtime.InteropServices;
-    using System.Security;
     using System.Security.Permissions;
-    using System.Text;
     using System.Threading;
-    using SysES = System.EnterpriseServices;
+    // using SysES = System.EnterpriseServices;
     using SysTx = System.Transactions;
 
     sealed internal class OleDbConnectionInternal : DbConnectionInternal, IDisposable {

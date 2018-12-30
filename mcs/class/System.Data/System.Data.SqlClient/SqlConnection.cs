@@ -46,7 +46,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 #if !MOBILE
-using System.EnterpriseServices;
+// using System.EnterpriseServices;
 #endif
 using System.Globalization;
 using System.Net;
@@ -453,13 +453,13 @@ namespace System.Data.SqlClient
 			}
 		}
 
-#if !MOBILE
-		[MonoTODO ("Not sure what this means at present.")]
-		public void EnlistDistributedTransaction (ITransaction transaction)
-		{
-			throw new NotImplementedException ();
-		}
-#endif
+//#if !MOBILE
+//		[MonoTODO ("Not sure what this means at present.")]
+//		public void EnlistDistributedTransaction (ITransaction transaction)
+//		{
+//			throw new NotImplementedException ();
+//		}
+//#endif
 
 		object ICloneable.Clone ()
 		{

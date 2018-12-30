@@ -342,9 +342,9 @@ namespace System.Data.Odbc {
         private void DisposeMe(bool disposing) { // MDAC 65459
         }
 
-        public void EnlistDistributedTransaction(System.EnterpriseServices.ITransaction transaction) {
-            EnlistDistributedTransactionHelper(transaction);
-        }        
+        //public void EnlistDistributedTransaction(System.EnterpriseServices.ITransaction transaction) {
+        //    EnlistDistributedTransactionHelper(transaction);
+        //}        
         
         internal string GetConnectAttrString(ODBC32.SQL_ATTR attribute) {
             string value = "";

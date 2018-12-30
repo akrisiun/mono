@@ -985,7 +985,10 @@ namespace System.Xml.Linq
         public void AddAnnotation(object annotation) {
             if (annotation == null) throw new ArgumentNullException("annotation");
             if (annotations == null) {
-                annotations = annotation is object[] ? new object[] { annotation } : annotation;
+                if (annotation as object[] == null)
+                    annotations = new object[] { annotation };
+                else
+                    annotations = annotation as object[];
             }
             else {
                 object[] a = annotations as object[];
