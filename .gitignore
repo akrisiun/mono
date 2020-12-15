@@ -38,7 +38,7 @@ obj/
 [Rr]elease*/
 Ankh.NoLoad
 *.gpState
-.vscode/
+# .vscode/
 *.exp
 .vs/
 
@@ -60,11 +60,11 @@ _ReSharper*/
 ~$*
 
 # Autotools-generated files
-/Makefile
-Makefile.in
+#/Makefile
+#Makefile.in
 aclocal.m4
 autom4te.cache
-/build/
+#/build/
 config.cache
 config.guess
 config.h

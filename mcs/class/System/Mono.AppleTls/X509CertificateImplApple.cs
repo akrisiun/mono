@@ -16,6 +16,8 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.Win32.SafeHandles;
 using XamMac.CoreFoundation;
 
+namespace XamMac.CoreFoundation {} 
+
 namespace Mono.AppleTls
 {
 	class X509CertificateImplApple : X509Certificate2ImplUnix
@@ -26,8 +28,10 @@ namespace Mono.AppleTls
 		public X509CertificateImplApple (IntPtr handle, bool owns)
 		{
 			this.handle = handle;
+#if RELEASE
 			if (!owns)
 				CFHelpers.CFRetain (handle);
+#endif
 		}
 
 		public override bool IsValid {
@@ -50,15 +54,26 @@ namespace Mono.AppleTls
 			return new X509CertificateImplApple (handle, false);
 		}
 
+// /p:FeatureSet=BETA
+#if BETA
+		// no
+		// SecCertificateCopySubjectSummary
+		// SecCertificateCopyData
+#else		
+
+#if RELEASE // !DEBUG // ankr $$$$
 		[DllImport (CFHelpers.SecurityLibrary)]
 		extern static IntPtr SecCertificateCopySubjectSummary (IntPtr cert);
 
 		[DllImport (CFHelpers.SecurityLibrary)]
 		extern static IntPtr SecCertificateCopyData (IntPtr cert);
+#endif
+#endif
 
 		protected override byte[] GetRawCertData ()
 		{
 			ThrowIfContextInvalid ();
+#if RELEASE
 			var data = SecCertificateCopyData (handle);
 			if (data == IntPtr.Zero)
 				throw new ArgumentException ("Not a valid certificate");
@@ -68,14 +83,20 @@ namespace Mono.AppleTls
 			} finally {
 				CFHelpers.CFRelease (data);
 			}
+#endif
+			return null;
 		}
 
 		public string GetSubjectSummary ()
 		{
 			ThrowIfContextInvalid ();
+#if !RELEASE
+		    string ret = "";			
+#else
 			IntPtr cfstr = SecCertificateCopySubjectSummary (handle);
 			string ret = CFHelpers.FetchString (cfstr);
 			CFHelpers.CFRelease (cfstr);
+#endif
 			return ret;
 		}
 
@@ -140,7 +161,9 @@ namespace Mono.AppleTls
 		protected override void Dispose (bool disposing)
 		{
 			if (handle != IntPtr.Zero){
+#if RELEASE
 				CFHelpers.CFRelease (handle);
+#endif 
 				handle = IntPtr.Zero;
 			}
 			if (fallback != null) {
