@@ -1,6 +1,6 @@
 MAKEFLAGS := $(MAKEFLAGS) --no-builtin-rules
 
-DIST_SUBDIRS = x86 ppc sparc arm arm64 s390x amd64 mips riscv
+DIST_SUBDIRS = x86 ppc arm arm64 s390x amd64 mips riscv
 
 AM_CPPFLAGS = $(GLIB_CFLAGS) -I$(top_srcdir)
 

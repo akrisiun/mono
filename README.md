@@ -1,3 +1,24 @@
+### BUILD
+
+x64
+```
+whoami && sw_vers
+git remote add origin git@github.com:akrisiun/mono.git
+git submodule update --init --recursive
+cat install.sh
+./install.sh
+```
+
+### Folders
+
+mcs/ - The class libraries, compiler and tools
+class/ - The class libraries (like System.*, Microsoft.Build, etc.)
+mcs/ - The Mono C# compiler written in C#
+  tools/ - Tools like gacutil, ikdasm, mdoc, etc.
+  mono/ - The core of the Mono Runtime.
+  arch/ - Architecture specific portions.
+
+
 Mono is a software platform designed to allow developers to easily
 create cross platform applications.  It is an open source
 implementation of Microsoft's .NET Framework based on the ECMA
@@ -36,7 +57,6 @@ Join us on [Discord](https://aka.ms/dotnet-discord) in the `#monovm` channel:
 | Windows      | i386               | [![windows-i386][17]][18]    |
 | CentOS       | s390x (cs)         | [![centos-s390x][19]][20]    |
 | Debian 9     | ppc64el (cs)       | [![debian-9-ppc64el][21]][22]|
-| AIX 6.1      | ppc64 (cs)         | [![aix-ppc64][23]][24]       |
 | FreeBSD 12   | amd64 (cs)         | [![freebsd-amd64][25]][26]   |
 
 _(cs) = community supported architecture_
